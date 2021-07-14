@@ -25,8 +25,10 @@ Parts of PowerBI:
 ============================================================
 # formula
 + Calculate(expression, filterContext)
+
     most used.
 + CalendarAuto(M)
+
     M: last number of a year, default is 12
 + [HasOneValue()](https://docs.microsoft.com/en-us/dax/hasonevalue-function-dax)
 
