@@ -8,7 +8,7 @@ Parts of PowerBI:
 
 **dashboard** is a collection of reports in a single page, from which users can go to full reports
 
-**Stepped layout** in format, to show hierarchy in different columns
+**Stepped layout** in format of report, to show hierarchy in different columns
 
 
 
@@ -17,8 +17,8 @@ Parts of PowerBI:
 # Notes:
 + only one Active Relation between tables
 + Append will not remove duplicates
-+ 'Active' relationship will propagate filters between tables
-+ calculated columns are stored in .pbix file, but calculated measures are not
++ 'Active' relationship will propagate filters between tables in the direction of 'Arrow Head'
++ calculated columns are stored in .pbix file, but calculated measures are not (calculated on demand)
 + Mark as Date Table
 + [multiple filter conditions](https://www.sqlbi.com/articles/specifying-multiple-filter-conditions-in-calculate/)
 + [**semi-additive calculation/measure**](https://www.sqlbi.com/articles/semi-additive-measures-in-dax/)
@@ -38,18 +38,18 @@ Parts of PowerBI:
 
 
 ============================================================
-# formula
+# Formula
 + Calculate(expression, filterContext)  
     most used.    
     a powerful function used to manipulate the filter context. The first argument takes an expression or a measure (a measure is just a named expression). Subsequent arguments allow modifying the filter context.
 + RemoveFilters()  
     removes active filters. It can take either no arguments, or a table, a column, or multiple columns as its argument.
 + CalendarAuto(M)  
-    M: last number of a year, default is 12
+    M: last month number of a year, default is 12
 + [HasOneValue()](https://docs.microsoft.com/en-us/dax/hasonevalue-function-dax)
 + UseRelationship
 + LastDate()
-+ TOTALYTD()  
++ [TOTALYTD()](https://docs.microsoft.com/en-us/dax/totalytd-function-dax)
     evaluates an expression—in this case the sum of the Sales column—over a given date column. The date column must belong to a date table marked as a date table, as was done in the Create DAX Calculations in Power BI Desktop, Part 1 lab.
 
     The function can also take a third optional argument representing the last date of a year. The absence of this date means that December 31 is the last date of the year. For Adventure Works, June in the last month of their year, and so “6-30” is used.
@@ -62,10 +62,15 @@ Parts of PowerBI:
     Returns all the rows in a table, or all the values in a column, ignoring any filters that might have been applied.
     >LastBalanceDate = CALCULATE ( MAX ( Balances[Date] ), ALL ( Balances[Name] ) )
 
++ [Evaluate()](https://dax.guide/st/evaluate/)
+
++ [Row()](https://docs.microsoft.com/en-us/dax/row-function-dax)  
+    Returns a table with a **single** row containing values that result from the expressions given to each column.
+
 + Variables  
     can be useful for simplifying the formula logic, and more efficient when an expression needs to be evaluated multiple times within the formula (which will be the case for the YoY growth logic). Variables are declared by a unique name, and the measure expression must then be output after the RETURN keyword.
 
 
 ============================================================
-# shortkey
+# Shortkey
 + *shift+enter* : carriage return in DAX editor
