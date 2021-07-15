@@ -20,9 +20,8 @@ Parts of PowerBI:
 + 'Active' relationship will propagate filters between tables
 + calculated columns are stored in .pbix file, but calculated measures are not
 + Mark as Date Table
-+ [**semi-additive calculation**](https://www.sqlbi.com/articles/semi-additive-measures-in-dax/)
 + [multiple filter conditions](https://www.sqlbi.com/articles/specifying-multiple-filter-conditions-in-calculate/)
-+ **Semi-additive Measures**  
++ [**semi-additive calculation/measure**](https://www.sqlbi.com/articles/semi-additive-measures-in-dax/)
     In situations where you don't want the standard evaluation behavior in Power BI, you can use the CALCULATE and/or USERELATIONSHIP functions. However, more circumstances exist where you don't want the standard behavior. One of those situations is when you have a semi-additive problem to resolve. Standard measures are simple concepts, where they might use the SUM, AVERAGE, MIN, and MAX functions. Thus far, you've been using SUM for the Total Sales measure.
 
     Occasionally, summing a measure doesn't make sense, such as when you are performing inventory counts in a warehouse. For example, if on Monday, you have 100 mountain bikes, and on Tuesday you have 125 mountain bikes, you wouldn't want to add those together to indicate that you had 225 mountain bikes between those two days. In this circumstance, if you want to know your stock levels for March, you would need to tell Power BI not to add the measure but instead take the last value for the month of March and assign it to any visual.
@@ -41,7 +40,7 @@ Parts of PowerBI:
 ============================================================
 # formula
 + Calculate(expression, filterContext)  
-    most used. To manipulate filter context  
+    most used.    
     a powerful function used to manipulate the filter context. The first argument takes an expression or a measure (a measure is just a named expression). Subsequent arguments allow modifying the filter context.
 + RemoveFilters()  
     removes active filters. It can take either no arguments, or a table, a column, or multiple columns as its argument.
@@ -58,6 +57,10 @@ Parts of PowerBI:
     The TOTALYTD() function performs filter manipulation, specifically time filter manipulation. For example, to compute YTD sales for September 2017 (the third month of the fiscal year), all filters on the Date table are removed and replaced with a new filter of dates commencing at the beginning of the year (July 1, 2017) and extending through to the last date of the in-context date period (September 30, 2017).
 
     Note that many Time Intelligence functions are available in DAX to support common time filter manipulations.
+
++ [All()](https://docs.microsoft.com/en-us/dax/all-function-dax)
+    Returns all the rows in a table, or all the values in a column, ignoring any filters that might have been applied.
+    >LastBalanceDate = CALCULATE ( MAX ( Balances[Date] ), ALL ( Balances[Name] ) )
 
 + Variables  
     can be useful for simplifying the formula logic, and more efficient when an expression needs to be evaluated multiple times within the formula (which will be the case for the YoY growth logic). Variables are declared by a unique name, and the measure expression must then be output after the RETURN keyword.
