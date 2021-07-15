@@ -35,10 +35,34 @@ Parts of PowerBI:
 
     This approach will stop the SUM from crossing all dates. Instead, you will only use the SUM function on the last date of the time period, thus effectively creating a semi-additive measure.
 
++ [Direct Query](https://community.powerbi.com/t5/Desktop/direct-query-vs-import/m-p/112212)
+    just bring in schema of table
+    Generally, it's up to date (live), but [Scheduled cach refresh](https://powerbi.microsoft.com/fr-fr/blog/announcing-custom-cache-refresh-schedules-in-the-power-bi-service/) is required.
 
+## Report Navigation
+- move between pages
+- use buttons, bookmarks, or conditional formatting
+
+## Model Optimization
++ Variable
++ Performance Analyzer
++ Review performance results
++ Analyze query plan
++ Reduce Cardinality
++ Implement Table Granularity
++ [data reduction](https://docs.microsoft.com/en-ca/power-bi/guidance/import-modeling-data-reduction#group-by-and-summarize)
+
+
+## links
+[report template](https://docs.microsoft.com/en-us/power-bi/create-reports/desktop-templates)
+[different Cardinatily meanings in modeling and query](https://stackoverflow.com/questions/10621077/what-is-cardinality-in-databases)
 
 ============================================================
 # Formula
+
++ Variables  
+    can be useful for simplifying the formula logic, and more efficient when an expression needs to be evaluated multiple times within the formula (which will be the case for the YoY growth logic). Variables are declared by a unique name, and the measure expression must then be output after the RETURN keyword.
+
 + Calculate(expression, filterContext)  
     most used.    
     a powerful function used to manipulate the filter context. The first argument takes an expression or a measure (a measure is just a named expression). Subsequent arguments allow modifying the filter context.
@@ -66,9 +90,6 @@ Parts of PowerBI:
 
 + [Row()](https://docs.microsoft.com/en-us/dax/row-function-dax)  
     Returns a table with a **single** row containing values that result from the expressions given to each column.
-
-+ Variables  
-    can be useful for simplifying the formula logic, and more efficient when an expression needs to be evaluated multiple times within the formula (which will be the case for the YoY growth logic). Variables are declared by a unique name, and the measure expression must then be output after the RETURN keyword.
 
 
 ============================================================
