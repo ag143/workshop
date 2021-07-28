@@ -15,6 +15,7 @@ Parts of PowerBI:
 ===========================================================
 
 # Notes:
++ '.' for 'local host'
 + only one Active Relation between tables
 + Append will not remove duplicates
 + 'Active' relationship will propagate filters between tables in the direction of 'Arrow Head'
