@@ -37,7 +37,8 @@ when publish SSAA Tabular (live connection) data model to Power BI Service, Data
 # M language (power query editor)
 ## parameter
 - create paramenter: home -> Manage Parameters.
-- use: Applied Steps -> Source -> File path -> choose 'Parameter' from the dropdown list -> select <para name> from the next dropdown 
+- use: Applied Steps -> Source -> File path -> choose 'Parameter' from the dropdown list -> select <para name> from the next dropdown
+## functions
 
 # term
 **Dataverse**: a cloud-based storage options for your organizations's data that you can connect to business applications like Power Apps, Power Automate, and Power Virtual Agents.
