@@ -35,11 +35,23 @@ when publish SSAA Tabular (live connection) data model to Power BI Service, Data
 - unpivot and pivot to transform a table into correct format (section 6, 43)
 
 # M language (power query editor)
+## LET block
++ define all the variables
+## IN blcok
+specify the final output of all variables in the query
+## variable name
++ individual steps to take
++ match the individual steps in the Applied Steps pane
+## functions
 ## parameter
 - create paramenter: home -> Manage Parameters.
 - use: Applied Steps -> Source -> File path -> choose 'Parameter' from the dropdown list -> select <para name> from the next dropdown
-## functions
 
 # term
 **Dataverse**: a cloud-based storage options for your organizations's data that you can connect to business applications like Power Apps, Power Automate, and Power Virtual Agents.
 
+1. Item 1
+1. Item 2
+1. Item 3
+   1. Item 3a
+   1. Item 3b
