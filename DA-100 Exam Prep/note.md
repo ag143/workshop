@@ -70,6 +70,63 @@ accessed by Das Function:
 - UseRelationship (inactive only). *The USERELATIONSHIP function allows you to determine which relationship to use between to tables, including inactive relationships.*
 - ...
 
+# DAX calculation
+
+the formula language that drives Power BI. Used for:
+## Calculated columns
+    - refer to entire tables or columns (no 'A1-style' reference like Excel)
+    - generate values for each row, which are visible within tables in the Data view
+    - They understan row context; they're great for defining properties based on information in each row, but generally useless for aggregation (SUM, COUNT, etc)
+    - increase the sizoe of your data model
+## Measures -- DAX formulas used to generate new calculated values, which aggregate data that can then be visualized.
+    - *use [] to quick access existed measure, and measure name is bracketed by []*
+    - * cannot directly operate on column, either use a measure or result of Dax function (resulting in a measure). ie [new measure] = [measure1] - [measure2], or  [new] = [measure1] - sum(table[col])
+
+    - refer to entire tables or columns (no 'A1-style' or 'grid' reference like Excel)
+    - aren't visible within tables; they can only be "seen' within a visualization like a chart or matrix (similar to a calculated field in an Excel pivot)
+    - evaluated based on **filter context**, which means they recalculate when the fields or filters around them change (like when new row or column labels are pulled into a matrix or when new filters are applied to a report)
+    - used to aggregate data
+### Quick Measures
+    pre-built formula templates that allow you to drag and drop fields rather than write DAX from scratch
+    - helpful for defining complex measures (ie: weighted average, rolling average, variance per category, sales from new customers or time intelligence formulas)
+
+## common DAX Function Categories
+    + Math & Stats -- basic aggreagation functions as well as "iterators" evaluated at the row-level
+        - Common: Sum, Average, Max/Min,...
+        - Iterator Functions -- allow to loop throug the same calculation on *each row of a table*, and then apply some sort of aggregation to the results (Sum, Max, etc.): Sumx, Averagex, Rankx, Countx, ...; allowing to add an expression as part of the function parameters
+    + Logical -- return info about valuesbased on a give **conditional expression**: If, IfError, And, Or, Not, **Switch**, True, False
+    + Text -- manipulate text strings or control formats for dates, times or numbers
+    + Filter: Calculate, Filter, All, AllExcept, Related(*join*), RelatedTable, Distinct, Values, Earlier/Earliest, HasOneValue, HasOneFilter, IsFiltered, UseRelationship, TopN
+        - **Lookup** functions: based on related tables
+        - **filterring** functions: for dynamic calculations
+    + Date & Time
+        - basic **date & time** functions
+        - advance **time intelligence** operations
+
+## DAX Syntax
+- Calculated columns don't always use functions, but measures do (otherwise, it will give error)
+
+## Dax Function
++ StartOfYear(<date>)
++ StartOfQuarter(<date>)
++ startOfMonth(<date>)
++ month(<date>) -- get month number
++ date(<year>,<month>,<day>) -- ie date(2021,07,01) -> 2021-07-01
++ format(<date>, "<formatString>") -- ie format('2021-07-01',"mmm") -> "Jul"; format('2021-12-01',"mmmm") -> "December"
++ Divide(<Numerator>,<Denominator>,[AlteranteResult]) -- [AlternateResult] is optional parameter to specify a result in case of divide by zero, **default** is **0**
++ **Calculate()** = Calculate(Expression, *[Filter1],[Filter2],...*) 
+    - CALCULATE **modifiies** and **overrules** any competing filter context!
+    - **modifiers** are used to alter the way CALCULATE creates filter context, and are added as *filter* arguments within a CALCULATION function
+    - Modifiers are typically used to change filter context, access inactive table relationships, or change the way filters propagate *(i.e. one-way to bidirectional)*
+        + Modify **Filters**: All, AllSelected, AllNoBlankRow,AllExcept,KeepFilters, RemoveFilters
+        + use **Relationships**: UseRelationship
+        * Change **Filter Propagation**: CrossFilter
+    - *[Fiter] set* accept both **Boolean & table** functions (individually or at the same time), but all fitler arguments are automatically converted into a table
+    - when you understand that tables can be added in his filter, it kind of opens up a whole new world of possiblilities'
++ = UseRelationship(ColName1,ColName2). Can only be used in funcitons which accept a filter parameter (Calculate, TotalYTD, etc.)
++ = All(Table or ColumnName, *[colName1],[colName2],...)* -- remove all filters
+
+
 
 # term
 **Dataverse**: a cloud-based storage options for your organizations's data that you can connect to business applications like Power Apps, Power Automate, and Power Virtual Agents.
