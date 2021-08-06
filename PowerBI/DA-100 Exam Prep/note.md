@@ -124,9 +124,22 @@ the formula language that drives Power BI. Used for:
     - *[Fiter] set* accept both **Boolean & table** functions (individually or at the same time), but all fitler arguments are automatically converted into a table
     - when you understand that tables can be added in his filter, it kind of opens up a whole new world of possiblilities'
 + = UseRelationship(ColName1,ColName2). Can only be used in funcitons which accept a filter parameter (Calculate, TotalYTD, etc.)
-+ = All(Table or ColumnName, *[colName1],[colName2],...)* -- remove all filters
++ = All(Table or ColumnName, *[colName1],[colName2],...)* -- remove all filters, for a talbe or some columns in the same table
++ = Fitler(Table, FilterExpression) -- *iterator* function,  to add new filter context, can handle more complex filter expressions than CALCULATE, but can impede the performance. Try to use Calculate to achieve the same result
++ = TopN(N_Value, TableName, *[OrderBy Expression],[order])
++ = Summarize(table, col_group, aggregation_name, col_toAggregate)
++ **Time Intelligence** functions
+    - Performance To-Date = Calculate([measure], DATESYTD(Calendar[Date])), use **DATESQTD** for Quarters or **DATESMTD** for Months
+    - Previous Period = CALCULATE([Measure], DATEADD(Calendar[Date],-1,MONTH)), select an interval(DA,mONTH,QUARTER,or YEAR) and the # of intervals to compare
+    - Running Total = CALCULATE([Measure], DATESINPERIOD(cALENDAR[Date],MAX(Calendar[Date]),-10,DAY))
+    - DATESBETWEEN, return a list of dates
 
-
+# visuals
+## Edit Interatraction.
+    - filter
+    - highlight (not fitler, but just hightlight the categories that filtered out in ohter visuals)
+## Drill-through filters
+    allow users to jump to different report pages (like bookmarks)， while simulataneously filtering based on the specific item selected
 
 # term
 **Dataverse**: a cloud-based storage options for your organizations's data that you can connect to business applications like Power Apps, Power Automate, and Power Virtual Agents.
@@ -141,3 +154,7 @@ the formula language that drives Power BI. Used for:
     - by default, the filter direction will point from the "one" side of the relationship to the "many" side
     - When you filter a table, the filter context is passed along to all related "downstream"
     - Filters cannot flow "upstream" (against the direction of the arrow)
++ Which of the following functions allows you to calculate running totals?
+    - DATESINPERIOD
++ In what field do measures typically "live" in a visual?
+    - 'Value' field of a visual
