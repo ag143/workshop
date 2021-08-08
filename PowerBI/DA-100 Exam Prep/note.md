@@ -73,20 +73,20 @@ accessed by Das Function:
 # DAX calculation
 
 the formula language that drives Power BI. Used for:
-## Calculated columns
+1. Calculated columns
     - refer to entire tables or columns (no 'A1-style' reference like Excel)
     - generate values for each row, which are visible within tables in the Data view
     - They understan row context; they're great for defining properties based on information in each row, but generally useless for aggregation (SUM, COUNT, etc)
     - increase the sizoe of your data model
-## Measures -- DAX formulas used to generate new calculated values, which aggregate data that can then be visualized.
+1. Measures -- DAX formulas used to generate new calculated values, which aggregate data that can then be visualized.
     - *use [] to quick access existed measure, and measure name is bracketed by []*
-    - * cannot directly operate on column, either use a measure or result of Dax function (resulting in a measure). ie [new measure] = [measure1] - [measure2], or  [new] = [measure1] - sum(table[col])
+    - *cannot directly operate on column, either use a measure or result of Dax function (resulting in a measure). ie [new measure] = [measure1] - [measure2], or  [new] = [measure1] - sum(table[col])*
 
     - refer to entire tables or columns (no 'A1-style' or 'grid' reference like Excel)
     - aren't visible within tables; they can only be "seen' within a visualization like a chart or matrix (similar to a calculated field in an Excel pivot)
     - evaluated based on **filter context**, which means they recalculate when the fields or filters around them change (like when new row or column labels are pulled into a matrix or when new filters are applied to a report)
     - used to aggregate data
-### Quick Measures
+## Quick Measures
     pre-built formula templates that allow you to drag and drop fields rather than write DAX from scratch
     - helpful for defining complex measures (ie: weighted average, rolling average, variance per category, sales from new customers or time intelligence formulas)
 
