@@ -14,20 +14,21 @@
 - In what field do measures typically "live" in a visual?
     - 'Value' field of a visual
 
-# source type
+# source
+## type
 1. csv
 - changed Delimiter during Transform Preview
 1. Json
 1. PBDIS
 1. Ms Dataverse
 1. SSAS
-1. sharepoint:
-    2. structure
+1. sharepoint
+    1. structure
         - Sharepoint(site) : filing cabinet
         - document library: drawer
         - folders and files
 
-    2. connect to sharepoint
+    1. connect to sharepoint
         1. **Enter** the site root URL https://...sharepoint.com/sites/PBIExample(teamGroupName)    --https://mtygroup.sharepoint.com/sites/mtybiproject
         1. **Combine & transform** the data
         1. **filter** folder path to correct document library
