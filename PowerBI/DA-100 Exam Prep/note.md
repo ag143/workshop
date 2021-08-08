@@ -202,11 +202,19 @@ Filter settings include **Basic**, **Advanced***(text/value)*, and **Top N** opt
     - rquire adding an additional table into your data model
     - dynamic roles must first be confiured in Power BI Desktop and then applied in Power BI Service
 
+
 ## =Username()
 returns the domain and user's unername in the format of domain-name\user-name
 1. Person's **username** (i.e., aaronp)
 1. Company **domain** (i.e., mavencyles)
 1. **USERNAME** returns (i.e., mavencycles\aaronp)
+
+## = USERPRINCIPALNAME()
+returns the user's name as their email address (i.e., aaron@mavendemo.com)
+User Principal Name (**UPN**) looks like an email address, but echnically it's a combination of three items:
+1. Person's **username** (i.e., aaronp)
+1. "**@**" symbol
+1. Company **domain** (i.e., maven inspectional services)
 
 # term
 **Dataverse**: a cloud-based storage options for your organizations's data that you can connect to business applications like Power Apps, Power Automate, and Power Virtual Agents.
