@@ -16,8 +16,7 @@
 
 # source
 ## type
-1. csv
-- changed Delimiter during Transform Preview
+1. csv -- changed Delimiter during Transform Preview
 1. Json
 1. PBDIS
 1. Ms Dataverse
@@ -45,26 +44,23 @@
 when publish SSAA Tabular (live connection) data model to Power BI Service, Data Gateway must be used in order for this to be possible (due to Live Connection)
 
 # transform
-- unpivot and pivot to transform a table into correct format (section 6, 43)
+1. unpivot and pivot to transform a table into correct format (section 6, 43)
 
 # M language (power query editor)
-## LET block
-+ define all the variables
-## IN blcok
-specify the final output of all variables in the query
-## variable name
-+ individual steps to take
-+ match the individual steps in the Applied Steps pane
-## functions category
--- formula: = Function Name (Previous Step, Function Arguments)
-### 1. Table
-- = Table.SelectRows(#"Reordered Columns", each([Quantity_Sold]=2))
-### 2. List
-### 3. Text
-### 4. Date
-## parameter
-- create paramenter: home -> Manage Parameters.
-- use: Applied Steps -> Source -> File path -> choose 'Parameter' from the dropdown list -> select <para name> from the next dropdown
+1. formula: = Function Name (Previous Step, Function Arguments)
+1. LET block -- define all the variables
+1. IN blcok -- specify the final output of all variables in the query
+1. variable name
+    + individual steps to take
+    + match the individual steps in the Applied Steps pane
+1. functions category
+    1. Table = Table.SelectRows(#"Reordered Columns", each([Quantity_Sold]=2))
+    1. List
+    1. Text
+    1. Date
+1. parameter
+    - create paramenter: home -> Manage Parameters.
+    - use: Applied Steps -> Source -> File path -> choose 'Parameter' from the dropdown list -> select <para name> from the next dropdown
 
 # date model
 relations based on common columns/keys.
