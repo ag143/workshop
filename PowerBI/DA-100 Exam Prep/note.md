@@ -159,13 +159,44 @@ Limitation:
     - show distribution of data points
     - comparisons across categories
 
-# filter
+## filter
 1. Visual level
 1. Page level
 1. report level
 1. Drill level
 
-Filter settings include **Basic**, **Advanced**, and **Top N** options
+Filter settings include **Basic**, **Advanced***(text/value)*, and **Top N** options
+
+## AI visuals
+1. Key Influencers
+    - drop down box -- value or metric under investigation
+    - Left pane -- Visual that show a list of the top key influencers
+    - Right pane -- Column chart display all values for the key influencer **theme** selected in the left pane
+    - Average line -- shows the percentage of other thems that increase or decrease the etric under investigation
+
+1. Decomposition tree
+    - allows you to perform exploratory analysis by successively breaking down a measure across multiple dimensions
+    - great choice to perform a **root cause analysis** or **ad hoc exploration**
+
+# deliverables
+## Scheduled refresh
+    - 8 refresh a day (pro)
+
+# Row Level Security
+1. Static roles -- filtered views for specific audiences (territory managers, dep leads, execs, etc.)
+    - not the sames as bookmarks or pre-filtered views; roles **filter data out of your model** and limit what audience can access. No option to unfilter/unhide the filtered rows.
+    - static rows must first be confiured in PBI desktop and tehn applied in Power BI service
+    - for **multiple roles**, the acces will be **combined**
+    - **View as roles** to test RLS
+1. Dynamic RLS -- define filtered views for a specific list of uses with the DAX functions **USERNAME** or **USERPRINCIPLNAME**
+    - rquire adding an additional table into your data model
+    - dynamic roles must first be confiured in Power BI Desktop and then applied in Power BI Service
+
+## =Username()
+returns the domain and user's unername in the format of domain-name\user-name
+    1. Person's **username** (i.e., aaronp)
+    1. Company **domain** (i.e., mavencyles)
+    1. **USERNAME** returns (i.e., mavencycles\aaronp)
 
 # term
 **Dataverse**: a cloud-based storage options for your organizations's data that you can connect to business applications like Power Apps, Power Automate, and Power Virtual Agents.
