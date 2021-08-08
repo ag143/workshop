@@ -1,6 +1,18 @@
 (https://mtygroup.udemy.com/course/microsoft-power-bi-certification-da-100-exam-prep)
 # error notes:
 - if the file name or location changes, you will need to change the source via the Data Source Settings
+- When would you use a tool from the Transform tab over the Add Column tab
+    - When you want to overwrite the values of existing columns
+- which two blocks make up the M code that runs your query?
+    - let & in
+- filter flow
+    - by default, the filter direction will point from the "one" side of the relationship to the "many" side
+    - When you filter a table, the filter context is passed along to all related "downstream"
+    - Filters cannot flow "upstream" (against the direction of the arrow)
+- Which of the following functions allows you to calculate running totals?
+    - DATESINPERIOD
+- In what field do measures typically "live" in a visual?
+    - 'Value' field of a visual
 
 # source type
 ## csv
@@ -201,18 +213,3 @@ returns the domain and user's unername in the format of domain-name\user-name
 
 # term
 **Dataverse**: a cloud-based storage options for your organizations's data that you can connect to business applications like Power Apps, Power Automate, and Power Virtual Agents.
-
-
-# mistake
-+ When would you use a tool from the Transform tab over the Add Column tab
-    - When you want to overwrite the values of existing columns
-+ which two blocks make up the M code that runs your query?
-    - let & in
-+ filter flow
-    - by default, the filter direction will point from the "one" side of the relationship to the "many" side
-    - When you filter a table, the filter context is passed along to all related "downstream"
-    - Filters cannot flow "upstream" (against the direction of the arrow)
-+ Which of the following functions allows you to calculate running totals?
-    - DATESINPERIOD
-+ In what field do measures typically "live" in a visual?
-    - 'Value' field of a visual
