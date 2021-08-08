@@ -71,7 +71,6 @@ accessed by Das Function:
 - ...
 
 # DAX calculation
-
 the formula language that drives Power BI. Used for:
 1. Calculated columns
     - refer to entire tables or columns (no 'A1-style' reference like Excel)
@@ -80,29 +79,30 @@ the formula language that drives Power BI. Used for:
     - increase the sizoe of your data model
 1. Measures -- DAX formulas used to generate new calculated values, which aggregate data that can then be visualized.
     - *use [] to quick access existed measure, and measure name is bracketed by []*
-    - *cannot directly operate on column, either use a measure or result of Dax function (resulting in a measure). ie [new measure] = [measure1] - [measure2], or  [new] = [measure1] - sum(table[col])*
+    - *cannot directly operate on column*, either use a measure or result of Dax function (resulting in a measure). ie [new measure] = [measure1] - [measure2], or  [new] = [measure1] - sum(table[col])
 
     - refer to entire tables or columns (no 'A1-style' or 'grid' reference like Excel)
     - aren't visible within tables; they can only be "seen' within a visualization like a chart or matrix (similar to a calculated field in an Excel pivot)
     - evaluated based on **filter context**, which means they recalculate when the fields or filters around them change (like when new row or column labels are pulled into a matrix or when new filters are applied to a report)
     - used to aggregate data
-## Quick Measures
-pre-built formula templates that allow you to drag and drop fields rather than write DAX from scratch  
 
-    - helpful for defining complex measures (ie: weighted average, rolling average, variance per category, sales from new customers or time intelligence formulas)
+## Quick Measures
+pre-built formula templates that allow you to drag and drop fields rather than write DAX from scratch
+- helpful for defining complex measures (ie: weighted average, rolling average, variance per category, sales from new customers or time intelligence formulas)
+
 
 ## common DAX Function Categories
-    + Math & Stats -- basic aggreagation functions as well as "iterators" evaluated at the row-level
-        - Common: Sum, Average, Max/Min,...
-        - Iterator Functions -- allow to loop throug the same calculation on *each row of a table*, and then apply some sort of aggregation to the results (Sum, Max, etc.): Sumx, Averagex, Rankx, Countx, ...; allowing to add an expression as part of the function parameters
-    + Logical -- return info about valuesbased on a give **conditional expression**: If, IfError, And, Or, Not, **Switch**, True, False
-    + Text -- manipulate text strings or control formats for dates, times or numbers
-    + Filter: Calculate, Filter, All, AllExcept, Related(*join*), RelatedTable, Distinct, Values, Earlier/Earliest, HasOneValue, HasOneFilter, IsFiltered, UseRelationship, TopN
-        - **Lookup** functions: based on related tables
-        - **filterring** functions: for dynamic calculations
-    + Date & Time
-        - basic **date & time** functions
-        - advance **time intelligence** operations
++ Math & Stats -- basic aggreagation functions as well as "iterators" evaluated at the row-level
+    - Common: Sum, Average, Max/Min,...
+    - Iterator Functions -- allow to loop throug the same calculation on *each row of a table*, and then apply some sort of aggregation to the results (Sum, Max, etc.): Sumx, Averagex, Rankx, Countx, ...; allowing to add an expression as part of the function parameters
++ Logical -- return info about valuesbased on a give **conditional expression**: If, IfError, And, Or, Not, **Switch**, True, False
++ Text -- manipulate text strings or control formats for dates, times or numbers
++ Filter: Calculate, Filter, All, AllExcept, Related(*join*), RelatedTable, Distinct, Values, Earlier/Earliest, HasOneValue, HasOneFilter, IsFiltered, UseRelationship, TopN
+    - **Lookup** functions: based on related tables
+    - **filterring** functions: for dynamic calculations
++ Date & Time
+    - basic **date & time** functions
+    - advance **time intelligence** operations
 
 ## DAX Syntax
 - Calculated columns don't always use functions, but measures do (otherwise, it will give error)
@@ -137,28 +137,28 @@ pre-built formula templates that allow you to drag and drop fields rather than w
 
 # visuals
 ## Edit Interatraction.
-    - filter
-    - highlight (not fitler, but just hightlight the categories that filtered out in ohter visuals)
+- filter
+- highlight (not fitler, but just hightlight the categories that filtered out in ohter visuals)
 ## Drill-through filters
     allow users to jump to different report pages (like bookmarks)， while simulataneously filtering based on the specific item selected
 ## Slicers
 Limitation:
-    - cannot drill down non-hierachical fields
-    - cannot supp visual level filters
-    - cannot be pinned to a dashboard individually (but can be pined as part of a **live page** -- pined report)
+- cannot drill down non-hierachical fields
+- cannot supp visual level filters
+- cannot be pinned to a dashboard individually (but can be pined as part of a **live page** -- pined report)
 
 ## charts
 ### Scatter charts
-    - show patterns in large sets of data
-    - show linear & non-linear trends
-    - cluster analysis
-    - outlier identifications
+- show patterns in large sets of data
+- show linear & non-linear trends
+- cluster analysis
+- outlier identifications
 ### line charts
-    - Show changes in values over time
-    - add multiple lines to compare trends between series (categrories)
+- Show changes in values over time
+- add multiple lines to compare trends between series (categrories)
 ### Clustered column charts
-    - show distribution of data points
-    - comparisons across categories
+- show distribution of data points
+- comparisons across categories
 
 ## filter
 1. Visual level
@@ -195,9 +195,9 @@ Filter settings include **Basic**, **Advanced***(text/value)*, and **Top N** opt
 
 ## =Username()
 returns the domain and user's unername in the format of domain-name\user-name
-    1. Person's **username** (i.e., aaronp)
-    1. Company **domain** (i.e., mavencyles)
-    1. **USERNAME** returns (i.e., mavencycles\aaronp)
+1. Person's **username** (i.e., aaronp)
+1. Company **domain** (i.e., mavencyles)
+1. **USERNAME** returns (i.e., mavencycles\aaronp)
 
 # term
 **Dataverse**: a cloud-based storage options for your organizations's data that you can connect to business applications like Power Apps, Power Automate, and Power Virtual Agents.
