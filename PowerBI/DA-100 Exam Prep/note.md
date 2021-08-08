@@ -15,22 +15,22 @@
     - 'Value' field of a visual
 
 # source type
-## csv
+1. csv
 - changed Delimiter during Transform Preview
-## Json
-## PBDIS
-## Ms Dataverse
-## SSAS
-## sharepoint:
-### structure
-- Sharepoint(site) : filing cabinet
-- document library: drawer
-- folders and files
+1. Json
+1. PBDIS
+1. Ms Dataverse
+1. SSAS
+1. sharepoint:
+    2. structure
+        - Sharepoint(site) : filing cabinet
+        - document library: drawer
+        - folders and files
 
-### connect to sharepoint
-1. **Enter** the site root URL https://...sharepoint.com/sites/PBIExample(teamGroupName)    --https://mtygroup.sharepoint.com/sites/mtybiproject
-1. **Combine & transform** the data
-1. **filter** folder path to correct document library
+    2. connect to sharepoint
+        1. **Enter** the site root URL https://...sharepoint.com/sites/PBIExample(teamGroupName)    --https://mtygroup.sharepoint.com/sites/mtybiproject
+        1. **Combine & transform** the data
+        1. **filter** folder path to correct document library
 
 ## storage modes
 + Import: Tables stored in-memory within PBI. In import storage mode, tables are stored in-memory, whereas in DirectQuery tables are connected directly to the source. Dual storage mode allows tables to come from in-memory data or by an on-demand query to the data source.
