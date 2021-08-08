@@ -87,7 +87,7 @@ the formula language that drives Power BI. Used for:
     - evaluated based on **filter context**, which means they recalculate when the fields or filters around them change (like when new row or column labels are pulled into a matrix or when new filters are applied to a report)
     - used to aggregate data
 ## Quick Measures
-    pre-built formula templates that allow you to drag and drop fields rather than write DAX from scratch
+    pre-built formula templates that allow you to drag and drop fields rather than write DAX from scratch  
     - helpful for defining complex measures (ie: weighted average, rolling average, variance per category, sales from new customers or time intelligence formulas)
 
 ## common DAX Function Categories
