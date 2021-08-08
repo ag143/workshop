@@ -140,6 +140,32 @@ the formula language that drives Power BI. Used for:
     - highlight (not fitler, but just hightlight the categories that filtered out in ohter visuals)
 ## Drill-through filters
     allow users to jump to different report pages (like bookmarks)， while simulataneously filtering based on the specific item selected
+## Slicers
+Limitation:
+    - cannot drill down non-hierachical fields
+    - cannot supp visual level filters
+    - cannot be pinned to a dashboard individually (but can be pined as part of a **live page** -- pined report)
+
+## charts
+### Scatter charts
+    - show patterns in large sets of data
+    - show linear & non-linear trends
+    - cluster analysis
+    - outlier identifications
+### line charts
+    - Show changes in values over time
+    - add multiple lines to compare trends between series (categrories)
+### Clustered column charts
+    - show distribution of data points
+    - comparisons across categories
+
+# filter
+1. Visual level
+1. Page level
+1. report level
+1. Drill level
+
+Filter settings include **Basic**, **Advanced**, and **Top N** options
 
 # term
 **Dataverse**: a cloud-based storage options for your organizations's data that you can connect to business applications like Power Apps, Power Automate, and Power Virtual Agents.
