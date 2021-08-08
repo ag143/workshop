@@ -88,6 +88,7 @@ the formula language that drives Power BI. Used for:
     - used to aggregate data
 ## Quick Measures
     pre-built formula templates that allow you to drag and drop fields rather than write DAX from scratch  
+    
     - helpful for defining complex measures (ie: weighted average, rolling average, variance per category, sales from new customers or time intelligence formulas)
 
 ## common DAX Function Categories
