@@ -15,6 +15,7 @@
     - 'Value' field of a visual
 
 # source
+Dataset: useable format of data source
 ## type
 1. csv -- changed Delimiter during Transform Preview
 1. Json
@@ -42,6 +43,15 @@
 
 ### SSAS Tabular
 when publish SSAA Tabular (live connection) data model to Power BI Service, Data Gateway must be used in order for this to be possible (due to Live Connection)
+
+### **Large dataset storage format**
+    used for datasets over the 0GB refresh limit in Sevice
+- available for Premium & Embedded capacities and Premium Per User
+**STeps to enable**:
+1. configure **incremental refresh**, if you expect your ds will become larger and progressively consume more memory
+1. Publish the model as a **dataset** to Power BI Sevice
+1. In PBI service, go to Dataset > Settings > **Large dataset storage forma**, click the lider to turn "on", and then "apply"
+1. refresh the ds to load **historical data** based on the incremental refresh policy
 
 # transform
 1. unpivot and pivot to transform a table into correct format (section 6, 43)
@@ -215,6 +225,60 @@ User Principal Name (**UPN**) looks like an email address, but echnically it's a
 1. Person's **username** (i.e., aaronp)
 1. "**@**" symbol
 1. Company **domain** (i.e., maven inspectional services)
+
+## Azure Groups
+Azure Active Directory **security groups** allow you to manage an entire group of users instead of a list of individual users.
+benefits:
+- used to manage member and computer access to shared resources for a group of users
+- create specific security policies (permission levels) for different groups of users
+- allows you to set permissions for all members of a group at once
+- great for managing user access when people join and leave teams
+
+## subscriptions
+- Creating subscriptions requires a Pro or PPU license (self & others)
+- Add email, subject and an optional message
+- Set frequency & time (montly, weekly, daily, hourly)
+- Schedule the start and end dates.
+
+## sharing
+- reports, dashboards, apps
+- max recipients is 100 at a time (500 total)
+- share with more than 100 recipients, split into multiple sends or use groups
+- **pro license** or access to **premium capacity** in order to view
+
+## user permissions
+- viewer, contributer, member, admin
+- principle: **Lease Prvilege**, not to over permission
+
+# deployment
+## Pipelines
+1.Create a  pipeline -> 2.Assign workspace -> 3.Develop and test your content, Share with your users
+Devleopment -> Test -Production
+
+
+## incremental refresh
+- **Fster refresh times** -- used with large ds to decrease processing times
+- **more reliable** -- Decreases the time connections are made to external sources
+- **Reduced Resource Usage** -- Easier on the internal resources of your computer (i.e., memory)
+steps
+1. Set **RangeStart & RangeEnd** parameter from the Query Editor in PBI desktop (recommend: use  **Date/Time** column)
+1. Apply ** RangeStart & RangeENd parameters to a date column using a *Custom Filter* from the filter options
+1. Define the incremental refresh policy on the dataset (right-click dataset)
+
+## Endorsement
+- None
+- Promoted: ready to distribute the dataflow to coworkers
+- Certified
+to flag content that's ready for others to use
+- Ay content owner or member with write permissions can endorse content
+- It's possible to endorse **datasets, dataflows, reports,** and **apps**
+
+## Sensitivity Labels
+- Pro or Premium per user license
+- **Belong to a security group that has permission to apply sensitivity labels**
+- Sensitivity labels must be enabled for your organization
+- Subscribe to Azure Information Protection
+
 
 # term
 **Dataverse**: a cloud-based storage options for your organizations's data that you can connect to business applications like Power Apps, Power Automate, and Power Virtual Agents.
