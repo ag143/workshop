@@ -71,6 +71,8 @@ when publish SSAA Tabular (live connection) data model to Power BI Service, Data
 1. parameter
     - create paramenter: home -> Manage Parameters.
     - use: Applied Steps -> Source -> File path -> choose 'Parameter' from the dropdown list -> select <para name> from the next dropdown
+## notes:
+- The **fixed decimal** number data type stores values with **full precision**, and so requires more storage space that decimal number. It’s important to use the fixed decimal number type for financial values, or rates (like exchange rates).
 
 # date model
 relations based on common columns/keys.
