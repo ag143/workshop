@@ -1,4 +1,7 @@
 (https://mtygroup.udemy.com/course/microsoft-power-bi-certification-da-100-exam-prep)
+# notes:
+- possible to add tile of 'web content'. ie, there are some video online, we can add this video as a tile to dashboad
+
 # error notes:
 - if the file name or location changes, you will need to change the source via the Data Source Settings
 - When would you use a tool from the Transform tab over the Add Column tab
@@ -13,6 +16,20 @@
     - DATESINPERIOD
 - In what field do measures typically "live" in a visual?
     - 'Value' field of a visual
+- Before creating the data model, you’re reviewing the data in the Sales table to check for possible negative values. What action should you take in the Query Editor?
+    - Select Column Profile, then select the trasations column. -- the 'profile' has 'min' and 'max' etc.
+- You need to create relationships in the data model based on the VP of Inventory Management’s requirements. How should you create the relationships?
+    - Create an additional date table named Stock_Date and create 1:* relationship from Calendar[date_id] to Sales[date_id], and a 1:* relationship from Stock_Date[date_id] to Sales[stock_date_id]
+    - because the key word 'independantly' for filter
+- You need to provide access to your team of analysts, how should you configure their access?
+    - Power BI permission: **Viewer Role**
+    - Permission for **dataset: build**
+    - requierment: Analysts on your team are assigned to different regions, and should only be able to see data from that specific region when building
+- You plan to create a relationship between the Calendar table and the Projections table but need to calculate the first day of each month in the Calendar table first. Keeping performance best practices in mind, which type of calculation and which formula should you use?
+    - Calculation type: M code custom column
+    - Formula: =Table.AddColumn(#"Inserted Start of Quarter", "Start of Month", each Date.StartOfMonth([Date]), type date)
+    - **try to do work in DB query**
+
 
 # source
 Dataset: useable format of data source
