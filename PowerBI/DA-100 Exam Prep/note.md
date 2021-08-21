@@ -1,8 +1,30 @@
 (https://mtygroup.udemy.com/course/microsoft-power-bi-certification-da-100-exam-prep)
 # notes:
 - possible to add tile of 'web content'. ie, there are some video online, we can add this video as a tile to dashboad
+- In order to confirm region is populated for every author, you need to use the column profile tool to understand the distribution for the region column. Additionally, the default Power Query profile is only done on the first 1,000 rows. You need to enable column profiling based on the entire dataset to see all 2,500 authors.
+- *Deployment pipelines* allow you to manage the lifecycle of your organizations content
+- Writing a SQL statement to filter the rows prior to loading is the only option that will minimize data load time.
+- You need to create a visual that compares revenue and cost over time. What type of visual should you use?
+    - Line charts are used to visualize change over time
+- The web content tile allows you to add and customize any HTML content, like websites. Web content tiles preserve the functionality of the page so you can access other videos on the site. The video tile only allows you to post a single video
+- Using parameters allows you to easily switch between different tables and schemas in a data source or database
+- Contributors can update reports in a workspace and update an app. However, they cannot add other users to a workspace
+- Members can assign member roles and below
+- Azure Blob storage queries don't support query folding and therefore cannot take advantage of incremental refresh
+- Combining the data using merge will cut down on the use of functions like RELATED and RELATEDTABLE that return a related value from another table
+- You create multiple dashboards in Power BI Service and need to make sure users can see which dashboards contain Personally Identifiable Information (PII). What should you use?
+    - Senstitivity labels (Sensitivity labels provide a simple way for users to classify content in Power BI Service)
+- Line charts, with a single line, have a forecasting analytics option that can be enabled
+- Splitting out the time component from the date helps reduce the model size
+- Decomposition trees allow you to perform **exploratory** and **root cause** analysis
+- When a user is assigned to multiple roles, the RLS filters become additive and create a union between the filters
+- **The 50th percentile is also known as the median or middle value**
+- The key influencers visual shows the most important factors based on the fields provided
+- **Impact analysis** provides you the tools to understand how making changes to a dataset will impact downstream reports and dashboards
 
 # error notes:
+- Contributors can create, edit, and delete content in a workspace and publish reports to the workspace
+- In order to transform the visual and make it useful for analysis we need to promote the headers first, then unpivot all columns except for the "Measure" column. After the unpivot, we'll need to rename the column attribute column to year and then update the datatype.
 - if the file name or location changes, you will need to change the source via the Data Source Settings
 - When would you use a tool from the Transform tab over the Add Column tab
     - When you want to overwrite the values of existing columns
@@ -25,11 +47,29 @@
     - Power BI permission: **Viewer Role**
     - Permission for **dataset: build**
     - requierment: Analysts on your team are assigned to different regions, and should only be able to see data from that specific region when building
+    - key: to apply RLS, only *viewer* role is possible
 - You plan to create a relationship between the Calendar table and the Projections table but need to calculate the first day of each month in the Calendar table first. Keeping performance best practices in mind, which type of calculation and which formula should you use?
     - Calculation type: M code custom column
     - Formula: =Table.AddColumn(#"Inserted Start of Quarter", "Start of Month", each Date.StartOfMonth([Date]), type date)
     - **try to do work in DB query**
-
+- You need to create a DAX measure that allows users to see forecasted sales at the appropriate level of granularity. How should you complete the following DAX measure?
+    - Forcasted Sales =
+    ` **IF** (
+        NOT (
+            **ISFILTERED**('Calendar'[Date])
+        ),
+        SUM('Projection'[Forecasted_Sales])
+    )
+    `
+- You have marketing data contained in the tables shown below that's at the daily level. The Search data table contains 3 years of data with approximately 20 million records per month. You need to create a year-over-year visual to show the count of impressions by day, campaign name, and ad name that minimizes the data model size. What two things should you do
+    - In order to minimize the data model size and build out a year-over-year visual, you first need to reduce the size of the dataset before loading it. Using the **group by** function in the Query Editor is the best approach here. Next, in order to create a visual, you need to **create relationships** between the tables. 
+- You've built a line chart that shows revenue by month. Your manager has asked you to show mean monthly revenue on the chart. You need to add the value in a way that considers users adding other filters and involve minimal effort. What do you do?
+    - Adding an average line from the analytics pane is the only option that satisfies both requirements of considering other users adding filters and involving minimal effort. You could create a DAX measure to calculate the average but it accomplishes the same thing as an average line from the analytics pane and requires more effort
+- The three steps that need to happen in order to transform a JSON file to a usable data are first convert the list to a table, second expand the columns, and third set the column data types
+    - It's JSON, there is no header row (which exists in CSV file)
+- Your company uses Active Directory security groups to manage access. You have sales managers assigned to four different regions and each manager can only see their sales in Power BI Service. You need to ensure that when a manager changes to a different region, they can see the correct sales data. What should you do?
+    - Assign the manager to the correct Active Directory Group.
+    - Using Active Directory group, you no longer need to maintain lists of individual users
 
 # source
 Dataset: useable format of data source
