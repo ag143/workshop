@@ -22,6 +22,14 @@
 - The key influencers visual shows the most important factors based on the fields provided
 - **Impact analysis** provides you the tools to understand how making changes to a dataset will impact downstream reports and dashboards
 - **bin**: You can set the bin size for numerical and time fields in Power BI Desktop. You can make bins for calculated columns, but not for measures. Use binning to right-size the data that Power BI Desktop displays.
+- **build** permission to dataset. For shared dataset, it is possible to grant 'build (report)' permission to recipients
+- You need to provide a user with the ability to add members to a workspace. The solution must use the principle of least privilege.Which role should you assign to the user?
+    - **Member** (Add **members** or others with lower permissions.)
+- ou have several reports and dashboards in a workspace. You need to grant all organizational users read access to a dashboard and several reports. Solution: You enable included in app for all assets. Does this meet the goal?
+    - No
+    - correct: 1, publish app. 2, grant access to certain groups.
+
+
 
 # error notes:
 - Your company has a data model for its sales data. The sales data has a column named Date. You want to view the data by week. What action should you take to quickly view sales data by week?
@@ -81,6 +89,12 @@
 - Your company has a Power BI workspace with several shared dashboards. You need to provide a user named user1@company.com with the permissions to edit and publish dashboards. What should you do?
     - Modify the Access settings of the dashboards (share and allow edit)
     - access to workspace will not affect dashboard access
+- Which two types of visualizations can be used in the balance sheet reports to meet the reporting goals? Each correct answer presents part of the solution. NOTE: Each correct selection is worth one point.
+     - A line chart that shows balances by quarter filtered to account categories that are long-term liabilities.
+     - A **ribbon** chart that shows balances by quarter and accounts in the legend. (ribbon chart is similar as Stacked Column Chart)
+
+
+
 
 # source
 Dataset: useable format of data source
