@@ -21,8 +21,13 @@
 - **The 50th percentile is also known as the median or middle value**
 - The key influencers visual shows the most important factors based on the fields provided
 - **Impact analysis** provides you the tools to understand how making changes to a dataset will impact downstream reports and dashboards
+- **bin**: You can set the bin size for numerical and time fields in Power BI Desktop. You can make bins for calculated columns, but not for measures. Use binning to right-size the data that Power BI Desktop displays.
 
 # error notes:
+- Your company has a data model for its sales data. The sales data has a column named Date. You want to view the data by week. What action should you take to quickly view sales data by week?
+    - Create a new group on the Date column and set the Group type to **Bin**.
+    - [Reference:] (https://docs.microsoft.com/en-us/power-bi/create-reports/desktop-grouping-and-binning)
+    - [Topic 5, Deploy and Maintain Deliverables] (https://www.mssqltips.com/sqlservertip/4720/binning-and-grouping-data-with-power-bi/ https://community.powerbi.com/t5/Desktop/Adding-week-to-date-hierarchy/m-p/427762 )
 - Contributors can create, edit, and delete content in a workspace and publish reports to the workspace
 - In order to transform the visual and make it useful for analysis we need to promote the headers first, then unpivot all columns except for the "Measure" column. After the unpivot, we'll need to rename the column attribute column to year and then update the datatype.
 - if the file name or location changes, you will need to change the source via the Data Source Settings
@@ -70,6 +75,12 @@
 - Your company uses Active Directory security groups to manage access. You have sales managers assigned to four different regions and each manager can only see their sales in Power BI Service. You need to ensure that when a manager changes to a different region, they can see the correct sales data. What should you do?
     - Assign the manager to the correct Active Directory Group.
     - Using Active Directory group, you no longer need to maintain lists of individual users
+- You have Power BI report that is published to your company's public website. You want the report on the website to update automatically when the data is refreshed. What should you do in the Power BI service
+    - Publish the report to the we, In the website, use the embeded code URL.
+    - [ref](https://docs.microsoft.com/en-us/power-bi/collaborate-share/service-publish-to-web)
+- Your company has a Power BI workspace with several shared dashboards. You need to provide a user named user1@company.com with the permissions to edit and publish dashboards. What should you do?
+    - Modify the Access settings of the dashboards (share and allow edit)
+    - access to workspace will not affect dashboard access
 
 # source
 Dataset: useable format of data source
