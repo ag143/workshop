@@ -1,0 +1,115 @@
+# wrong book
+- Your company has a data model for its sales data. The sales data has a column named Date. You want to view the data by week. What action should you take to quickly view sales data by week?
+    - Create a new group on the Date column and set the Group type to **Bin**.
+    - [Reference:] (https://docs.microsoft.com/en-us/power-bi/create-reports/desktop-grouping-and-binning)
+    - [Topic 5, Deploy and Maintain Deliverables] (https://www.mssqltips.com/sqlservertip/4720/binning-and-grouping-data-with-power-bi/ https://community.powerbi.com/t5/Desktop/Adding-week-to-date-hierarchy/m-p/427762 )
+- Contributors can create, edit, and delete content in a workspace and publish reports to the workspace
+- In order to transform the visual and make it useful for analysis we need to promote the headers first, then unpivot all columns except for the "Measure" column. After the unpivot, we'll need to rename the column attribute column to year and then update the datatype.
+- if the file name or location changes, you will need to change the source via the Data Source Settings
+- When would you use a tool from the Transform tab over the Add Column tab
+    - When you want to overwrite the values of existing columns
+- which two blocks make up the M code that runs your query?
+    - let & in
+- filter flow
+    - by default, the filter direction will point from the "one" side of the relationship to the "many" side
+    - When you filter a table, the filter context is passed along to all related "downstream"
+    - Filters cannot flow "upstream" (against the direction of the arrow)
+- Which of the following functions allows you to calculate running totals?
+    - DATESINPERIOD
+- In what field do measures typically "live" in a visual?
+    - 'Value' field of a visual
+- Before creating the data model, you’re reviewing the data in the Sales table to check for possible negative values. What action should you take in the Query Editor?
+    - Select Column Profile, then select the trasations column. -- the 'profile' has 'min' and 'max' etc.
+- You need to create relationships in the data model based on the VP of Inventory Management’s requirements. How should you create the relationships?
+    - Create an additional date table named Stock_Date and create 1:* relationship from Calendar[date_id] to Sales[date_id], and a 1:* relationship from Stock_Date[date_id] to Sales[stock_date_id]
+    - because the key word 'independantly' for filter
+- You need to provide access to your team of analysts, how should you configure their access?
+    - Power BI permission: **Viewer Role**
+    - Permission for **dataset: build**
+    - requierment: Analysts on your team are assigned to different regions, and should only be able to see data from that specific region when building
+    - key: to apply RLS, only *viewer* role is possible
+- You plan to create a relationship between the Calendar table and the Projections table but need to calculate the first day of each month in the Calendar table first. Keeping performance best practices in mind, which type of calculation and which formula should you use?
+    - Calculation type: M code custom column
+    - Formula: =Table.AddColumn(#"Inserted Start of Quarter", "Start of Month", each Date.StartOfMonth([Date]), type date)
+    - **try to do work in DB query**
+- You need to create a DAX measure that allows users to see forecasted sales at the appropriate level of granularity. How should you complete the following DAX measure?
+    - Forcasted Sales =
+    ` **IF** (
+        NOT (
+            **ISFILTERED**('Calendar'[Date])
+        ),
+        SUM('Projection'[Forecasted_Sales])
+    )
+    `
+- You have marketing data contained in the tables shown below that's at the daily level. The Search data table contains 3 years of data with approximately 20 million records per month. You need to create a year-over-year visual to show the count of impressions by day, campaign name, and ad name that minimizes the data model size. What two things should you do
+    - In order to minimize the data model size and build out a year-over-year visual, you first need to reduce the size of the dataset before loading it. Using the **group by** function in the Query Editor is the best approach here. Next, in order to create a visual, you need to **create relationships** between the tables. 
+- You've built a line chart that shows revenue by month. Your manager has asked you to show mean monthly revenue on the chart. You need to add the value in a way that considers users adding other filters and involve minimal effort. What do you do?
+    - Adding an average line from the analytics pane is the only option that satisfies both requirements of considering other users adding filters and involving minimal effort. You could create a DAX measure to calculate the average but it accomplishes the same thing as an average line from the analytics pane and requires more effort
+- The three steps that need to happen in order to transform a JSON file to a usable data are first convert the list to a table, second expand the columns, and third set the column data types
+    - It's JSON, there is no header row (which exists in CSV file)
+- Your company uses Active Directory security groups to manage access. You have sales managers assigned to four different regions and each manager can only see their sales in Power BI Service. You need to ensure that when a manager changes to a different region, they can see the correct sales data. What should you do?
+    - Assign the manager to the correct Active Directory Group.
+    - Using Active Directory group, you no longer need to maintain lists of individual users
+- You have Power BI report that is published to your company's public website. You want the report on the website to update automatically when the data is refreshed. What should you do in the Power BI service
+    - Publish the report to the workspace, In the website, use the embeded code URL.
+    - [ref](https://docs.microsoft.com/en-us/power-bi/collaborate-share/service-publish-to-web)
+    - When you use Publish to web, anyone on the Internet can view your published report or visual. Viewing requires no authentication. It includes viewing detail-level data that your reports aggregate
+- Your company has a Power BI workspace with several shared dashboards. You need to provide a user named user1@company.com with the permissions to edit and publish dashboards. What should you do?
+    - Modify the Access settings of the dashboards (share and allow edit)
+    - access to workspace will not affect dashboard access
+- Which two types of visualizations can be used in the balance sheet reports to meet the reporting goals? Each correct answer presents part of the solution. NOTE: Each correct selection is worth one point.
+     - A line chart that shows balances by quarter filtered to account categories that are long-term liabilities.
+     - A **ribbon** chart that shows balances by quarter and accounts in the legend. (ribbon chart is similar as Stacked Column Chart)
+- You download and install Visual Studio on the computer that has Power BI Desktop installed. Does this action allow you to use Microsoft R scripts in your visualization?
+    - No, it does not.
+    - download and install Microsoft R Open on the computer that has Power BI Desktop installed
+- replace the non-numeric values in the CustomerID column with the number 0
+    - From Query Editor, select the CustomerID column and click Replace Values. Then enter null in the Value To Find dialog box and 0 in the Replace With dialog box.
+- You want to provide users with a sample of questions that they can ask when using Q&A. What should you do
+    - In PowerBI Settings, configure **datasets** [Create featured questions for Power BI Q&A] (https://docs.microsoft.com/en-us/power-bi/create-reports/service-q-and-a-create-featured-questions)
+- RANKX(ALL(Customers), SUMX(RELATEDTABLE(Sales), [Sales_amount]))
+    - yes, it does
+- You want to create a report that displays the count of products sold by each salesperson. What should you do before you can create the report
+    - For each relationship, change the Cross filter direction to Both.
+- You want to compare the year-to-date sales with the previous year for the same time period. Which DAX function should you use
+    - **SAMEPERIODLASTYEAR**
+- The Sales role filters sales transaction data by the sales person. Each sales person must see only the data from their office
+    - Use the Test as role option to view data as the Sales role.
+- Which two visualizations can you embed into the website?
+    - Visualizations that use datasets stored in Microsoft OneDrive for Business
+    - Custom visualizations
+    - [limitations](https://docs.microsoft.com/en-us/power-bi/collaborate-share/service-publish-to-web#limitations)
+- You open the **properties of the dataset**s and modify the **Q&A and Cortana** settings. Does this action allow users to find data by using natural language queries?
+    - Yes, it does
+- You open the properties of the datasets and modify the Q&A and Cortana settings. Does this action allow users to find data by using natural language queries?
+    - No, it does not
+- You have a Microsoft Excel spreadsheet that contains a table named Sales. You want to add the Sales table to a Power BI dashboard as a tile. How should you configure the tile?
+    - From Excel, publish the workbook to the Power BI service.
+- You need to filter all the visualizations in the report except the KPI visualization. Which two actions should you perform?
+    - **Edit the interactions of the KPI visualization**
+    - Edit the interactions of the slicer that is on the same page as the KPI visualization
+- Your company has a Microsoft Excel file that stores purchase data. The Excel file has a date and time column named Date_Time. The Date_Time column contains data in the format: 2020-08-13 13:46:83 . You want to use a built-in date hierarchy to analyze the purchase data by the date. How should you prepare the data in the Date_Time column
+    - D. Add a new column by example that starts with 2020-08-13. Set the data type of the new column to Date.
+- Present ad impression counts for the day, campaign, and Site_name
+    - A. Group the impressions by Ad_id, Site_name, and Impression_date. Aggregate by using the CountRows function.
+    - D. Create a calculated table that contains Ad_id, Site_name, and Impression_date.
+- Your company has training videos that are published to Microsoft **Stream**. You need to surface the videos directly in a Microsoft Power BI dashboard.  Which type of tile should you add?
+    - Custom Streaming Data
+- The users require insights on the completeness of the data and the value distributions
+    - **Create a blank query as a datasource**
+    - Specify query -Table.Profile(# "SalesDetail"), then close and apply
+    - Create a visual on a report page using fields from the new table
+- You are modeling data by using Microsoft Power BI. Part of the data model is a large Microsoft SQL Server table named Order that has more than 100 million records.  During the development process, you need to import a sample of the data from the Order table.  Solution: From Power Query Editor, you import the table and then add a filter step to the query.  Does this meet the goal?
+    - No
+    - Do it in "source" step
+- You need to update the query to reference the parameter instead of multiple hard-coded copies of the location within each query definition.  Solution: In the Power Query M code, you replace references to the Excel file with DataSourceExcel.  Does this meet the goal?
+    - Yes
+    - "DataSourceExcel" is the parameter
+- You need to ensure that the users can get a useful result for "subscriber count" by using Q&A
+    - Add a synonym of "subscriber" to the Customer table.
+- 1.The number of customers invoiced in each state last month; 2.The average invoice amount per customer in each postal code; You need to define the relationship from the Customers table to the Invoice table. The solution must optimize query performance.
+    - One to Many (cust to inv), Single
+- Multiple RLS
+    - combine (= 'or')
+- The Products table is related to the ProductCategory table through the ProductCategoryID column. You need to ensure that you can analyze sales by product category
+    - Many to One (product to category), Single

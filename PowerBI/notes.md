@@ -1,0 +1,29 @@
+# notes:
+- possible to add tile of 'web content'. ie, there are some video online,  this video can be added as a tile to dashboad
+- In order to confirm region is populated for every author, you need to use the column profile tool to understand the distribution for the region column. Additionally, the default Power Query profile is only done on the first 1,000 rows. You need to enable column profiling based on the entire dataset to see all 2,500 authors.
+- *Deployment pipelines* allow you to manage the lifecycle of your organizations content
+- Writing a SQL statement to filter the rows prior to loading is the only option that will minimize data load time.
+- You need to create a visual that compares revenue and cost over time. What type of visual should you use?
+    - Line charts are used to visualize change over time
+- The web content tile allows you to add and customize any HTML content, like websites. Web content tiles preserve the functionality of the page so you can access other videos on the site. The video tile only allows you to post a single video
+- Using parameters allows you to easily switch between different tables and schemas in a data source or database
+- Contributors can update reports in a workspace and update an app. However, they cannot add other users to a workspace
+- Members can assign member roles and below
+- Azure Blob storage queries don't support query folding and therefore cannot take advantage of incremental refresh
+- Combining the data using merge will cut down on the use of functions like RELATED and RELATEDTABLE that return a related value from another table
+- You create multiple dashboards in Power BI Service and need to make sure users can see which dashboards contain Personally Identifiable Information (PII). What should you use?
+    - Senstitivity labels (Sensitivity labels provide a simple way for users to classify content in Power BI Service)
+- Line charts, with a single line, have a forecasting analytics option that can be enabled
+- Splitting out the time component from the date helps reduce the model size
+- Decomposition trees allow you to perform **exploratory** and **root cause** analysis
+- When a user is assigned to multiple roles, the RLS filters become additive and create a union between the filters
+- **The 50th percentile is also known as the median or middle value**
+- The key influencers visual shows the most important factors based on the fields provided
+- **Impact analysis** provides you the tools to understand how making changes to a dataset will impact downstream reports and dashboards
+- **bin**: You can set the bin size for numerical and time fields in Power BI Desktop. You can make bins for calculated columns, but not for measures. Use binning to right-size the data that Power BI Desktop displays.
+- **build** permission to dataset. For shared dataset, it is possible to grant 'build (report)' permission to recipients
+- You need to provide a user with the ability to add members to a workspace. The solution must use the principle of least privilege.Which role should you assign to the user?
+    - **Member** (Add **members** or others with lower permissions.)
+- ou have several reports and dashboards in a workspace. You need to grant all organizational users read access to a dashboard and several reports. Solution: You enable included in app for all assets. Does this meet the goal?
+    - No
+    - correct: 1, publish app. 2, grant access to certain groups.
