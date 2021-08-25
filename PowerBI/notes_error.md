@@ -115,3 +115,33 @@
     - Many to One (product to category), Single
 - You plan to have a menu page that will show all the business questions. You need to ensure that users can click each business question and be directed to the page where the question is answered. The solution must ensure that the menu page will work when deployed to any workspace
     - Create a button for each business question and set the action type to Bookmark.
+- Plus, you want to count sales by Date and Store
+    - Use the Group by function in Power Query, aggregating sales by DateKey and StoreKey using Count Rows as operation.
+- Consider a new table named SchoolYearDate which has the same columns schema as the Date table. You want to create a report that shows the total Enrollments by SchoolYearDate and Calendar Month
+    - Append SchoolYearDate into the Date table.
+- Which function let you optimize the query for Courses before creating the relationship
+    - Table.Distinct
+- to set-up a new ID Column to map the product catalog and you want to be sure that there are not duplicates. How can you meet the goal?
+    - Select a Product Table Column and click Remove Duplicates.
+    - Add an Index Column to Products Table.
+- You are analyzing the Customer Sales monthly report and you notice that the Churn Rate metric is strangely increased. You want to understand which variables may affect this result. Which solutions can help you to explore the possible causes in Power BI Desktop?
+    - Use the Key influencer visual
+    - Decomposition tree visual
+- Your workspace contains 10 dashboards. You want to allow users to find data by using natural language queries. What should you do to meet the goal?
+    - From the properties of **datasets**, modify the Q&A settings ('turn on Q&A to ask natural language questions about your data')
+- to customize the chart's tooltip in order to show images and custom visualizations
+    - **Create a new report page and set it as Tooltip**
+- You notice that the Line Values doesn't' match the correspondent Y-axis Values and it is set on the top of the chart by default as shown in the picture
+    - Set to Auto the Y-axis 'start' and 'end' settings.
+- to set the drill down in the chart to display CourseName by year, by week, and day
+    -From the Format Pane of the Chart set the type of the Y-Axis to Categorical.
+- Gauge visualization
+    - Value: Total Enrollments this Year; Max: Total Enrollments last Year; Target: Total Enrollments Last Year
+- the Enrollments amount value appears as the count of Enrollments amount instead of the sum of Enrollments amount for each region.
+    - Change the Data Type of Enrollments amount column to Whole Number.
+    - 'count' means the type was 'text'
+- You plan to create a custom visualization for Power BI. What do you install first?
+    - **Node.js**
+- You publish the Enrollments_BI project to Power BI Service and plan to share it with your colleagues: how could you share it? N.B. Your colleagues must be able to use the Drill Down feature.Solution: You create a dashboard and pin the Bar Chart visualization to it, then share the dashboard with your team.Does this solution meet the goal?
+    - no
+    - Drill Down feature is not currently available for dashboards experience.

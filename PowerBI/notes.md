@@ -44,3 +44,21 @@
 - Manage users that have access to the **app workspace**
     - In the Microsoft 365, select **Members**
     - (Workspace > ... > Members > (outlook.office365.com/..) > members/Add members)
+- You want to know which Teacher is responsible for which course
+    - Inner Join
+- when using Pivot feature, take care of the 'Aggregate Value Function'
+    - if you want to preserve duplicated values, you do not have to select the Sum option. (Don't Aggregate)
+- import **50 Microsoft Excel** files to Power BI Desktop
+    - Add a folder data source and use the Combine Files command
+- ColumnA presents several values starting with space;- ColumnB contains several non-printable characters.
+    - ColumnA: TRIM - ColumnB: CLEAN
+- In the Power Querry editor, select the text column you want to shape and the right click on them. This menu will appear:
+    - Transform > Trim/Clean/Length/...
+- split datatime before importing to power bi
+    - In order to improve our Power BI model performances, it is really important to work at the data source level. Among the different techniques available to optimize the modeling experience, there is the split between the date and time if they come from a single combined column
+- to replace null values with the date from the previous row
+    - command: Fill, and then Down
+- From the **Extract** menu, click Text After Delimiter
+    - Fist/Last Characters, Range, Text before/after delimiter, Text Between Delimiters
+- data model presents a huge list of queries that make it difficult to organize the transformation steps
+    - cteate a group of queries to classify the data-transformations

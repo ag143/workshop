@@ -1,3 +1,8 @@
+- AFTERDELIMITER
+`Text.AFTERDELIMITER([product_SKU], "x", {0, RELATIVEPOSITION.FromEnd})
+`
+    -contains only string after "x"
+
 - Text.replace
     - replace first 6 letter of column [SSN]
 `Text.Replace([SSN], Text.Start([SSN],6), "xxx-xx")`
