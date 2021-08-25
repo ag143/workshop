@@ -113,3 +113,5 @@
     - combine (= 'or')
 - The Products table is related to the ProductCategory table through the ProductCategoryID column. You need to ensure that you can analyze sales by product category
     - Many to One (product to category), Single
+- You plan to have a menu page that will show all the business questions. You need to ensure that users can click each business question and be directed to the page where the question is answered. The solution must ensure that the menu page will work when deployed to any workspace
+    - Create a button for each business question and set the action type to Bookmark.

@@ -1,5 +1,18 @@
 *[Dax Guide](https://dax.guide/)*
 
+DATESBETWEEN
+`Sales PYTD =
+VAR startyear = 
+    STARTOFYEAR (PREVIOUSYEAR ('DATE'[DATE]))
+VAR enddate =
+    LASTDATE(Sales[Date) -365])
+Return
+    Calcuate(
+        (Sales[Sales]),
+        DatesBetween('Calendar'[date],startyear, endyear)
+
+`
+
 [isFiltered](https://dax.guide/isfiltered/)
 Returns true when there are direct filters on the specified column.
 `ISFILTERED ( Product[Color] )`

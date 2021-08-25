@@ -27,3 +27,20 @@
 - ou have several reports and dashboards in a workspace. You need to grant all organizational users read access to a dashboard and several reports. Solution: You enable included in app for all assets. Does this meet the goal?
     - No
     - correct: 1, publish app. 2, grant access to certain groups.
+- You need to create a visualization that shows the relationship between Unit Price and Quantity Ordered. The solution must highlight orders that have a similar unit price and ordered quantity
+    - A Scattered plot of Quantity Ordered and Unit Price by item, Automatically find clusters
+- three columns: - City - Total Sales - Occupation You need to create a key influencers visualization as 
+    - Total Sales, Occupation, City (analyzer, legend, influencer)
+- The indicator color for Total Sales will be based on % Growth to Last Year
+    - Background Color, Rules
+- You need to view the employees by region as quickly as possible. What should you do
+    - Create a new group on the state column and set the Group type to List
+- You have a Power BI tenant. You have reports that use financial datasets and are exported as PDF files. You need to ensure that the reports are encrypted. What should you implement?
+    - **Sensitivity labels**
+- The report uses data from a Microsoft SQL Server Analysis Services (SSAS) cube located on your company's internal network. You plan to publish the report to the Power BI Service.
+    - An On-premises data gateway
+- You have several reports and dashboards in a workspace. You need to grant all organizational users read access to a dashboard and several reports. Solution: You assign all the users the Viewer role to the workspace. Does this meet the goal
+    - No
+- Manage users that have access to the **app workspace**
+    - In the Microsoft 365, select **Members**
+    - (Workspace > ... > Members > (outlook.office365.com/..) > members/Add members)
