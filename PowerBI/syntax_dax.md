@@ -7,7 +7,7 @@
 
 
 DATESBETWEEN
-`Sales PYTD =
+```Sales PYTD =
 VAR startyear = 
     STARTOFYEAR (PREVIOUSYEAR ('DATE'[DATE]))
 VAR enddate =
@@ -17,7 +17,7 @@ Return
         (Sales[Sales]),
         DatesBetween('Calendar'[date],startyear, endyear)
 
-`
+```
 
 [isFiltered](https://dax.guide/isfiltered/)
 Returns true when there are direct filters on the specified column.
