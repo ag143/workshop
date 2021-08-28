@@ -3,7 +3,7 @@
 [COMBINEVALUES(<delimiter>, <expression>, <expression>[, <expression>]…)](https://docs.microsoft.com/en-us/dax/combinevalues-function-dax)
 
 
-[CONCATENATE](<text1>, <text2>)(https://docs.microsoft.com/en-us/dax/concatenate-function-dax)
+[CONCATENATE(<text1>, <text2>)](https://docs.microsoft.com/en-us/dax/concatenate-function-dax)
 
 
 DATESBETWEEN
