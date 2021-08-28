@@ -21,13 +21,13 @@ Return
 
 [isFiltered](https://dax.guide/isfiltered/)
 Returns true when there are direct filters on the specified column.
-`ISFILTERED ( Product[Color] )`
+```ISFILTERED ( Product[Color] )```
 
 [PARALLELPERIOD](https://dax.guide/parallelperiod/)
 Returns a parallel period of dates by the given set of dates and a specified interval.
 
 previous row or value:
-`rowNum = 
+```rowNum = 
 Var preRow =
     TOPN(
         1,
@@ -40,12 +40,12 @@ Var preRow =
     )
 Var preValue = MAXX(preRow,[INVOICE_ID])
 Return preValue
-`
+```
 
 [RANKX](https://dax.guide/rankx/)
-`RANKX(ALL(Customers), SUMX(RELATEDTABLE(Sales), [Sales_amount]))`
+```RANKX(ALL(Customers), SUMX(RELATEDTABLE(Sales), [Sales_amount]))```
 - default sorting: 0/false/desc -- descending
-`RANKX(ALL(Products), SUMX(RELATEDTABLE(InternetSales), [SalesAmount]))`
+```RANKX(ALL(Products), SUMX(RELATEDTABLE(InternetSales), [SalesAmount]))```
 
 [RELATED(<column>)  ](https://docs.microsoft.com/en-us/dax/related-function-dax)
 Returns a related value from another table
@@ -57,7 +57,7 @@ Evaluates a table expression in a context modified by the given filters
 
 
 [TOPN(<n_value>, <table>, <orderBy_expression>, [<order>[, <orderBy_expression>, [<order>]]…]) ](https://docs.microsoft.com/en-us/dax/topn-function-dax)
-`EVALUATE
+```EVALUATE
     TOPN (
         3,
         ADDCOLUMNS (
@@ -67,4 +67,4 @@ Evaluates a table expression in a context modified by the given filters
         [@Sales Amount],
         DESC
     )
-`
+```
