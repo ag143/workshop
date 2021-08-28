@@ -62,3 +62,7 @@
     - Fist/Last Characters, Range, Text before/after delimiter, Text Between Delimiters
 - data model presents a huge list of queries that make it difficult to organize the transformation steps
     - cteate a group of queries to classify the data-transformations
+- parameter
+    - M: Advance Query Editor > replace text by [varName] (the varName looks like Pythons)
+-  know which reports present a critical usage
+    - Request to the Power BI admin enabling usage metrics for content creators.

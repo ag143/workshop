@@ -20,6 +20,21 @@ Returns true when there are direct filters on the specified column.
 [PARALLELPERIOD](https://dax.guide/parallelperiod/)
 Returns a parallel period of dates by the given set of dates and a specified interval.
 
+previous row or value:
+`rowNum = 
+Var preRow =
+    TOPN(
+        1,
+        FILTER(
+            MaitreD,
+            MaitreD[RESTAURANT_ID] = EARLIER(MaitreD[RESTAURANT_ID]) && EARLIER(MaitreD[INVOICE_ID]) <MaitreD[INVOICE_ID]
+        ),
+        MaitreD[INVOICE_ID],
+        DESC
+    )
+Var preValue = MAXX(preRow,[INVOICE_ID])
+Return preValue
+`
 
 [RANKX](https://dax.guide/rankx/)
 `RANKX(ALL(Customers), SUMX(RELATEDTABLE(Sales), [Sales_amount]))`
