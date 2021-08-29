@@ -148,7 +148,8 @@ manage the members that have access to the app workspace
 - From the Office 365 Admin center, click Groups.
 
 Your organization has a Microsoft SharePoint Online site named Enrollments where can access over 1000 users. After you have created a report in an app workspace on Power BI Service, you embed the report into a page on the Enrollments site by using the Power BI web part. You must ensure that all over the 1,000 users can view the report from the Enrollments Sharepoint site
-- Configure the app workspace for **Premium capacity**.
+- Configure the app workspace for **Premium capacity**. [premium](https://docs.microsoft.com/en-us/power-bi/admin/service-premium-what-is)
+- becasue it's embeded code, the users will jump to access the report in PBI, so it's required to scale up PBI performance.
 
 You need to create a Power BI app workspace that will be accessible by 10,000 users. The dashboard contains sensitive data and you want that it will be updated every 1 hour. What should you do
 - Configure the app worksapce for Premium capacity
@@ -187,7 +188,15 @@ a measure to rank total sales by product
 
 You need to create a relationship between the Monthly Drop out table (month id) and Date[Date ID]
 - In the Monthly Drop Out table, create a new calculated column named Date_ID that uses the ddmmyyyy format.
-- (incorrect) In the Date table, create a new calculated column named Month_ID that uses the yyyydd format. (there wll be duplicates of MonthId in date table, which cannot used as keys)
+- *(incorrect)* In the Date table, create a new calculated column named Month_ID that uses the yyyydd format. (there wll be duplicates of MonthId in date table, which cannot used as keys)
+
+create a chart that displays total Enrollments[Total Paid] by Course[Name]. Before creating the visualization, you need to modify the model
+- Create a relationship between the Enrollments table and the Courses table.
+- Create a relationship between the Enrollments table and the Courses table. Then, to the Enrollments table, add a column that uses the RELATED('Courses'[Name]) DAX formula.
+- *(incorrect)* To the Enrollments table, add a measure that uses the COUNTA('Enrollments'[Enrollment ID]) DAX formula.
+- : The first thing to do to create a visualization that combines two different tables is creating a relationship between them; otherwise, the visualization will not work:
+
+
 
 # 6.Data Modeling
 The first operation you can do in order to optimize the data loading performances is removing unnecessary columns and rows.

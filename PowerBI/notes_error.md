@@ -1,5 +1,5 @@
 *wrong book*
-# Microsoft Power Query
+# 1.Microsoft Power Query
 tacked bar chart that the axis shows all the individual dates
 - Create a new table that has columns for the date, year, week, and day.
 - (incorrect)From the Format Pane of the Chart set the type of the X-Axis to Categorical.
@@ -8,6 +8,36 @@ Your company has a data model for its sales data. The sales data has a column na
 - Create a new group on the Date column and set the Group type to **Bin**.
 - [Reference:] (https://docs.microsoft.com/en-us/power-bi/create-reports/desktop-grouping-and-binning)
 - [Topic 5, Deploy and Maintain Deliverables] (https://www.mssqltips.com/sqlservertip/4720/binning-and-grouping-data-with-power-bi/ https://community.powerbi.com/t5/Desktop/Adding-week-to-date-hierarchy/m-p/427762 )
+
+
+# 2. Data visualization
+
+
+# 3.Pulbishing and Sharing data
+
+report Sales_1 connects to a Microsoft SQL Server database by using DirectQuery connection. After you have published the Sales_1 report to the Power BI service, the visualizations don't work.
+How can you solve the issue
+- Install the on-premises data gateway and configure a data source.
+- need an on-premises data gateway between on-premises data (data that isn't in the cloud) and several Microsoft cloud services, such as Power BI Service
+- there is no data loaded into dataset, so DirectQuery send queries to source peiodically
+
+You want to embed a company video hosted on the Company YouTube channel into the dashboard
+- To the dashboard, add a tile that uses a video content source.
+- (incorrect) To the dashboard, add a tile that uses a Web content source.
+
+You have a Microsoft Excel spreadsheet that contains a table named Sales. You want to add the Sales table to a Power BI dashboard as a tile. How should you configure the tile?
+- From Excel, publish the workbook to the Power BI service.
+- In PBI service, 'Get Data' from 'Local Files' or 'OneDrive for Business', the execl will be imported as dataset and dashboard tile (new dashbaord of the same name as excel name)
+
+a table named 'Enrollments' stored on a Microsoft Excel spreadsheet. You want to add the Enrollments table to a Power BI dashboard as a tile.
+- From the Power BI tab in Excel, pin the table.
+- Excel has 'pin' to PBI addon for files saved in **OneDrive for business**. (Highlight the cells that you'd like to pin to a dashboard, then click on button 'pin')
+- [Pin a range of cells to a dashboard] https://docs.microsoft.com/en-us/power-bi/create-reports/service-dashboard-pin-tile-from-excel
+
+
+
+
+#####
 
 Contributors can create, edit, and delete content in a workspace and publish reports to the workspace
 
@@ -119,9 +149,6 @@ You open the **properties of the dataset**s and modify the **Q&A and Cortana** s
 You open the properties of the datasets and modify the Q&A and Cortana settings. Does this action allow users to find data by using natural language queries?
 - No, it does not
 
-You have a Microsoft Excel spreadsheet that contains a table named Sales. You want to add the Sales table to a Power BI dashboard as a tile. How should you configure the tile?
-- From Excel, publish the workbook to the Power BI service.
-
 You need to filter all the visualizations in the report except the KPI visualization. Which two actions should you perform?
 - **Edit the interactions of the KPI visualization**
 - Edit the interactions of the slicer that is on the same page as the KPI visualization
@@ -224,10 +251,6 @@ The report retrieves data from an Azure SQL Database. How can you ensure that us
 - In the Power BI service's Settings page, select the Datasets tab, choose the dataset that uses DirectQuery, and select Edit credentials.
 - *existed* report, to be updated
 
-a table named 'Enrollments' stored on a Microsoft Excel spreadsheet. You want to add the Enrollments table to a Power BI dashboard as a tile.
-- From the Power BI tab in Excel, pin the table.
-- Excel has 'pin to PBI' addon. (Highlight the cells that you'd like to pin to a dashboard, then click on button 'pin')
-
 share the dashboard with external guest users giving them editing and manage content permissions.
 - Add guest users to Azure Active Directory.
 - (incorrect)Enable the Share content with 'external users' feature from the Power BI admin portal.
@@ -303,16 +326,19 @@ Which of the following datasources meet the goal?
 -  Azure SQL Database.
 - Azure Synapse Analytics.
 - You can achieve the goal by using Microsoft Azure SQL Database or Azure Synapse and DirectQuery Connection mode.
+- [limitation of publish to web](https://docs.microsoft.com/en-us/power-bi/collaborate-share/service-publish-to-web)
 
 three operations that developers can achieve by using the API
-- Create a dataset
+- **Create a dataset**
 - Add rows to a dataset
 - Refresh and imported dataset
 - [Power BI API](https://docs.microsoft.com/en-us/power-bi/developer/automation/overview-of-power-bi-rest-api)
+- (incorrect) Retrieve rows from a dataset
 
 You have distributed an app from a workspace to a group of users, giving them Build and Share Permissions. Later, you decide to remove access to the app for some users.
 You want to be sure that Build and Share Permissions will be also removed.
 - You need to manage datasets permissions to remove build and share permissions.
+- grant when give access of dashboard to users, but remove from deeper level
 
 # 5.DAX
 create a measure to rank the courses based on their total enrollment amount
@@ -339,6 +365,13 @@ The active relationship is on Enrollments[EnrollmentDate]. You plan to create me
 N.B. You can't meet the goal by duplicating data or loading additional data.
 Solution: You should create a calculated table, then you create a measure that uses the new table. Does this solution resolve the issue?
 - No (because of duplicated data)
+
+You plan to create measures to count both the number of Enrollments by [AttendanceDate] and the Enrollments by [StartingDate].
+N.B. You can't meet the goal by duplicating data or loading additional data.
+Solution: You create measures that use the following functions: CALCULATE, COUNT, and **FILTER** DAX function.
+Does this solution resolve the issue?
+- Yes.(filter('Enrollments', 'Enrollments'[StartingDate]='Date'[Date]))
+- Another way: USERELATIONSHIP
 
 create a calculated column that shows the day's difference between the order reception and the order shipping
 - DATEDIFF
