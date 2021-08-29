@@ -1,4 +1,17 @@
-# notes:
+*notes*:
+# Microsoft Power Query
+Pyton to show visual:
+- You should add the following command to the script: pyplot.show();
+
+customize the report with both the corporate colors of your organization and a set of custom icons.
+- Configure a **JSON** file and then import it in Power BI Desktop as Custom Theme.
+
+to create a custom visualization for Power BI. What do you install first?
+- **Node.js**
+
+You are configuring a Gauge Chart. Where do you set the Goal?
+- **Format** settings -- to switch *target* on.
+
 
 possible to add tile of 'web content'. ie, there are some video online,  this video can be added as a tile to dashboad
 
@@ -162,10 +175,40 @@ create a goal for the number of sales made in the current year and set it as 10%
 create a bar chart visualization to show the count of course enrollments by year that have an Enrollments Amount greater than 1,000.
 - Larger enrollments = Calculate(Filter('FactcourseEnrollments','FactCourseEnrollments'[EnrollmentsAmount]>1000))
 
+pivot and show the weekd day scheduled
+- Schedule Checkbox = IF(COUNTROOWS(Appointments)>0, UNICAHR(9635),"")
 
+ou have a Power BI model for sales data. You create a measure to calculate the year-to-date sales. You need to compare the year-to-date sales with the previous year for the same time period
+- to filter out the dates for calculation
 
+a measure to rank total sales by product
+- RANKX(ALL('Product_Sales'), [SalesAmount],,DESC, **Dense**)
+- DENSE will give consecutive numbers
 
+You need to create a relationship between the Monthly Drop out table (month id) and Date[Date ID]
+- In the Monthly Drop Out table, create a new calculated column named Date_ID that uses the ddmmyyyy format.
+- (incorrect) In the Date table, create a new calculated column named Month_ID that uses the yyyydd format. (there wll be duplicates of MonthId in date table, which cannot used as keys)
 
+# 6.Data Modeling
+The first operation you can do in order to optimize the data loading performances is removing unnecessary columns and rows.
+
+[Apply the Assume Referential Integrity](https://docs.microsoft.com/en-us/power-bi/connect-data/desktop-assume-referential-integrity)
+- ti increase query efficiency
+- only available when using **DirectQuery**
+- use **INNER JOIN** statements rather than OUTER JOIN
+- Data in the From column in the relationship is never Null or blank
+- For each value in the From column, there is a corresponding value in the To column
+
+create measures to count both the number of Enrollments by [AttendanceDate] and the Enrollments by [StartingDate]
+Solution: You create measures that use the following functions: CALCULATE, COUNT, and FILTER DAX function.
+- YES
+- CALCULATE(COUNT(Table[Column]), FILTER(Table, NOT(ISBLANK(Table[Column))))
+- the question is to CountRows of different columns.
+
+You plan to import in Power BI Desktop a set of tables from a Microsoft SQL Server.
+The Database Engineer created a single view in Microsoft SQL Server that joined the fact and dimension tables in the underlying query as you need to reduce your effort in Power BI modeling data. Does this solution work?
+- NO
+- You need to model data in Power BI Desktop when using the import data connection mode. In this case, the Developer doesn't reduce your effort.
 
 # [compare groups](https://docs.microsoft.com/en-us/microsoft-365/admin/create-groups/compare-groups?view=o365-worldwide)
 - **Microsoft 365 groups** are used for collaboration between users, both inside and outside your company. They include collaboration services such as SharePoint and Planner.

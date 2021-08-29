@@ -1,4 +1,8 @@
-# wrong book
+*wrong book*
+# Microsoft Power Query
+tacked bar chart that the axis shows all the individual dates
+- Create a new table that has columns for the date, year, week, and day.
+- (incorrect)From the Format Pane of the Chart set the type of the X-Axis to Categorical.
 
 Your company has a data model for its sales data. The sales data has a column named Date. You want to view the data by week. What action should you take to quickly view sales data by week?
 - Create a new group on the Date column and set the Group type to **Bin**.
@@ -309,6 +313,46 @@ three operations that developers can achieve by using the API
 You have distributed an app from a workspace to a group of users, giving them Build and Share Permissions. Later, you decide to remove access to the app for some users.
 You want to be sure that Build and Share Permissions will be also removed.
 - You need to manage datasets permissions to remove build and share permissions.
+
+# 5.DAX
+create a measure to rank the courses based on their total enrollment amount
+- RANKX(ALL(Courses), SUMX(RELATEDTABLE(Enrollments), [Enrollments_amount]))
+- RANK.EQ, return the rank number from a list
+- there is no 'rank'
+
+
+create a chart that displays total Enrollments[Total Paid] by Course[Name]
+- Create a relationship between the Enrollments table and the Courses table.
+- Create a relationship between the Enrollments table and the Courses table. Then, to the Enrollments table, add a column that uses the RELATED('Courses'[Name]) DAX formula.
+
+compare the year-to-date sales with the previous year for the same time period
+- DATEADD (get the same dates of last year)
+- SAMEPERIODLASTYEAR
+- (Incorrect) PREVIOUSYEAR -- whole year
+
+add a date table named Date, containing the following columns: date, year, month
+- CALENDAR, YEAR, MONTH     -- pass in start and end date
+- (incorrect) CALENDARAUTO -- check existed dates and generate.
+
+# Data Modeling
+The active relationship is on Enrollments[EnrollmentDate]. You plan to create measures to count both the number of Enrollments by [AttendanceDate] and the Enrollments by [StartingDate].
+N.B. You can't meet the goal by duplicating data or loading additional data.
+Solution: You should create a calculated table, then you create a measure that uses the new table. Does this solution resolve the issue?
+- No (because of duplicated data)
+
+create a calculated column that shows the day's difference between the order reception and the order shipping
+- DATEDIFF
+
+You want to analyze the Badging trend by the Starting Time column and use a built-in date hierarchy. What should you do
+- Create a column by example that starts with 2021-01-10, then set the data type of the new column to Date. (built-in hierachy. CALENDAR/AUTO is not built-in)
+
+
+
+
+
+
+
+
 
 
 

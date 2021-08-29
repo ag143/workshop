@@ -1,10 +1,12 @@
 *[Dax Guide](https://dax.guide/)*
 
-[COMBINEVALUES(<delimiter>, <expression>, <expression>[, <expression>]…)](https://docs.microsoft.com/en-us/dax/combinevalues-function-dax)
+COMBINEVALUES(<delimiter>, <expression>, <expression>[, <expression>]…) [syntax](https://docs.microsoft.com/en-us/dax/combinevalues-function-dax)
 
 
-[CONCATENATE(<text1>, <text2>)](https://docs.microsoft.com/en-us/dax/concatenate-function-dax)
+CONCATENATE(<text1>, <text2>) [syntax](https://docs.microsoft.com/en-us/dax/concatenate-function-dax)
 
+COUNTA(<column>) [syntax](https://docs.microsoft.com/en-us/dax/counta-function-dax)
+- counts the number of cells in a column that are not empty
 
 DATESBETWEEN
 ```Sales PYTD =
@@ -22,6 +24,9 @@ Return
 [isFiltered](https://dax.guide/isfiltered/)
 Returns true when there are direct filters on the specified column.
 ```ISFILTERED ( Product[Color] )```
+
+LASTNONBLANK(<column>,<expression>)  [syntax](https://docs.microsoft.com/en-us/dax/lastnonblank-function-dax)
+- Returns the last value in the column, column, filtered by the current context, where the expression is not blank
 
 [PARALLELPERIOD](https://dax.guide/parallelperiod/)
 Returns a parallel period of dates by the given set of dates and a specified interval.
