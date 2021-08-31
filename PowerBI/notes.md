@@ -198,7 +198,9 @@ create a chart that displays total Enrollments[Total Paid] by Course[Name]. Befo
 
 
 
-# 6.Data Modeling\
+# 6.Data Modeling
+
+[Creating a dataflow](https://docs.microsoft.com/en-us/power-bi/transform-model/dataflows/dataflows-create)
 
 [what-if parameters](https://docs.microsoft.com/en-us/power-bi/transform-model/desktop-what-if)
 
