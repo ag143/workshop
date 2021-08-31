@@ -200,6 +200,15 @@ create a chart that displays total Enrollments[Total Paid] by Course[Name]. Befo
 
 # 6.Data Modeling
 
+Develop a template app (when create a workspace)
+- Template apps are developed for sharing outside your organization.
+- A template app workspace will be created for developing and releasing the app.
+1. Create a dataflow using define new tables
+1. Create a dataflow using linked tables.reference an existing table, defined in another dataflow, in a **read-only** fashion
+1. Create a dataflow using a computed table ()reference a linked table and perform operations on top of it in a write-only fashion. To convert a linked table into a computed table, you can either create a new query from a merge operation, or if you want to edit or transform the table, create a reference or duplicate of the table
+1. Create a dataflow using a CDM folder
+
+
 [Creating a dataflow](https://docs.microsoft.com/en-us/power-bi/transform-model/dataflows/dataflows-create)
 
 [what-if parameters](https://docs.microsoft.com/en-us/power-bi/transform-model/desktop-what-if)
@@ -211,7 +220,7 @@ The first operation you can do in order to optimize the data loading performance
 - only available when using **DirectQuery**
 - use **INNER JOIN** statements rather than OUTER JOIN
 - Data in the From column in the relationship is never Null or blank
-- For each value in the From column, there is a corresponding value in the To column
+- For each value in the From column, there is a corresponding value in the To column. Creating a dataflow from a CDM folder allows you to reference an table that has been written by another application in the Common Data Model (CDM) format. You are prompted to provide the complete path to the CDM format file stored in ADLS Gen 2
 
 create measures to count both the number of Enrollments by [AttendanceDate] and the Enrollments by [StartingDate]
 Solution: You create measures that use the following functions: CALCULATE, COUNT, and FILTER DAX function.
