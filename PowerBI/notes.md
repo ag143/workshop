@@ -208,6 +208,21 @@ Develop a template app (when create a workspace)
 1. Create a dataflow using a computed table ()reference a linked table and perform operations on top of it in a write-only fashion. To convert a linked table into a computed table, you can either create a new query from a merge operation, or if you want to edit or transform the table, create a reference or duplicate of the table
 1. Create a dataflow using a CDM folder
 
+=======
+[difference between Dataset and Dataflow](https://senturus.com/blog/what-is-the-difference-between-power-bi-dataflows-an-datasets/)
+A **dataflow** is used to organize and persist self-service data. Behind the scenes, Power BI is using an Azure Data Lake for data storage of the source data and meta data. Data can be cleaned and transformed as part of the dataflow.
+
+Data is then mapped to a standard, extensible schema called the Common Data Model for clearer presentation to end users. Data from multiple sources can be combined in the Data Lake to present a unified data structure to the report developer.
+
+A **dataset** is a pointer to your data source, typically including a subset of the data in the data source. When used with dataflows, the dataset is pointing at the managed Azure Data Lake and including some or all of the data in the data lake. The dimensions and measures of the data lake that are needed in the current report can be pulled into a specific dataset at the proper grain for speed and efficiency. For example, a retailer may wish to have a dataset containing transaction level product mix (which would be large) and another dataset containing summarized daily sales and discounts (which would be small).
+
+Report developers can then select the proper, minimal dataset when building a report. Multiple datasets can leverage the same underlying data in the managed Azure Data Lake at similar or different grains.
+
+Once published, datasets can be shared between workspaces to other users and groups. To further clarify the quality of a dataset, an organization can certify datasets to indicate to analysts the quality of the data they’re using.
+
+======
+[Dataset connectivity with the XMLA endpoint](https://docs.microsoft.com/en-us/power-bi/admin/service-premium-connect-tools)
+- The user account or app identity that the client application uses to access a dataset must have a valid Premium Per User (PPU) license unless the dataset resides on a Premium capacity
 
 [Creating a dataflow](https://docs.microsoft.com/en-us/power-bi/transform-model/dataflows/dataflows-create)
 
