@@ -198,7 +198,10 @@ create a chart that displays total Enrollments[Total Paid] by Course[Name]. Befo
 
 
 
-# 6.Data Modeling
+# 6.Data Modeling\
+
+[what-if parameters](https://docs.microsoft.com/en-us/power-bi/transform-model/desktop-what-if)
+
 The first operation you can do in order to optimize the data loading performances is removing unnecessary columns and rows.
 
 [Apply the Assume Referential Integrity](https://docs.microsoft.com/en-us/power-bi/connect-data/desktop-assume-referential-integrity)
