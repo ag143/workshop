@@ -144,8 +144,16 @@ A Power BI user in your organization has published a report to the Web. The repo
 - From the Power BI Admin portal, disable the Publish to web setting.
 
 # 4.Administration settings in Microsoft PowerBI
+*Static roles* allow you to define filtered views for specific audiences ( territory managers, department leads, execs, etc. etc.) using simple DAX statements
+- This is not the same as bookmarks or pre filtered views; roles **filter data out of your model** and limit what audiences can access
+- Static roles must first be configured in Power BI Desktop and then applied in Power BI Service
+
+
 manage the members that have access to the app workspace
 - From the Office 365 Admin center, click Groups.
+
+refresh of the underlying data source, incremental
+refresh only works with a Date/Time column
 
 Your organization has a Microsoft SharePoint Online site named Enrollments where can access over 1000 users. After you have created a report in an app workspace on Power BI Service, you embed the report into a page on the Enrollments site by using the Power BI web part. You must ensure that all over the 1,000 users can view the report from the Enrollments Sharepoint site
 - Configure the app workspace for **Premium capacity**. [premium](https://docs.microsoft.com/en-us/power-bi/admin/service-premium-what-is)
