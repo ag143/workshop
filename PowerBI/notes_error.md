@@ -361,6 +361,14 @@ add a date table named Date, containing the following columns: date, year, month
 - (incorrect) CALENDARAUTO -- check existed dates and generate.
 
 # Data Modeling
+*Endorsement* is a way to flag content that’s ready for others to use
+- Any content owner or member with write permissions can endorse content
+- It’s possible to endorse *datasets , dataflows , reports , and apps*
+
+Sensitivity labels in Power BI provide a simple way to classify and safeguard sensitive content by *labeling reports, dashboards, datasets, dataflows, and pbix *files
+
+*Large dataset storage* format is used for datasets over the **10GB** refresh limit in Service
+
 The active relationship is on Enrollments[EnrollmentDate]. You plan to create measures to count both the number of Enrollments by [AttendanceDate] and the Enrollments by [StartingDate].
 N.B. You can't meet the goal by duplicating data or loading additional data.
 Solution: You should create a calculated table, then you create a measure that uses the new table. Does this solution resolve the issue?
