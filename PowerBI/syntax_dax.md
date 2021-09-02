@@ -21,6 +21,8 @@ Return
 
 ```
 
+DATESINPERIOD(Calendar[Date], MAX (Calendar[Date]), 10, DAY)
+
 [isFiltered](https://dax.guide/isfiltered/)
 Returns true when there are direct filters on the specified column.
 ```ISFILTERED ( Product[Color] )```

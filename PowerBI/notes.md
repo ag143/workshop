@@ -199,6 +199,9 @@ create a chart that displays total Enrollments[Total Paid] by Course[Name]. Befo
 
 
 # 6.Data Modeling
+By default, Power BI automatically creates a
+hidden date table for any table that
+contains a Date or DateTime column on the one side of a relationship
 
 Develop a template app (when create a workspace)
 - Template apps are developed for sharing outside your organization.
