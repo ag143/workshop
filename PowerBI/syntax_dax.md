@@ -22,6 +22,19 @@ Return
 ```
 
 DATESINPERIOD(Calendar[Date], MAX (Calendar[Date]), 10, DAY)
+HasOneValue
+```
+IF(
+
+ HASONEVALUE('Salesperson (Performance)'[Salesperson]),
+
+ SUM(Targets[TargetAmount])
+
+ )
+ ```
+
+ISINSCOPE() function is used to test whether the region column is the level in a hierarchy
+
 
 [isFiltered](https://dax.guide/isfiltered/)
 Returns true when there are direct filters on the specified column.
@@ -29,6 +42,11 @@ Returns true when there are direct filters on the specified column.
 
 LASTNONBLANK(<column>,<expression>)  [syntax](https://docs.microsoft.com/en-us/dax/lastnonblank-function-dax)
 - Returns the last value in the column, column, filtered by the current context, where the expression is not blank
+
+KEEPFILTERS(<expression>)
+- for CALCULATION, default behavior is to keep override the filters mentioned in the parameter
+- KeepFilters works like 'and' to add extra filter to the same column
+
 
 [PARALLELPERIOD](https://dax.guide/parallelperiod/)
 Returns a parallel period of dates by the given set of dates and a specified interval.

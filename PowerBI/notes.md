@@ -1,4 +1,11 @@
 *notes*:
+# Prepare the Data
+# Model the Data
+# Visualize the Data
+# Deploy and Maintain Deliverables
+
+
+
 # Microsoft Power Query
 Pyton to show visual:
 - You should add the following command to the script: pyplot.show();
@@ -11,6 +18,67 @@ to create a custom visualization for Power BI. What do you install first?
 
 You are configuring a Gauge Chart. Where do you set the Goal?
 - **Format** settings -- to switch *target* on.
+
+# Prepare the Data
+[NoSql database connection](https://docs.microsoft.com/en-us/learn/modules/get-data/4-nosql-database)
+- db URL
+- Account Key (Az Portal > Primary Key > Read-only keys)
+
+[Azure Analysis Services](https://docs.microsoft.com/en-us/learn/modules/get-data/7-azure-analysis-services)
+Azure Analysis Services is an Azure product that allows you to ingest data from multiple data sources, build relationships between the data, and creates calculations on the data. The calculations are built using data analysis expressions (DAX). Azure Analysis Services is similar to the data modeling and storage technology in Power BI
+- Authenticate to the server.
+- Pick the cube (database) you want to use.
+- Select which tables you need.
+- Analysis Services cubes have calculations already in the cube, which will be discussed in more detail later. 
+- If you don’t need an entire table, you can query the data directly. Instead of using Transact-SQL (T-SQL) to query the data, like you would in SQL Server, you can use multi-dimensional expressions (MDX) or data analysis expressions (DAX).
+
+[Query folding](https://docs.microsoft.com/en-us/learn/modules/get-data/8-performance-issues)
+- More efficiency in data refreshes and incremental refreshes
+- Automatic compatibility with DirectQuery and Dual storage modes
+
+[Query diagnostics](https://docs.microsoft.com/en-us/learn/modules/get-data/8-performance-issues)
+
+optimize performance
+- Process as much data as possible in the original data source
+- Use native SQL queries. When using DirectQuery for SQL databases, such as the case for our scenario, make sure that you are not pulling data from stored procedures or common table expressions (CTEs)
+- Separate date and time, if bound together
+
+## Clean, transform, and load data in Power BI
+[unpivot](https://docs.microsoft.com/en-us/learn/modules/clean-data-power-bi/2-shape-data)
+
+
+# Model the Data
+[Flatten parent-child hierarchy](https://docs.microsoft.com/en-us/learn/modules/design-model-power-bi/4-dimensions)
+```Path = PATH(Employee[Employee ID], Employee[Manager ID])```
+- Path(Id_columnName, Paren_columnName)
+- Level 1 = PATHITEM(Employee[Path],1)
+- Level 2 = PATHITEM(Employee[Path],2)
+- Level 3 = PATHITEM(Employee[Path],3)
+
+Role-playing dimensions
+- like date table can be 2 roles (order time, ship time)
+
+[Behavior of DirectQuery connections, and limitation; Customize the Query reduction options](https://docs.microsoft.com/en-us/learn/modules/optimize-model-power-bi/5-directquery-models)
+
+
+# Visualize the Data
+
+[tooltips to display graphical information](https://docs.microsoft.com/en-us/learn/modules/visuals-power-bi/4-format)
+- new page > Page Inforation > Tooltip (slider) > ON
+
+If you decide to use an R or Python visual, and you want to refresh the data in Power BI service, you'll need to use a personal gateway
+
+[Set the navigation destination](https://docs.microsoft.com/en-us/learn/modules/data-driven-story-power-bi/4-report-navigation)
+- create a single column table (M)
+- Button (type: Page navigation)
+- Format condition:
+    - Format by: Field value
+    - Based on Field: First Select a destination
+    - Summarization: First
+
+[Cross-report drillthrough](https://docs.microsoft.com/en-us/learn/modules/data-driven-story-power-bi/6-advanced-interactions)
+- both data models must contain the fields that you want to pass
+- names of those fields, and the names of the tables that they belong to, must be identical
 
 
 possible to add tile of 'web content'. ie, there are some video online,  this video can be added as a tile to dashboad
