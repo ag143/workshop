@@ -80,6 +80,25 @@ If you decide to use an R or Python visual, and you want to refresh the data in 
 - both data models must contain the fields that you want to pass
 - names of those fields, and the names of the tables that they belong to, must be identical
 
+[rea-time dashbaord](https://docs.microsoft.com/en-us/learn/modules/create-dashboards-power-bi/6-configure-real-time-dashboard)
+Add tile:
+- MEDIA
+    - Web content
+    - Image
+    - Text box
+    - Video
+- REAL-TIME DATA
+    - Custom Streaming Data
+
+
+
+
+
+
+
+
+
+
 
 possible to add tile of 'web content'. ie, there are some video online,  this video can be added as a tile to dashboad
 
