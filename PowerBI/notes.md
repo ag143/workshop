@@ -440,6 +440,11 @@ Once published, datasets can be shared between workspaces to other users and gro
 
 [Creating a dataflow](https://docs.microsoft.com/en-us/power-bi/transform-model/dataflows/dataflows-create)
 Creating a dataflow from a CDM folder allows you to reference an table that has been written by another application in the Common Data Model (CDM) format. You are prompted to provide the complete path to the CDM format file stored in ADLS Gen 2
+- Create a dataflow using define new tables
+- Create a dataflow using linked tables (read only)
+- Create a dataflow using a computed table (can write)
+- Create a dataflow using import/export
+
 
 [what-if parameters](https://docs.microsoft.com/en-us/power-bi/transform-model/desktop-what-if)
 
