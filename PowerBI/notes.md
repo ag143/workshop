@@ -439,17 +439,18 @@ Once published, datasets can be shared between workspaces to other users and gro
 
 
 [Creating a dataflow](https://docs.microsoft.com/en-us/power-bi/transform-model/dataflows/dataflows-create)
+Creating a dataflow from a CDM folder allows you to reference an table that has been written by another application in the Common Data Model (CDM) format. You are prompted to provide the complete path to the CDM format file stored in ADLS Gen 2
 
 [what-if parameters](https://docs.microsoft.com/en-us/power-bi/transform-model/desktop-what-if)
 
 The first operation you can do in order to optimize the data loading performances is removing unnecessary columns and rows.
 
 [Apply the Assume Referential Integrity](https://docs.microsoft.com/en-us/power-bi/connect-data/desktop-assume-referential-integrity)
-- ti increase query efficiency
+- it increase query efficiency
 - only available when using **DirectQuery**
 - use **INNER JOIN** statements rather than OUTER JOIN
 - Data in the From column in the relationship is never Null or blank
-- For each value in the From column, there is a corresponding value in the To column. Creating a dataflow from a CDM folder allows you to reference an table that has been written by another application in the Common Data Model (CDM) format. You are prompted to provide the complete path to the CDM format file stored in ADLS Gen 2
+- For each value in the From column, there is a corresponding value in the To column.
 
 create measures to count both the number of Enrollments by [AttendanceDate] and the Enrollments by [StartingDate]
 Solution: You create measures that use the following functions: CALCULATE, COUNT, and FILTER DAX function.
