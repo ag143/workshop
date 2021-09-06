@@ -34,8 +34,37 @@ a table named 'Enrollments' stored on a Microsoft Excel spreadsheet. You want to
 - Excel has 'pin' to PBI addon for files saved in **OneDrive for business**. (Highlight the cells that you'd like to pin to a dashboard, then click on button 'pin')
 - [Pin a range of cells to a dashboard] https://docs.microsoft.com/en-us/power-bi/create-reports/service-dashboard-pin-tile-from-excel
 
+What is a dashboard?
+- A canvas of report elements that can be built in Power BI service (a dashboard can be built only in pbi service)
+- (incorrect) Dashboards can be built by using visuals that are developed with an underlying data source. 
+
+**[paginated reports]**(https://docs.microsoft.com/en-us/learn/modules/create-paginated-reports-power-bi/)
+
+[Automatic page refresh in Power BI](https://docs.microsoft.com/en-us/power-bi/create-reports/desktop-automatic-page-refresh)
+1. Types
+    - Fixed interval
+        1. based on a constant interval such as one second or five minutes
+    - Change detection
+        1. LiveConnect sources such as Analysis Services and Power BI datasets are not supported
+        1. polls for changes to your DirectQuery source
+1. select how frequently
+1. Automatic page refresh is available for DirectQuery sources and some LiveConnect scenarios
+1. The Page refresh card will only be available if you are connected to a DirectQuery source
+
+[Paginated Reports](https://docs.microsoft.com/en-us/learn/modules/create-paginated-reports-power-bi/1-introduction)
+a pixel-perfect view of the data
+Getting data in a Power BI paginated report does not involve data cleaning steps. In fact, data is not stored in a Power BI paginated report dataset. When data is refreshed on the report, it is retrieved in an unaltered form from the data source, according to the query that was used to retrieve it
+different data sources cannot be merged into a single data model. Each source must be used for a different purpose
 
 
+
+How is the Admin workspace role different from other types of workspace roles
+- Admin is the only role that can add and **remove** users. 
+
+What is the difference between Promotion and Certification when you are endorsing a dataset
+- Promotion does not need specific permissions while Certification requires permission from the dataset owner to access to the dataset.
+- (incorrect) Promotion is for broad usage while Certification needs permission granted on the Admin Tenant settings. 
+- (incorrect) Promotion is for specific users while Certification needs permission granted on the Admin Tenant settings. 
 
 #####
 

@@ -61,6 +61,7 @@ Role-playing dimensions
 [Behavior of DirectQuery connections, and limitation; Customize the Query reduction options](https://docs.microsoft.com/en-us/learn/modules/optimize-model-power-bi/5-directquery-models)
 
 
+
 # Visualize the Data
 
 [tooltips to display graphical information](https://docs.microsoft.com/en-us/learn/modules/visuals-power-bi/4-format)
@@ -90,7 +91,113 @@ Add tile:
 - REAL-TIME DATA
     - Custom Streaming Data
 
+[Data Classification](https://docs.microsoft.com/en-us/learn/modules/create-dashboards-power-bi/7-configure-data-classification)
+custom data classification settings are added into the Power BI system. Data classification is done by an administrator
+- high impact
+- medium impact
+- low impact
+the dashboard will follow the default data rules or the rules that you have established under **Tenant** settings.
+The classfication mark will be shown in title bar (HIGH)
 
+[mobile view](https://docs.microsoft.com/en-us/learn/modules/create-dashboards-power-bi/8-set-mobile-view)
+https://docs.microsoft.com/en-us/learn/modules/create-dashboards-power-bi/8-set-mobile-view
+a new grid has been added to this view so that you can orient your visuals with more ease and overlay visuals on top of each other. This feature can be useful if you want to insert a visual on top of an image.
+
+[Parameters in DAX Measures](https://www.sqlbi.com/articles/parameters-in-dax-measures/)
+
+
+# Data analysis in Power BI
+[set up the bin group](https://docs.microsoft.com/en-us/learn/modules/perform-analytics-power-bi/2-statistical-summary)
+
+[group](https://docs.microsoft.com/en-us/learn/modules/perform-analytics-power-bi/4-group-data)
+shade 'new' group in differen color
+- create a group
+- edit a group (right click the group field either in Legend or Fields)
+
+[Analyze feature](https://docs.microsoft.com/en-us/learn/modules/perform-analytics-power-bi/7-analyze-feature)
+This feature does not work if you have non-numeric filters applied to your visual and/or if you have measure filters applied.
+
+[Apply insights](https://docs.microsoft.com/en-us/power-bi/create-reports/desktop-insights-find-where-different)
+
+[Quick Insigts](https://docs.microsoft.com/en-us/learn/modules/perform-analytics-power-bi/9-quick-insights)
+PBI service > Datasets > ...> Quick Insigts
+
+[AI insigts](https://docs.microsoft.com/en-us/learn/modules/perform-analytics-power-bi/10-ai-insights)
+PBI Desktop > Power query > Add Columns > AI Insights (must turn the function on: File > Options and Settinsg > Options > Globle > Preview features > AI Insights function browser)
+
+[Q&A setup](https://docs.microsoft.com/en-us/learn/modules/ai-visuals-power-bi/2-visual)
+
+[AI splits](https://docs.microsoft.com/en-us/learn/modules/ai-visuals-power-bi/6-check)
+AI splits work by considering all available fields and determining which one to drill into to get the highest/lowest value of the measure that is being analyzed. 
+
+# Manage workspaces and datasets in Power BI
+## Create and manage workspaces in Power BI
+Create Workspace
+- In the Advanced drop-down menu, you can create a Contact list of users who will receive notifications if issues with the workspace occur
+- You can also add this workspace to a specific OneDrive and then choose whether this workspace will be a part of a dedicated capacity or not. Dedicated capacities are Power BI Premium features that ensure that your workspace will have its own computational resources as opposed to sharing resources with other users
+
+An **app** is a published, read-only window into your data for mass distribution and viewing
+
+Navigation:
+- change the order in which the content is oriented
+- change the name of the content, change the link, and then add it to a specific section on the navigation pane
+- add content that is external to Power BI through a link. This external content can also be included within the content area. For example, a YouTube video or PowerPoint slide deck has to be an embed URL, not the raw URL
+
+## Manage workspaces and datasets in Power BI
+metric reports
+- Admin, Member, or Contributor
+- Workspace > reports/dashboards > ... > View usage metrics report
+
+[deployment pipelines](https://docs.microsoft.com/en-us/learn/modules/create-manage-workspaces-power-bi/4-development-lifecycle-strategy)
+- Premium
+- PBI service - left Ribon/menu - Deploment pipelines
+- Only workspaces that are assigned to a Premium capacity will appear
+- At every stage, you have the option to publish the associated workspace as an app by selecting Publish app
+- In 'Deployment pipelines', there is settings for each env, where parameters can be changed
+
+[Lineage view](https://docs.microsoft.com/en-us/learn/modules/create-manage-workspaces-power-bi/5-troubleshoot-data)
+- Admin, Member or Contributor
+- Pro
+
+[Data Protection](https://docs.microsoft.com/en-us/learn/modules/create-manage-workspaces-power-bi/6-data-protection)
+- sensitivity labels to label dashboards, reports, datasets, and dataflows by using the same taxonomy that is used to classify and protect files in Microsoft 365
+- Add more protection measures such as encryption and watermarks when you are exporting the data.
+- Microsoft Cloud App Security to monitor and investigate activities in Power BI
+
+[Sensitivity labels](https://docs.microsoft.com/en-us/learn/modules/create-manage-workspaces-power-bi/6-data-protection)
+-specify which data can be exported. These labels are configured externally to Power BI, and Power BI allows you to quickly use them in your reports and dashboards
+- go to Microsoft 365 Security Center to define your own labels
+- Data that is exported to Microsoft Excel, Microsoft PowerPoint, and PDF files will have sensitivity labels enforced
+- if you didn't have established permissions, you would be denied access to see the data
+
+## Manage datasets in Power BI 
+
+[function](https://docs.microsoft.com/en-us/learn/modules/manage-datasets-power-bi/2-report-parameters)
+'Create Function' convert a Query into a function (with parameters to pass in)
+
+[incremental refresh settings](https://docs.microsoft.com/en-us/learn/modules/manage-datasets-power-bi/6-incremental-refresh)
+*RangeStart*, *RangeEnd*
+
+[Manage and promote datasets](https://docs.microsoft.com/en-us/learn/modules/manage-datasets-power-bi/7-manage-datasets)
+- **Promotion** - Promote your datasets when they're ready for broad usage. Power BI Admins have permissions to promote datasets.
+    - You can only promote a dataset if you're a Power BI admin user or the owner of that dataset.
+- **Certification** - Request certification for a promoted dataset from an admin user that is defined in the Dataset Certification tenant admin setting. This certification adds another layer of security for your datasets. Certification can be a highly selective process, so only the truly reliable and authoritative datasets are used across the organization.
+    - ou can only certify a dataset if you've been listed as a user in the tenant settings
+
+[Query caching](https://docs.microsoft.com/en-us/learn/modules/manage-datasets-power-bi/9-query-caching)
+a local caching feature that maintains results on a user and report basis. This service is only available to users with Power BI Premium or Power BI Embedded
+- Improvement of the performance of reports, dashboards, and dashboard tiles by reducing loading time and increasing query speed; this notion is especially true for datasets that are not refreshed often and are accessed frequently.  
+- It respects bookmarks and default filters, so even if you enable query caching, any bookmarks that you have created still exist. 
+- Cached query results are specific to the user. 
+- All security labels are followed.   
+- It reduces the load on your dedicated capacity because query caching allows for usage of dedicated capacity and not on the dataset.
+PBI service > dataset > setting > Query Caching
+
+## Implement row-level security
+[Add members to Role](https://docs.microsoft.com/en-us/learn/modules/row-level-security-power-bi/2-static-method)
+- you can add Microsoft Azure Active Directory (Azure AD) users and security groups to the security role
+- If members are not added to the role, but they have access to the report, RLS will not apply to them
+- Test as role (both in PBI Service and Desktop)
 
 
 
@@ -140,7 +247,7 @@ The key influencers visual shows the most important factors based on the fields 
 
 **Impact analysis** provides you the tools to understand how making changes to a dataset will impact downstream reports and dashboards
 
-**bin**: You can set the bin size for numerical and time fields in Power BI Desktop. You can make bins for calculated columns, but not for measures. Use binning to right-size the data that Power BI Desktop displays.
+**bin**(equal-sized groups): You can set the bin size for numerical and time fields in Power BI Desktop. You can make bins for calculated columns, but not for measures. Use binning to right-size the data that Power BI Desktop displays.
 
 **build** permission to dataset. For shared dataset, it is possible to grant 'build (report)' permission to recipients
 
@@ -322,6 +429,13 @@ Once published, datasets can be shared between workspaces to other users and gro
 [Dataset connectivity with the XMLA endpoint](https://docs.microsoft.com/en-us/power-bi/admin/service-premium-connect-tools)
 - The user account or app identity that the client application uses to access a dataset must have a valid Premium Per User (PPU) license unless the dataset resides on a Premium capacity
 
+[object-level security](https://powerbi.microsoft.com/en-us/blog/object-level-security-ols-now-available-for-public-preview-in-power-bi-premium/)
+- it not only hides tables and columns, but also secures them
+- A user without permissions cannot access secured metadata objects via DAX or any other method
+- even cache is secured
+- object-level security is defined within model roles. Currently OLS definitions are not created natively in Power BI Desktop, but external tools such as Tabular Editor can set OLS rules on Power BI Desktop datasets or through the XMLA endpoint in the service using TMSL or TOM
+
+
 [Creating a dataflow](https://docs.microsoft.com/en-us/power-bi/transform-model/dataflows/dataflows-create)
 
 [what-if parameters](https://docs.microsoft.com/en-us/power-bi/transform-model/desktop-what-if)
@@ -352,5 +466,6 @@ The Database Engineer created a single view in Microsoft SQL Server that joined 
 - **Security groups** are used for granting access to resources such as SharePoint sites.
 - **Mail-enabled** security groups are used for granting access to resources such as SharePoint, and emailing notifications to those users.
 - **Shared mailboxes** are used when multiple people need access to the same mailbox, such as a company information or support email address.
+
 
 

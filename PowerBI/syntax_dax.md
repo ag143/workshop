@@ -47,6 +47,16 @@ KEEPFILTERS(<expression>)
 - for CALCULATION, default behavior is to keep override the filters mentioned in the parameter
 - KeepFilters works like 'and' to add extra filter to the same column
 
+[Outliers =](https://docs.microsoft.com/en-us/learn/modules/perform-analytics-power-bi/3-visuals)
+```
+CALCULATE (
+    [Order Qty],
+    FILTER (
+        VALUES ( Product[Product Name] ),
+        COUNTROWS ( FILTER ( Sales, [Order Qty] >= [Min Qty] ) ) > 0
+    )
+)
+```
 
 [PARALLELPERIOD](https://dax.guide/parallelperiod/)
 Returns a parallel period of dates by the given set of dates and a specified interval.
