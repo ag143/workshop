@@ -5,9 +5,8 @@ stacked bar chart that the axis shows all the individual dates
 - *(incorrect)*From the Format Pane of the Chart set the type of the X-Axis to Categorical.
 
 Your company has a data model for its sales data. The sales data has a column named Date. You want to view the data by week. What action should you take to quickly view sales data by week?
-- Create a new group on the Date column and set the Group type to **Bin**.
-- [Reference:](https://docs.microsoft.com/en-us/power-bi/create-reports/desktop-grouping-and-binning)
-- [Topic 5, Deploy and Maintain Deliverables] (https://www.mssqltips.com/sqlservertip/4720/binning-and-grouping-data-with-power-bi/ https://community.powerbi.com/t5/Desktop/Adding-week-to-date-hierarchy/m-p/427762 )
+- Create a new group on the Date column and set the Group type to **Bin**. [Ref](https://docs.microsoft.com/en-us/power-bi/create-reports/desktop-grouping-and-binning)
+- [Topic 5, Deploy and Maintain Deliverables](https://www.mssqltips.com/sqlservertip/4720/binning-and-grouping-data-with-power-bi/ https://community.powerbi.com/t5/Desktop/Adding-week-to-date-hierarchy/m-p/427762 )
 
 
 # 2. Data visualization
@@ -32,13 +31,13 @@ You have a Microsoft Excel spreadsheet that contains a table named Sales. You wa
 a table named 'Enrollments' stored on a Microsoft Excel spreadsheet. You want to add the Enrollments table to a Power BI dashboard as a tile.
 - From the Power BI tab in Excel, pin the table.
 - Excel has 'pin' to PBI addon for files saved in **OneDrive for business**. (Highlight the cells that you'd like to pin to a dashboard, then click on button 'pin')
-- [Pin a range of cells to a dashboard] https://docs.microsoft.com/en-us/power-bi/create-reports/service-dashboard-pin-tile-from-excel
+- [Pin a range of cells to a dashboard](https://docs.microsoft.com/en-us/power-bi/create-reports/service-dashboard-pin-tile-from-excel)
 
 What is a dashboard?
 - A canvas of report elements that can be built in Power BI service (a dashboard can be built only in pbi service)
 - *(incorrect)* Dashboards can be built by using visuals that are developed with an underlying data source. 
 
-**[paginated reports]**(https://docs.microsoft.com/en-us/learn/modules/create-paginated-reports-power-bi/)
+**[paginated reports](https://docs.microsoft.com/en-us/learn/modules/create-paginated-reports-power-bi/)**
 
 [Automatic page refresh in Power BI](https://docs.microsoft.com/en-us/power-bi/create-reports/desktop-automatic-page-refresh)
 1. Types
