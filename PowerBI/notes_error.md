@@ -1,12 +1,12 @@
 *wrong book*
 # 1.Microsoft Power Query
-tacked bar chart that the axis shows all the individual dates
+stacked bar chart that the axis shows all the individual dates
 - Create a new table that has columns for the date, year, week, and day.
-- (incorrect)From the Format Pane of the Chart set the type of the X-Axis to Categorical.
+- *(incorrect)*From the Format Pane of the Chart set the type of the X-Axis to Categorical.
 
 Your company has a data model for its sales data. The sales data has a column named Date. You want to view the data by week. What action should you take to quickly view sales data by week?
 - Create a new group on the Date column and set the Group type to **Bin**.
-- [Reference:] (https://docs.microsoft.com/en-us/power-bi/create-reports/desktop-grouping-and-binning)
+- [Reference:](https://docs.microsoft.com/en-us/power-bi/create-reports/desktop-grouping-and-binning)
 - [Topic 5, Deploy and Maintain Deliverables] (https://www.mssqltips.com/sqlservertip/4720/binning-and-grouping-data-with-power-bi/ https://community.powerbi.com/t5/Desktop/Adding-week-to-date-hierarchy/m-p/427762 )
 
 
@@ -23,7 +23,7 @@ How can you solve the issue
 
 You want to embed a company video hosted on the Company YouTube channel into the dashboard
 - To the dashboard, add a tile that uses a video content source.
-- (incorrect) To the dashboard, add a tile that uses a Web content source.
+- *(incorrect)* To the dashboard, add a tile that uses a Web content source.
 
 You have a Microsoft Excel spreadsheet that contains a table named Sales. You want to add the Sales table to a Power BI dashboard as a tile. How should you configure the tile?
 - From Excel, publish the workbook to the Power BI service.
@@ -36,7 +36,7 @@ a table named 'Enrollments' stored on a Microsoft Excel spreadsheet. You want to
 
 What is a dashboard?
 - A canvas of report elements that can be built in Power BI service (a dashboard can be built only in pbi service)
-- (incorrect) Dashboards can be built by using visuals that are developed with an underlying data source. 
+- *(incorrect)* Dashboards can be built by using visuals that are developed with an underlying data source. 
 
 **[paginated reports]**(https://docs.microsoft.com/en-us/learn/modules/create-paginated-reports-power-bi/)
 
@@ -63,8 +63,8 @@ How is the Admin workspace role different from other types of workspace roles
 
 What is the difference between Promotion and Certification when you are endorsing a dataset
 - Promotion does not need specific permissions while Certification requires permission from the dataset owner to access to the dataset.
-- (incorrect) Promotion is for broad usage while Certification needs permission granted on the Admin Tenant settings. 
-- (incorrect) Promotion is for specific users while Certification needs permission granted on the Admin Tenant settings. 
+- *(incorrect)* Promotion is for broad usage while Certification needs permission granted on the Admin Tenant settings. 
+- *(incorrect)* Promotion is for specific users while Certification needs permission granted on the Admin Tenant settings. 
 
 #####
 
@@ -153,7 +153,7 @@ replace the non-numeric values in the CustomerID column with the number 0
 - From Query Editor, select the CustomerID column and click Replace Values. Then enter null in the Value To Find dialog box and 0 in the Replace With dialog box.
 
 You want to provide users with a sample of questions that they can ask when using Q&A. What should you do
-- In PowerBI Settings, configure **datasets** [Create featured questions for Power BI Q&A] (https://docs.microsoft.com/en-us/power-bi/create-reports/service-q-and-a-create-featured-questions)
+- In PowerBI Settings, configure **datasets** [Create featured questions for Power BI Q&A](https://docs.microsoft.com/en-us/power-bi/create-reports/service-q-and-a-create-featured-questions)
 
 RANKX(ALL(Customers), SUMX(RELATEDTABLE(Sales), [Sales_amount]))
 - yes, it does
@@ -282,11 +282,11 @@ The report retrieves data from an Azure SQL Database. How can you ensure that us
 
 share the dashboard with external guest users giving them editing and manage content permissions.
 - Add guest users to Azure Active Directory.
-- (incorrect)Enable the Share content with 'external users' feature from the Power BI admin portal.
+- *(incorrect)*Enable the Share content with 'external users' feature from the Power BI admin portal.
 
 add one of your videos to a tile in the Subscritions&Views dashboard.
 - video
-- (incorrect) Custom streaming data
+- *(incorrect)* Custom streaming data
 
 Publish to web is supported for the vast majority of data sources and reports in the Power BI service. **Limitations**:
 - Reports using row-level security(**RLS**).
@@ -316,7 +316,7 @@ When data is exported from Power BI to Excel, PowerPoint, or PDF files, Power BI
 
 Your organization owns a consistent number of dashboards on Power BI. Your goal is to ensure that when users browse the list of the available dashboard, they can see the ones that contain Personal Identifiable Information. Which function best fit your needs
 - [Microsoft Information Protection sensitivity labels.](https://docs.microsoft.com/en-us/power-bi/admin/service-security-sensitivity-label-overview) -- can be applied in both Power BI Desktop and the Power BI service
-- (incorrect) Row Level Security.
+- *(incorrect)* Row Level Security.
 
 A Microsoft Excel Workbook, which contains several Power View sheets, is stored on Microsoft One Drive for Business. You want to replicate the Power View sheets as reports in the Power BI Service
 - From Excel, click Publish to Power BI and then click Export.
@@ -334,17 +334,17 @@ three types of visualizations that will work in PowerBI Report Server
 
 Your organization has subscripted a Microsoft Office 365 license. In order to ensure that all users can have access to the PowerBI Service:
 - From Microsoft Azure PowerShell, run the Set-MsolCompanySettings cmdlet.
-- (incorrect) From Power BI Admin portal, modify the Tenant settings.
+- *(incorrect)* From Power BI Admin portal, modify the Tenant settings.
 
 Your Organization asks to ensure that all the Power BI users who create the region sales reports will be **aware of the availability of a high-quality data source**. On behalf of Power BI Admin, how can you achieve this task
 - From the Tenant Settings of Power BI, enable the certification section, then select users or groups who can certify datasets.
-- (incorrect) Create a new app workspace that contains only the high-quality dataset and add all the organization users as members of the workspace.
+- *(incorrect)* Create a new app workspace that contains only the high-quality dataset and add all the organization users as members of the workspace.
 
 Your company follows a security protocol about data management for which information can't be provided over the Internet.
 You need to plan a solution to ensure that the company will be compliant with the security policy also when using Power BI Service.
 What should you include in your recommendation?
 - Power BI report Server. ExpressRoute is an Azure service that lets you create private connections between Microsoft datacenters and infrastructure that's on your premises or in a colocation facility
-- (incorrect) Power BI report Server.
+- *(incorrect)* Power BI report Server.
 
 Your organization uses Power BI Premium for BI reporting activities. Sometimes, the BI team share Power BI contents with customers whitout a Power BI PRO license.
 Which activities are allowed with a Power BI *free license*
@@ -362,7 +362,7 @@ three operations that developers can achieve by using the API
 - Add rows to a dataset
 - Refresh and imported dataset
 - [Power BI API](https://docs.microsoft.com/en-us/power-bi/developer/automation/overview-of-power-bi-rest-api)
-- (incorrect) Retrieve rows from a dataset
+- *(incorrect)* Retrieve rows from a dataset
 
 You have distributed an app from a workspace to a group of users, giving them Build and Share Permissions. Later, you decide to remove access to the app for some users.
 You want to be sure that Build and Share Permissions will be also removed.
@@ -383,11 +383,11 @@ create a chart that displays total Enrollments[Total Paid] by Course[Name]
 compare the year-to-date sales with the previous year for the same time period
 - DATEADD (get the same dates of last year)
 - SAMEPERIODLASTYEAR
-- (Incorrect) PREVIOUSYEAR -- whole year
+- *(Incorrect)* PREVIOUSYEAR -- whole year
 
 add a date table named Date, containing the following columns: date, year, month
 - CALENDAR, YEAR, MONTH     -- pass in start and end date
-- (incorrect) CALENDARAUTO -- check existed dates and generate.
+- *(incorrect)* CALENDARAUTO -- check existed dates and generate.
 
 # Data Modeling
 *Endorsement* is a way to flag content that’s ready for others to use
