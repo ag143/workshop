@@ -18,7 +18,6 @@ Return
     Calcuate(
         (Sales[Sales]),
         DatesBetween('Calendar'[date],startyear, endyear)
-
 ```
 
 DATESINPERIOD(Calendar[Date], MAX (Calendar[Date]), 10, DAY)
