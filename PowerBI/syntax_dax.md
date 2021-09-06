@@ -22,6 +22,7 @@ Return
 ```
 
 DATESINPERIOD(Calendar[Date], MAX (Calendar[Date]), 10, DAY)
+
 HasOneValue
 ```
 IF(
@@ -33,10 +34,12 @@ IF(
 ISINSCOPE() function is used to test whether the region column is the level in a hierarchy
 
 
-[isFiltered](https://dax.guide/isfiltered/)
+[isFiltered](https://dax.guide/isfiltered/)  
 ISFILTERED ( TableNameOrColumnName )                 
-TRUE when ColumnName is being filtered directly, or when any column of TableName is being filtered directly
-```ISFILTERED ( Product[Color] )```
+TRUE when ColumnName is being filtered directly, or when any column of TableName is being filtered directly  
+```
+ISFILTERED ( Product[Color] )
+```
 
 LASTNONBLANK(column,expression)  [syntax](https://docs.microsoft.com/en-us/dax/lastnonblank-function-dax)
 - Returns the last value in the column, column, filtered by the current context, where the expression is not blank
@@ -66,7 +69,7 @@ Var preRow =
         1,
         FILTER(
             MaitreD,
-            MaitreD[RESTAURANT_ID] = EARLIER(MaitreD[RESTAURANT_ID]) && EARLIER(MaitreD[INVOICE_ID]) MaitreD[INVOICE_ID]
+            MaitreD[RESTAURANT_ID] = EARLIER(MaitreD[RESTAURANT_ID]) && EARLIER(MaitreD[INVOICE_ID]) = MaitreD[INVOICE_ID]
         ),
         MaitreD[INVOICE_ID],
         DESC
@@ -76,9 +79,13 @@ Return preValue
 ```
 
 [RANKX](https://dax.guide/rankx/)
-```RANKX(ALL(Customers), SUMX(RELATEDTABLE(Sales), [Sales_amount]))```
+```
+RANKX(ALL(Customers), SUMX(RELATEDTABLE(Sales), [Sales_amount]))
+```
 - default sorting: 0/false/desc -- descending
-```RANKX(ALL(Products), SUMX(RELATEDTABLE(InternetSales), [SalesAmount]))```
+```
+RANKX(ALL(Products), SUMX(RELATEDTABLE(InternetSales), [SalesAmount]))
+```
 
 [RELATED(column)  ](https://docs.microsoft.com/en-us/dax/related-function-dax)
 Returns a related value from another table

@@ -26,7 +26,8 @@ removeSources = Table.RemoveColumns(rawData, List.Select(Table.ColumnNames(rawDa
 ```
 
 show percentile for selected data
-```Product Category % of total 2 = 
+```
+Product Category % of total 2 = 
     DIVIDE([Total Sales]),
         CALCULATE([Total Sales],
             ALLSELECTED(
