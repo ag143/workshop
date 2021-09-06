@@ -91,6 +91,8 @@ Evaluates a table expression in a context modified by the given filters
 - The RELATEDTETABLE function changes the context in which the data is filtered, and evaluates the *expression* in the new context that you specify.
 - This function is a shortcut for CALCULATETABLE function with no logical expression.
 
+[SWITCH(<expression>, <value>, <result>[, <value>, <result>]…[, <else>])](https://docs.microsoft.com/en-us/dax/switch-function-dax)
+
 
 [TOPN(<n_value>, <table>, <orderBy_expression>, [<order>[, <orderBy_expression>, [<order>]]…]) ](https://docs.microsoft.com/en-us/dax/topn-function-dax)
 ```EVALUATE
@@ -104,3 +106,7 @@ Evaluates a table expression in a context modified by the given filters
         DESC
     )
 ```
+
+[VALUES(<TableNameOrColumnName>)](https://docs.microsoft.com/en-us/dax/values-function-dax)
+A column from which unique values are to be returned, or a table from which rows are to be returned
+

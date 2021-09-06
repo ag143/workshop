@@ -23,6 +23,7 @@ You are configuring a Gauge Chart. Where do you set the Goal?
 [NoSql database connection](https://docs.microsoft.com/en-us/learn/modules/get-data/4-nosql-database)
 - db URL
 - Account Key (Az Portal > Primary Key > Read-only keys)
+- You can specify the Azure Cosmos DB account endpoint URL that you want to get the data from (you can get the URL from the Keys blade of your Azure portal)
 
 [Azure Analysis Services](https://docs.microsoft.com/en-us/learn/modules/get-data/7-azure-analysis-services)
 Azure Analysis Services is an Azure product that allows you to ingest data from multiple data sources, build relationships between the data, and creates calculations on the data. The calculations are built using data analysis expressions (DAX). Azure Analysis Services is similar to the data modeling and storage technology in Power BI
@@ -56,7 +57,7 @@ optimize performance
 - Level 3 = PATHITEM(Employee[Path],3)
 
 Role-playing dimensions
-- like date table can be 2 roles (order time, ship time)
+- like date table can have 2 roles (order time, ship time)
 
 [Behavior of DirectQuery connections, and limitation; Customize the Query reduction options](https://docs.microsoft.com/en-us/learn/modules/optimize-model-power-bi/5-directquery-models)
 
@@ -65,11 +66,12 @@ Role-playing dimensions
 # Visualize the Data
 
 [tooltips to display graphical information](https://docs.microsoft.com/en-us/learn/modules/visuals-power-bi/4-format)
-- new page > Page Inforation > Tooltip (slider) > ON
+- new page > Page Size > Tooltip (slider) > ON
 
 If you decide to use an R or Python visual, and you want to refresh the data in Power BI service, you'll need to use a personal gateway
 
 [Set the navigation destination](https://docs.microsoft.com/en-us/learn/modules/data-driven-story-power-bi/4-report-navigation)
+use conditional formatting to set the navigation destination based on the output of a measure
 - create a single column table (M)
 - Button (type: Page navigation)
 - Format condition:
@@ -100,8 +102,9 @@ the dashboard will follow the default data rules or the rules that you have esta
 The classfication mark will be shown in title bar (HIGH)
 
 [mobile view](https://docs.microsoft.com/en-us/learn/modules/create-dashboards-power-bi/8-set-mobile-view)
-https://docs.microsoft.com/en-us/learn/modules/create-dashboards-power-bi/8-set-mobile-view
-a new grid has been added to this view so that you can orient your visuals with more ease and overlay visuals on top of each other. This feature can be useful if you want to insert a visual on top of an image.
+[mobile view - Dashboard](https://docs.microsoft.com/en-us/learn/modules/create-dashboards-power-bi/8-set-mobile-view)
+- a new grid has been added to this view so that you can orient your visuals with more ease and overlay visuals on top of each other.
+- This feature can be useful if you want to insert a visual on top of an image.
 
 [Parameters in DAX Measures](https://www.sqlbi.com/articles/parameters-in-dax-measures/)
 
@@ -118,6 +121,7 @@ shade 'new' group in differen color
 This feature does not work if you have non-numeric filters applied to your visual and/or if you have measure filters applied.
 
 [Apply insights](https://docs.microsoft.com/en-us/power-bi/create-reports/desktop-insights-find-where-different)
+right-click on any data point: Analyze > Find where this distribution is different
 
 [Quick Insigts](https://docs.microsoft.com/en-us/learn/modules/perform-analytics-power-bi/9-quick-insights)
 PBI service > Datasets > ...> Quick Insigts
@@ -179,10 +183,11 @@ metric reports
 *RangeStart*, *RangeEnd*
 
 [Manage and promote datasets](https://docs.microsoft.com/en-us/learn/modules/manage-datasets-power-bi/7-manage-datasets)
+two ways to **endorse** your datasets
 - **Promotion** - Promote your datasets when they're ready for broad usage. Power BI Admins have permissions to promote datasets.
     - You can only promote a dataset if you're a Power BI admin user or the owner of that dataset.
 - **Certification** - Request certification for a promoted dataset from an admin user that is defined in the Dataset Certification tenant admin setting. This certification adds another layer of security for your datasets. Certification can be a highly selective process, so only the truly reliable and authoritative datasets are used across the organization.
-    - ou can only certify a dataset if you've been listed as a user in the tenant settings
+    - can only certify a dataset if you've been listed as a user in the tenant settings
 
 [Query caching](https://docs.microsoft.com/en-us/learn/modules/manage-datasets-power-bi/9-query-caching)
 a local caching feature that maintains results on a user and report basis. This service is only available to users with Power BI Premium or Power BI Embedded
@@ -200,14 +205,8 @@ PBI service > dataset > setting > Query Caching
 - Test as role (both in PBI Service and Desktop)
 
 
-
-
-
-
-
-
-
-possible to add tile of 'web content'. ie, there are some video online,  this video can be added as a tile to dashboad
+---
+---
 
 In order to confirm region is populated for every author, you need to use the column profile tool to understand the distribution for the region column. Additionally, the default Power Query profile is only done on the first 1,000 rows. You need to enable column profiling based on the entire dataset to see all 2,500 authors.
 
@@ -254,7 +253,7 @@ The key influencers visual shows the most important factors based on the fields 
 You need to provide a user with the ability to add members to a workspace. The solution must use the principle of least privilege.Which role should you assign to the user?
 - **Member** (Add **members** or others with lower permissions.)
 
-ou have several reports and dashboards in a workspace. You need to grant all organizational users read access to a dashboard and several reports. Solution: You enable included in app for all assets. Does this meet the goal?
+you have several reports and dashboards in a workspace. You need to grant all organizational users read access to a dashboard and several reports. Solution: You enable included in app for all assets. Does this meet the goal?
 - No
 - correct: 1, publish app. 2, grant access to certain groups.
 
@@ -300,20 +299,20 @@ ColumnB contains several non-printable characters.
 - ColumnA: TRIM 
     ColumnB: CLEAN
 
-In the Power Querry editor, select the text column you want to shape and the right click on them. This menu will appear:
+In the Power Querry editor, select the text column you want to shape and then right click on them. This menu will appear:
 - Transform > Trim/Clean/Length/...
 
 split datatime before importing to power bi
 - In order to improve our Power BI model performances, it is really important to work at the data source level. Among the different techniques available to optimize the modeling experience, there is the split between the date and time if they come from a single combined column
 
-to replace null values with the date from the previous row
+to replace null values with the data from the previous row
 - command: Fill, and then Down
 
 From the **Extract** menu, click Text After Delimiter
 - Fist/Last Characters, Range, Text before/after delimiter, Text Between Delimiters
 
 data model presents a huge list of queries that make it difficult to organize the transformation steps
-- cteate a group of queries to classify the data-transformations
+- create a group of queries to classify the data-transformations
 
 parameter
 - M: Advance Query Editor > replace text by [varName] (the varName looks like Pythons)
@@ -379,9 +378,9 @@ create a bar chart visualization to show the count of course enrollments by year
 - Larger enrollments = Calculate(Filter('FactcourseEnrollments','FactCourseEnrollments'[EnrollmentsAmount]>1000))
 
 pivot and show the weekd day scheduled
-- Schedule Checkbox = IF(COUNTROOWS(Appointments)>0, UNICAHR(9635),"")
+- Schedule Checkbox = IF(COUNTROWS(Appointments)>0, UNICAHR(9635),"")
 
-ou have a Power BI model for sales data. You create a measure to calculate the year-to-date sales. You need to compare the year-to-date sales with the previous year for the same time period
+you have a Power BI model for sales data. You create a measure to calculate the year-to-date sales. You need to compare the year-to-date sales with the previous year for the same time period
 - to filter out the dates for calculation
 
 a measure to rank total sales by product
@@ -410,10 +409,11 @@ Develop a template app (when create a workspace)
 - A template app workspace will be created for developing and releasing the app.
 1. Create a dataflow using define new tables
 1. Create a dataflow using linked tables.reference an existing table, defined in another dataflow, in a **read-only** fashion
-1. Create a dataflow using a computed table ()reference a linked table and perform operations on top of it in a write-only fashion. To convert a linked table into a computed table, you can either create a new query from a merge operation, or if you want to edit or transform the table, create a reference or duplicate of the table
-1. Create a dataflow using a CDM folder
+1. Create a dataflow using a computed table() reference a linked table and perform operations on top of it in a write-only fashion. To convert a linked table into a computed table, you can either create a new query from a merge operation, or if you want to edit or transform the table, create a reference or duplicate of the table
+1. Create a dataflow using a CDM (common data model) folder
 
-=======
+---
+
 [difference between Dataset and Dataflow](https://senturus.com/blog/what-is-the-difference-between-power-bi-dataflows-an-datasets/)
 A **dataflow** is used to organize and persist self-service data. Behind the scenes, Power BI is using an Azure Data Lake for data storage of the source data and meta data. Data can be cleaned and transformed as part of the dataflow.
 
@@ -425,7 +425,8 @@ Report developers can then select the proper, minimal dataset when building a re
 
 Once published, datasets can be shared between workspaces to other users and groups. To further clarify the quality of a dataset, an organization can certify datasets to indicate to analysts the quality of the data they’re using.
 
-======
+---
+
 [Dataset connectivity with the XMLA endpoint](https://docs.microsoft.com/en-us/power-bi/admin/service-premium-connect-tools)
 - The user account or app identity that the client application uses to access a dataset must have a valid Premium Per User (PPU) license unless the dataset resides on a Premium capacity
 
