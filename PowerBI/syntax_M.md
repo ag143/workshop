@@ -1,9 +1,10 @@
 AFTERDELIMITER
-```Text.AFTERDELIMITER([product_SKU], "x", {0, RELATIVEPOSITION.FromEnd})
 ```
-    -contains only string after "x"
+Text.AFTERDELIMITER([product_SKU], "x", {0, RELATIVEPOSITION.FromEnd})
+```
+-contains only string after "x"
 
-highest spending customers
+highest spending customers  
 ``` Top 100 Customers = TOPN(100, SUMMARIZE(FactTrans,FactTrans[Customer ID], "Sales", SUM(FactTrans[Sale])))```
 
 List.Dates(#date(2011,05,31), 365*10, #duration(1,0,0,0))
