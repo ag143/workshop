@@ -415,6 +415,7 @@ Develop a template app (when create a workspace)
 ---
 
 [difference between Dataset and Dataflow](https://senturus.com/blog/what-is-the-difference-between-power-bi-dataflows-an-datasets/)
+
 A **dataflow** is used to organize and persist self-service data. Behind the scenes, Power BI is using an Azure Data Lake for data storage of the source data and meta data. Data can be cleaned and transformed as part of the dataflow.
 
 Data is then mapped to a standard, extensible schema called the Common Data Model for clearer presentation to end users. Data from multiple sources can be combined in the Data Lake to present a unified data structure to the report developer.
