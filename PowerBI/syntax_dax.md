@@ -37,7 +37,8 @@ ISINSCOPE() function is used to test whether the region column is the level in a
 
 
 [isFiltered](https://dax.guide/isfiltered/)
-Returns true when there are direct filters on the specified column.
+ISFILTERED ( <TableNameOrColumnName> )                 
+TRUE when ColumnName is being filtered directly, or when any column of TableName is being filtered directly
 ```ISFILTERED ( Product[Color] )```
 
 LASTNONBLANK(<column>,<expression>)  [syntax](https://docs.microsoft.com/en-us/dax/lastnonblank-function-dax)

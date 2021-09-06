@@ -14,6 +14,7 @@ Your company has a data model for its sales data. The sales data has a column na
 
 # 3.Pulbishing and Sharing data
 
+
 report Sales_1 connects to a Microsoft SQL Server database by using DirectQuery connection. After you have published the Sales_1 report to the Power BI service, the visualizations don't work.
 How can you solve the issue
 - Install the on-premises data gateway and configure a data source.
@@ -85,7 +86,7 @@ filter flow
 - Filters cannot flow "upstream" (against the direction of the arrow)
 
 Which of the following functions allows you to calculate running totals?
-- DATESINPERIOD
+- DATESINPERIOD(<dates>, <start_date>, <number_of_intervals>, <interval>)
 
 In what field do measures typically "live" in a visual?
 - 'Value' field of a visual
@@ -133,8 +134,7 @@ Your company uses Active Directory security groups to manage access. You have sa
 - Using Active Directory group, you no longer need to maintain lists of individual users
 
 You have Power BI report that is published to your company's public website. You want the report on the website to update automatically when the data is refreshed. What should you do in the Power BI service
-- Publish the report to the workspace, In the website, use the embeded code URL.
-- [ref](https://docs.microsoft.com/en-us/power-bi/collaborate-share/service-publish-to-web)
+- Publish the report to the workspace, In the website, use the embeded code URL. [ref](https://docs.microsoft.com/en-us/power-bi/collaborate-share/service-publish-to-web)
 - When you use Publish to web, anyone on the Internet can view your published report or visual. Viewing requires no authentication. It includes viewing detail-level data that your reports aggregate
 
 Your company has a Power BI workspace with several shared dashboards. You need to provide a user named user1@company.com with the permissions to edit and publish dashboards. What should you do?
@@ -152,7 +152,7 @@ replace the non-numeric values in the CustomerID column with the number 0
 - From Query Editor, select the CustomerID column and click Replace Values. Then enter null in the Value To Find dialog box and 0 in the Replace With dialog box.
 
 You want to provide users with a sample of questions that they can ask when using Q&A. What should you do
-- In PowerBI Settings, configure **datasets** [Create featured questions for Power BI Q&A](https://docs.microsoft.com/en-us/power-bi/create-reports/service-q-and-a-create-featured-questions)
+- In PBI Service Settings, configure **datasets** [Create featured questions for Power BI Q&A](https://docs.microsoft.com/en-us/power-bi/create-reports/service-q-and-a-create-featured-questions)
 
 RANKX(ALL(Customers), SUMX(RELATEDTABLE(Sales), [Sales_amount]))
 - yes, it does
@@ -169,13 +169,11 @@ The Sales role filters sales transaction data by the sales person. Each sales pe
 Which two visualizations can you embed into the website?
 - Visualizations that use datasets stored in Microsoft OneDrive for Business
 - Custom visualizations
-- [limitations](https://docs.microsoft.com/en-us/power-bi/collaborate-share/service-publish-to-web#limitations)
+- Publish to web, [limitations](https://docs.microsoft.com/en-us/power-bi/collaborate-share/service-publish-to-web#limitations)
 
 You open the **properties of the dataset**s and modify the **Q&A and Cortana** settings. Does this action allow users to find data by using natural language queries?
 - Yes, it does
-
-You open the properties of the datasets and modify the Q&A and Cortana settings. Does this action allow users to find data by using natural language queries?
-- No, it does not
+- Q&A can be turned on both in Dataset or Dashboard
 
 You need to filter all the visualizations in the report except the KPI visualization. Which two actions should you perform?
 - **Edit the interactions of the KPI visualization**
@@ -193,7 +191,7 @@ Your company has training videos that are published to Microsoft **Stream**. You
 
 The users require insights on the completeness of the data and the value distributions
 - **Create a blank query as a datasource**
-- Specify query -Table.Profile(# "SalesDetail"), then close and apply
+- Specify query: Table.Profile(# "SalesDetail"), then close and apply
 - Create a visual on a report page using fields from the new table
 
 You are modeling data by using Microsoft Power BI. Part of the data model is a large Microsoft SQL Server table named Order that has more than 100 million records.  During the development process, you need to import a sample of the data from the Order table.  Solution: From Power Query Editor, you import the table and then add a filter step to the query.  Does this meet the goal?
@@ -267,9 +265,6 @@ Share **Dashboard with external users**
 
 The App will be available to all Organization users. You need to be sure that all the PowerBI users will have access to the App
 - Ask the PowerBI admin for enabling permission to install the app automatically to all users.
-
-embed a company video hosted on the Company YouTube channel into the dashboard
-- To the dashboard*, add a tile that uses a **Web content** source.
 
 option ''Allow users to build new content using the underlying dataset'' from the report settings. What will happen to the underlying dataset?
 - You haven't made a copy of the dataset. The dataset still resides in its original location.
