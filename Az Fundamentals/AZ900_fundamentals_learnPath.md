@@ -54,7 +54,6 @@ Azure Application Gateway:
 - **Managed**, handling maintenance and any critical problems for you.
 - **Accessible** from anywhere in the world over HTTP or HTTPS.
 
-
 ### Mobile
 ### Databases
 ### Web
