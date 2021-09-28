@@ -22,9 +22,18 @@ You want to send messages from the IoT device to the cloud and vice versa. Which
 - IoT Hub
 - *wrong* IoT Central
 
+Organizations hosting infrastructure in a ______________ do not need a data center
+- Public cloud
+- exp:
+    - In the public cloud, the cloud vendor manages the data center, so users of the public cloud do not need a data center.
+    - The private cloud requires a data center in order to host infrastructure.
+    - A Hyper V host is a hypervisor that provides a virtualized environment.
 
 
 # Part 2: Describe core Azure services
+
+regions connection:
+- Data centers within a region are connected using a low-latency leased region network, but regions are connected via the Internet rather than a leased line.
 
 services:
 - IaaS
@@ -34,6 +43,8 @@ services:
     - Azure Logic Apps. schedule, automate, and coordinate tasks, business processes, and workflows when you need to integrate apps, data, systems, and services across your enterprise or organization
     - Azure SQL
 - Saas
+- DaaS
+    - Desktop as a Service (DaaS) is a virtual desktop, a cloud service that provides a desktop virtualization system deployed in a cloud environment.
 
 Which of the following Azure regions is available to Japanese government agencies
 - Azure Global
@@ -69,10 +80,30 @@ Azure Advisor is available for **free** and provides:
 - Alternatively, configure alerts to automatically notify you of new recommendations
 - doesn't provide a way to improve the security of your Azure Active Directory (Azure AD) environment. Azure Active Directory has a function called Identity Protection, which allows you to obtain analysis information on the security structure of your organization. It helps you identify potential attacks and understand the effectiveness of your policies.
 
+You can merge two Azure subscriptions into one by creating a support request?
+- False
+- You can't merge two subscriptions in Azure. It is incorrect because each subscription is a separate entity that cannot be merged. Alternatively, you can transfer ownership of a subscription to another account. In this case, you will need to manage two subscriptions with one account. 
 
+__________ is an Azure service that detects and diagnoses web app anomalies.
+- Azure Application Insights. is a feature of Azure Monitor, an application performance management (APM) service. This service allows you to monitor running applications and automatically detect performance anomalies, and use built-in analytics tools to view what your users do on your app. 
+
+Data traffic between Azure services within the same Azure region is always free.
+- Yes. if you're in the same region, Azure does not charge you for data transfers .
+
+Azure Information Protection
+- allows organizations to label content to detect, classify, and protect **documents** and **email**.
+- This extends the labeling and classification capabilities provided by Microsoft 365.
+- **can not** encrypt: 
+    - records in Azure SQL Database
+    - Azure storage account (to Encrypt stored data using the encryption service implemented in Azure services Encryption at Rest)
+    - network traffic (To encrypt network traffic, you need to configure TLS.)
 
 
 # Part 3: Describe core solutions and management tools on Azure
+CLI
+- You can use Bash from Cloud Shell by logging in to the Azure portal from your Android laptop. Then you can create a new virtual machine from Bash with CLI. Cloud Shell is a management machine for Azure, managed by Microsoft.
+- Azure Cloud Shell gives you the flexibility to choose the best shell operation for your business.
+- Both Bash and PowerShell are options for this.
 
 Which service could help you manage the VMs that your developers and testers need to ensure that your new app works across various operating systems?
 - Azure DevTest Labs
@@ -109,8 +140,56 @@ Your company needs to run 10 Windows Server 2016 and 20 Linux virtual machines o
 - *wrong* Azure virtual machine scale set. allow you to create and manage groups of virtual machines and distribute the load within the same group, which is used when building large-scale services
 
 
+As an operations manager, you are in charge of managing each service in Azure. You need to find advice about maintenance-related events for Azure resources. Which service located on the Azure portal would you use?
+- *wrong* Azure Advisor
+- Help and support. You can find more information about maintenance in the help and support on the Azure portal. Planned maintenance information can be found on the Service Health page
+
+Is the following true?"The cost of Azure services in private preview decreases as the service becomes publicly available."
+- No
+
+private preview
+- this feature is always free.
+- Private previews are usually the first release of a product and are to help customers try out the service, provide feedback, verify if the service is actually needed, and shape the future of the product.
+- In general, the number of customers invited to private previews is limited, and these customers are expected to spend time with the product to provide feedback.
+- When the service becomes publicly available, it will be in full production mode. Fully supported by SLAs, customer support, and run on production workloads. Since the service is now running normally, you will be charged for it.
+
+Which Azure service can be used to collect events from multiple resources into one repository?
+- Azure Event Hub. Azure Event Hubs is a big data streaming platform and event capture service. It can receive and process millions of events per second. By using Azure Event Hubs, you can import events from multiple resources into a centralized repository.
+- *wrong* Azure Monitor.
+
+From ________________, you can track company regulatory standards and regulations such as ISO27001.
+- Compliance Manager. allows you to track, assign, and validate regulatory compliance activities for organizations related to Microsoft cloud services.
+
+You can download the regulatory compliance report from the Azure Security Center.
+- Yes. A new feature in Azure Security Center, the Regulatory Compliance Dashboard, is now available. This compliance dashboard continuously monitors your Azure and hybrid environment against specific compliance requirements. It can also provide security assessments and recommendations as needed. 
+
+Companies can extend their internal network by adding their physical servers to the public cloud
+- **No**
+
+Inbound data traffic from your on-premises network to Azure is always free when using Azure ExpressRoute connections
+- Yes. Azure Express Route is used to transfer data from your on-premises datacenter to Azure Public Cloud. When you use Express Route to transfer data from your on-premises datacenter to the Azure public cloud, you are not charged for inbound data transfer.
+
+On-demand flexibility is one of the benefits of using IaaS on the Azure cloud
+- The advantage of the cloud is that you can quickly and flexibly build, delete, or expand infrastructure such as servers as needed
+
+Infrastructure management flexibility is one of the benefits of using IaaS on the Azure cloud
+- False
+- Physical infrastructure management is often not possible on the part of the user. Therefore, infrastructure management is inflexible and requires very limited management options for the user
+
+Your company is planning to purchase an Azure support plan. The main reason for this choice is to have access to a dedicated team from Azure to provide architectural support to the company and your new Azure environment creation.Which support plan should you choose to gain access to this?
+- Professional Direct. 
+- Only Professional Direct (ProDirect) Advisory support provides architectural support for Azure environments. This plan provides access to Azure support guidance based on publicly available best practice documentation for Microsoft Azure and information from the Azure forums. ProDirect advisors support users based on their access to Microsoft-related documentation, Microsoft Azure support engineers, and Microsoft Azure product groups.
 
 # Part 4: Describe general security and network security features
+
+Trust Center
+- The Trust Center implements Microsoft's principles for maintaining data integrity in the cloud and Microsoft implements security, privacy, compliance, and transparency in all Microsoft cloud products and services. it is a web page that contains information and details about how Microsoft supports security, privacy, compliance, and transparency in all Microsoft cloud products and services, and is not relevant here.
+-  The Trust Center is an important part of the Microsoft Trusted Cloud Initiative, providing support and resources to the legal and compliance community
+
+You need to be aware of the latest Azure security standards to protect your data.Which of the following services should you use to ensure this?
+- Trust Center
+- *wrong* Azure compliance documentation
+
 
 Azure Security Center offers free and paid services
 - The free tier only provides security policies, ongoing security assessments, and practical security features that help protect your Azure resources
@@ -167,6 +246,64 @@ Your company is planning to move from an on-premises environment to Azure. Azure
 - Azure App Service is a fully managed platform and platform service (PaaS) for building, deploying, and scaling web apps. Azure App Service allows you to quickly build, deploy, and scale web apps and APIs.
 You can use .NET, .NET Core, Node.js, Java, Python, PHP running inside a container or on Windows or Linux
 
+Which solution should You use to assess whether your Azure environment meets security regulatory requirements?
+- Azure Security Center
+- *wrong* Azure Advisor
+
+
+You have been asked to "clean up" the Azure resources that you are not currently using to avoid incurring extra costs. Which of the following services should you remove to achieve this?
+- Public IP address
+    - Static public IP addresses in the ARM deployment model and reserved IP addresses in the ASM deployment model begin billing the from the second hour after the IP address has been created, taking into account the time needed to properly allocate the IP address.  Billing for this ends when you delete the IP address resource.
+    - For all other public IP addresses, billing begins when the associated resource is started and ends when the associated resource is deleted or stopped and then deallocated. Therefore, it is possible to stop billing by deleting unused public IP addresses.  
+- exp
+    - There is no charge for private IP, whether static or dynamic.
+    - Azure Virtual Network is **free**. You can create up to **50** virtual networks in all regions with each subscription.  
+    - he network interface is free to use.
+
+You want to configure a virtual machine to run a PowerShell script that creates an Azure resource. Solution: Configure a Linux virtual machine to run script from the Azure CLI tools. Will this solution meet the above requirements?
+- Yes. Users can run PowerShell scripts on Linux operating systems that already have the Azure CLI tools installed.
+- *wrong*
+
+You're building a process in Azure to store over 30TB of data and perform data analysis with Microsoft Power BI. The amount of data is large, but the frequency of accessing individual data is low. Choose the two best solutions.
+- Azure Data Lake
+- Azure SQL Data Warehouse
+- exp: 
+    - Azure Data Lake is a storage repository suitable for holding large amounts of data. With 30TB of data stored, the data lake can scale up to terabytes and petabytes of data.
+    - Azure SQL Data Warehouse is a data warehouse that can perform data analysis in cooperation with Azure Data Lake. You can import or export data directly from the Azure Data Lake Store (ADLS) to your Azure SQL Data Warehouse (SQL DW).  
+    - Azure SQL Database. a fully managed, intelligent relational cloud database. It eliminates the complexity of configuring and managing high availability, tuning, backup, and other database tasks with a fully managed SQL database.
+
+You are using Azure AD Connect to configure single sign-on (SSO). For this, you have enabled staging mode, but you need to check the synchronization result between ADs. What would you use to check this?
+- Synchronization Service Manager. is used to configure the more advanced aspects of the synchronization engine and to verify the operational aspects of the service. This allows you to check the synchronization execution details and status.
+
+One of the benefits of using IaaS on the Azure cloud is that it will reduce costs compared to on-premises environments
+- False
+- The cost is often cheaper by using the cloud, but there is no guarantee that it will be cheaper. Extra costs may be incurred if you overuse various services for weight billing. In addition, having your own infrastructure may reduce costs in the medium to long term
+
+One of the benefits of using IaaS on the Azure cloud is that you can leave security measures to the cloud vendor
+- **False**. 
+- You need to take security measures based on the application you have. The responsibility for managing the security of an application or service depends on the cloud service model. Built-in features and partner solutions that can be deployed to Azure subscriptions have features available on the Azure platform that cover these responsibilities. In this case, security is still a responsibility of the user.
+
+You want to build a serve rless application to perform simple application processing. Which is the best solution for this?
+- Azure Functions.an event-driven serverless computing platform that can solve complex orchestration problems. You can use this to develop serverless applications.
+- *wrong* Azure App service. Azure App Service allows you to quickly build, deploy, and scale your web applications on a **fully managed platform**. This is a development platform and does not provide a serverless environment.  
+
+You need to implement an application that leverages Azure to automatically send email notifications. Choose the two best solutions for this.
+- Azure Functions. event driven, serverless, can be used to send email
+- Azure Logic App.
+
+You need to perform data processing utilizing Hadoop clusters in the cloud.Which solution is best for this?
+- Azure HDInsight. Azure HDInsight processes large amounts of data in managed **Hadoop** clusters on the cloud
+- *wrong* Azure Databricks. integrates this collaborative Apache Spark-based analytics service with other big data services in Azure.  
+
+Who would utilize the standards-based approach when adding functionality to applications that are targeted by Azure AD?
+- Azure Developer
+
+move resources between regions
+- You can move Azure resources to another Azure subscription or to another resource group in the same subscription. You can use the Azure portal, Azure PowerShell, Azure CLI, or REST API to move resources.
+- You can also use Azure Resource Mover to move resources to another region. Leverage Azure Global Infrastructure capabilities to seamlessly move resources to the region that best suits your needs. You can streamline your planning process, accelerate your travel and protect your resources.
+
+
+
 
 
 # Part 5: Describe identity, governance, privacy, and compliance features
@@ -174,8 +311,9 @@ You can use .NET, .NET Core, Node.js, Java, Python, PHP running inside a contain
 You are building an application using a virtual machine in Azure. As a security requirement, it is necessary to apply Azure Multi-Factor Authentication (MFA) based on certain conditions.Which Azure service should you choose
 - Azure Active Directory ID Protection. Azure Active Directory ID Protection allows you to apply MFA conditionally. It is also used to detect risks such as anonymous IP address logins, unfamiliar sign-ins, and credential leaks.
 - Explanation:
-    - Azure Monitor is incorrect because it collects what is known as "application monitoring data" (data about the performance and functionality of the code you write, regardless of platform).
-    - Azure Security Center is an integrated infrastructure security management system that enhances the security structure of the data center. It's an advanced threat protection feature that protects your entire hybrid workload, both on the cloud and on-premises. With this option, you can't use MFA
+    - Azure Monitor is incorrect because it collects what is known as "application monitoring data" (data about the performance and functionality of the code you write, regardless of platform). zure Monitor collects monitoring metrics from a variety of on-premises and Azure sources. It does not have the ability to centrally manage events.  
+    - Azure Security Center is an integrated infrastructure security management system that enhances the security structure of the data center. It's an advanced threat protection feature that protects your entire hybrid workload, both on the cloud and on-premises. With this option, you can't use MFA.
+    - Azure Security Center is a support service that helps you prevent, detect, and respond to threats by visualizing and controlling the security of your Azure resources. The Security Center continually views new resources deployed throughout your workload, evaluates whether they are configured according to security best practices, and flags them otherwise. It also provides a prioritized list of recommendations for the corrections needed to protect your machine. It provides integrated security monitoring and policy management across subscriptions and assesses whether your Azure environment meets regulatory requirements
     - Azure Threat Protection (ATP) is incorrect because it is used to monitor and analyze user activity and information across the network, such as permissions and group membership
 
 There is an Azure virtual network named VNET-A in a resource group named MyResourceGroup. VNET-A  ___________ when you assign an Azure policy that says that MyResourceGroup is not allowed to create / update virtual networks.
@@ -190,6 +328,14 @@ AD and ATP
 - Azure AD Connect Health. used to monitor identity governance or identity infrastructure for on-premises resources or servers. You can use the Azure AD Connect Health portal to view alerts, performance monitoring, usage analysis, and other information.
 - Azure AD privileged ID management. used to provide just-in-time access, prevent malicious activity, and provide a fully integrated review of "privileged roles" in real time. It also helps you manage privileged administrator roles across Azure resources and Azure AD
 - Azure Advanced Threat Protection (ATP). used to detect threats from on-premises resources. It is incorrect because the questions is not regarding internal sources.
+
+Compliance Manager
+- a workflow-based risk assessment tool listed on Microsoft's Microsoft Service Trust Porta
+- allows you to track, assign, and validate regulatory compliance activities for organizations related to Microsoft Professional Services such as Microsoft Office 365, Microsoft Dynamics 365, and Microsoft Azure, as well as Microsoft Cloud Services.
+
+There are regions that are not available to organizations that have business bases in the United States.
+- true
+- Organizations that do not have a business based in China will not be able to use the four regions of China. Global Azure is operated by Microsoft, but China is not available globally for political reasons. As a result, China Azure operates independently of Global Azure.
 
 
 # Part 6: Describe Azure cost management and service level agreements
