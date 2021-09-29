@@ -1,4 +1,7 @@
 # Part 1: Describe core Azure concepts
+It is desirable to design Azure architecture based on the principles of a flexibility and elasticity in your cloud architecture. How do you achieve this?
+- Automate scaling on-demand
+- *wrong* Implement infrastructure coding and sharing. Infrastructure coding is a response used to facilitate environmental automation.
 
 - Collect security data in Azure Sentinel. Azure Sentinel is Microsoft's cloud-based SIEM. A SIEM aggregates security data from many different sources to provide additional capabilities for threat detection and responding to threats. 
 
@@ -29,27 +32,40 @@ Organizations hosting infrastructure in a ______________ do not need a data cent
     - The private cloud requires a data center in order to host infrastructure.
     - A Hyper V host is a hypervisor that provides a virtualized environment.
 
+Which group of data centers are connected by a fast network that is geographically separated in Azure?
+- Region
+- *wrong* Availability zone
+
+Data center deployment is an example of CapEx?
+- **TRUE**
+
+You have an Azure web app and you need to manage your web app settings from your iPhone. Please select two Azure management tools
+- Azure portal
+- **Azure Cloud Shell**
+- *wrong* Azure CLI. cannot be installed on iOS
+
+Availability Zones are geographically independent?
+- False
+
+Availability Zone comes with multiple edge locations?
+- False. separately from AZ
 
 # Part 2: Describe core Azure services
+
+Please select the **incorrect** statement about an Azure datacenter
+- Azure employees can access the datacenter (incorrect)
 
 regions connection:
 - Data centers within a region are connected using a low-latency leased region network, but regions are connected via the Internet rather than a leased line.
 
-services:
-- IaaS
-    - Virtual Machines
-- PaaS
-    - Azure web apps. build applications on the Azure platform without deploying, configuring, and maintaining their own Azure virtual machines.  
-    - Azure Logic Apps. schedule, automate, and coordinate tasks, business processes, and workflows when you need to integrate apps, data, systems, and services across your enterprise or organization
-    - Azure SQL
-- Saas
-- DaaS
-    - Desktop as a Service (DaaS) is a virtual desktop, a cloud service that provides a desktop virtualization system deployed in a cloud environment.
 
 Which of the following Azure regions is available to Japanese government agencies
 - Azure Global
 - *wrong* Azure Local/Japan. There is no such service
 - *wrong* Azure Govenment. Azure Government is a mission-critical cloud that delivers breakthrough innovations to US government customers and their partners. Only the US federal government, state governments, local governments, tribal governments, and their partners have access to this dedicated instance and operation are managed by selected US citizens.
+
+Users can leverage their data center to deploy Azure services?
+- FALSE (should use Azure Stack)
 
 database:
 - Azure Cosmos DB is a fully managed NoSQL database service for modern app development. Guaranteed single-digit millisecond response time and 99.999% availability. Azure Cosmos DB can store JSON documents.
@@ -57,35 +73,15 @@ database:
 - Azure SQL Database is a fully managed, intelligent relational cloud database
 - Azure Cache for Redis. A fast, fully managed in-memory data store. Not suitable for storing JSON documents
 
-characteristics of the cloud
-- Reliability depends on the service level agreement you choose, but in the event of a problem, your cloud-based application will continue to provide the user experience without any obvious downtime
-- **Scalability** means that applications in the cloud can be scaled/increased in two distinct ways - in-out and up-down
-- **Elasticity** means that cloud-based applications can be configured to always have the resources they need
-- **Agility** is cloud-based resources that can be quickly deployed and configured as application requirements change
-- *optional* The **flexibility** to change resource allocation is an example of cloud flexibility.
-- *otpional* **resiliency**. 
-    - Continuing service in the event of a failure
-    - Maintaining a DR (Disaster Recovery) configuration in other regions
-
-Availability zones are unique physical locations within your Azure region. Each zone consists of **one or more data centers** with independent power supplies, cooling means, and networks. Therefore, it does not necessarily consist of a single data center
-
-Each region has at least three separate zones.
+Each region has at least three separate zones?
 - True
-- https://docs.microsoft.com/en-us/azure/availability-zones/az-overview
-
-Azure Advisor is available for **free** and provides:
-- a way to improve the security of your Azure resources
-- solutions that help you improve cost-effectiveness, performance, reliability, and security, and you cannot file a cap relaxation request for resource limit
-- You can access the Advisor using the Azure portal, the Azure command line interface (CLI), or the Advisor API. 
-- Alternatively, configure alerts to automatically notify you of new recommendations
-- doesn't provide a way to improve the security of your Azure Active Directory (Azure AD) environment. Azure Active Directory has a function called Identity Protection, which allows you to obtain analysis information on the security structure of your organization. It helps you identify potential attacks and understand the effectiveness of your policies.
 
 You can merge two Azure subscriptions into one by creating a support request?
 - False
 - You can't merge two subscriptions in Azure. It is incorrect because each subscription is a separate entity that cannot be merged. Alternatively, you can transfer ownership of a subscription to another account. In this case, you will need to manage two subscriptions with one account. 
 
 __________ is an Azure service that detects and diagnoses web app anomalies.
-- Azure Application Insights. is a feature of Azure Monitor, an application performance management (APM) service. This service allows you to monitor running applications and automatically detect performance anomalies, and use built-in analytics tools to view what your users do on your app. 
+- Azure Application Insights 
 
 Data traffic between Azure services within the same Azure region is always free.
 - Yes. if you're in the same region, Azure does not charge you for data transfers .
@@ -157,7 +153,7 @@ Which Azure service can be used to collect events from multiple resources into o
 - Azure Event Hub. Azure Event Hubs is a big data streaming platform and event capture service. It can receive and process millions of events per second. By using Azure Event Hubs, you can import events from multiple resources into a centralized repository.
 - *wrong* Azure Monitor.
 
-From ________________, you can track company regulatory standards and regulations such as ISO27001.
+From ______, you can track company regulatory standards and regulations such as ISO27001.
 - Compliance Manager. allows you to track, assign, and validate regulatory compliance activities for organizations related to Microsoft cloud services.
 
 You can download the regulatory compliance report from the Azure Security Center.
@@ -243,8 +239,7 @@ create an Azure virtual machine using your Android laptop. Solution: Use the Pow
 
 Your company is planning to move from an on-premises environment to Azure. Azure will only use PaaS solutions. You need to deploy the required Azure environment for this. Solution: Take advantage of Azure App Service and have Microsoft SQL Server installed. 
 - **Yes**
-- Azure App Service is a fully managed platform and platform service (PaaS) for building, deploying, and scaling web apps. Azure App Service allows you to quickly build, deploy, and scale web apps and APIs.
-You can use .NET, .NET Core, Node.js, Java, Python, PHP running inside a container or on Windows or Linux
+- You can use .NET, .NET Core, Node.js, Java, Python, PHP running inside a container or on Windows or Linux
 
 Which solution should You use to assess whether your Azure environment meets security regulatory requirements?
 - Azure Security Center
@@ -285,7 +280,7 @@ One of the benefits of using IaaS on the Azure cloud is that you can leave secur
 
 You want to build a serve rless application to perform simple application processing. Which is the best solution for this?
 - Azure Functions.an event-driven serverless computing platform that can solve complex orchestration problems. You can use this to develop serverless applications.
-- *wrong* Azure App service. Azure App Service allows you to quickly build, deploy, and scale your web applications on a **fully managed platform**. This is a development platform and does not provide a serverless environment.  
+- *wrong* Azure App service.
 
 You need to implement an application that leverages Azure to automatically send email notifications. Choose the two best solutions for this.
 - Azure Functions. event driven, serverless, can be used to send email
@@ -302,7 +297,9 @@ move resources between regions
 - You can move Azure resources to another Azure subscription or to another resource group in the same subscription. You can use the Azure portal, Azure PowerShell, Azure CLI, or REST API to move resources.
 - You can also use Azure Resource Mover to move resources to another region. Leverage Azure Global Infrastructure capabilities to seamlessly move resources to the region that best suits your needs. You can streamline your planning process, accelerate your travel and protect your resources.
 
-
+In order to get a security token, what does the application need to connect to/ use
+- Azure Active Directory. Developers can get security tokens using Azure Active Directory
+- *wrong* Azure Key Vault
 
 
 
@@ -337,8 +334,23 @@ There are regions that are not available to organizations that have business bas
 - true
 - Organizations that do not have a business based in China will not be able to use the four regions of China. Global Azure is operated by Microsoft, but China is not available globally for political reasons. As a result, China Azure operates independently of Global Azure.
 
+Azure Service Health:
+- can set alerts for failures in Azure services
+- can check the status of all services in the Azure Environment
+- *wrong* can set preventive measures against failures. (cannot prevent failure)
+- cannot apply for advice to Azure Support in ASH. (Apply for Azure support on the Azure support page)
 
 # Part 6: Describe Azure cost management and service level agreements
+
+The cost of Azure services can be flexibly selected as either capital expenditure (CapEx) or operating expenditure (OpEx)?
+- True
+
+Using cloud is cost-effective because it provides managed traffic control
+- False
+- The fact that traffic control is provided in a managed manner does not affect cost reduction in response to fluctuations in demand. By using the cloud, you can use traffic distribution processing such as ELB and network traffic control such as Firewall. This does not specifically guarantee cost efficiency in response to fluctuations in demand
+
+You can access the MSDN Support Forums by setting up a pay-as-you-go subscription.
+- **TRUE**
 
 minimum number of virtual machines
 - 2. Based on the VM's SLA, deploying at least two VMs on two AZs guarantees 99.99% availability
