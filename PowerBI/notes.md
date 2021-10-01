@@ -175,9 +175,15 @@ metric reports
 - if you didn't have established permissions, you would be denied access to see the data
 
 ## Manage datasets in Power BI 
+parameter:
+- use parameter to filter column
+    - the **datatype** for bother must be the **same**
+- [function](https://docs.microsoft.com/en-us/learn/modules/manage-datasets-power-bi/2-report-parameters)
+    - 'Create Function' convert a Query into a function (with parameters to pass in)
+- [Create Parameter using query](https://guyinacube.com/2019/02/20/populate-a-power-bi-parameter-list-using-a-query/)
+    - convert a table (single column) to a list (in the Ribbon)
+    - right select a column from a table, then 'add as a query', remove duplicates
 
-[function](https://docs.microsoft.com/en-us/learn/modules/manage-datasets-power-bi/2-report-parameters)
-'Create Function' convert a Query into a function (with parameters to pass in)
 
 [incremental refresh settings](https://docs.microsoft.com/en-us/learn/modules/manage-datasets-power-bi/6-incremental-refresh)
 *RangeStart*, *RangeEnd*
