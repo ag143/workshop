@@ -132,7 +132,15 @@ other features include:
 
 #### Databases
 Azure Cosmos DB: Globally distributed database that supports NoSQL options.
+- globally distributed, multi-model database service
+- supports schema-less data, build highly responsive and "Always On" applications 
+- Azure Cosmos DB stores data in atom-record-sequence (ARS) format. The
+- The data is abstracted and projected as an API, include SQL, MongoDB, Cassandra, Tables, and Gremlin
+
 Azure SQL Database: Fully managed relational database with auto-scale, integral intelligence, and robust security.
+- enables you to process both relational data and non-relational structures, such as graphs, JSON, spatial, and XML.
+- Azure Database Migration Service can be used to migrate on-premise sql server to cloud
+
 Azure Database for MySQL: Fully managed and scalable MySQL relational database with high availability and security.
 Azure Database for PostgreSQL: Fully managed and scalable PostgreSQL relational database with high availability and security.
 SQL Server on Azure Virtual Machines: Service that hosts enterprise SQL Server apps in the cloud.
@@ -398,21 +406,132 @@ Azure Marketplace: an online store that hosts applications that are certified an
 - Multi-session Win10 Deployment
 
 ## networking services
+Azure virtual networks enable Azure resources, such as VMs, web apps, and databases, to communicate with each other, with users on the internet, and with your on-premises client computers. You can think of an Azure network as a set of resources that links other Azure resources.
 
-Communicate between Azure resources
-- virtual networks
-- Sevice endpoints
+key networking capabilities:
+- Isolation and segmentation. Virtual Network allows you to create multiple isolated virtual networks. When you set up a virtual network, you define a private IP address space by using either public or private IP address ranges. You can divide that IP address space into subnets and allocate part of the defined address space to each named subnet
+- Internet communications.A VM in Azure can connect to the internet by default. You can enable incoming connections from the internet by defining a public IP address or a public load balancer. For VM management, you can connect via the Azure CLI, Remote Desktop Protocol, or Secure Shell.
+- Communicate between Azure resources
+    - virtual networks
+    - Sevice endpoints
+- Communicate with on-premises resources
+    - **Point-to-site virtual private networks**. The typical approach to a virtual private network (VPN) connection is from a computer outside your organization, back into your corporate network. In this case, the client computer initiates an encrypted VPN connection to connect that computer to the Azure virtual network.
+    - **Site-to-site virtual private networks**. A site-to-site VPN links your on-premises VPN device or gateway to the Azure VPN gateway in a virtual network. In effect, the devices in Azure can appear as being on the local network. The connection is encrypted and works over the internet.
+    - **Azure ExpressRoute**. For environments where you need greater bandwidth and even higher levels of security. ExpressRoute provides dedicated private connectivity to Azure that doesn't travel over the internet
+- Route network traffic. Azure routes traffic between subnets on any connected virtual networks, on-premises networks, and the internet. You also can control routing and override those settings, as follows:
+    - **Route tables**. define rules about how traffic should be directed. control how packets are routed between subnets. Azure automatically creates a route table for each subnet within an Azure virtual network and adds system default routes to the table. You can add custom route tables to modify traffic between virtual networks
+    - **Border Gateway Protocol** Border Gateway Protocol (BGP) works with Azure VPN gateways or ExpressRoute to propagate on-premises BGP routes to Azure virtual networks.
+- Filter network traffic. filter traffic between subnets by using the following approaches:
+    - **Network security groups** A network security group is an Azure resource that can contain multiple inbound and outbound security rules. You can define these rules to allow or block traffic, based on factors such as source and destination IP address, port, and protocol. You create the network security group separately, Then you associate it with the virtual network
+    - **Network virtual appliances** A network virtual appliance is a specialized VM that can be compared to a hardened network appliance. A network virtual appliance carries out a particular network function, such as running a firewall or performing wide area network (WAN) optimization.
 
-Communicate with on-premises resources
-- **Point-to-site virtual private networks**. The typical approach to a virtual private network (VPN) connection is from a computer outside your organization, back into your corporate network. In this case, the client computer initiates an encrypted VPN connection to connect that computer to the Azure virtual network.
-- **Site-to-site virtual private networks**. A site-to-site VPN links your on-premises VPN device or gateway to the Azure VPN gateway in a virtual network. In effect, the devices in Azure can appear as being on the local network. The connection is encrypted and works over the internet.
-- **Azure ExpressRoute**. For environments where you need greater bandwidth and even higher levels of security. ExpressRoute provides dedicated private connectivity to Azure that doesn't travel over the internet
+- Connect virtual networks
+    - virtual network *peering*, which links virtual networks and enables resources in each vNet to communicate
+    - the vNets can be in separate regions, which allows to create a global interconnected network through Azure
+    - user-defined Routing (UDR). a significant update to Azure’s Virtual Networks; allows allows network admins to control the routing tables between subnets within a VNet, as well as between VNets, allowing for greater control over network traffic flow.
+    - https://docs.microsoft.com/en-ca/learn/modules/azure-networking-fundamentals/azure-virtual-network-fundamentals
+
+
+[Azure Virtual Network settings](https://docs.microsoft.com/en-ca/learn/modules/azure-networking-fundamentals/azure-virtual-network-settings)
+
+### [VPN gateways](https://docs.microsoft.com/en-ca/learn/modules/azure-networking-fundamentals/azure-vpn-gateway-fundamentals)
+deployed in Azure Virtual Network instances and enable the following connectivity:
+- Connect on-premises datacenters to virtual networks through a site-to-site connection.
+- Connect individual devices to virtual networks through a point-to-site connection.
+- Connect virtual networks to other virtual networks through a network-to-network connection.
+
+You can deploy only one VPN gateway in each virtual network, but you can use one gateway to connect to multiple locations, which includes other virtual networks or on-premises datacenters.
+
+VPN type:
+- Policy-based VPN gateways
+- Route-based VPNs
+
+#### Policy-based VPN gateways
+
+specify statically the IP address of packets that should be encrypted through each tunnel, and
+- Support for IKEv1 only
+- Use of static routing, where combinations of address prefixes from both networks control how traffic is encrypted and decrypted through the VPN tunnel. The source and destination of the tunneled networks are declared in the policy and don't need to be declared in routing tables.
+- Policy-based VPNs must be used in specific scenarios that require them, such as for compatibility with legacy on-premises VPN devices.
+
+#### Route-based VPNs
+IPSec tunnels are modeled as a network interface or virtual tunnel interface. IP routing (either static routes or dynamic routing protocols) decides which one of these tunnel interfaces to use when sending each packet. Route-based VPNs are the preferred connection method for on-premises devices. They're more resilient to topology changes such as the creation of new subnets.
+
+when to use:
+- Connections between virtual networks
+- Point-to-site connections
+- Multisite connections
+- Coexistence with an Azure ExpressRoute gateway
+
+Key features
+- Supports IKEv2
+- Uses any-to-any (wildcard) traffic selectors
+- Can use dynamic routing protocols, where routing/forwarding tables direct traffic to different IPSec tunnels
+
+High-availability scenarios:
+- Active/standby
+- Active/active
+
+### [Azure ExpressRoute](https://docs.microsoft.com/en-ca/learn/modules/azure-networking-fundamentals/express-route-fundamentals)
+ExpressRoute connections don't go over the public Internet, it is a private connection from your on-premises infrastructure to your Azure infrastructure
+
+focus on two different layers of the Open Systems Interconnection (OSI) model
+- Layer 2 (L2): Data Link Layer
+- Layer 3 (L3): Network  Layer
+
+Features and benefits
+- Layer 3 connectivity
+- connect to MS cloud service across all regions in the geopolitical region
+- Global connectivity to Microsoft services across all regions with the ExpressRoute premium add-on.
+- Dynamic routing between your network and Microsoft via BGP.
+- Built-in redundancy in every peering location for higher reliability.
+- Connection uptime SLA.
+- QoS support for Skype for Business.
+
+ExpressRoute enables direct access to the following services in all regions:
+- Microsoft Office 365
+- Microsoft Dynamics 365
+- Azure compute services, such as Azure Virtual Machines
+- Azure cloud services, such as Azure Cosmos DB and Azure Storage
 
 
 
 
 ## storage services
+### Disk Storage
+provides disks for Azure virtual machines. Applications and other services can access and use these disks as needed. Disk Storage allows data to be persistently stored and accessed from an attached virtual hard disk.
+
+### Blob Storage
+ideal for:
+- Serving images or documents directly to a browser.
+- Storing files for distributed access.
+- Streaming video and audio.
+- Storing data for backup and restore, disaster recovery, and archiving.
+- Storing data for analysis by an on-premises or Azure-hosted service.
+- Storing up to 8 TB of data for virtual machines.
+
+### Azure Files
+use for:
+- Many on-premises applications use file shares.
+- Store configuration files on a file share and access them from multiple VMs
+- Write data to a file share, and process or analyze the data later.
+
+ can access the files from anywhere in the world, by using a URL that points to the file. You can also use Shared Access Signature (SAS) tokens to allow access to a private asset for a specific amount of time.
+
+ ### Access tiers
+ - Hot access tier
+ - Cool access tier
+ - Archive access tier
+ 
+ considerations: 
+- Only the hot and cool access tiers can be set at the account level. The archive access tier isn't available at the account level.
+- Hot, cool, and archive tiers can be set at the blob level, during upload or after upload.
+- Data in the cool access tier can tolerate slightly lower availability, but still requires high durability, retrieval latency, and throughput- characteristics similar to hot data. For cool data, a slightly lower availability service-level agreement (SLA) and higher access costs compared to hot data are acceptable trade-offs for lower storage costs.
+- Archive storage stores data offline and offers the lowest storage costs, but also the highest costs to rehydrate and access data.
+
+
+
 ## database and analytics services
+refer to databases in Part 1
 
 
 Azure Cognitive Services
