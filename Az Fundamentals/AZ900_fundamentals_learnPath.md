@@ -1,6 +1,3 @@
-
-
-
 [Application security groups](https://docs.microsoft.com/en-us/azure/virtual-network/application-security-groups)
 - configure network security as a natural extension of an application's structure
 - group virtual machines and define network security policies based on those groups
@@ -24,7 +21,8 @@ network security group
 - filter network traffic to and from Azure resources in an Azure virtual network that has the network security group
 
 Azure Application Insights
-- a feature of Azure Monitor, an application performance management (APM) service.
+- an application performance management (APM) service, a service for sending telemetry information from application source code to Azure
+- a feature of Azure Monitor and uses Azure Monitor under the hood, 
 - allows you to monitor running applications and automatically detect performance anomalies
 - use built-in analytics tools to view what your users do on your app.
 
@@ -142,9 +140,23 @@ Azure SQL Database: Fully managed relational database with auto-scale, integral 
 - Azure Database Migration Service can be used to migrate on-premise sql server to cloud
 
 Azure Database for MySQL: Fully managed and scalable MySQL relational database with high availability and security.
+- 99.99%
+- Built-in high availability with no additional cost.
+- Predictable performance and inclusive, pay-as-you-go pricing.
 Azure Database for PostgreSQL: Fully managed and scalable PostgreSQL relational database with high availability and security.
+- single server. 3 pricing tiers: Basics, General Purpose, Memory Optimized
+- hyper scale. 
+    - horizontally scales queries across multiple machines by using sharding
+    - can serve worklods exceeding 100GB data
+    - supports multi-tenant applications, real-time operational analytics, and high throughput transactional workloads
+
+Azure SQL Managed Instance
+- PaaS, 99.99%
+- provides several options that might not be available to Azure SQL Database (Azure SQL Database only uses the default SQL_Latin1_General_CP1_CI_AS server collation)
+- easy to migrate using the Azure Database Migration Service (DMS) or native backup and restore
+- [ Features comparison: Azure SQL Database and Azure SQL Managed Instance](https://docs.microsoft.com/en-us/azure/azure-sql/database/features-comparison)
+
 SQL Server on Azure Virtual Machines: Service that hosts enterprise SQL Server apps in the cloud.
-Azure Synapse Analytics: Fully managed data warehouse with integral security at every level of scale at no extra cost.
 Azure Database Migration Service: Service that migrates databases to the cloud with no application code changes.
 Azure Cache for Redis: Fully managed service caches frequently used and static data to reduce data and application latency.
 Azure Database for MariaDB: Fully managed and scalable MariaDB relational database with high availability and security.
@@ -179,33 +191,105 @@ Azure SignalR Service: Add real-time web functionalities easily.
 
 #### Internet of Things (IoT)
 the internet allows any item that's online-capable to access valuable information. This ability for devices to garner and then relay information for data analysis is referred to as IoT.  
-IoT Central: Fully managed global IoT software as a service (SaaS) solution that makes it easy to connect, monitor, and manage IoT assets at scale.
-Azure IoT Hub: Messaging hub that provides secure communications between and monitoring of millions of IoT devices.
+
+IoT hub: 
+- a central message hub for *bi-directional* communication between your IoT application and the devices it manages
+- supports multiple messaging patterns: 
+    - device-to-cloud telemetry
+    - file upload from devices
+    - and request-reply methods to control your devices from the cloud
+- After an IoT hub receives messages from a device, it can route that message to other Azure services.
+- a cloud-to-device perspective, IoT Hub allows for *command and control*
+    - either manual or automated remote control of connected devices
+    - can instruct the device to open valves, set target temperatures, restart stuck devices, and so on
+
+IoT Central: 
+- Fully managed global IoT software as a service (SaaS) solution that makes it easy to connect, monitor, and manage IoT assets at scale.
+- builds on top of IoT Hub by adding a dashboard to connect, monitor, and manage your IoT devices.
+- UI helps to monitor, aggregate, alert and push notifications and firmware updates.
+- provides starter templates for different business types.
+- use of device templates to construct the dashboards, alerts, and so on. Device developers still need to create code to run on the devices, and that code must match the device template specification.
+
+Azure Sphere (hardware)
+- Azure Sphere micro-controller unit (MCU).  responsible for processing the operating system and signals from attached sensors.
+- customized Linux operating system (OS).  handles communication with the security service and can run the vendor's software
+- Azure Sphere Security Services, also known as AS3
+
 IoT Edge: Fully managed service that allows data analysis models to be pushed directly onto IoT devices, which allows them to react quickly to state changes without needing to consult cloud-based AI models.
 
-#### Big data
-Azure Synapse Analytics: Run analytics at a massive scale by using a cloud-based enterprise data warehouse that takes advantage of massively parallel processing to run complex queries quickly across petabytes of data.
+#### Big data (and analytics)
+Azure Synapse Analytics: Fully managed data warehouse with integral security at every level of scale at no extra cost.  Run analytics at a massive scale by using a cloud-based enterprise data warehouse that takes advantage of massively parallel processing to run complex queries quickly across petabytes of data.
+- query data on your terms by using either serverless or provisioned resources at scale
+- unified experience to ingest, prepare, manage, and serve data for immediate business intelligence and machine learning needs
+
+- an Azure analytics service that combines data integration, big data analytics and an enterprise data warehouse (EDW)
+- possible to build a data warehouse that can be used for BI and machine learning by integrating data collection, exploration, preparation, and management.
+- significantly reducing the time it takes to develop your project with an integrated experience that supports the development of **end-to-end** analytics solutions
+- cannot be used for a predictive analytics model
+
 Azure HDInsight: Process massive amounts of data with managed clusters of Hadoop clusters in the cloud.
+- open-source analytics service
+- run open-source frameworks and create cluster as Apache (Spark, Hadoop, Kafa, HBase, Storm), and Machine learning services
+- supports a broad range of scenarios such as ETL, data warehousing, machine learning, and IoT.
+
 Azure Databricks: Integrate this collaborative Apache Spark-based analytics service with other big data services in Azure.
+- a fast, easy-to-use Apache Spark-based big data analytics service designed for data engineering
+- Python, Scala, R, Java, and SQL
+- data science frameworks and libraries: TensorFlow, PyTorch, and scikit-learn.
+
+Azure Data Lake Analytics. 
+- an on-demand analytics job service that simplifies big data
+- write queries to transform your data and extract valuable insights without taking care of hardwares
+- pay for your job when it's running 
+
 
 #### AI
+- deep learning, which is modeled on the neural network of the human mind, enabling it to discover, learn, and grow through experience
+- machine learning, a data science technique that uses existing data to train a model, test it, and then apply the model to new data to forecast future behaviors, outcomes, and trends.
+
 the core of which is machine learning. Machine learning is a data science technique that allows computers to use existing data to forecast future behaviors, outcomes, and trends. Using machine learning, computers learn without being explicitly programmed  
-Azure Machine Learning Service: Cloud-based environment you can use to develop, train, test, deploy, manage, and track machine learning models. It can auto-generate a model and auto-tune it for you. It will let you start training on your local machine, and then scale out to the cloud.
+
+**Azure Machine Learning Service**: Cloud-based environment you can use to develop, train, test, deploy, manage, and track machine learning models. It can auto-generate a model and auto-tune it for you. It will let you start training on your local machine, and then scale out to the cloud.
+- a development platform for coding machine learning
+- to build a predictive analytics model that uses past user behavior data
+You can:
+- Create a process that defines how to obtain data, how to handle missing or bad data, how to split the data into either a training set or test set, and deliver the data to the training process.
+- Train and evaluate predictive models by using tools and programming languages familiar to data scientists.
+- Create pipelines that define where and when to run the compute-intensive experiments that are required to score the algorithms based on the training and test data.
+- Deploy the best-performing algorithm as an API to an endpoint so it can be consumed in real time by other applications.
+
+
 Azure ML Studio: Collaborative visual workspace where you can build, test, and deploy machine learning solutions by using prebuilt machine learning algorithms and data-handling modules.
 
-A closely related set of products are the cognitive services. You can use these prebuilt APIs in your applications to solve complex problems: 
-Vision: Use image-processing algorithms to smartly identify, caption, index, and moderate your pictures and videos.
-Speech: Convert spoken audio into text, use voice for verification, or add speaker recognition to your app.
-Knowledge mapping: Map complex information and data to solve tasks such as intelligent recommendations and semantic search.
-Bing Search: Add Bing Search APIs to your apps and harness the ability to comb billions of webpages, images, videos, and news with a single API call.
-Natural Language processing: Allow your apps to process natural language with prebuilt scripts, evaluate sentiment, and learn how to recognize what users want.
+A closely related set of products are the **Azure Cognitive** services. You can use these prebuilt APIs in your applications to solve complex problems: 
+- incorporate mechanisms such as image identification into your applications from APIs without any machine learning expertise.
+- **Vision**: Use image-processing algorithms to smartly identify, caption, index, and moderate your pictures and videos.
+- **Speech**: Convert spoken audio into text, use voice for verification, or add speaker recognition to your app.
+Natural Language processing(**language**): Allow your apps to process natural language with prebuilt scripts, evaluate sentiment, and learn how to recognize what users want.
+- Knowledge mapping (**decision**):
+    -Map complex information and data to solve tasks such as intelligent recommendations and semantic search.
+    - Add personalized *recommendations* for each user that automatically improve each time they're used, moderate content to monitor and remove offensive or risky content, and detect abnormalities in your time series data.
+    - can use Personalizer to predict their behavior and provide relevant experiences as it identifies usage patterns
+    - less expense and effort than Azure Machine Learning
+- Bing Search: Add Bing Search APIs to your apps and harness the ability to comb billions of webpages, images, videos, and news with a single API call.
 
+**Azure Bot Services**.  and Bot Framework are platforms for creating virtual agents that understand and reply to questions just like a human
 
 #### DevOps
 DevOps brings together people, processes, and technology by automating software delivery to provide continuous value to your users  
-Azure DevOps: Use development collaboration tools such as high-performance pipelines, free private Git repositories, configurable Kanban boards, and extensive automated and cloud-based load testing. Formerly known as Visual Studio Team Services.
-Azure DevTest Labs: Quickly create on-demand Windows and Linux environments to test or demo applications directly from deployment pipelines.
-
+**Azure DevOps**: Use development collaboration tools such as high-performance pipelines, free private Git repositories, configurable Kanban boards, and extensive automated and cloud-based load testing. Formerly known as Visual Studio Team Services.
+- Azure Repos
+- Azure Boards
+- Azure Pipelines. CI/CD pipeline automation tool
+- Azure Artifacts. a repository for hosting artifacts, such as compiled source code, which can be fed into testing or deployment pipeline steps.
+- Azure Test Plans. is an automated test tool that can be used in a CI/CD pipeline
+**Github and github actions**
+- less permission granularity than DevOps
+**Azure DevTest Labs**: Quickly create on-demand Windows and Linux environments to test or demo applications directly from deployment pipelines.
+- provides an automated means of managing the process of building, setting up, and tearing down virtual machines (VMs) that contain builds of your software projects.
+- developers and testers can perform tests across a variety of environments and builds. And this capability isn't limited to VMs
+- Anything you can deploy in Azure via an ARM template can be provisioned through DevTest Labs.
+- Provisioning pre-created lab environments with their required configurations and tools already installed is a huge time saver
 
 ### Azure accounts
 Azure free account includes:
@@ -267,7 +351,9 @@ Hybrid cloud: A hybrid cloud is a computing environment that combines a public c
     - Azure web apps. build applications on the Azure platform without deploying, configuring, and maintaining their own Azure virtual machines.
     - Azure Logic Apps. schedule, automate, and coordinate tasks, business processes, and workflows when you need to integrate apps, data, systems, and services across your enterprise or organization
     - Azure SQL
+        - Azure SQL Managed Instance
 - **Saas**: provider manages all aspects; tenant only needs to provide their data to the application managed by the cloud provider
+    - IoT central
     - Office 365
 - **DaaS**
     - Desktop as a Service (DaaS) is a virtual desktop, a cloud service that provides a desktop virtualization system deployed in a cloud environment.
@@ -350,10 +436,7 @@ Azure services that support availability zones fall into three categories:
 ### resource,Resource Group ARM
 [benefits of using Resource Manager](https://docs.microsoft.com/en-ca/learn/modules/azure-architecture-fundamentals/resources-resource-manager)
 
-
 Azure Marketplace: an online store that hosts applications that are certified and optimized to run in Azure.
-
-
 
 # Part 2: Describe core Azure services
 ## compute services
@@ -493,9 +576,6 @@ ExpressRoute enables direct access to the following services in all regions:
 - Azure compute services, such as Azure Virtual Machines
 - Azure cloud services, such as Azure Cosmos DB and Azure Storage
 
-
-
-
 ## storage services
 ### Disk Storage
 provides disks for Azure virtual machines. Applications and other services can access and use these disks as needed. Disk Storage allows data to be persistently stored and accessed from an attached virtual hard disk.
@@ -517,7 +597,7 @@ use for:
 
  can access the files from anywhere in the world, by using a URL that points to the file. You can also use Shared Access Signature (SAS) tokens to allow access to a private asset for a specific amount of time.
 
- ### Access tiers
+### Access tiers
  - Hot access tier
  - Cool access tier
  - Archive access tier
@@ -528,30 +608,7 @@ use for:
 - Data in the cool access tier can tolerate slightly lower availability, but still requires high durability, retrieval latency, and throughput- characteristics similar to hot data. For cool data, a slightly lower availability service-level agreement (SLA) and higher access costs compared to hot data are acceptable trade-offs for lower storage costs.
 - Archive storage stores data offline and offers the lowest storage costs, but also the highest costs to rehydrate and access data.
 
-
-
 ## database and analytics services
-refer to databases in Part 1
-
-
-Azure Cognitive Services
-- incorporate mechanisms such as image identification into your applications from APIs without any machine learning expertise.
-
-Azure Databricks
-- a fast, easy-to-use Apache Spark-based big data analytics service designed for data engineering
-
-
-Azure Machine Learning
-- a development platform for coding machine learning
-- to build a predictive analytics model that uses past user behavior data
-
-Azure Synapse Analytics
-- an Azure analytics service that combines data integration, big data analytics and an enterprise data warehouse (EDW)
-- possible to build a data warehouse that can be used for BI and machine learning by integrating data collection, exploration, preparation, and management.
-- significantly reducing the time it takes to develop your project with an integrated experience that supports the development of **end-to-end** analytics solutions
-- cannot be used for a predictive analytics model
-
-
 
 # Part 3: Describe core solutions and management tools on Azure
 ## best Az IoT service for your apllications
@@ -559,17 +616,122 @@ Azure Synapse Analytics
 ## best Az serveless technology for your business scenario
 ## best tools to help organizations build better solutions
 ## best tools for managing and configuring Az environment
-Azure Advisor: available for **free** and provides
-- solutions to improve cost-effectiveness, performance, high availability, reliability, and security
+
+### Azure Protal
+
+### Azure mobile app
+provides iOS and Android access to your Azure resources
+- Monitor the health and status of your Azure resources.
+- Check for alerts, quickly diagnose and fix issues, and restart a web app or virtual machine (VM).
+- Run the Azure CLI or Azure PowerShell commands to manage your Azure resources.
+
+### Azure PowerShell
+- windows
+- can execute commands called cmdlets (pronounced command-lets). 
+- Azure PowerShell is available for Windows, Linux, and Mac, and you can access it in a web browser via Azure Cloud Shell.
+- to orchestrate:
+    - The routine setup, teardown, and maintenance of a single resource or multiple connected resources.
+    - The deployment of an entire infrastructure, which might contain dozens or hundreds of resources, from imperative code.
+
+### The Azure CLI
+- almost identical to Azure PowerShell
+- Both run on Windows, Linux, and Mac, and can be accessed in a web browser via Cloud Shell.
+
+### ARM templates
+- describe the resources you want to use in a declarative JSON format
+- he entire ARM template is verified before any code is executed to ensure that the resources will be created and connected correctly
+
+
+## best monitoring service for visibility, insight and outage mitigation
+### Azure Advisor
+available for **free** and provides:
+- solutions to improve cost-effectiveness, performance, high availability, reliability, and security. designed to help you save time on cloud optimization
+    - Operational Excellence:  achieve process and workflow efficiency, resource manageability, and deployment best practices.
 - cannot file a cap relaxation request for resource limit
 - access the Advisor using the Azure portal, the Azure command line interface (CLI), or the Advisor API. 
 - configure alerts to automatically notify you of new recommendations
 - doesn't provide a way to improve the security of your Azure Active Directory (Azure AD) environment. Azure Active Directory has a function called Identity Protection, which allows you to obtain analysis information on the security structure of your organization. It helps you identify potential attacks and understand the effectiveness of your policies.
 
-## best monitoring service for visibility, insight and outage mitigation
+### Azure Monitor
+a platform for collecting, analyzing, visualizing, and potentially taking action based on the metric and logging data from your entire *Azure* and *on-premises* environment.
+-Scenarios:
+    - measure custom events alongside other usage metrics
+    - set up alerts for outages or when autoscaling is about to deploy new instances
+
+### Azure Service Health
+provides a personalized view of the health of the Azure services, regions, and resources you rely on; displays both major and smaller, localized issues that affect you:
+- **Service issues** are problems in Azure, such as outages, that affect you right now. You can drill down to the affected services, regions, updates from your engineering teams, and find ways to share and track the latest information.
+- **Planned maintenance events** can affect your availability. You can drill down to the affected services, regions, and details to show how an event will affect you and what you need to do. Most of these events occur without any impact to you and aren't shown here. In the rare case that a reboot is required, Service Health allows you to choose when to perform the maintenance to minimize the downtime.
+- **Health advisories** are issues that require you to act to avoid service interruption, including service retirements and breaking changes. Health advisories are announced far in advance to allow you to plan.
+- scenario:
+    - You can view the current status of the Azure services you rely on, upcoming planned outages, and services that will be sunset. 
+    - You can set up alerts that help you stay on top of incidents and upcoming downtime without having to visit the dashboard regularly.
 
 # Part 4: Describe general security and network security features
 ## Protect agains security threats on Azure
+### Azure Security Center
+a monitoring service that provides visibility of your security posture across all of your services, both on *Azure* and *on-premises*
+
+Security Center can:
+- Monitor security settings across on-premises and cloud workloads.
+- Automatically apply required security settings to new resources as they come online.
+- Provide security recommendations that are based on your current configurations, resources, and networks.
+- Continuously monitor your resources and perform automatic security assessments to identify potential vulnerabilities before those vulnerabilities can be exploited.
+- Use machine learning to detect and block malware from being installed on your virtual machines (VMs) and other resources. You can also use **adaptive application controls** to define rules that list allowed applications to ensure that only applications you allow can run.
+- Detect and analyze potential inbound attacks and investigate threats and any post-breach activity that might have occurred.
+- Provide just-in-time access control for network ports. Doing so reduces your attack surface by ensuring that the network only allows traffic that you require at the time that you need it to.
+
+
+**security posture**: cybersecurity policies and controls, as well as how well you can predict, prevent, and respond to security threats.
+**secure score**: a measurement of an organization's security posture; based on security controls, or groups of related security recommendations. Your score is based on the percentage of security controls that you satisfy. helps:
+- Report on the current state of your organization's security posture.
+- Improve your security posture by providing discoverability, visibility, guidance, and control.
+- Compare with benchmarks and establish key performance indicators (KPIs).
+
+#### Protect agains threats:
+Security Center includes advanced cloud defense capabilities for VMs, network security, and file integrity
+- **Just-in-time VM access** Tailwind Traders will configure just-in-time access to VMs. This access blocks traffic by default to specific network ports of VMs, but allows traffic for a specified time when an admin requests and approves it.
+- **Adaptive application controls** Tailwind Traders can control which applications are allowed to run on its VMs. In the background, Security Center uses machine learning to look at the processes running on a VM. It creates exception rules for each resource group that holds the VMs and provides recommendations. This process provides alerts that inform the company about unauthorized applications that are running on its VMs.
+- **Adaptive network hardening** Security Center can monitor the internet traffic patterns of the VMs, and compare those patterns with the company's current network security group (NSG) settings. From there, Security Center can make recommendations about whether the NSGs should be locked down further and provide remediation steps.
+- **File integrity monitoring** Tailwind Traders can also configure the monitoring of changes to important files on both Windows and Linux, registry settings, applications, and other aspects that might indicate a security attack.
+
+#### respond to security alerts
+from Security Center, the company can dismiss false alerts, investigate them further, remediate alerts manually, or use an automated response with a *workflow automation*:
+- uses Azure Logic Apps and Security Center connectors
+- The logic app can be triggered by a threat detection alert or by a Security Center recommendation, filtered by name or by severity
+- then configure the logic app to run an action, such as sending an email, or posting a message to a Microsoft Teams channel.
+
+### Azure Sentinel
+dedicated Security Information And Event Management (SIEM): aggregates security data from many different sources (as long as those sources support an open-standard logging format). It also provides capabilities for threat detection and response.
+
+Azure Sentinel is Microsoft's cloud-based SIEM system and enables:
+- **Collect cloud data** at scale Collect data across all users, devices, applications, and infrastructure, both on-premises and from multiple clouds.
+- **Detect previously undetected threats**  Minimize false positives by using Microsoft's comprehensive analytics and threat intelligence.
+- **Investigate threats with artificial intelligence** Examine suspicious activities at scale, tapping into years of cybersecurity experience from Microsoft.
+- **Respond to incidents rapidly** Use built-in orchestration and automation of common tasks.
+
+Azure Sentinel supports a number of data sources, handled by built-in connectors or industry-standard log formats and APIs.
+- **Connect Microsoft solutions** Connectors provide real-time integration for services like Microsoft Threat Protection solutions, Microsoft 365 sources (including Office 365), Azure Active Directory, and Windows Defender Firewall.
+- **Connect other services and solutions** Connectors are available for common non-Microsoft services and solutions, including AWS CloudTrail, Citrix Analytics (Security), Sophos XG Firewall, VMware Carbon Black Cloud, and Okta SSO.
+- **Connect industry-standard data sources** Azure Sentinel supports data from other sources that use the Common Event Format (CEF) messaging standard, Syslog, or REST API.
+
+Detect threats
+- Built in analytics. use templates designed by Microsoft's team of security experts and analysts based on known threats, common attack vectors, and escalation chains for suspicious activit
+- Custom analytics. rules that you create to search for specific criteria within your environment.
+
+[Azure Monitor Workbooks](https://docs.microsoft.com/en-us/azure/azure-monitor/visualize/workbooks-overview) to automate responses to threats. one example with steps:
+- When the alert is triggered, open a ticket in the IT ticketing system.
+- Send a message to the security operations channel in Microsoft Teams or Slack to make sure the security analysts are aware of the incident.
+- Send all of the information in the alert to the senior network admin and to the security admin. The email message includes two user option buttons: **Block** or **Ignore**.
+
+### Azure Key Vault
+- Manage secrets
+- Manage encryption keys
+- Manage SSL/TLS certificates
+- Store secrets backed by hardware security modules (HSMs)
+
+### Azure Dedicated Host
+
 ## Secure network connectivity on Azure
 
 # Part 5: Describe identity, governance, privacy, and compliance features
