@@ -1,24 +1,7 @@
-[Application security groups](https://docs.microsoft.com/en-us/azure/virtual-network/application-security-groups)
-- configure network security as a natural extension of an application's structure
-- group virtual machines and define network security policies based on those groups
-- (services for grouping virtual machines and managing access within a virtual network)
-
-Azure Firewall
-- a cloud-based managed network security service
-- protects Azure Virtual Network resources. (not an user-built application)
 
 Azure Information Protection (AIP)
 - a cloud-based solution that helps organizations classify documents and emails
 - by applying labels and can help to protect them
-
-
-DDoS
-- protection against DDoS attacks
-- protects your website from a variety of **malicious** attacks 
-- produces detailed **reports** on these attacks.
-
-network security group
-- filter network traffic to and from Azure resources in an Azure virtual network that has the network security group
 
 Azure Application Insights
 - an application performance management (APM) service, a service for sending telemetry information from application source code to Azure
@@ -33,6 +16,7 @@ Tenancy
 - defines how instances are distributed across physical hardware
 
 End-to-end: describes a process that takes a system or service from beginning to end and delivers a complete functional solution, usually without needing to obtain anything from a third party
+
 # Part 1: Describe core Azure concepts
 ## Introduction to Azure fundamentals
 ### why cheaper
@@ -435,6 +419,9 @@ Azure services that support availability zones fall into three categories:
 
 ### resource,Resource Group ARM
 [benefits of using Resource Manager](https://docs.microsoft.com/en-ca/learn/modules/azure-architecture-fundamentals/resources-resource-manager)
+Resource Manager is a management service that provides a way to organize and secure your cloud resources.access Resource Manager from the Azure portal, Azure Cloud Shell, Azure PowerShell, and the Azure CLI
+
+
 
 Azure Marketplace: an online store that hosts applications that are certified and optimized to run in Azure.
 
@@ -731,13 +718,183 @@ Detect threats
 - Store secrets backed by hardware security modules (HSMs)
 
 ### Azure Dedicated Host
+A dedicated host is mapped to a physical server in an Azure datacenter. A host group is a collection of dedicated hosts. Benifits:
+- Gives you visibility into, and control over, the server infrastructure that's running your Azure VMs.
+- Helps address compliance requirements by deploying your workloads on an isolated server.
+- Lets you choose the number of processors, server capabilities, VM series, and VM sizes within the same host.
+
+For high availability, you can provision multiple hosts in a host group, and deploy your VMs across this group. VMs on dedicated hosts can also take advantage of *maintenance control*. This feature enables you to control when regular maintenance updates occur, within a 35-day rolling window.
+
 
 ## Secure network connectivity on Azure
 
+[layers of defense in depth](https://docs.microsoft.com/en-ca/learn/modules/secure-network-connectivity-azure/2-what-is-defense-in-depth):
+- The physical security layer is the first line of defense to protect computing hardware in the datacenter.
+- The identity and access layer controls access to infrastructure and change control.
+- The perimeter layer uses distributed denial of service (DDoS) protection to filter large-scale attacks before they can cause a denial of service for users.
+- The network layer limits communication between resources through segmentation and access controls.
+- The compute layer secures access to virtual machines.
+- The application layer helps ensure that applications are secure and free of security vulnerabilities.
+- The data layer controls access to business and customer data that you need to protect.
+
+Security posture: your organization's ability to protect from and respond to security threats
+- Confidentiality. *principle of list privilege*
+- integrity
+    Prevent unauthorized changes to information:
+    - At rest: when it's stored
+    - In transit: when it's being transferred from one place to another, including from a local computer to the cloud.
+    A common approach used in data transmission is for the sender to create a unique fingerprint of the data by using a one-way hashing algorithm
+- Availability. DDos
+
+*Azure Firewall and Azure DDoS Protection can help control what traffic can come from outside sources*
+
+### Azure Firewall
+a managed, cloud-based network security service that helps protect resources in your Azure virtual networks; a stateful firewall, analyzes the complete context of a network connection, not just an individual packet of network traffic.
+- Built-in high availability.
+- Unrestricted cloud scalability.
+- Inbound and outbound filtering rules.
+- Inbound Destination Network Address Translation (DNAT) support.
+- Azure Monitor logging.
+
+With Azure Firewall, you can configure:
+- Application rules that define fully qualified domain names (FQDNs) that can be accessed from a subnet.
+- Network rules that define source address, protocol, destination port, and destination address.
+- Network Address Translation (NAT) rules that define destination IP addresses and ports to translate inbound requests.
+
+Azure Firewall provides:
+- Inbound protection for non-HTTP/S protocols (for example, RDP, SSH, and FTP).
+- Outbound network-level protection for all ports and protocols.
+- Application-level protection for outbound HTTP/S.
+
+*Azure Application Gateway* also provides a firewall that's called the web application firewall (WAF). WAF provides centralized, inbound protection for your web applications against common exploits and vulnerabilities. *Azure Front Door* and *Azure Content Delivery Network* also provide WAF services.
+
+### DDoS protection
+Always-on traffic monitoring and real-time mitigation of common network-level attacks provide the same defenses that Microsoft's online services use.The Azure global network is used to distribute and mitigate attack traffic across Azure regions.
+- protection against DDoS attacks
+- protects your website from a variety of **malicious** attacks 
+- produces detailed **reports** on these attacks.
+
+service tiers:
+- **basic**. enabled for free as part of your Azure subscription.
+- **standard**
+    - Protection policies are tuned through dedicated traffic monitoring and machine learning algorithms.
+    - Policies are applied to public IP addresses, which are associated with resources deployed in virtual networks such as Azure Load Balancer and Application Gateway.
+
+The Standard service tier can help prevent:
+- Volumetric attacks
+- protocal attacks
+- Resource-layer (application-layer) attacks (only with web application firewall)
+
+### network security group
+- filter network traffic to and from Azure **resources** in an Azure virtual network that has the network security group.
+- NSGs like an internal firewall. An NSG can contain multiple inbound and outbound security rules that enable you to filter traffic to and from resources by source and destination IP address, port, and protocol
+- provide distributed network-layer traffic filtering to limit traffic to resources within virtual networks in each subscription
+
+[Exercise - Configure network access to a VM by using a network security group](https://docs.microsoft.com/en-ca/learn/modules/secure-network-connectivity-azure/6-configure-access-network-security-group)
+
+### combine services
+- Network security groups and Azure Firewall
+
+
+[Application security groups](https://docs.microsoft.com/en-us/azure/virtual-network/application-security-groups)
+- configure network security as a natural extension of an application's structure
+- group virtual machines and define network security policies based on those groups
+- (services for grouping virtual machines and managing access within a virtual network)
+
+
 # Part 5: Describe identity, governance, privacy, and compliance features
 ## Secure access to your applications by using Azure identity services
+
+**Authentication** is the process of establishing the identity of a person or service that wants to access a resource
+**authorization** is the process of establishing what level of access an authenticated person or service has. It specifies what data they're allowed to access and what they can do with it
+
+### Azure Active Directory
+-  With Azure AD, you control the identity accounts, but Microsoft ensures that the service is available globally
+-  When you connect Active Directory with Azure AD, Microsoft can help protect you by detecting suspicious sign-in attempts at no extra cost.
+
+who uses Azure AD
+- IT administrators
+- App developers
+- Users
+- Online service subscriblers
+
+tenant
+- A tenant is a representation of an organization
+- A tenant is typically separated from other tenants and has its own identity.
+- Each Microsoft 365, Office 365, Azure, and Dynamics CRM Online tenant is automatically an Azure AD tenant.
+
+services Azure AD provide:
+- Authentication
+- Single Sing-on (SSO)
+- Application management. You can manage your cloud and on-premises apps by using Azure AD. Features like Application Proxy, SaaS apps, the My Apps portal (also called the access panel), and single sign-on provide a better user experience.
+- Device management. Along with accounts for individual people, Azure AD supports the registration of devices. Registration enables devices to be managed through tools like **Microsoft Intune**. It also allows for **device-based Conditional Access** policies to restrict access attempts to only those coming from known devices, regardless of the requesting user account.
+
+Azure AD Connect
+- a way to connect your existing Active Directory installation with Azure AD
+- synchronizes user identities **between** on-premises Active Directory and Azure AD.
+
+### Multifactor authentication
+provides additional security for your identities by requiring two or more elements to fully authenticate.
+- Something the user knows. This might be an email address and password.
+- Something the user has. This might be a code that's sent to the user's mobile phone.
+- Something the user is. This is typically some sort of biometric property, such as a fingerprint or face scan that's used on many mobile devices.
+
+the services that provice Azure AD Multi-Factor Authentication:
+- Azure Active Directory.
+    - Azure Active Directory free edition enables Azure AD Multi-Factor Authentication for administrators with the global admin level of access, via the Microsoft Authenticator app, phone call, or SMS code. You can also enforce Azure AD Multi-Factor Authentication for all users via the Microsoft Authenticator app only, by enabling security defaults in your Azure AD tenant.
+    - Azure Active Directory Premium (P1 or P2 licenses) allows for comprehensive and granular configuration of Azure AD Multi-Factor Authentication through Conditional Access policies (explained shortly).
+- Mutifactor authentication for office 365
+    - A subset of Azure AD Multi-Factor Authentication capabilities is part of your Office 365 subscription.
+
+
+### Conditional Access
+access to resources based on identity *signals*. These signals include who the user is, where the user is, and what device the user is requesting access from. it helps:
+- Empower users to be productive wherever and whenever.
+- Protect the organization's assets.
+
+when to use Conditional Access
+- Require multifactor authentication to access an application.
+- Require access to services only through approved client applications.
+- Require users to access your application only from managed devices.
+- Block access from untrusted sources, such as access from unknown or unexpected locations.
+
+To use Conditional Access, you need an Azure AD Premium P1 or P2 license. If you have a Microsoft 365 Business Premium license, you also have access to Conditional Access features.
+
 ## Build a cloud governance strategy on Azure
+Governance is most beneficial when you have:
+- Multiple engineering teams working in Azure.
+- Multiple subscriptions to manage.
+- Regulatory requirements that must be enforced.
+- Standards that must be followed for all cloud resources.
+
+Role-based Access Control (RBAC)
+- Azure RBAC doesn't enforce access permissions at the application or data level. Application security must be handled by your application.
+- You can apply Azure RBAC to an individual person or to a group. You can also apply Azure RBAC to other special identity types, such as service principals and managed identities
+
+resource lock:
+- prevents resources from being accidentally deleted or changed.
+- levels of locking
+    - **CanNotDelte**. read and modify. (lock type: DELETE)
+    - **ReadOnly**. only read
+
+Azure Blueprints
+- enables you to define the set of standard Azure resources that your organization requires
+- ie. you can define a blueprint that specifies that a certain resource lock must exist. Azure Blueprints can automatically replace the resource lock if that lock is removed.
+
+Tags, is useful for:
+- Resource management
+- Cost management and optimization
+- Operations management. (how critical there availability is; formulate SLA)
+- Security level
+- Governance and regulatory compliance. 
+    - specifiy compliance
+    - resouces for different department
+- Workload optimization and automation.
+    - tag a resource with its associated workload or application name and use software such as Azure DevOps to perform automated tasks on those resources.
+
 ## Examine privacy, compliance, and data protection standards on Azure
+
+
 
 # Part 6: Describe Azure cost management and service level agreements
 
@@ -747,18 +904,6 @@ MSDN
 
 ## Plan and manage your Azure costs
 ## Choose the right Azure services by examining SLAs and service lifecycle
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
