@@ -17,6 +17,10 @@ Tenancy
 
 End-to-end: describes a process that takes a system or service from beginning to end and delivers a complete functional solution, usually without needing to obtain anything from a third party
 
+Azure support request:
+- Azure portal
+- Azure support ticket REST API
+
 # Part 1: Describe core Azure concepts
 ## Introduction to Azure fundamentals
 ### why cheaper
@@ -103,6 +107,14 @@ characteristics:
 - **Managed**, handling maintenance and any critical problems for you.
 - **Accessible** from anywhere in the world over HTTP or HTTPS.
 
+#### Azure storage account and copies
+- Data in your Azure Storage account is always replicated three times in the primary region.
+- The Azure storage account copies the data into three times within the primary region and keeps them synchronous.
+- It is also asynchronously copied to the secondary region.
+- An Azure storage account contains all Azure Storage data objects (blobs, files, queues, tables, and disks).
+
+
+
 #### Mobile
 developers can create mobile back-end services for iOS, Android, and Windows apps quickly and easily.
 Features that used to take time and increase project risks, such as adding corporate sign-in and then connecting to on-premises resources such as SAP, Oracle, SQL Server, and SharePoint, are now simple to include.
@@ -148,7 +160,7 @@ Azure Database for MariaDB: Fully managed and scalable MariaDB relational databa
 #### Web
 The following Azure services are focused on web hosting:  
 Azure App Service: Quickly create powerful cloud web-based apps.
-- fully managed platform and and platform service (PaaS), fast-building, deploying, and scaling service for web applications and API.
+- fully managed **platform** and and platform service (**PaaS**), fast-building, deploying, and scaling service (web app) for web applications and API.
 - does not provide a serverless environment
 - when to use:
     - Web apps
@@ -376,6 +388,7 @@ Hybrid cloud: A hybrid cloud is a computing environment that combines a public c
 - A group of data centers connected by a **high-speed** network
 - geographically separated from each other
 - Each region has at least **three** separate zones.
+- multi-region support is not optimal in terms of architectural configuration because it is difficult to link virtual machines across regions
 
 importants:
 - Some services or VM features are only available in certain regions, such as specific VM sizes or storage types.
@@ -396,11 +409,13 @@ region pairs
 #### [Availability zone (AZ)](https://docs.microsoft.com/en-us/azure/availability-zones/az-overview)
 - (unique) physical locations within a unique physical region. Availability Zones within the region are geographically close and connected by a **leased line**
 - Each zone consists of one or more data centers with **independent** power supplies, cooling means, and networks
-- Availability zones are connected through high-speed, private fiber-optic networks.
+- Availability zones are connected through *high-speed, private fiber-optic* networks.
+- to prevent a single data center failure, you only need to use multiple availability zones and do not need to have a multi-region configuration
+- By default, Azure Availability Zones are used to replicate applications and data only within the Azure region. (not differe region)
 
 Azure services that support availability zones fall into three categories:
 - Zonal services: You pin the resource to a specific zone (for example, VMs, managed disks, IP addresses).
-- Zone-redundant services: The platform replicates automatically across zones (for example, zone-redundant storage, SQL Database).
+- Zone-redundant services: The platform replicates automatically across zones (for example, zone-redundant storage, SQL Database). 
 - Non-regional services: Services are always available from Azure geographies and are resilient to zone-wide outages as well as region-wide outages.
 
 
@@ -436,6 +451,9 @@ Azure Marketplace: an online store that hosts applications that are certified an
     - When running applications in the cloud
     - When extending your datacenter to the cloud
     - During disaster recovery
+
+attention:
+- By default, all inbound connections are not allowed on L4, so unless you have a *network interface*, you need to modify the rules of the **network security group** so that all inbound connections from port 80/8080 can reach the VM. 
 
 **Azure Virtual machine scale sets**
 - deploy and manage a set of identical VMs
@@ -477,6 +495,7 @@ Azure Marketplace: an online store that hosts applications that are certified an
 
 ## networking services
 Azure virtual networks enable Azure resources, such as VMs, web apps, and databases, to communicate with each other, with users on the internet, and with your on-premises client computers. You can think of an Azure network as a set of resources that links other Azure resources.
+- a private isolated network in Azure
 
 key networking capabilities:
 - Isolation and segmentation. Virtual Network allows you to create multiple isolated virtual networks. When you set up a virtual network, you define a private IP address space by using either public or private IP address ranges. You can divide that IP address space into subnets and allocate part of the defined address space to each named subnet
@@ -501,6 +520,9 @@ key networking capabilities:
     - user-defined Routing (UDR). a significant update to Azure’s Virtual Networks; allows allows network admins to control the routing tables between subnets within a VNet, as well as between VNets, allowing for greater control over network traffic flow.
     - https://docs.microsoft.com/en-ca/learn/modules/azure-networking-fundamentals/azure-virtual-network-fundamentals
 
+Routing talbe: 
+- the routing table is the routing route information recorded in the router itself. it only contains a set of rules (routes) that specify how packets are routed in the virtual network
+- It is the table to be referred to when performing the routing process but it does not identify the IP address of the VPN appliance.
 
 [Azure Virtual Network settings](https://docs.microsoft.com/en-ca/learn/modules/azure-networking-fundamentals/azure-virtual-network-settings)
 
@@ -516,6 +538,10 @@ VPN type:
 - Policy-based VPN gateways
 - Route-based VPNs
 
+#### Azure virtual network gateway
+a VPN device in the Azure virtual network that is used to set up a site-to-site VPN connection between the Azure virtual network and the local network, or a VNet-to-VNet VPN connection.
+
+
 #### Policy-based VPN gateways
 
 specify statically the IP address of packets that should be encrypted through each tunnel, and
@@ -524,7 +550,7 @@ specify statically the IP address of packets that should be encrypted through ea
 - Policy-based VPNs must be used in specific scenarios that require them, such as for compatibility with legacy on-premises VPN devices.
 
 #### Route-based VPNs
-IPSec tunnels are modeled as a network interface or virtual tunnel interface. IP routing (either static routes or dynamic routing protocols) decides which one of these tunnel interfaces to use when sending each packet. Route-based VPNs are the preferred connection method for on-premises devices. They're more resilient to topology changes such as the creation of new subnets.
+IPSec tunnels are modeled as a **network interface** (allows Azure VMs to communicate with Internet, Azure, and on-premises resources. It does not identify the IP address of the VPN appliance.) or virtual tunnel interface. IP routing (either static routes or dynamic routing protocols) decides which one of these tunnel interfaces to use when sending each packet. Route-based VPNs are the preferred connection method for on-premises devices. They're more resilient to topology changes such as the creation of new subnets.
 
 when to use:
 - Connections between virtual networks
@@ -628,6 +654,7 @@ provides iOS and Android access to your Azure resources
 - describe the resources you want to use in a declarative JSON format
 - he entire ARM template is verified before any code is executed to ensure that the resources will be created and connected correctly
 
+**Infrastructure coding** is used to facilitate environmental automation
 
 ## best monitoring service for visibility, insight and outage mitigation
 ### Azure Advisor
@@ -766,7 +793,11 @@ Azure Firewall provides:
 - Outbound network-level protection for all ports and protocols.
 - Application-level protection for outbound HTTP/S.
 
-*Azure Application Gateway* also provides a firewall that's called the web application firewall (WAF). WAF provides centralized, inbound protection for your web applications against common exploits and vulnerabilities. *Azure Front Door* and *Azure Content Delivery Network* also provide WAF services.
+*Azure Application Gateway* also provides a firewall that's called the web application firewall (WAF). WAF provides centralized, inbound protection for your web applications against common exploits and vulnerabilities.
+- used to **load balance** traffic to various web applications.
+- It does not identify the IP address of the VPN appliance
+
+*Azure Front Door* and *Azure Content Delivery Network* also provide WAF services.
 
 ### DDoS protection
 Always-on traffic monitoring and real-time mitigation of common network-level attacks provide the same defenses that Microsoft's online services use.The Azure global network is used to distribute and mitigate attack traffic across Azure regions.
@@ -874,7 +905,7 @@ Role-based Access Control (RBAC)
 resource lock:
 - prevents resources from being accidentally deleted or changed.
 - levels of locking
-    - **CanNotDelte**. read and modify. (lock type: DELETE)
+    - **Delete**, *CanNotDelete*. read and modify.
     - **ReadOnly**. only read
 
 Tags, is useful for:
@@ -894,6 +925,7 @@ Azure Policy. a service in Azure that enables you to create, assign, and manage 
 - prevent noncompliant resources from being created
 - Azure Policy comes with a number of built-in policy and initiative definitions
 - In some cases, Azure Policy can automatically remediate noncompliant resources and configurations to ensure the integrity of the state of the resources
+- Azure policies do not affect the pre-apply configuration, but will not allow create any more sources of the type that vilate the policy 
 
 Implementing a policy in Azure Policy involves these three steps:
 1. Create a policy definition.
@@ -1023,6 +1055,12 @@ closer look at some:
 
 
 ### microsoft Privacy statement
+
+data access:
+- Azure, all the data used in applications is completely controlled by the user
+- Azure themselves do not have the authority to access the data.
+- Users are required to take measures such as data encryption
+
 
 ### Online Services Terms
 a legal agreement between Microsoft and the customer

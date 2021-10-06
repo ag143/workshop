@@ -1,7 +1,7 @@
 # Part 1: Describe core Azure concepts
 It is desirable to design Azure architecture based on the principles of a flexibility and elasticity in your cloud architecture. How do you achieve this?
 - Automate scaling on-demand
-- *wrong* Implement infrastructure coding and sharing. Infrastructure coding is a response used to facilitate environmental automation.
+- *wrong* Implement infrastructure coding and sharing. Infrastructure coding is used to facilitate environmental automation.
 
 - Collect security data in Azure Sentinel. Azure Sentinel is Microsoft's cloud-based SIEM. A SIEM aggregates security data from many different sources to provide additional capabilities for threat detection and responding to threats. 
 
@@ -195,10 +195,6 @@ Azure Security Center offers free and paid services
 
 You are planning to extend your company's network to Azure to create a hybrid cloud configuration. In the on-premises environment, a VPN appliance that has the IP address of 136.168.103.1 is used and it is necessary to identify this on the Azure side. Which is the best solution for this situation?
 - local network gateway. can be used to specify the IP address of the VPN device in the virtual network. This allows Azure to identify VPN appliances that use the IP address of 136.168.103.1.
-- explanation:
-    - the routing table is the routing route information recorded in the router itself. It is the table to be referred to when performing the routing process but it does not identify the IP address of the VPN appliance.
-    - Application gateways are used to load balance traffic to various web applications. It does not identify the IP address of the VPN appliance
-    - The network interface allows Azure VMs to communicate with Internet, Azure, and on-premises resources. It does not identify the IP address of the VPN appliance.
 
 You want to deploy multiple web servers and multiple database servers in Azure. As a security measure, you need to limit the connection to the database server to be only from the web server. Which solution should you use for this?
 - Azure network security groups. to filter network traffic to and from Azure resources in your Azure virtual network. Network security groups contain security rules that allow or deny inbound or outbound network traffic to many types of Azure resources. You can specify the source, destination, port, and protocol for each rule. 
