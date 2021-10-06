@@ -877,10 +877,6 @@ resource lock:
     - **CanNotDelte**. read and modify. (lock type: DELETE)
     - **ReadOnly**. only read
 
-Azure Blueprints
-- enables you to define the set of standard Azure resources that your organization requires
-- ie. you can define a blueprint that specifies that a certain resource lock must exist. Azure Blueprints can automatically replace the resource lock if that lock is removed.
-
 Tags, is useful for:
 - Resource management
 - Cost management and optimization
@@ -892,9 +888,180 @@ Tags, is useful for:
 - Workload optimization and automation.
     - tag a resource with its associated workload or application name and use software such as Azure DevOps to perform automated tasks on those resources.
 
+Azure Policy. a service in Azure that enables you to create, assign, and manage policies that control or audit your resources
+- enables you to define both individual policies and groups of related policies, known as **initiatives**
+- evaluates your resources and highlights resources that aren't compliant with the policies you've created
+- prevent noncompliant resources from being created
+- Azure Policy comes with a number of built-in policy and initiative definitions
+- In some cases, Azure Policy can automatically remediate noncompliant resources and configurations to ensure the integrity of the state of the resources
+
+Implementing a policy in Azure Policy involves these three steps:
+1. Create a policy definition.
+1. Assign the definition to resources.
+1. Review the evaluation results.
+
+Policy assignment
+- is a policy definition that takes place within a specific scope
+- inherited by all child resources within that scope
+- can exclude a subscope from the policy assignment if there are specific child resources you need to be exempt from the policy assignment.
+
+Policy evaluation happens about once per hour. If you make changes to your policy definition and create a policy assignment, that policy is evaluated over your resources within the hour.
+
+policy initiatives
+
+example policy definitions:
+- Allowed virtual machine SKUs
+- Allowed locations
+- MFA should be enabled on accounts with write permissions on your subscription
+- CORS should not allow every resource to access your web applications (Cross-origin resource sharing)
+- System updates should be installed on your machines
+
+### Azure Blueprints
+- enables you to define the set of standard Azure resources that your organization requires
+- ie. you can define a blueprint that specifies that a certain resource lock must exist. Azure Blueprints can automatically replace the resource lock if that lock is removed.
+
+Azure Blueprints orchestrates the deployment of various resource templates and other artifacts, such as:
+- Role assignments
+- Policy assignments
+- Azure Resource Manager templates
+- Resource groups
+
+implement by 3 steps:
+1. Create an Azure blueprint.
+1. Assign the blueprint.
+1. Track the blueprint assignments.
+
+blueprint artifacts - Each component in the blueprint definition is known as an artifact.
+
+### Cloud Adoption Framework
+- provides you with proven guidance to help with your cloud adoption journey
+- helps you create and implement the business and technology strategies needed to succeed in the cloud
+
+includes these stages:
+1. Define your strategy.
+    1. Define and document your motivations
+    1. Document business outcomes
+    1. evaluate financial considerations
+    1. understand technical considerations
+1. Make a plan.
+    1. digital estate
+    1. initial organizational alignemnt (right peope, technical and cloud governance)
+    1. skill readiness plan
+    1. cloud adoption plan
+1. Ready your organization.
+    1. Azure setup guide
+    1. azure landing zone (cloud infrastructure as well as governance, accounting, and security capabilities.)
+    1. expand the landing zone
+    1. best practices
+1. Adopt the cloud.
+    - migrate
+        1. migrate your first workload
+        1. migrationscenarios
+        1. best practices
+        1. prcess improvements
+    - innovate
+        1. Business value consensus
+        1. azure innovation guide
+        1. best practices
+        1. feedback loops
+1. Govern and manage your cloud environments.
+    - govern
+        1. Methodology
+        1. benchmark: Use the governance benchmark tool to assess your current state and future state to establish a vision for applying the framework
+        1. initial governance foundation
+        1. Improve the initial governance foundation
+    - manage
+        1. establis a management baseline
+        1. define business commitments
+        1. expand the management baseline
+        1. advanced operations and design priciples
+
+### create a subscription governance strategy
+Billing
+- one billing report per subscription
+- organize subscriptions by department or by project
+- Resource Tags can also help
+
+Access control
+- A subscription is a deployment boundary for Azure resources. 
+- Every subscription is associated with an Azure Active Directory tenant. Each tenant provides administrators the ability to set granular access through defined roles by using Azure role-based access control.
+- need separate subscriptions for development and for production environments?
+
+Subscription limits
+- Azure ExpressRoute circuits per subscription is 10
+
 ## Examine privacy, compliance, and data protection standards on Azure
+compliance categories:
+- global
+- US government
+- industry
+- regional
+
+closer look at some:
+- Criminal Justice Information Service
+    - Any US state or local agency that wants to access the FBI's CJIS database
+    - Azure is the only major cloud provider that comply
+- Cloud Security Alliance STAR Certification. Azure, Intune, and Microsoft Power BI have obtained Cloud Security Alliance (CSA) STAR Certification
+    - Conforms to the applicable requirements of ISO/IEC 27001. ( International Organization of Standards/International Electrotechnical Commission)
+    - Has addressed issues critical to cloud security as outlined in the CCM. (Clod Controls Matrix)
+    - Has been assessed against the STAR Capability Maturity Model for the management of activities in CCM control areas.
+- European Union Model Clauses. around transfers of personal data outside of the EU
+- Health Insurance Portability and Accountability Act. US federal law that regulates patient Protected Health Information (PHI).
+- Multi-Tier Cloud Security Singapore.  rigorous assessments conducted by the Multi-Tier Cloud Security (MTCS) Certification Body, for IaaS, Paas, and Saas
+- Service Organization Controls 1, 2, and 3
+- National Institute of Standards and Technology Cybersecurity Framework
+- United Kingdom Government G-Cloud
+
+#### Azure compliance documentation
+ provides you with detailed documentation about legal and regulatory standards and compliance on Azure, across:
+- Global
+- US government
+- Financial services
+- Health
+- Media and manufacturing
+- Regional
 
 
+### microsoft Privacy statement
+
+### Online Services Terms
+a legal agreement between Microsoft and the customer
+
+### Data Protection Addendum (DPA)
+urther defines the data processing and security terms for online services, including:
+- Compliance with laws.
+- Disclosure of processed data.
+- Data Security, which includes security practices and policies, data encryption, data access, customer responsibilities, and compliance with auditing.
+- Data transfer, retention, and deletion.
+
+access DPA:
+1. goto [Licensing Terms and Documentation](https://www.microsoft.com/licensing/docs)
+1. in the search bar, enter DPA
+1. locate the link to the DPA in your preferred language
+
+### Trust Center
+- In-depth information about security, privacy, compliance offerings, policies, features, and practices across Microsoft cloud products.
+- Additional resources for each topic.
+- Links to the security, privacy, and compliance blogs and upcoming events.
+- don't require Azure subscription
+
+access [Trust Center](https://www.microsoft.com/en-ca/trust-center?rtc=1)
+
+### Azure Government
+a separate instance of the Microsoft Azure service. It addresses the security and compliance needs of US federal agencies, state and local governments, and their solution providers. Azure Government offers physical isolation from non-US government deployments and provides screened US personnel.
+
+zure Government customers, such as the US federal, state, and local government or their partners, are subject to validation of eligibility. Azure Government services handle data that is subject to certain government regulations and requirements:
+- Federal Risk and Authorization Management Program (FedRAMP)
+- National Institute of Standards and Technology (NIST) 800.171 Defense Industrial Base (DIB)
+- International Traffic in Arms Regulations (ITAR)
+- Internal Revenue Service (IRS) 1075
+- Department of Defense (DoD) L4
+- Criminal Justice Information Service (CJIS)
+
+### Azure China 21Vianet
+physically separated instance of cloud services located in China. Azure China 21Vianet is independently operated and transacted by Shanghai Blue Cloud Technology Co., Ltd. ("21Vianet"), a wholly owned subsidiary of Beijing 21Vianet Broadband Data Center Co., Ltd.
+
+Azure agreements and contracts in China, where applicable, are signed between customers and 21Vianet.
 
 # Part 6: Describe Azure cost management and service level agreements
 
@@ -903,7 +1070,124 @@ MSDN
 - This will be accessible as a benefit of a pay-as-you-go subscription
 
 ## Plan and manage your Azure costs
+### Total Cost of Ownership Calcaulator
+[TCO Calculator](https://azure.microsoft.com/en-us/pricing/tco/calculator/) helps you estimate the cost savings of operating your solution on Azure over time, instead of in your on-premises datacenter.
+
+### Purchase Azure services
+types of Azure subscriptions
+- Free trial
+- Pa-as-you-go
+- Members offer. Your existing membership to certain Microsoft products and services might provide you with credits for your Azure account and reduced rates on Azure services
+
+how to purchase
+- Through an Enterprise Agreement
+- Directly from the web
+- Through a Cloud Solution Provider
+
+cost factors:
+- Resource type. storage account type, performance tier (standard/premium), access tier (hot, cool, archive)
+- Usage meters
+    - Overall CPU time.
+    - Time spent with a public IP address.
+    - Incoming (ingress) and outgoing (egress) network traffic in and out of the VM.
+    - Disk size and amount of disk read and disk write operations.
+- Resource usage. delete VS delocate(temporarily shut down in weekends)
+- subscription types
+- Azure Marketplace. to purchase Azure-based solutions and services from third-party vendors
+- Location. Different regions can have different associated prices
+- Zones for billing of network traffic. Some inbound data transfers (data going into Azure datacenters) are free. For outbound data transfers (data leaving Azure datacenters), data transfer pricing is based on zones. A zone is a geographical grouping of Azure regions for billing purposes. The following zones include some of the regions as shown here:
+    - Zone 1: Australia Central, West US, East US, Canada West, West Europe, France Central, and others
+    - Zone 2: Australia East, Japan West, Central India, Korea South, and others
+    - Zone 3: Brazil South, South Africa North, South Africa West, UAE Central, UAE North
+    - DE Zone 1: Germany Central, Germany Northeast
+
+### [Manage and minimize total cost on Azure](https://docs.microsoft.com/en-ca/learn/modules/plan-manage-azure-costs/6-manage-minimize-total-cost)
+- Understand estimated costs before you deploy
+- Use Azure Advisor to monitor your usage
+- Use spending limits to restrict your spending
+- Use Azure Reservations to prepay
+- Choose low-cost locations and regions
+- Research available cost-saving offers
+- Use Azure Cost Management + Billing to control spending. including:
+    - reporting
+    - data enrichemnt
+    - budgets
+    - alerting
+    - recommendations
+- Apply tags to identify cost owners
+- Resize underutilized virtual machines
+- Deallocate virtual machines during off hours
+- Delete unused resources
+- Migrate from IaaS to PaaS services
+- Save on licensing costs
+- Choose cost-effective operating systems
+- Use Azure Hybrid Benefit to repurpose software licenses on Azure
+
+
 ## Choose the right Azure services by examining SLAs and service lifecycle
 
+### [Service-level agreements (SLA)](https://azure.microsoft.com/en-us/support/legal/sla/)
+- introduction
+- general terms
+- SLA details
 
+SLA percentage 	Downtime per week 	Downtime per month 	Downtime per year
+- 99 	1.68 hours 	7.2 hours 	3.65 days
+- 99.9 	10.1 minutes 	43.2 minutes 	8.76 hours
+- 99.95 	5 minutes 	21.6 minutes 	4.38 hours
+- 99.99 	1.01 minutes 	4.32 minutes 	52.56 minutes
+- 99.999 	6 seconds 	25.9 seconds 	5.26 minutes
+
+service credits: (monthly, credit percentage)
+- < 99.99 	10
+- < 99 	25
+- < 95 	100
+
+Free products typically don't have an SLA.
+
+### deisgn your app to meet SLA
+Combine SLAs: production of each SLA
+
+strategies:
+- Choose customization options that fit your required SLA
+- Build availability requirements into your design
+    - Deploying two or more instances of an Azure virtual machine across two or more availability zones raises the virtual machine SLA to 99.99 percent
+- Include redundancy to increase availability
+
+## preview services and preview features
+to look into new capabilites
+
+### service lifecycle
+defines how every Azure service is released for public use: develope and build -> released to preview -> validated and tested
+
+### terms and conditions to expect
+- Each Azure preview defines its own terms and conditions.
+- All preview-specific terms and conditions supplement your existing Azure service agreement.
+- Some previews aren't covered by customer support
+
+### access preview services
+1. Azure portal
+1. Create a resource
+1. enter *preview* in the search box
+1. select a service to learn more about it
+
+### access new features for an existing service
+These preview features are accessible when you deploy, configure, and manage the service.
+
+### access preview features for the Azure portal
+goto [Microsoft Azure (Preview)](https://preview.portal.azure.com/#home)
+
+### feedback
+- From the Feedback tab in the Azure portal.
+- From the [Azure portal feedback forum](https://azure.microsoft.com/en-us/feedback/).
+
+### stay updated on the latest announcements
+[Azure updates](https://azure.microsoft.com/en-us/updates/) to:
+- View details about all Azure updates.
+- See which updates are in general availability, preview, or development.
+- A screenshot of the Azure updates page showing how to filter services by now available, in preview, or in development.
+- Browse updates by product category or update type.
+- Search for updates by keyword.
+- Subscribe to an RSS feed to receive notifications.
+- Access the Microsoft Connect page to read Azure product news and announcements.
 
