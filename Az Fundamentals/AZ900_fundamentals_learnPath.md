@@ -502,7 +502,7 @@ key networking capabilities:
 - Internet communications.A VM in Azure can connect to the internet by default. You can enable incoming connections from the internet by defining a public IP address or a public load balancer. For VM management, you can connect via the Azure CLI, Remote Desktop Protocol, or Secure Shell.
 - Communicate between Azure resources
     - virtual networks
-    - Sevice endpoints
+    - Service endpoints
 - Communicate with on-premises resources
     - **Point-to-site virtual private networks**. The typical approach to a virtual private network (VPN) connection is from a computer outside your organization, back into your corporate network. In this case, the client computer initiates an encrypted VPN connection to connect that computer to the Azure virtual network.
     - **Site-to-site virtual private networks**. A site-to-site VPN links your on-premises VPN device or gateway to the Azure VPN gateway in a virtual network. In effect, the devices in Azure can appear as being on the local network. The connection is encrypted and works over the internet.
@@ -716,7 +716,9 @@ from Security Center, the company can dismiss false alerts, investigate them fur
 - then configure the logic app to run an action, such as sending an email, or posting a message to a Microsoft Teams channel.
 
 ### Azure Sentinel
-dedicated Security Information And Event Management (SIEM): aggregates security data from many different sources (as long as those sources support an open-standard logging format). It also provides capabilities for threat detection and response.
+- dedicated Security Information And Event Management (SIEM):
+- aggregates security data from many different sources (as long as those sources support an open-standard logging format). 
+- It also provides capabilities for threat detection and response.
 
 Azure Sentinel is Microsoft's cloud-based SIEM system and enables:
 - **Collect cloud data** at scale Collect data across all users, devices, applications, and infrastructure, both on-premises and from multiple clouds.
@@ -779,7 +781,8 @@ Security posture: your organization's ability to protect from and respond to sec
 a managed, cloud-based network security service that helps protect resources in your Azure virtual networks; a stateful firewall, analyzes the complete context of a network connection, not just an individual packet of network traffic.
 - Built-in high availability.
 - Unrestricted cloud scalability.
-- Inbound and outbound filtering rules.
+- Inbound and outbound filtering rules. 
+    - create application rules in Az firewall to limit all outbound traffic from VMs to known host
 - Inbound Destination Network Address Translation (DNAT) support.
 - Azure Monitor logging.
 
@@ -1081,6 +1084,7 @@ access DPA:
 - In-depth information about security, privacy, compliance offerings, policies, features, and practices across Microsoft cloud products.
 - Additional resources for each topic.
 - Links to the security, privacy, and compliance blogs and upcoming events.
+- is a great resource for people in your organization who might play a role in security, privacy, and compliance
 - don't require Azure subscription
 
 access [Trust Center](https://www.microsoft.com/en-ca/trust-center?rtc=1)
@@ -1122,7 +1126,7 @@ how to purchase
 - Directly from the web
 - Through a Cloud Solution Provider
 
-cost factors:
+cost factors: (Azure provides flexibility for capital expenditure (CapEx) and operating expenditure (OpEx).)
 - Resource type. storage account type, performance tier (standard/premium), access tier (hot, cool, archive)
 - Usage meters
     - Overall CPU time.
@@ -1183,6 +1187,8 @@ service credits: (monthly, credit percentage)
 
 Free products typically don't have an SLA.
 
+**Enterprise Agreement (EA) subscriptions** are only available to some users
+
 ### deisgn your app to meet SLA
 Combine SLAs: production of each SLA
 
@@ -1194,6 +1200,8 @@ strategies:
 
 ## preview services and preview features
 to look into new capabilites
+- The public preview service is available to all users
+- The private preview is only available to some users
 
 ### service lifecycle
 defines how every Azure service is released for public use: develope and build -> released to preview -> validated and tested

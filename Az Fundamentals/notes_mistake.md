@@ -4,7 +4,7 @@ https://github.com/wzlwit/workshop/blob/main/Az%20Fundamentals/notes_mistake.md
 It is desirable to design Azure architecture based on the principles of a flexibility and elasticity in your cloud architecture. How do you achieve this?
 - Automate scaling on-demand
 - *(wrong)* Implement infrastructure coding and sharing. used to facilitate environmental automation.
-- *(wrong)*Collect security data in Azure Sentinel.
+- *(wrong)* Collect security data in Azure Sentinel.
 
 What's the best way for Tailwind Traders to limit all outbound traffic from VMs to known hosts?
 - Create application rules in Azure Firewall.
