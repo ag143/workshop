@@ -1,21 +1,22 @@
+https://github.com/wzlwit/workshop/blob/main/Az%20Fundamentals/notes_mistake.md
+
 # Part 1: Describe core Azure concepts
 It is desirable to design Azure architecture based on the principles of a flexibility and elasticity in your cloud architecture. How do you achieve this?
 - Automate scaling on-demand
-- *wrong* Implement infrastructure coding and sharing. Infrastructure coding is used to facilitate environmental automation.
-
-- Collect security data in Azure Sentinel. Azure Sentinel is Microsoft's cloud-based SIEM. A SIEM aggregates security data from many different sources to provide additional capabilities for threat detection and responding to threats. 
+- *(wrong)* Implement infrastructure coding and sharing. used to facilitate environmental automation.
+- *(wrong)*Collect security data in Azure Sentinel.
 
 What's the best way for Tailwind Traders to limit all outbound traffic from VMs to known hosts?
-- Create application rules in Azure Firewall. Azure Firewall enables you to limit outbound HTTP/S traffic to a specified list of fully qualified domain names (FQDNs). 
+- Create application rules in Azure Firewall.
 
 How can Tailwind Traders most easily implement a deny by default policy so that VMs can't connect to each other? 
 - Create a network security group rule that prevents access from another VM on the same network.
 
 Where can the legal team access information around how the Microsoft cloud helps them secure sensitive data and comply with applicable laws and regulations?
-- Trust Center. The Trust Center is a great resource for people in your organization who might play a role in security, privacy, and compliance. 
+- Trust Center. 
 
 Where can the IT department find reference blueprints that it can apply directly to its Azure subscriptions
-- *wrong* Online Services Terms. The Online Services Terms is a legal agreement between Microsoft and the customer that details the obligations by both parties with respect to the processing and security of customer data and personal data. 
+- *(wrong)* Online Services Terms. The Online Services Terms is a legal agreement between Microsoft and the customer that details the obligations by both parties with respect to the processing and security of customer data and personal data. 
 - Azure compliance documentation. The compliance documentation provides reference blueprints, or policy definitions, for common standards that you can apply to your Azure subscription. 
 
 What's the SLA for Azure Maps in terms of guaranteed uptime
@@ -23,7 +24,7 @@ What's the SLA for Azure Maps in terms of guaranteed uptime
 
 You want to send messages from the IoT device to the cloud and vice versa. Which IoT technology can send and receive messages
 - IoT Hub
-- *wrong* IoT Central
+- *(wrong)* IoT Central
 
 Organizations hosting infrastructure in a ______________ do not need a data center
 - Public cloud
@@ -34,7 +35,7 @@ Organizations hosting infrastructure in a ______________ do not need a data cent
 
 Which group of data centers are connected by a fast network that is geographically separated in Azure?
 - Region
-- *wrong* Availability zone
+- *(wrong)* Availability zone
 
 Data center deployment is an example of CapEx?
 - **TRUE**
@@ -42,7 +43,7 @@ Data center deployment is an example of CapEx?
 You have an Azure web app and you need to manage your web app settings from your iPhone. Please select two Azure management tools
 - Azure portal
 - **Azure Cloud Shell**
-- *wrong* Azure CLI. cannot be installed on iOS
+- *(wrong)* Azure CLI. cannot be installed on iOS
 
 Availability Zones are geographically independent?
 - False
@@ -61,8 +62,8 @@ regions connection:
 
 Which of the following Azure regions is available to Japanese government agencies
 - Azure Global
-- *wrong* Azure Local/Japan. There is no such service
-- *wrong* Azure Govenment. Azure Government is a mission-critical cloud that delivers breakthrough innovations to US government customers and their partners. Only the US federal government, state governments, local governments, tribal governments, and their partners have access to this dedicated instance and operation are managed by selected US citizens.
+- *(wrong)* Azure Local/Japan. There is no such service
+- *(wrong)* Azure Govenment. Azure Government is a mission-critical cloud that delivers breakthrough innovations to US government customers and their partners. Only the US federal government, state governments, local governments, tribal governments, and their partners have access to this dedicated instance and operation are managed by selected US citizens.
 
 Users can leverage their data center to deploy Azure services?
 - FALSE (should use Azure Stack)
@@ -103,11 +104,11 @@ CLI
 
 Which service could help you manage the VMs that your developers and testers need to ensure that your new app works across various operating systems?
 - Azure DevTest Labs
-- *wrong* Azure Test Labs. Azure Test Labs is used to create automated tests, but not to manage VMs to test across various environments
+- *(wrong)* Azure Test Labs. Azure Test Labs is used to create automated tests, but not to manage VMs to test across various environments
 
 Your company wants to use a serverless application to automate the data registration process. Which Azure service should you use?
 - Azure Functions. an event-driven serverless computing platform that can solve complex orchestration problems. You can use this to develop serverless applications.
-- *wrong* Azure App Service
+- *(wrong)* Azure App Service
 
 using multiple Azure virtual machines to ensure that the services running on the virtual machine do not stop in the event of a single data center failure. Proposed Solution: Deploy virtual machines in two or more regions. Is this the most appropriate solution
 - No. 
@@ -115,29 +116,29 @@ using multiple Azure virtual machines to ensure that the services running on the
 
 Which deployment method should you choose to reduce downtime for the application you are deploying?
 - Mutli-AZ deployment. **A**vailability **Z**one
-- *wrong* multi-region deployment
+- *(wrong)* multi-region deployment
 - Administrators can lock subscriptions, resource groups, or resources to prevent accidental deletion or modification of critical resources
     - Delete locks allow legitimate users to read and modify resources, but cannot delete them
     - Read-only locks allow legitimate users to read resources, but cannot update or delete resources
 
 What settings do you need to make to prevent accidental deletion and overwriting of Recource1's resources?
 - Set a read-only lock on the resource.
-- *wrong* Set delete and update locks on the resource.
+- *(wrong)* Set delete and update locks on the resource.
 
 You need to create an Azure support request.
 - **Azure support ticket REST API**
 - Azure portal
-- *wrong* Knowledge Center. a collection of common questions and answers about Azure
-- *wrong* Security & Compliance Center. provides operations related to security and regulatory compliance
-- *wrong* support.microsoft.com. 
+- *(wrong)* Knowledge Center. a collection of common questions and answers about Azure
+- *(wrong)* Security & Compliance Center. provides operations related to security and regulatory compliance
+- *(wrong)* support.microsoft.com. 
 
 Your company needs to run 10 Windows Server 2016 and 20 Linux virtual machines on a regular basis and **remove** them after processing the task. Which Azure service should you use to minimize the administrative effort required to deploy and delete these virtual machines?
 - Azure DevTest Labs
-- *wrong* Azure virtual machine scale set. allow you to create and manage groups of virtual machines and distribute the load within the same group, which is used when building large-scale services
+- *(wrong)* Azure virtual machine scale set. allow you to create and manage groups of virtual machines and distribute the load within the same group, which is used when building large-scale services
 
 
 As an operations manager, you are in charge of managing each service in Azure. You need to find advice about maintenance-related events for Azure resources. Which service located on the Azure portal would you use?
-- *wrong* Azure Advisor
+- *(wrong)* Azure Advisor
 - Help and support. You can find more information about maintenance in the help and support on the Azure portal. Planned maintenance information can be found on the Service Health page
 
 Is the following true?"The cost of Azure services in private preview decreases as the service becomes publicly available."
@@ -151,7 +152,7 @@ private preview
 
 Which Azure service can be used to collect events from multiple resources into one repository?
 - Azure Event Hub. Azure Event Hubs is a big data streaming platform and event capture service. It can receive and process millions of events per second. By using Azure Event Hubs, you can import events from multiple resources into a centralized repository.
-- *wrong* Azure Monitor.
+- *(wrong)* Azure Monitor.
 
 From ______, you can track company regulatory standards and regulations such as ISO27001.
 - Compliance Manager. allows you to track, assign, and validate regulatory compliance activities for organizations related to Microsoft cloud services.
@@ -184,7 +185,7 @@ Trust Center
 
 You need to be aware of the latest Azure security standards to protect your data.Which of the following services should you use to ensure this?
 - Trust Center
-- *wrong* Azure compliance documentation
+- *(wrong)* Azure compliance documentation
 
 
 Azure Security Center offers free and paid services
@@ -217,7 +218,7 @@ Which service provides network traffic filtering for multiple Azure subscription
 
 What are the security benefits of storing data in the Azure public cloud
 - Users have full control over their data
-- *wrong* Protection is automatically implemented without the need for user to implement their own data security measures.
+- *(wrong)* Protection is automatically implemented without the need for user to implement their own data security measures.
 - *exp* Users are required to take measures such as data encryption. 
 
 Your company would use _________to automatically add watermarks to Microsoft Word documents that contain credit card information.
@@ -225,13 +226,13 @@ Your company would use _________to automatically add watermarks to Microsoft Wor
 
 After you create a virtual machine, you need to change the _______ to allow the virtual machine to connect to TCP port 8080
 - Network Security Group (NSG). By default, all inbound connections are not allowed on L4, so unless you have a network interface, you need to modify the rules of the network security group so that all inbound connections from port 80/8080 can reach the VM
-- *wrong* virtual network gateway. a VPN device in the Azure virtual network that is used to set up a site-to-site VPN connection between the Azure virtual network and the local network, or a VNet-to-VNet VPN connection
-- *wrong* virtual network. nothing more than a private isolated network in Azure, because it is used to enable Azure resources such as virtual machines to communicate securely with other Azure resources, the Internet, and resources in your on-premises network
-- *wrong* Azure route table. only contains a set of rules (routes) that specify how packets are routed in the virtual network
+- *(wrong)* virtual network gateway. a VPN device in the Azure virtual network that is used to set up a site-to-site VPN connection between the Azure virtual network and the local network, or a VNet-to-VNet VPN connection
+- *(wrong)* virtual network. nothing more than a private isolated network in Azure, because it is used to enable Azure resources such as virtual machines to communicate securely with other Azure resources, the Internet, and resources in your on-premises network
+- *(wrong)* Azure route table. only contains a set of rules (routes) that specify how packets are routed in the virtual network
 
 create an Azure virtual machine using your Android laptop. Solution: Use the PowerApps portal
 - No
-- *wrong* Power Apps portal to create external websites that allow users outside your organization to sign in with different identities, create and view data in Microsoft Dataverse, and browse content anonymously. This is not the mechanism to use when creating a virtual machine
+- *(wrong)* Power Apps portal to create external websites that allow users outside your organization to sign in with different identities, create and view data in Microsoft Dataverse, and browse content anonymously. This is not the mechanism to use when creating a virtual machine
 
 Your company is planning to move from an on-premises environment to Azure. Azure will only use PaaS solutions. You need to deploy the required Azure environment for this. Solution: Take advantage of Azure App Service and have Microsoft SQL Server installed. 
 - **Yes**
@@ -239,7 +240,7 @@ Your company is planning to move from an on-premises environment to Azure. Azure
 
 Which solution should You use to assess whether your Azure environment meets security regulatory requirements?
 - Azure Security Center
-- *wrong* Azure Advisor
+- *(wrong)* Azure Advisor
 
 
 You have been asked to "clean up" the Azure resources that you are not currently using to avoid incurring extra costs. Which of the following services should you remove to achieve this?
@@ -253,7 +254,7 @@ You have been asked to "clean up" the Azure resources that you are not currently
 
 You want to configure a virtual machine to run a PowerShell script that creates an Azure resource. Solution: Configure a Linux virtual machine to run script from the Azure CLI tools. Will this solution meet the above requirements?
 - Yes. Users can run PowerShell scripts on Linux operating systems that already have the Azure CLI tools installed.
-- *wrong*
+- *(wrong)*
 
 You're building a process in Azure to store over 30TB of data and perform data analysis with Microsoft Power BI. The amount of data is large, but the frequency of accessing individual data is low. Choose the two best solutions.
 - Azure Data Lake
@@ -276,7 +277,7 @@ One of the benefits of using IaaS on the Azure cloud is that you can leave secur
 
 You want to build a serve rless application to perform simple application processing. Which is the best solution for this?
 - Azure Functions.an event-driven serverless computing platform that can solve complex orchestration problems. You can use this to develop serverless applications.
-- *wrong* Azure App service.
+- *(wrong)* Azure App service.
 
 You need to implement an application that leverages Azure to automatically send email notifications. Choose the two best solutions for this.
 - Azure Functions. event driven, serverless, can be used to send email
@@ -284,7 +285,7 @@ You need to implement an application that leverages Azure to automatically send 
 
 You need to perform data processing utilizing Hadoop clusters in the cloud.Which solution is best for this?
 - Azure HDInsight. Azure HDInsight processes large amounts of data in managed **Hadoop** clusters on the cloud
-- *wrong* Azure Databricks. integrates this collaborative Apache Spark-based analytics service with other big data services in Azure.  
+- *(wrong)* Azure Databricks. integrates this collaborative Apache Spark-based analytics service with other big data services in Azure.  
 
 Who would utilize the standards-based approach when adding functionality to applications that are targeted by Azure AD?
 - Azure Developer
@@ -295,7 +296,7 @@ move resources between regions
 
 In order to get a security token, what does the application need to connect to/ use
 - Azure Active Directory. Developers can get security tokens using Azure Active Directory
-- *wrong* Azure Key Vault
+- *(wrong)* Azure Key Vault
 
 
 
@@ -333,7 +334,7 @@ There are regions that are not available to organizations that have business bas
 Azure Service Health:
 - can set alerts for failures in Azure services
 - can check the status of all services in the Azure Environment
-- *wrong* can set preventive measures against failures. (cannot prevent failure)
+- *(wrong)* can set preventive measures against failures. (cannot prevent failure)
 - cannot apply for advice to Azure Support in ASH. (Apply for Azure support on the Azure support page)
 
 # Part 6: Describe Azure cost management and service level agreements
@@ -358,8 +359,8 @@ Azure resources are available in all regions, not all regions are available to u
 
 Azure services are available to all Azure users during ____
 - **public preview**
-- *wrong* Enterprise Agreement (EA) Subscription, private preview, development. All the three are only available to some users
+- *(wrong)* Enterprise Agreement (EA) Subscription, private preview, development. All the three are only available to some users
 
 Which of the following explanations about Azure usage costs is correct?
 - Azure provides flexibility for capital expenditure (CapEx) and operating expenditure (OpEx).
-- *wrong* If you create two Azure virtual machines of the same size, the monthly usage fee for each virtual machine will be exactly the same. (it also depends on the region where the virtual machine is located, as each  has a different cost)
+- *(wrong)* If you create two Azure virtual machines of the same size, the monthly usage fee for each virtual machine will be exactly the same. (it also depends on the region where the virtual machine is located, as each  has a different cost)
