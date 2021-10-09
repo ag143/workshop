@@ -91,7 +91,10 @@ Azure Load Balancer: Balances inbound and outbound connections to applications o
 
 Azure DNS: Provides ultra-fast DNS responses and ultra-high domain availability.
 
-Azure Content Delivery Network: Delivers high-bandwidth content to customers globally.
+Azure Content Delivery Network (CDN): Delivers high-bandwidth content to customers globally. 
+    - a secure, reliable, and fast content delivery network.
+    - reduce load times, save bandwidth, and improve responsiveness.
+    - develop and manage websites and mobile apps, as well as accelerate streaming media and game software, firmware updates, and IoT endpoint encoding and delivery. 
 
 Azure DDoS Protection: Protects Azure-hosted applications from distributed denial of service (DDOS) attacks.
 
@@ -984,6 +987,8 @@ the services that provice Azure AD Multi-Factor Authentication:
     - Azure Active Directory Premium (P1 or P2 licenses) allows for comprehensive and granular configuration of Azure AD Multi-Factor Authentication through Conditional Access policies (explained shortly).
 - Mutifactor authentication for office 365
     - A subset of Azure AD Multi-Factor Authentication capabilities is part of your Office 365 subscription.
+- hybrid identities - federation services
+    - For hybrid identities, you can configure MFA when deployed while synchronized or federated with on-premises Active Directory Domain Services and Azure Active Directory.
 
 
 ### Conditional Access
@@ -1392,3 +1397,9 @@ goto [Microsoft Azure (Preview)](https://preview.portal.azure.com/#home)
 Azure support request:
 - Azure portal
 - Azure support ticket REST API
+
+Developer Support Plan
+- only email is available during business hours
+- includes "Billing and Subscription Management Support", "24/7 self-help resources, Microsoft Learn, Azure portal instructions on how to use videos, documentation, community support", and "Ability to send as many support tickets as you need" 
+
+

@@ -210,8 +210,16 @@ You want to subscribe to an Azure support plan so that you can get design review
 - **Premier**. ( advisory services based on best practices)
 - *(wrong)* Professional Direct. (general guidance)
 
-# Part 4: Describe general security and network security features
+You have built an application with an Azure virtual machine. This application delivers video content. Choose one of the best solutions to improve this delivery processing performance.
+- Azure CDN (content delivery network)
+- *(wrong)* Azure Cached for Redis (in-memory data store)
 
+You are building a mechanism to save log files using BLOB storage. This data is rarely accessed. Choose the storage type that is most cost-effective?
+- Archive
+- *(wrong)* Cool. (infrequently, to be stored for at least 30 days)
+
+
+# Part 4: Describe general security and network security features
 You need to be aware of the latest Azure security standards to protect your data.Which of the following services should you use to ensure this?
 - Trust Center
 - *(wrong)* Azure compliance documentation
@@ -312,6 +320,7 @@ You have an Azure AD tenant in your Azure subscription. All administrators are r
 - Azure AD Identity Protection sign-in risk policy
 - *(wrong)* The multi-factor authentication service configuration. (MFA only allows you to configure trusted devices, not the login location such as on premise sites.)
 
+
 # Part 5: Describe identity, governance, privacy, and compliance features
 
 You are building an application using a virtual machine in Azure. As a security requirement, it is necessary to apply Azure Multi-Factor Authentication (MFA) based on certain conditions.Which Azure service should you choose
@@ -369,3 +378,9 @@ Which of the following explanations about Azure usage costs is correct?
 
 If Microsoft plans to end support for Azure services that do not have a successor service, Microsoft will provide a notification at least _____________in advance
 - **12** months
+
+The Developer Support Plan allows you to contact a Microsoft support engineer by phone or email.
+- False
+
+The Basic Support Plan allows you to contact a Microsoft support engineer by phone or email.
+- False
