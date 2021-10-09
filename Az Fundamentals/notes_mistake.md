@@ -125,6 +125,8 @@ In regards to moving Azure resources from one subscription to another, which of 
 There is no additional cost to use Azure globally across multiple regions.
 - True. (cost depends on the resources used.)
 
+
+
 # Part 3: Describe core solutions and management tools on Azure
 
 Which service could help you manage the VMs that your developers and testers need to ensure that your new app works across various operating systems?
@@ -384,3 +386,74 @@ The Developer Support Plan allows you to contact a Microsoft support engineer by
 
 The Basic Support Plan allows you to contact a Microsoft support engineer by phone or email.
 - False
+
+What is the maximum number of virtual machines that can be set in a virtual machine scale set?
+- 1000
+
+What is the "network" layer of network security?
+- Subnet configuration
+- *(wrong)*
+
+correct statements below of the documentation provided by the Microsoft Service Trust Portal.
+- Documentation that can be used to show Microsoft's compliance efforts
+- **Penetration test results**. you can see the results of penetration testing by an independent third party. 
+- **Security Evaluation**. 
+
+Which of the following can Azure App Service Environment host? Please select two
+- Docker container
+- Functions
+- *(wrong)* Database script
+- *(wrong)* packaged code
+
+Which **container** is used to collect logs and metrics from various Azure resources?
+- Log Analytics Workspace
+- *(wrong)* Azure Monitor Space. (no such service called by this name)
+
+Select all the tools that can deploy resources according to the Azure Resource Manager model.
+- Azure Portal
+- **Powershell**
+- CLI
+- REST API
+- **SDK**. (a collection of libraries built to make it easy to use Azure services in your language of choice)
+
+What do you use to protect your Azure virtual network subnet?
+- Network security group.
+- *(wrong)* Azure Firewall. (portect VNets itself, not sbunets)
+
+Which database service is specially designed to respond very fast to low latency data processing requests?
+- Azure Cosmos DB
+- *(wrong)* Azure Data Warehouse. a service that brings together tools for data warehousing and big data analysis.  
+
+Which of the below corresponds to the minimum SLAs that an availability set has when **more than one** virtual machine is deployed in the same AZ.
+- 99.95%
+
+What is the maximum amount of Azure storage space that can be stored in one subscription?
+- Almost unlimited
+
+
+Which tools or services will find issues affecting the Azure global network? Please select all that apply.
+- Azure Monitor
+- **Resouce health blade for each virtual machines**
+- Azure service health
+
+You use RDP when accessing your Windows server. Also, you use SSH when accessing your Linux server. Select all recommendations to secure these protocols.
+- Do not allow direct public internet access to the server through RDP and SSH ports.
+- Set up access from the public internet using the Bastion server.
+- *(wrong)* Enable RDP access using the Windows Services Control Panel Administrative Tools. (not a security recommendation in of itself.)
+
+Which is considered part of the architectural **security layer**?
+- Firewall configuration
+- *(wrong)* Virtual network configuration
+    
+The availability of resources on demand is an example of scalability
+- TRUE. (Being able to scale resources according to your needs is called scalability)
+
+Achieving a flexible infrastructure configuration is an example of agility
+- False. (Flexible configuration and resource allocation is called flexibility or elasticity.)
+
+Making certain Azure services unavailable to certain users is possible with Azure policy
+- False. (Azure policy evaluates the state of a resource for the entire account as it complies with the policy, rather than allowing only specific users to access the resource group.)
+
+Azure Functions can be used for **continuously** running backend applications.
+- False
+    - Azure Functions is designed for short code that starts and ends quickly. You can use this to build simple applications that execute code serverlessly. Therefore, it is not well suited for continuously running backend batch applications.

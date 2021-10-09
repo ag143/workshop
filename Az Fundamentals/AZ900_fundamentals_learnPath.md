@@ -194,10 +194,13 @@ other features include:
 #### Web
 The following Azure services are focused on web hosting:  
 Azure App Service: Quickly create powerful cloud web-based apps.
-- fully managed **platform** service (**PaaS**), fast-building, deploying, and scaling service for web applications and API.
+- fully managed **platform** service (**PaaS**), fast-building, deploying, and scaling service for *web applications*, *mobile backend* and *RESTful API*.
 - does not provide a serverless environment
-- when to use:
-    - Web apps
+- *when to use*:
+    - Windows Web apps
+    - Linux Web apps
+    - Dock container
+    - Functions
     - API apps
     - WebJobs (run a progrom/script in the same context as w Web App; can be scheduled or run by a trigger)
     - Mobile apps (quickly build a back end for iOS and Android app)
@@ -302,7 +305,9 @@ an AI platform that can be used by all developers without needing any machine le
 
 A closely related set of products are the **Azure Cognitive** services. You can use these prebuilt APIs in your applications to solve complex problems: 
 - incorporate mechanisms such as image identification into your applications from APIs without any machine learning expertise.
-- **Vision**: Use image-processing algorithms to smartly identify, caption, index, and moderate your pictures and videos.
+- **Vision**: Use image-processing algorithms to smartly identify, caption, index, and moderate your **pictures** and **videos**.
+    - customize and embed state-of-the-art computer vision image analysis for specific domains
+    - build a smooth customer experiences, optimize manufacturing processes, drive digital marketing campaigns
 - **Speech**: Convert spoken audio into text, use voice for verification, or add speaker recognition to your app.
 Natural Language processing(**language**): Allow your apps to process natural language with prebuilt scripts, evaluate sentiment, and learn how to recognize what users want.
 - Knowledge mapping (**decision**):
@@ -368,11 +373,11 @@ The Azure free student account offer includes:
 - **Scalability**: Apps in the cloud can scale vertically and horizontally:
     - Scale vertically (up-down) to increase compute capacity by adding RAM or CPUs to a virtual machine.
     - Scaling horizontally (in-out) increases compute capacity by adding instances of resources, such as adding VMs to the configuration.
-- **Elasticity**: You can configure cloud-based apps to take advantage of autoscaling, so your apps always have the resources they need.
+- **Elasticity** or **flexibility**: You can configure cloud-based apps to take advantage of autoscaling, so your apps always have the resources they need.
     - cloud-based applications can be configured to always have the resources they need
-    - the ability of services to automatically scale resources based on changing demand
+    - the ability of services to automatically scale resources based on changing demand. (resource on demand)
     - ScalingSet helps automate the process of adding or removing virtual machines as demand increases or decreases
-- **flexibility** to change resource allocation is an example of cloud flexibility.
+    - to change resource allocation is an example of cloud flexibility or elasticity.
 - **Agility**: Deploy and configure cloud-based resources quickly as your app requirements change.
 - **Geo-distribution**: You can deploy apps and data to regional datacenters around the globe, thereby ensuring that your customers always have the best performance in their region.
 - **Disaster recovery**: By taking advantage of cloud-based backup services, data replication, and geo-distribution, you can deploy your apps with the confidence that comes from knowing that your data is safe in the event of disaster.
@@ -498,6 +503,13 @@ Azure Maps is a collection of geospatial services and SDKs that use fresh mappin
     - You can use *Azure managed applications* to provide cloud solutions that users can easily deploy and operate.
     - The A*zure Custom Resource Provider* allows you to define custom APIs that you can use to enhance your default Azure experience.  
 
+all the tools that can deploy resources:
+- Azure Portal
+- **Powershell**
+- CLI
+- REST API
+- **SDK**. (a collection of libraries built to make it easy to use Azure services in your language of choice)
+
 
 Azure Marketplace: an online store that hosts applications that are certified and optimized to run in Azure.
 
@@ -512,6 +524,10 @@ Azure Marketplace: an online store that hosts applications that are certified an
     - When running applications in the cloud
     - When extending your datacenter to the cloud
     - During disaster recovery
+- SLA:
+    - 99.9% (only one using Premium SSD or Ultra Disk)
+    - 99.95% (more than one)
+    - 99.99% (over 2 AZs)
 
 attention:
 - By default, all inbound connections are not allowed on L4, so unless you have a *network interface*, you need to modify the rules of the **network security group** so that all inbound connections from port 80/8080 can reach the VM. 
@@ -519,9 +535,12 @@ attention:
 **Azure Virtual machine scale sets**
 - deploy and manage a set of identical VMs
 - easier to build large-scale services targeting big compute, big data, and containerized workloads
-- easy to maintain route request
-- more VM instances can be added or removed.
+- easy to maintain route request. (load balancer)
+- more VM instances can be added or removed. The number of VM instances can automatically increase or decrease in response to demand or a defined schedule
 - The process can be manual, automated, or a combination of both.
+- **LIMIT**
+    - 1000. up to 1,000 VM instances for standard marketplace images and custom images through the Shared Image Gallery
+    - 600. using a managed image, the limit is 600 VM instances.
 
 ## Hyper V host
 is a hypervisor that provides a virtualized environment
@@ -638,9 +657,18 @@ High-availability scenarios:
 ### [Azure ExpressRoute](https://docs.microsoft.com/en-ca/learn/modules/azure-networking-fundamentals/express-route-fundamentals)
 ExpressRoute connections don't go over the public Internet, it is a private connection from your on-premises infrastructure to your Azure infrastructure
 
-focus on two different layers of the Open Systems Interconnection (OSI) model
-- Layer 2 (L2): Data Link Layer
-- Layer 3 (L3): Network  Layer
+focus on two different layers of the Open Systems Interconnection (OSI) model (L2, L3)
+- Layer 7: Application Layer. Human-computer Interation layer, where applications can access the network services
+- Layer 5: Presentation Layer. Ensures that data is in a usable format and is where data encryption occurs
+- Layer 6: Session Layer. Maintains connections and is reponsible for controlling ports and sessions
+- Layer 4: Trasport Layer. Transmits data using transmission protocols, which acts as a **security layer**
+    - Azure Firewall
+- Layer 3: Network  Layer. Decides which physical path the data will take
+    - Virtual network
+    - Subnet
+    - CDN (content delivery network)
+- Layer 2: Data Link Layer. Defines the format of data on the network
+- Layer 1: Physical Layer
 
 Features and benefits
 - Layer 3 connectivity
@@ -755,6 +783,7 @@ provides a personalized view of the health of the Azure services, regions, and r
     - You can set up alerts that help you stay on top of incidents and upcoming downtime without having to visit the dashboard regularly.
 
 ### Azure Logs Analytics
+- stored in the *container* 'Log analytics workspace'. (under Azure portal)
 - a service that can collect and analyze logs of Azure services.
 - possible to collect and analyze logs of Windows and Linux severs, of not only those on Azure but also on-premises and other cloud services.
 - can acquire logs by installing an agent on the targeted server, set a threshold for the collected data, and have an alert issued. 
@@ -1134,7 +1163,8 @@ Access control
 - need separate subscriptions for development and for production environments?
 
 Subscription limits
-- Azure ExpressRoute circuits per subscription is 10
+- Azure ExpressRoute circuits per subscription: 10
+- max Azure storage spaces: almost unlimited
 
 ## Examine privacy, compliance, and data protection standards on Azure
 
@@ -1203,12 +1233,16 @@ access DPA:
 It implements Microsoft's principles for maintaining data integrity in the cloud and Microsoft implements security, privacy, compliance, and transparency in all Microsoft cloud products and services. it is a web page that contains information and details about how Microsoft supports security, privacy, compliance, and transparency in all Microsoft cloud products and services, and is not relevant here.
 
 The Trust Center is an important part of the Microsoft Trusted Cloud Initiative, providing support and resources to the legal and compliance community
-
+- don't require Azure subscription
 - In-depth information about security, privacy, compliance offerings, policies, features, and practices across Microsoft cloud products.
 - Additional resources for each topic.
 - Links to the security, privacy, and compliance blogs and upcoming events.
 - is a great resource for people in your organization who might play a role in security, privacy, and compliance
-- don't require Azure subscription
+
+#### Microsoft Service Trust Portal
+- Documentation that can be used to show Microsoft's compliance efforts
+- **Penetration test results**. you can see the results of penetration testing by an independent third party. 
+- **Security Evaluation**. 
 
 access [Trust Center](https://www.microsoft.com/en-ca/trust-center?rtc=1)
 
