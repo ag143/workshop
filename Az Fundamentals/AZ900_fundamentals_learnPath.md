@@ -1,7 +1,10 @@
 
 Azure Information Protection (AIP)
-- a cloud-based solution that helps organizations classify documents and emails
-- by applying labels and can help to protect them
+- a cloud-based solution that allows organizations to label (watermark) content to detect, classify, and protect **documents** and **emails**
+- **can not** encrypt: 
+    - records in Azure SQL Database
+    - Azure storage account (to Encrypt stored data using the encryption service implemented in Azure services Encryption at Rest)
+    - network traffic (To encrypt network traffic, you need to configure TLS.)
 
 Azure Application Insights
 - an application performance management (APM) service, a service for sending telemetry information from application source code to Azure
@@ -9,8 +12,12 @@ Azure Application Insights
 - allows you to monitor running applications and automatically detect performance anomalies
 - use built-in analytics tools to view what your users do on your app.
 
+Knowledge Center. a collection of common questions and answers about Azure
+
+Security & Compliance Center. provides operations related to security and regulatory compliance
+
 No access:
-- Azure does not have permission to access the data
+- Azure does not have permission to access the data of datacenter
 
 Tenancy
 - defines how instances are distributed across physical hardware
@@ -60,6 +67,13 @@ Azure Cloud Shell
 
 Azure CLI
 - cannot be installed on iOS
+- - You can use Bash from Cloud Shell by logging in to the Azure portal from your Android laptop. Then you can create a new virtual machine from Bash with CLI. Cloud Shell is a management machine for Azure, managed by Microsoft.
+- Azure Cloud Shell gives you the flexibility to choose the best shell operation for your business.
+- Both Bash and PowerShell are options for this.
+
+Power Apps portal
+- to create external websites that allow users outside your organization to sign in with different identities, create and view data in Microsoft Dataverse, and browse content anonymously. This is not the mechanism to use when creating a virtual machine
+
 
 ### [Azure Marketplace](https://azuremarketplace.microsoft.com/en-US/)
 Azure Marketplace customers can find, try, purchase, and provision applications and services from hundreds of leading service providers. All solutions and services are certified to run on Azure
@@ -82,23 +96,41 @@ Azure Function
 
 #### Networking
 Azure Virtual Network: Connects VMs to incoming virtual private network (VPN) connections
+
 Azure Load Balancer: Balances inbound and outbound connections to applications or service endpoints.
+
 Azure Application Gateway: Accesses Azure Virtual Networks through high-performance VPN gateways.
+
 Azure DNS: Provides ultra-fast DNS responses and ultra-high domain availability.
+
 Azure Content Delivery Network:Delivers high-bandwidth content to customers globally.
+
 Azure DDoS Protection: Protects Azure-hosted applications from distributed denial of service (DDOS) attacks.
+
 Azure Traffic Manager:Distributes network traffic across Azure regions worldwide.
+
 Azure ExpressRoute:Connects to Azure over high-bandwidth dedicated secure connections.
+- transfer data from your on-premises datacenter to Azure Public Cloud
+- not charged for inbound data transfer
+
 Azure Network Watcher:Monitors and diagnoses network issues by using scenario-based analysis.
+
 Azure Firewall:Implements high-security, high-availability firewall with unlimited scalability.
+
 Azure Virtual WAN:Creates a unified wide area network (WAN) that connects local and remote sites.
 
 
 #### Storage
 Azure Blob storage:Storage service for very large objects, such as video files or bitmaps.
+
 Azure File storage:File shares that can be accessed and managed like a file server.
+
 Azure Queue storage:A data store for queuing and reliably delivering messages between applications.
+
 Azure Table storage:Table storage is a service that stores non-relational structured data (also known as structured NoSQL data) in the cloud, providing a key/attribute store with a schemaless design.
+
+Azure Data Lake: storage repository suitable for holding large amounts of data. With 30TB of data stored, the data lake can scale up to terabytes and petabytes of data.
+
 
 characteristics:
 - **Durable** and highly available with redundancy and replication.
@@ -113,8 +145,6 @@ characteristics:
 - It is also asynchronously copied to the secondary region.
 - An Azure storage account contains all Azure Storage data objects (blobs, files, queues, tables, and disks).
 
-
-
 #### Mobile
 developers can create mobile back-end services for iOS, Android, and Windows apps quickly and easily.
 Features that used to take time and increase project risks, such as adding corporate sign-in and then connecting to on-premises resources such as SAP, Oracle, SQL Server, and SharePoint, are now simple to include.
@@ -125,37 +155,51 @@ other features include:
 - Autoscaling to match business needs.
 
 #### Databases
-Azure Cosmos DB: Globally distributed database that supports NoSQL options.
-- globally distributed, multi-model database service
-- supports schema-less data, build highly responsive and "Always On" applications 
-- Azure Cosmos DB stores data in atom-record-sequence (ARS) format. The
-- The data is abstracted and projected as an API, include SQL, MongoDB, Cassandra, Tables, and Gremlin
+- Azure Cosmos DB:
+    - Globally distributed, multi-model database that supports NoSQL options.
+    - supports schema-less data, build highly responsive and "Always On" applications 
+    - The data is abstracted and projected as an API, include SQL, MongoDB, Cassandra, Tables, and Gremlin
+    - Guaranteed single-digit millisecond response time and 99.999% availability.
+    - Azure Cosmos DB can store JSON documents.
 
-Azure SQL Database: Fully managed relational database with auto-scale, integral intelligence, and robust security.
-- enables you to process both relational data and non-relational structures, such as graphs, JSON, spatial, and XML.
-- Azure Database Migration Service can be used to migrate on-premise sql server to cloud
+- Azure SQL Database (PaaS): 
+    - Fully managed relational database with auto-scale, integral intelligence, and robust security.
+    - enables you to process both relational data and non-relational structures, such as graphs, JSON, spatial, and XML.
+    - only uses the default SQL_Latin1_General_CP1_CI_AS server collation
+    - **Azure Database Migration Service** can be used to migrate on-premise sql server to cloud
 
-Azure Database for MySQL: Fully managed and scalable MySQL relational database with high availability and security.
-- 99.99%
-- Built-in high availability with no additional cost.
-- Predictable performance and inclusive, pay-as-you-go pricing.
-Azure Database for PostgreSQL: Fully managed and scalable PostgreSQL relational database with high availability and security.
-- single server. 3 pricing tiers: Basics, General Purpose, Memory Optimized
-- hyper scale. 
-    - horizontally scales queries across multiple machines by using sharding
-    - can serve worklods exceeding 100GB data
-    - supports multi-tenant applications, real-time operational analytics, and high throughput transactional workloads
+- Azure SQL Managed Instance
+    - PaaS, 99.99%
+    - provides several options that might not be available to Azure SQL Database (collation)
+    - easy to migrate using the Azure Database Migration Service (DMS) or native backup and restore
+    - [ Features comparison: Azure SQL Database and Azure SQL Managed Instance](https://docs.microsoft.com/en-us/azure/azure-sql/database/features-comparison)
 
-Azure SQL Managed Instance
-- PaaS, 99.99%
-- provides several options that might not be available to Azure SQL Database (Azure SQL Database only uses the default SQL_Latin1_General_CP1_CI_AS server collation)
-- easy to migrate using the Azure Database Migration Service (DMS) or native backup and restore
-- [ Features comparison: Azure SQL Database and Azure SQL Managed Instance](https://docs.microsoft.com/en-us/azure/azure-sql/database/features-comparison)
+- Azure SQL Data Warehouse. 
+    - a fully managed cloud data warehouse.
+    - get query results in a short time across terabytes and petabytes of data.
 
-SQL Server on Azure Virtual Machines: Service that hosts enterprise SQL Server apps in the cloud.
-Azure Database Migration Service: Service that migrates databases to the cloud with no application code changes.
-Azure Cache for Redis: Fully managed service caches frequently used and static data to reduce data and application latency.
-Azure Database for MariaDB: Fully managed and scalable MariaDB relational database with high availability and security.
+- Azure Database for MySQL: 
+    - Fully managed and scalable MySQL relational database with high availability (99.99%) and security with no additional cost.
+    - Predictable performance and inclusive, pay-as-you-go pricing.
+
+- Azure Database for PostgreSQL:
+    - Fully managed and scalable PostgreSQL relational database with high availability and security.
+    - single server. 3 pricing tiers: Basics, General Purpose, Memory Optimized
+    - hyper scale. 
+        - horizontally scales queries across multiple machines by using sharding
+        - can serve worklods exceeding 100GB data
+        - supports multi-tenant applications, real-time operational analytics, and high throughput transactional workloads
+
+- Azure Database for MariaDB: Fully managed and scalable MariaDB relational database with high availability and security.
+
+- Azure Cache for Redis: 
+    - Fully managed service caches frequently used and static data to reduce data and application latency.
+    - in-memory data store
+    - Not suitable for storing JSON documents
+
+- SQL Server on Azure Virtual Machines: Service that hosts enterprise SQL Server apps in the cloud.
+
+- Azure Database Migration Service: Service that migrates databases to the cloud with no application code changes.
 
 #### Web
 The following Azure services are focused on web hosting:  
@@ -223,7 +267,7 @@ Azure Synapse Analytics: Fully managed data warehouse with integral security at 
 - significantly reducing the time it takes to develop your project with an integrated experience that supports the development of **end-to-end** analytics solutions
 - cannot be used for a predictive analytics model
 
-Azure HDInsight: Process massive amounts of data with managed clusters of Hadoop clusters in the cloud.
+Azure HDInsight: Process massive amounts of data with managed Hadoop clusters in the cloud.
 - open-source analytics service
 - run open-source frameworks and create cluster as Apache (Spark, Hadoop, Kafa, HBase, Storm), and Machine learning services
 - supports a broad range of scenarios such as ETL, data warehousing, machine learning, and IoT.
@@ -238,6 +282,9 @@ Azure Data Lake Analytics.
 - write queries to transform your data and extract valuable insights without taking care of hardwares
 - pay for your job when it's running 
 
+Azure Event Hubs
+- a big data streaming platform and event capture service.
+- receive and process millions of events per second from multiple resources into a centralized repository.
 
 #### AI
 - deep learning, which is modeled on the neural network of the human mind, enabling it to discover, learn, and grow through experience
@@ -300,18 +347,20 @@ The Azure free student account offer includes:
 
 ## Discuss Azure fundamental concepts
 ### cloud models
-Public cloud: Services are offered over the public internet and available to anyone who wants to purchase them. Cloud resources, such as servers and storage, are owned and operated by a third-party cloud service provider, and delivered over the internet.
-- No capital expenditures to scale up.
-- Applications can be quickly provisioned and deprovisioned.
-- Organizations pay only for what they use.
-Private cloud: A private cloud consists of computing resources used exclusively by users from one business or organization. A private cloud can be physically located at your organization's on-site (on-premises) datacenter, or it can be hosted by a third-party service provider.
-- Hardware must be purchased for start-and maintenance.
-- Organizations have complete control over resources and security.
-- Organizations are responsible for hardware maintenance and updates.
-Hybrid cloud: A hybrid cloud is a computing environment that combines a public cloud and a private cloud by allowing data and applications to be shared between them.
-- Provides the most flexibility.
-- Organizations determine where to run their applications.
-- Organizations control security, compliance, or legal requirements.
+- Public cloud: Services are offered over the public internet and available to anyone who wants to purchase them. Cloud resources, such as servers and storage, are owned and operated by a third-party cloud service provider, and delivered over the internet.
+    - the cloud vendor manages the data center
+    - No capital expenditures to scale up.
+    - Applications can be quickly provisioned and deprovisioned.
+    - Organizations pay only for what they use.
+- Private cloud: A private cloud consists of computing resources used exclusively by users from one business or organization. A private cloud can be physically located at your organization's on-site (on-premises) datacenter, or it can be hosted by a third-party service provider.
+    - requires a data center in order to host infrastruture
+    - Hardware must be purchased for start-and maintenance.
+    - Organizations have complete control over resources and security.
+    - Organizations are responsible for hardware maintenance and updates.
+- Hybrid cloud: A hybrid cloud is a computing environment that combines a public cloud and a private cloud by allowing data and applications to be shared between them.
+    - Provides the most flexibility.
+    - Organizations determine where to run their applications.
+    - Organizations control security, compliance, or legal requirements.
 
 ### cloud computing advantages
 *a consumption-based model*
@@ -376,7 +425,9 @@ Hybrid cloud: A hybrid cloud is a computing environment that combines a public c
         - Billing
         - Subscription Limits
             - Max ExpressRoute circuits per subscription: 10
-            - 
+    - can't merge two subscriptions in Azure. ach subscription is a separate entity that cannot be merged. 
+    -  can transfer ownership of a subscription to another account
+        
 - Resource groups: Resources are combined into resource groups, which act as a logical container into which Azure resources like web apps, databases, and storage accounts are deployed and managed.
 - Resources: Resources are instances of services that you create, like virtual machines, storage, or SQL databases.
 
@@ -432,6 +483,10 @@ Azure services that support availability zones fall into three categories:
 - the edge location is set up separately from the AZ
 - Microsoft deploys Edge Zone services at edge locations, allowing Azure services to connect directly to 5G networks within mobile operator data centers
 
+### Azure Maps
+Azure Maps is a collection of geospatial services and SDKs that use fresh mapping data to provide geographic context to web and mobile applications.
+- SLA 99.9%
+
 ### resource,Resource Group ARM
 [benefits of using Resource Manager](https://docs.microsoft.com/en-ca/learn/modules/azure-architecture-fundamentals/resources-resource-manager)
 Resource Manager is a management service that provides a way to organize and secure your cloud resources.access Resource Manager from the Azure portal, Azure Cloud Shell, Azure PowerShell, and the Azure CLI
@@ -461,6 +516,9 @@ attention:
 - easy to maintain route request
 - more VM instances can be added or removed.
 - The process can be manual, automated, or a combination of both.
+
+## Hyper V host
+is a hypervisor that provides a virtualized environment
 
 **Azure Batch**: enables large-scale parallel and high-performance computing (HPC) batch jobs with the ability to scale to tens, hundreds, or thousands of VMs. When you're ready to run a job, Batch does the following:
 - Starts a pool of compute VMs for you.
@@ -508,7 +566,7 @@ key networking capabilities:
     - **Site-to-site virtual private networks**. A site-to-site VPN links your on-premises VPN device or gateway to the Azure VPN gateway in a virtual network. In effect, the devices in Azure can appear as being on the local network. The connection is encrypted and works over the internet.
     - **Azure ExpressRoute**. For environments where you need greater bandwidth and even higher levels of security. ExpressRoute provides dedicated private connectivity to Azure that doesn't travel over the internet
 - Route network traffic. Azure routes traffic between subnets on any connected virtual networks, on-premises networks, and the internet. You also can control routing and override those settings, as follows:
-    - **Route tables**. define rules about how traffic should be directed. control how packets are routed between subnets. Azure automatically creates a route table for each subnet within an Azure virtual network and adds system default routes to the table. You can add custom route tables to modify traffic between virtual networks
+    - **Route tables**. define rules about how traffic should be directed. control how packets are routed between subnets. Azure automatically creates a route table for each subnet within an Azure virtual network and adds system default routes to the table. You can add custom route tables to modify traffic between virtual networks. only contains a set of rules (routes) that specify how packets are routed in the virtual network
     - **Border Gateway Protocol** Border Gateway Protocol (BGP) works with Azure VPN gateways or ExpressRoute to propagate on-premises BGP routes to Azure virtual networks.
 - Filter network traffic. filter traffic between subnets by using the following approaches:
     - **Network security groups** A network security group is an Azure resource that can contain multiple inbound and outbound security rules. You can define these rules to allow or block traffic, based on factors such as source and destination IP address, port, and protocol. You create the network security group separately, Then you associate it with the virtual network
@@ -648,7 +706,8 @@ provides iOS and Android access to your Azure resources
 
 ### The Azure CLI
 - almost identical to Azure PowerShell
-- Both run on Windows, Linux, and Mac, and can be accessed in a web browser via Cloud Shell.
+- Both run on Windows, Linux, and Mac (Mac OS), and can be accessed in a web browser via Cloud Shell.
+- **cannot** be installed in IOS
 
 ### ARM templates
 - describe the resources you want to use in a declarative JSON format
@@ -668,7 +727,10 @@ available for **free** and provides:
 
 ### Azure Monitor
 a platform for collecting, analyzing, visualizing, and potentially taking action based on the metric and logging data from your entire *Azure* and *on-premises* environment.
--Scenarios:
+
+it collects what is known as "application monitoring data" (data about the performance and functionality of the code you write, regardless of platform). zure Monitor collects monitoring metrics from a variety of on-premises and Azure sources. It does not have the ability to centrally manage events
+
+- Scenarios:
     - measure custom events alongside other usage metrics
     - set up alerts for outages or when autoscaling is about to deploy new instances
 
@@ -680,6 +742,9 @@ provides a personalized view of the health of the Azure services, regions, and r
 - scenario:
     - You can view the current status of the Azure services you rely on, upcoming planned outages, and services that will be sunset. 
     - You can set up alerts that help you stay on top of incidents and upcoming downtime without having to visit the dashboard regularly.
+
+### Azure Serivce Bus. 
+fully managed enterprise integration message broker with message queues and publish / subscribe topics
 
 # Part 4: Describe general security and network security features
 ## Protect agains security threats on Azure
@@ -800,6 +865,8 @@ Azure Firewall provides:
 - used to **load balance** traffic to various web applications.
 - It does not identify the IP address of the VPN appliance
 
+Route filtering. a way to take advantage of a subset of the services supported through Microsoft peering
+
 *Azure Front Door* and *Azure Content Delivery Network* also provide WAF services.
 
 ### DDoS protection
@@ -863,9 +930,28 @@ services Azure AD provide:
 - Application management. You can manage your cloud and on-premises apps by using Azure AD. Features like Application Proxy, SaaS apps, the My Apps portal (also called the access panel), and single sign-on provide a better user experience.
 - Device management. Along with accounts for individual people, Azure AD supports the registration of devices. Registration enables devices to be managed through tools like **Microsoft Intune**. It also allows for **device-based Conditional Access** policies to restrict access attempts to only those coming from known devices, regardless of the requesting user account.
 
-Azure AD Connect
+#### Azure Active Directory ID Protection
+- allows you to apply MFA conditionally. 
+- It is also used to detect risks such as anonymous IP address logins, unfamiliar sign-ins, and credential leaks.
+- requires users who sign from the Internet with an anonymous IP address to change their password and "self-heal". 
+- Identity Protection is a tool that allows organizations to perform three main tasks:
+    - Automate identity-based risk detection and action.
+    - Investigate risk using portal data.
+    - Export risk detection data to third-party utilities for further analysis.
+
+
+
+#### Azure AD Connect
 - a way to connect your existing Active Directory installation with Azure AD
 - synchronizes user identities **between** on-premises Active Directory and Azure AD.
+
+- **Azure AD Connect Health**. used to monitor identity governance or identity infrastructure for on-premises resources or servers. You can use the Azure AD Connect Health portal to view alerts, performance monitoring, usage analysis, and other information.
+- **Azure AD privileged ID management**. used to provide just-in-time access, prevent malicious activity, and provide a fully integrated review of "privileged roles" in real time. It also helps you manage privileged administrator roles across Azure resources and Azure AD
+- Azure **Advanced Threat Protection** (ATP). used to detect threats from on-premises resources. It is incorrect because the questions is not regarding internal sources.
+
+##### Synchronization Service Manager
+- used to configure the more advanced aspects of the synchronization engine and to verify the operational aspects of the service. 
+- allows you to check the synchronization execution details and status.
 
 ### Multifactor authentication
 provides additional security for your identities by requiring two or more elements to fully authenticate.
@@ -906,6 +992,7 @@ Role-based Access Control (RBAC)
 - You can apply Azure RBAC to an individual person or to a group. You can also apply Azure RBAC to other special identity types, such as service principals and managed identities
 
 resource lock:
+- Administrators can lock subscriptions, resource groups, or resources
 - prevents resources from being accidentally deleted or changed.
 - levels of locking
     - **Delete**, *CanNotDelete*. read and modify.
@@ -1026,6 +1113,10 @@ Subscription limits
 - Azure ExpressRoute circuits per subscription is 10
 
 ## Examine privacy, compliance, and data protection standards on Azure
+Compliance Manager. 
+- a workflow-based risk assessment tool listed on Microsoft's Microsoft Service Trust Porta
+- allows you to track, assign, and validate regulatory compliance activities for organizations related to Microsoft cloud services. such as Microsoft Office 365, Microsoft Dynamics 365, and Microsoft Azure, as well as Microsoft Cloud Services.
+
 compliance categories:
 - global
 - US government
@@ -1048,13 +1139,14 @@ closer look at some:
 - United Kingdom Government G-Cloud
 
 #### Azure compliance documentation
- provides you with detailed documentation about legal and regulatory standards and compliance on Azure, across:
-- Global
-- US government
-- Financial services
-- Health
-- Media and manufacturing
-- Regional
+- provides reference blueprints, or policy definitions, for common standards that you can apply to your Azure subscription. 
+- provides you with detailed documentation about legal and regulatory standards and compliance on Azure, across:
+    - Global
+    - US government
+    - Financial services
+    - Health
+    - Media and manufacturing
+    - Regional
 
 
 ### microsoft Privacy statement
@@ -1066,7 +1158,7 @@ data access:
 
 
 ### Online Services Terms
-a legal agreement between Microsoft and the customer
+a legal agreement between Microsoft and the customer that details the obligations by both parties with respect to the processing and security of customer data and personal data
 
 ### Data Protection Addendum (DPA)
 urther defines the data processing and security terms for online services, including:
@@ -1081,6 +1173,10 @@ access DPA:
 1. locate the link to the DPA in your preferred language
 
 ### Trust Center
+It implements Microsoft's principles for maintaining data integrity in the cloud and Microsoft implements security, privacy, compliance, and transparency in all Microsoft cloud products and services. it is a web page that contains information and details about how Microsoft supports security, privacy, compliance, and transparency in all Microsoft cloud products and services, and is not relevant here.
+
+The Trust Center is an important part of the Microsoft Trusted Cloud Initiative, providing support and resources to the legal and compliance community
+
 - In-depth information about security, privacy, compliance offerings, policies, features, and practices across Microsoft cloud products.
 - Additional resources for each topic.
 - Links to the security, privacy, and compliance blogs and upcoming events.
@@ -1088,6 +1184,17 @@ access DPA:
 - don't require Azure subscription
 
 access [Trust Center](https://www.microsoft.com/en-ca/trust-center?rtc=1)
+
+### Azure Security Center
+Azure Security Center offers free and paid services
+- The free tier only provides security policies, ongoing security assessments, and practical security features that help protect your Azure resources
+-  Paid services extend the free tier functionality and add:
+    - **threat protection**. It uses built-in behavioral analytics and machine learning to identify attacks and zero-day exploits, and uses access and application control to reduce exposure to network attacks and malware.
+    - **virtual machine vulnerability scan**.
+
+#### Regulatory Compliance Dashboard
+    - continuously monitors your Azure and hybrid environment against specific compliance requirements
+    - also provide security assessments and recommendations as needed
 
 ### Azure Government
 a separate instance of the Microsoft Azure service. It addresses the security and compliance needs of US federal agencies, state and local governments, and their solution providers. Azure Government offers physical isolation from non-US government deployments and provides screened US personnel.
@@ -1111,6 +1218,9 @@ MSDN
 - MSDN Platforms is a comprehensive, cost-effective set of resources for setting up development and test environments.
 - This will be accessible as a benefit of a pay-as-you-go subscription
 
+You can access the MSDN Support Forums by setting up a *pay-as-you-go* subscription.
+
+
 ## Plan and manage your Azure costs
 ### Total Cost of Ownership Calcaulator
 [TCO Calculator](https://azure.microsoft.com/en-us/pricing/tco/calculator/) helps you estimate the cost savings of operating your solution on Azure over time, instead of in your on-premises datacenter.
@@ -1125,6 +1235,15 @@ how to purchase
 - Through an Enterprise Agreement
 - Directly from the web
 - Through a Cloud Solution Provider
+
+charge begin:
+- Public IP address
+    - Static public IP addresses in the ARM deployment model and reserved IP addresses in the ASM deployment model begin billing the from the second hour after the IP address has been created, taking into account the time needed to properly allocate the IP address.  Billing for this ends when you delete the IP address resource.
+    - For all other public IP addresses, billing begins when the associated resource is started and ends when the associated resource is deleted or stopped and then deallocated. Therefore, it is possible to stop billing by deleting unused public IP addresses.  
+- exp
+    - There is no charge for private IP, whether static or dynamic.
+    - Azure Virtual Network is **free**. You can create up to **50** virtual networks in all regions with each subscription.  
+    - the network interface is free to use.
 
 cost factors: (Azure provides flexibility for capital expenditure (CapEx) and operating expenditure (OpEx).)
 - Resource type. storage account type, performance tier (standard/premium), access tier (hot, cool, archive)
@@ -1201,7 +1320,12 @@ strategies:
 ## preview services and preview features
 to look into new capabilites
 - The public preview service is available to all users
-- The private preview is only available to some users
+- The private preview
+    - this feature is always free.
+    - the number of customers invited to private previews is limited, and these customers are expected to spend time with the product to provide feedback.
+    - usually the first release of a product and are to help customers try out the service, provide feedback, verify if the service is actually needed, and shape the future of the product.
+    - When the service becomes publicly available, it will be in full production mode. Fully supported by SLAs, customer support, and run on production workloads. 
+    - Since the service is now running normally, you will be charged for it.
 
 ### service lifecycle
 defines how every Azure service is released for public use: develope and build -> released to preview -> validated and tested
@@ -1237,3 +1361,8 @@ goto [Microsoft Azure (Preview)](https://preview.portal.azure.com/#home)
 - Subscribe to an RSS feed to receive notifications.
 - Access the Microsoft Connect page to read Azure product news and announcements.
 
+## Azure Support
+### Professional Direct (ProDirect) Advisory
+- Only Professional Direct (ProDirect) Advisory support provides architectural support for Azure environments. 
+- This plan provides access to Azure support guidance based on publicly available best practice documentation for Microsoft Azure and information from the Azure forums.
+- ProDirect advisors support users based on their access to Microsoft-related documentation, Microsoft Azure support engineers, and Microsoft Azure product groups.
