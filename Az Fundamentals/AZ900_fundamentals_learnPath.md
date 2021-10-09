@@ -1,3 +1,5 @@
+https://github.com/wzlwit/workshop/blob/main/Az%20Fundamentals/AZ900_fundamentals_learnPath.md
+
 
 Azure Information Protection (AIP)
 - a cloud-based solution that allows organizations to label (watermark) content to detect, classify, and protect **documents** and **emails**
