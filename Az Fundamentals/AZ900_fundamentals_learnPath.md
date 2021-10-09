@@ -16,8 +16,6 @@ Azure Application Insights
 
 Knowledge Center. a collection of common questions and answers about Azure
 
-Security & Compliance Center. provides operations related to security and regulatory compliance
-
 No access:
 - Azure does not have permission to access the data of datacenter
 
@@ -48,14 +46,15 @@ To power your services and deliver innovative and novel user experiences more qu
 - Analytics services that deliver telemetry data from your software and devices.
 
 ### Azure offer
-**Be ready for the future**: Continuous innovation from Microsoft supports your development today and your product visions for tomorrow.
-**Build on your terms**: You have choices. With a commitment to open source, and support for all languages and frameworks, you can build how you want and deploy where you want to.
-**Operate hybrid seamlessly**: On-premises, in the cloud, and at the edge--we'll meet you where you are. Integrate and manage your environments with tools and services designed for a hybrid cloud solution.
-**Trust your cloud**: Get security from the ground up, backed by a team of experts, and proactive compliance trusted by enterprises, governments, and startups.
+- **Be ready for the future**: Continuous innovation from Microsoft supports your development today and your product visions for tomorrow.
+- **Build on your terms**: You have choices. With a commitment to open source, and support for all languages and frameworks, you can build how you want and deploy where you want to.
+- **Operate hybrid seamlessly**: On-premises, in the cloud, and at the edge--we'll meet you where you are. Integrate and manage your environments with tools and services designed for a hybrid cloud solution.
+- **Trust your cloud**: Get security from the ground up, backed by a team of experts, and proactive compliance trusted by enterprises, governments, and startups.
 
 
 ### Azure work
 https://docs.microsoft.com/en-us/learn/modules/intro-to-azure-fundamentals/what-is-microsoft-azure
+
 Fabric controller > orchestrator
 
 ### Azure portal
@@ -69,7 +68,8 @@ Azure Cloud Shell
 
 Azure CLI
 - cannot be installed on iOS
-- - You can use Bash from Cloud Shell by logging in to the Azure portal from your Android laptop. Then you can create a new virtual machine from Bash with CLI. Cloud Shell is a management machine for Azure, managed by Microsoft.
+- can use Bash from Cloud Shell by logging in to the Azure portal from your Android laptop. Then you can create a new virtual machine from Bash with CLI.
+- Cloud Shell is a management machine for Azure, managed by Microsoft.
 - Azure Cloud Shell gives you the flexibility to choose the best shell operation for your business.
 - Both Bash and PowerShell are options for this.
 
@@ -87,54 +87,42 @@ Resource groups:
 - When you delete a resource group, all the resources on it are also deleted
 
 #### Compute
-Azure Service Fabric: Cluster management for VMs that run containerized services.Distributed systems platform that runs in Azure or on-premises.
-Azure Batch: Managed service for parallel and high-performance computing applications.
-Azure Container Instances: Containerized apps run on Azure without provisioning servers or VMs.
-
-Azure Function
-- an event-driven serverless computing platform
-- can solve complex orchestration problems
-- to develop serverless applications
+Azure Service Fabric: Cluster management for VMs that run containerized services. Distributed systems platform that runs in Azure or on-premises.
 
 #### Networking
-Azure Virtual Network: Connects VMs to incoming virtual private network (VPN) connections
-
 Azure Load Balancer: Balances inbound and outbound connections to applications or service endpoints.
-
-Azure Application Gateway: Accesses Azure Virtual Networks through high-performance VPN gateways.
 
 Azure DNS: Provides ultra-fast DNS responses and ultra-high domain availability.
 
-Azure Content Delivery Network:Delivers high-bandwidth content to customers globally.
+Azure Content Delivery Network: Delivers high-bandwidth content to customers globally.
 
 Azure DDoS Protection: Protects Azure-hosted applications from distributed denial of service (DDOS) attacks.
 
-Azure Traffic Manager:Distributes network traffic across Azure regions worldwide.
+Azure Traffic Manager: Distributes network traffic across Azure regions worldwide.
 
-Azure ExpressRoute:Connects to Azure over high-bandwidth dedicated secure connections.
+Azure ExpressRoute: Connects to Azure over high-bandwidth dedicated secure connections.
 - transfer data from your on-premises datacenter to Azure Public Cloud
 - not charged for inbound data transfer
 
-Azure Network Watcher:Monitors and diagnoses network issues by using scenario-based analysis.
+Azure Network Watcher: Monitors and diagnoses network issues by using scenario-based analysis.
 
-Azure Firewall:Implements high-security, high-availability firewall with unlimited scalability.
+Azure Firewall: Implements high-security, high-availability firewall with unlimited scalability.
 
-Azure Virtual WAN:Creates a unified wide area network (WAN) that connects local and remote sites.
+Azure Virtual WAN: Creates a unified wide area network (WAN) that connects local and remote sites.
 
 
 #### Storage
-Azure Blob storage:Storage service for very large objects, such as video files or bitmaps.
+Azure Blob storage: Storage service for very large objects, such as video files or bitmaps.
 
-Azure File storage:File shares that can be accessed and managed like a file server.
+Azure File storage: File shares that can be accessed and managed like a file server.
 
-Azure Queue storage:A data store for queuing and reliably delivering messages between applications.
+Azure Queue storage: A data store for queuing and reliably delivering messages between applications.
 
-Azure Table storage:Table storage is a service that stores non-relational structured data (also known as structured NoSQL data) in the cloud, providing a key/attribute store with a schemaless design.
+Azure Table storage: Table storage is a service that stores non-relational structured data (also known as structured NoSQL data) in the cloud, providing a key/attribute store with a schemaless design.
 
 Azure Data Lake: storage repository suitable for holding large amounts of data. With 30TB of data stored, the data lake can scale up to terabytes and petabytes of data.
 
-
-characteristics:
+characteristics of Storage:
 - **Durable** and highly available with redundancy and replication.
 - **Secure** through automatic encryption and role-based access control.
 - **Scalable** with virtually unlimited storage.
@@ -142,9 +130,8 @@ characteristics:
 - **Accessible** from anywhere in the world over HTTP or HTTPS.
 
 #### Azure storage account and copies
-- Data in your Azure Storage account is always replicated three times in the primary region.
-- The Azure storage account copies the data into three times within the primary region and keeps them synchronous.
-- It is also asynchronously copied to the secondary region.
+- Data in your Azure Storage account is always replicated three times in the primary region and keeps them synchronous.
+- It is also asynchronously copied to the *secondary* region (another copy).
 - An Azure storage account contains all Azure Storage data objects (blobs, files, queues, tables, and disks).
 
 #### Mobile
@@ -157,28 +144,29 @@ other features include:
 - Autoscaling to match business needs.
 
 #### Databases
+[ Features comparison: Azure SQL Database and Azure SQL Managed Instance](https://docs.microsoft.com/en-us/azure/azure-sql/database/features-comparison)
+
+- **Azure Database Migration Service** can be used to migrate on-premise sql server ( or native backup and restore) to cloud (Azure Sql or Managed Instance) with no application code changes
+
+- Azure SQL Database (PaaS): 
+    - Fully managed relational database with auto-scale, integral intelligence, and robust security.
+    - enables you to process both relational data and non-relational structures, such as graphs, JSON, spatial, and XML.
+    - only uses the default SQL_Latin1_General_CP1_CI_AS server collation
+
+- Azure SQL Managed Instance
+    - PaaS, 99.99%
+    - provides several options that might not be available to Azure SQL Database (collation)
+
+- Azure SQL Data Warehouse. 
+    - a fully managed cloud data warehouse.
+    - get query results in a short time across terabytes and petabytes of data.
+
 - Azure Cosmos DB:
     - Globally distributed, multi-model database that supports NoSQL options.
     - supports schema-less data, build highly responsive and "Always On" applications 
     - The data is abstracted and projected as an API, include SQL, MongoDB, Cassandra, Tables, and Gremlin
     - Guaranteed single-digit millisecond response time and 99.999% availability.
     - Azure Cosmos DB can store JSON documents.
-
-- Azure SQL Database (PaaS): 
-    - Fully managed relational database with auto-scale, integral intelligence, and robust security.
-    - enables you to process both relational data and non-relational structures, such as graphs, JSON, spatial, and XML.
-    - only uses the default SQL_Latin1_General_CP1_CI_AS server collation
-    - **Azure Database Migration Service** can be used to migrate on-premise sql server to cloud
-
-- Azure SQL Managed Instance
-    - PaaS, 99.99%
-    - provides several options that might not be available to Azure SQL Database (collation)
-    - easy to migrate using the Azure Database Migration Service (DMS) or native backup and restore
-    - [ Features comparison: Azure SQL Database and Azure SQL Managed Instance](https://docs.microsoft.com/en-us/azure/azure-sql/database/features-comparison)
-
-- Azure SQL Data Warehouse. 
-    - a fully managed cloud data warehouse.
-    - get query results in a short time across terabytes and petabytes of data.
 
 - Azure Database for MySQL: 
     - Fully managed and scalable MySQL relational database with high availability (99.99%) and security with no additional cost.
@@ -201,12 +189,10 @@ other features include:
 
 - SQL Server on Azure Virtual Machines: Service that hosts enterprise SQL Server apps in the cloud.
 
-- Azure Database Migration Service: Service that migrates databases to the cloud with no application code changes.
-
 #### Web
 The following Azure services are focused on web hosting:  
 Azure App Service: Quickly create powerful cloud web-based apps.
-- fully managed **platform** and and platform service (**PaaS**), fast-building, deploying, and scaling service (web app) for web applications and API.
+- fully managed **platform** service (**PaaS**), fast-building, deploying, and scaling service for web applications and API.
 - does not provide a serverless environment
 - when to use:
     - Web apps
@@ -217,7 +203,6 @@ Azure App Service: Quickly create powerful cloud web-based apps.
         - Authenticate customers against common social providers, such as MSA, Google, Twitter, and Facebook.
         - Send push notifications.
         - Execute custom back-end logic in C# or Node.js.
-
 - Benifits
     - Deployment and management are integrated into the platform.
     - Endpoints can be secured.
@@ -225,9 +210,13 @@ Azure App Service: Quickly create powerful cloud web-based apps.
     - The built-in load balancing and traffic manager provide high availability. 
 
 Azure Notification Hubs: Send push notifications to any platform from any back end.
+
 Azure API Management: Publish APIs to developers, partners, and employees securely and at scale.
+
 Azure Cognitive Search: Deploy this fully managed search as a service.
+
 Web Apps feature of Azure App Service: Create and deploy mission-critical web apps at scale.
+
 Azure SignalR Service: Add real-time web functionalities easily.
 
 
@@ -536,14 +525,15 @@ is a hypervisor that provides a virtualized environment
 **[microservice] (https://docs.microsoft.com/en-ca/learn/modules/azure-compute-fundamentals/azure-container-services)**
 **Azure App Service**
 **Azure Functions** (serverless computing)
-    - Abstraction of servers
-    - Event-driven scale
-        - Timers, for example, if a function needs to run every day at 10:00 AM UTC.
-        - HTTP, for example, API and webhook scenarios.
-        - Queues, for example, with order processing.
-        - And much more.
-    - micro-billing
-    - you write code to complete each step
+- can solve complex orchestration problems to develop serverless applications
+- Abstraction of servers
+- an event-driven serverless computing platform. Event-driven scale
+    - Timers, for example, if a function needs to run every day at 10:00 AM UTC.
+    - HTTP, for example, API and webhook scenarios.
+    - Queues, for example, with order processing.
+    - And much more.
+- micro-billing
+- you write code to complete each step
 **Azure Logic Apps** (serverless computing)
     - designed in a web-based designer
     - can execute logic triggered by Azure services without writing any code.
@@ -554,8 +544,11 @@ is a hypervisor that provides a virtualized environment
 - Multi-session Win10 Deployment
 
 ## networking services
-Azure virtual networks enable Azure resources, such as VMs, web apps, and databases, to communicate with each other, with users on the internet, and with your on-premises client computers. You can think of an Azure network as a set of resources that links other Azure resources.
+Azure Virtual Network: 
 - a private isolated network in Azure
+- Connects VMs to incoming virtual private network (VPN) connections
+- enable Azure resources, such as VMs, web apps, and databases, to communicate with each other, with users on the internet, and with your on-premises client computers.
+- think of an Azure network as a set of resources that links other Azure resources.
 
 key networking capabilities:
 - Isolation and segmentation. Virtual Network allows you to create multiple isolated virtual networks. When you set up a virtual network, you define a private IP address space by using either public or private IP address ranges. You can divide that IP address space into subnets and allocate part of the defined address space to each named subnet
@@ -863,7 +856,8 @@ Azure Firewall provides:
 - Outbound network-level protection for all ports and protocols.
 - Application-level protection for outbound HTTP/S.
 
-*Azure Application Gateway* also provides a firewall that's called the web application firewall (WAF). WAF provides centralized, inbound protection for your web applications against common exploits and vulnerabilities.
+*Azure Application Gateway*: Accesses Azure Virtual Networks through high-performance VPN gateways.
+- also provides a firewall that's called the web application firewall (WAF). **WAF** provides centralized, inbound protection for your web applications against common exploits and vulnerabilities.
 - used to **load balance** traffic to various web applications.
 - It does not identify the IP address of the VPN appliance
 
@@ -1115,6 +1109,9 @@ Subscription limits
 - Azure ExpressRoute circuits per subscription is 10
 
 ## Examine privacy, compliance, and data protection standards on Azure
+
+Security & Compliance Center. provides operations related to security and regulatory compliance
+
 Compliance Manager. 
 - a workflow-based risk assessment tool listed on Microsoft's Microsoft Service Trust Porta
 - allows you to track, assign, and validate regulatory compliance activities for organizations related to Microsoft cloud services. such as Microsoft Office 365, Microsoft Dynamics 365, and Microsoft Azure, as well as Microsoft Cloud Services.
