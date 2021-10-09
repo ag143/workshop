@@ -76,6 +76,55 @@ __________ is an Azure service that detects and diagnoses web app anomalies.
 Data traffic between Azure services within the same Azure region is always free.
 - Yes. if you're in the same region, Azure does not charge you for data transfers .
 
+What is the correct Azure Storage data service to use if you want to store virtual machine data?
+- Azure Blob Storage
+- *(wrong)* Azure files
+
+What are the correct features of Azure Resource Manager? Please select the three correct options.
+- Resouce Group
+- Tags
+- Deployment of ARM templates
+- *(wrong)* Activity logs
+
+Which of the following Microsoft Azure services is available to all developers without needing machine learning expertise?
+- Azure Cognitive Service (for all devlopers)
+- *(wrong)* Azure Bot Service. (allows you to create and publish chatbots)
+
+You are preparing to run an Azure PowerShell script from your Linux computer. What kind of preparation do you need? 
+- Install PowerShell Core. (since 6.0, PowerShell Core can run PowerShell on MacOS and Linux)
+- Install the Azure PowerShell Module. (Use the Azure PowerShell module to create and manage Azure resources with the PowerShell command line and scripts)
+- *(wrong)* Install Azure PowerShell Core
+
+You are considering using Azure Blueprints to streamline subscription compliance management. Choose two correct options for Azure Blueprints features.
+- Azure Policy assignment
+- Role-based access permission settings (RBAC)
+- *(wrong)* Resource tag standardization
+
+You are monitor the activities performed by users and want to store that data. Please select three solutions that will work for this.
+- Azure monitor
+- Azure Events Hubs
+- Azure Storage
+- *(wrong)* Azure logs
+- exp: 
+    - By default, activity logs are automatically saved for 90 days, but if you want to save logs over the medium to long term, you can save data in Azure Storage or Azure Events Hubs.  When you select the Event Hubs namespace, Azure Monitor creates an event hub in that namespace named insights-logs-operational-logs. For other log types, you can choose an existing event hub, or Azure Monitor can create an event hub for each log category. 
+
+A Zone is same as an availability zone?
+- False
+    - Availability zone is deferent location from a zone in Azure. A zone are regional groups of Azure regions for billing. Data transfer charges are based on the zone.
+
+In regards to moving Azure resources from one subscription to another, which of the following are correct statements?
+- You can move some resources between subscriptions, but not all. (must support *move* option)
+- Source and target resource groups are locked during the move.
+- can move resources between subscriptions
+- Transferring resources between subscriptions is free
+
+"The benefit of using Azure virtual machines instead of traditional servers is: Improved remote access to the cloud."?
+- False
+    - Improving remote access to the cloud depends on the external environment and is not a characteristic of Azure virtual machines. It depends on the network inside the cloud and the performance of the leased line connection, the network performance of the on-premises environment, and so on.
+
+There is no additional cost to use Azure globally across multiple regions.
+- True. (cost depends on the resources used.)
+
 # Part 3: Describe core solutions and management tools on Azure
 
 Which service could help you manage the VMs that your developers and testers need to ensure that your new app works across various operating systems?
@@ -141,6 +190,25 @@ Infrastructure management flexibility is one of the benefits of using IaaS on th
 
 Your company is planning to purchase an Azure support plan. The main reason for this choice is to have access to a dedicated team from Azure to provide architectural support to the company and your new Azure environment creation.Which support plan should you choose to gain access to this?
 - Professional Direct. 
+
+What is the correct description of a benefit of on-demand cloud usage?
+- Being able to flexibly configure resources at any time (configure and use the server whenever you need it)
+- *(wrong)* Being able to maintain performance during load fluctuations. (scalable)
+
+Your company wants to move their e-commerce site to Azure. Which is the correct option below for what the company should do/use during this initial planning stage
+- Choosing services to use within Azure
+- *(wrong)* Coordinate a meeting with Azure staff
+- exp:
+    - There is no initial cost, so there is no need to consider this, however, it is necessary to calculate the medium- to long-term resource usage fee. 
+    - no need to apply or have a meeting with Azure in order to use Azure. It is always available. 
+    - Since the EC site is a web application, it is not essential to make a VPN connection with the office. 
+
+Global infrastructure deployment can be implemented immediately?
+- True. Azure is deployed globally, allowing you to deploy infrastructure instantly to any region in any country. For example, a user living in Tokyo can select a region in the United States to deploy their infrastructure.
+
+You want to subscribe to an Azure support plan so that you can get design reviews based on your specifications. Which support plan should you subscribe to? Please select the appropriate support plan.
+- **Premier**. ( advisory services based on best practices)
+- *(wrong)* Professional Direct. (general guidance)
 
 # Part 4: Describe general security and network security features
 
@@ -236,6 +304,13 @@ In order to get a security token, what does the application need to connect to/ 
 - Azure Active Directory. Developers can get security tokens using Azure Active Directory
 - *(wrong)* Azure Key Vault
 
+You are building an application using a virtual machine in Azure. As a security requirement, it is necessary to monitor security threats. Which Azure service below do you need to choose?
+- Azure Advanced Threat Protection
+- *(wrong)* Azure Security Center
+
+You have an Azure AD tenant in your Azure subscription. All administrators are required to enter a verification code to access the Azure portal. At that time, you need to allow your administrator to access the Azure portal only from your on-premises network.Choose the best solution for that.
+- Azure AD Identity Protection sign-in risk policy
+- *(wrong)* The multi-factor authentication service configuration. (MFA only allows you to configure trusted devices, not the login location such as on premise sites.)
 
 # Part 5: Describe identity, governance, privacy, and compliance features
 
@@ -259,6 +334,10 @@ Azure Service Health:
 - can check the status of all services in the Azure Environment
 - *(wrong)* can set preventive measures against failures. (cannot prevent failure)
 - cannot apply for advice to Azure Support in ASH. (Apply for Azure support on the Azure support page)
+
+____________is used to store the secrets of your Azure Active Directory (Azure AD) user account.
+- AzureKeyVault
+- *(wrong)* Azure Active Directory (Azure AD) administrator account. (only for **administrative** work)
 
 # Part 6: Describe Azure cost management and service level agreements
 
@@ -287,3 +366,6 @@ Azure services are available to all Azure users during ____
 Which of the following explanations about Azure usage costs is correct?
 - Azure provides flexibility for capital expenditure (CapEx) and operating expenditure (OpEx).
 - *(wrong)* If you create two Azure virtual machines of the same size, the monthly usage fee for each virtual machine will be exactly the same. (it also depends on the region where the virtual machine is located, as each  has a different cost)
+
+If Microsoft plans to end support for Azure services that do not have a successor service, Microsoft will provide a notification at least _____________in advance
+- **12** months

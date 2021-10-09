@@ -110,9 +110,11 @@ Azure Virtual WAN: Creates a unified wide area network (WAN) that connects local
 
 #### Storage
 Azure Blob storage: Storage service for very large objects, such as video files or bitmaps.
+    -  used to store blob type data and acts as an Azure virtual machine disk.
 
 Azure File storage: File shares that can be accessed and managed like a file server.
-
+    - Azure Files offers fully managed file shares in the cloud that are accessible via the industry standard Server Message Block (SMB) protocol or Network File System (NFS) protocol
+    
 Azure Queue storage: A data store for queuing and reliably delivering messages between applications.
 
 Azure Table storage: Table storage is a service that stores non-relational structured data (also known as structured NoSQL data) in the cloud, providing a key/attribute store with a schemaless design.
@@ -273,6 +275,7 @@ Azure Data Lake Analytics.
 Azure Event Hubs
 - a big data streaming platform and event capture service.
 - receive and process millions of events per second from multiple resources into a centralized repository.
+- can monitor the activities performed by users and store that data
 
 #### AI
 the core of which is machine learning, which is a data science technique that allows computers to use existing datato to train a model, test it, and then apply the model to new data to forecast future behaviors, outcomes, and trends. Using machine learning, computers learn without being explicitly programmed  
@@ -290,6 +293,9 @@ You can:
 **deep learning**, which is modeled on the neural network of the human mind, enabling it to discover, learn, and grow through experience
 
 Azure ML Studio: Collaborative visual workspace where you can build, test, and deploy machine learning solutions by using prebuilt machine learning algorithms and data-handling modules.
+
+**cognitive Services**
+an AI platform that can be used by all developers without needing any machine learning expertise via APIs. You can embed AI functions such as image identification in the app with this
 
 A closely related set of products are the **Azure Cognitive** services. You can use these prebuilt APIs in your applications to solve complex problems: 
 - incorporate mechanisms such as image identification into your applications from APIs without any machine learning expertise.
@@ -422,6 +428,9 @@ The Azure free student account offer includes:
 - any region of the world that contains at least one Azure region
 - Regions define individual markets and maintain boundaries between data location and compliance
 
+#### Zone
+A zone are regional groups of Azure regions for billing. Data transfer charges are based on the zone.
+
 #### Region
 - A group of data centers connected by a **high-speed** network
 - geographically separated from each other
@@ -476,8 +485,15 @@ Azure Maps is a collection of geospatial services and SDKs that use fresh mappin
 
 ### resource,Resource Group ARM
 [benefits of using Resource Manager](https://docs.microsoft.com/en-ca/learn/modules/azure-architecture-fundamentals/resources-resource-manager)
-Resource Manager is a management service that provides a way to organize and secure your cloud resources.access Resource Manager from the Azure portal, Azure Cloud Shell, Azure PowerShell, and the Azure CLI
 
+#### Resource Manager
+- deployment and management service that provides a way to organize and secure your cloud resources.
+- access Resource Manager from the Azure portal, Azure Cloud Shell, Azure PowerShell, and the Azure CLI
+- It provides the following functions:
+    - Use ARM template to implement the infrastructure as code for your Azure solution.
+    - Resource group setting, resource management by tagging and locking is possible.
+    - You can use *Azure managed applications* to provide cloud solutions that users can easily deploy and operate.
+    - The A*zure Custom Resource Provider* allows you to define custom APIs that you can use to enhance your default Azure experience.  
 
 
 Azure Marketplace: an online store that hosts applications that are certified and optimized to run in Azure.
@@ -717,13 +733,14 @@ available for **free** and provides:
 - doesn't provide a way to improve the security of your Azure Active Directory (Azure AD) environment. Azure Active Directory has a function called Identity Protection, which allows you to obtain analysis information on the security structure of your organization. It helps you identify potential attacks and understand the effectiveness of your policies.
 
 ### Azure Monitor
-a platform for collecting, analyzing, visualizing, and potentially taking action based on the metric and logging data from your entire *Azure* and *on-premises* environment.
+- a platform for collecting, analyzing, visualizing, and potentially taking action based on the metric and logging data from your entire *Azure* and *on-premises* environment.
+- collects what is known as "application monitoring data" (data about the performance and functionality of the code you write, regardless of platform).
+- collect monitoring data about applications, guest operating systems, Azure resources, Azure subscriptions, and Azure tenants and will not help with monitoring security threats. 
+- **It does not have the ability to centrally manage events**
 
-it collects what is known as "application monitoring data" (data about the performance and functionality of the code you write, regardless of platform). zure Monitor collects monitoring metrics from a variety of on-premises and Azure sources. It does not have the ability to centrally manage events
-
-- Scenarios:
-    - measure custom events alongside other usage metrics
-    - set up alerts for outages or when autoscaling is about to deploy new instances
+Scenarios:
+- measure custom events alongside other usage metrics
+- set up alerts for outages or when autoscaling is about to deploy new instances
 
 ### Azure Service Health
 provides a personalized view of the health of the Azure services, regions, and resources you rely on; displays both major and smaller, localized issues that affect you:
@@ -733,6 +750,12 @@ provides a personalized view of the health of the Azure services, regions, and r
 - scenario:
     - You can view the current status of the Azure services you rely on, upcoming planned outages, and services that will be sunset. 
     - You can set up alerts that help you stay on top of incidents and upcoming downtime without having to visit the dashboard regularly.
+
+### Azure Logs Analytics
+- a service that can collect and analyze logs of Azure services.
+- possible to collect and analyze logs of Windows and Linux severs, of not only those on Azure but also on-premises and other cloud services.
+- can acquire logs by installing an agent on the targeted server, set a threshold for the collected data, and have an alert issued. 
+- it makes it easier to understand the log status by aggregating the collected data on the dashboard and graphing it.
 
 ### Azure Serivce Bus. 
 fully managed enterprise integration message broker with message queues and publish / subscribe topics
@@ -939,7 +962,11 @@ services Azure AD provide:
 
 - **Azure AD Connect Health**. used to monitor identity governance or identity infrastructure for on-premises resources or servers. You can use the Azure AD Connect Health portal to view alerts, performance monitoring, usage analysis, and other information.
 - **Azure AD privileged ID management**. used to provide just-in-time access, prevent malicious activity, and provide a fully integrated review of "privileged roles" in real time. It also helps you manage privileged administrator roles across Azure resources and Azure AD
-- Azure **Advanced Threat Protection** (ATP). used to detect threats from on-premises resources. It is incorrect because the questions is not regarding internal sources.
+- Azure **Advanced Threat Protection** (ATP).
+    - monitors user activity across the Azure network
+    - detect suspicious user activity and malicious attacks within your organization
+    - protect Azure Active Directory (AD) user identities. 
+    - used to detect threats from on-premises resources. It is incorrect because the questions is not regarding internal sources.
 
 ##### Synchronization Service Manager
 - used to configure the more advanced aspects of the synchronization engine and to verify the operational aspects of the service. 
@@ -1035,9 +1062,9 @@ example policy definitions:
 - ie. you can define a blueprint that specifies that a certain resource lock must exist. Azure Blueprints can automatically replace the resource lock if that lock is removed.
 
 Azure Blueprints orchestrates the deployment of various resource templates and other artifacts, such as:
-- Role assignments
+- Role assignments (RBAC)
 - Policy assignments
-- Azure Resource Manager templates
+- Azure Resource Manager templates (ARM)
 - Resource groups
 
 implement by 3 steps:
