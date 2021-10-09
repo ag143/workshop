@@ -24,9 +24,6 @@ Tenancy
 
 End-to-end: describes a process that takes a system or service from beginning to end and delivers a complete functional solution, usually without needing to obtain anything from a third party
 
-Azure support request:
-- Azure portal
-- Azure support ticket REST API
 
 # Part 1: Describe core Azure concepts
 ## Introduction to Azure fundamentals
@@ -253,7 +250,7 @@ Azure Synapse Analytics: Fully managed data warehouse with integral security at 
 - query data on your terms by using either serverless or provisioned resources at scale
 - unified experience to ingest, prepare, manage, and serve data for immediate business intelligence and machine learning needs
 
-- an Azure analytics service that combines data integration, big data analytics and an enterprise data warehouse (EDW)
+- an Azure analytics service that combines data integration, big data analytics and an **enterprise data warehouse** (EDW)
 - possible to build a data warehouse that can be used for BI and machine learning by integrating data collection, exploration, preparation, and management.
 - significantly reducing the time it takes to develop your project with an integrated experience that supports the development of **end-to-end** analytics solutions
 - cannot be used for a predictive analytics model
@@ -278,10 +275,8 @@ Azure Event Hubs
 - receive and process millions of events per second from multiple resources into a centralized repository.
 
 #### AI
-- deep learning, which is modeled on the neural network of the human mind, enabling it to discover, learn, and grow through experience
-- machine learning, a data science technique that uses existing data to train a model, test it, and then apply the model to new data to forecast future behaviors, outcomes, and trends.
+the core of which is machine learning, which is a data science technique that allows computers to use existing datato to train a model, test it, and then apply the model to new data to forecast future behaviors, outcomes, and trends. Using machine learning, computers learn without being explicitly programmed  
 
-the core of which is machine learning. Machine learning is a data science technique that allows computers to use existing data to forecast future behaviors, outcomes, and trends. Using machine learning, computers learn without being explicitly programmed  
 
 **Azure Machine Learning Service**: Cloud-based environment you can use to develop, train, test, deploy, manage, and track machine learning models. It can auto-generate a model and auto-tune it for you. It will let you start training on your local machine, and then scale out to the cloud.
 - a development platform for coding machine learning
@@ -292,6 +287,7 @@ You can:
 - Create pipelines that define where and when to run the compute-intensive experiments that are required to score the algorithms based on the training and test data.
 - Deploy the best-performing algorithm as an API to an endpoint so it can be consumed in real time by other applications.
 
+**deep learning**, which is modeled on the neural network of the human mind, enabling it to discover, learn, and grow through experience
 
 Azure ML Studio: Collaborative visual workspace where you can build, test, and deploy machine learning solutions by using prebuilt machine learning algorithms and data-handling modules.
 
@@ -1365,3 +1361,7 @@ goto [Microsoft Azure (Preview)](https://preview.portal.azure.com/#home)
 - Only Professional Direct (ProDirect) Advisory support provides architectural support for Azure environments. 
 - This plan provides access to Azure support guidance based on publicly available best practice documentation for Microsoft Azure and information from the Azure forums.
 - ProDirect advisors support users based on their access to Microsoft-related documentation, Microsoft Azure support engineers, and Microsoft Azure product groups.
+
+Azure support request:
+- Azure portal
+- Azure support ticket REST API
