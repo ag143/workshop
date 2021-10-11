@@ -28,6 +28,14 @@ Tenancy
 
 End-to-end: describes a process that takes a system or service from beginning to end and delivers a complete functional solution, usually without needing to obtain anything from a third party
 
+Shared Responsibility model
+- Provider
+    - Maintenance of the physical hosts
+- shared
+    - manangement of Accounts and Identities
+- customer
+    - Management of information and data
+
 
 # Part 1: Describe core Azure concepts
 ## Introduction to Azure fundamentals
@@ -149,7 +157,9 @@ Azurefile share can be used to:
 Table storage is a service that stores **non-relational** structured data (also known as structured NoSQL data) in the cloud, providing a key/attribute store with a schemaless design.
 
 ###### Azure Data Lake:
-storage repository suitable for holding large amounts of data. With 30TB of data stored, the data lake can scale up to terabytes and petabytes of data.
+- storage repository suitable for holding large amounts of data. 
+- With 30TB of data stored, the data lake can scale up to terabytes and petabytes of data.
+- e.g.: data infreuqently used which needs to be accessd via Power BI
 
 #### characteristics of Storage:
 - **Durable** and highly available with redundancy and replication.
@@ -191,12 +201,18 @@ other features include:
 - Azure SQL Managed Instance
     - PaaS, 99.99%
     - provides several options that might not be available to Azure SQL Database (collation)
+    - provides *native virtual network implementation*
 
 - Azure SQL Data Warehouse. 
     - a fully managed cloud data warehouse.
     - get query results in a short time across terabytes and petabytes of data.
 
+- [Azure SQL Elastic Pool](https://docs.microsoft.com/en-us/azure/azure-sql/database/elastic-pool-overview)
+    - a simple, cost-effective solution for managing and scaling multiple databases that have varying and unpredictable usage demands
+    - DTUs or VCores
+
 - Azure Cosmos DB:
+    - a fully managed database service. no access to the underlying database server.
     - Globally distributed, multi-model database that supports NoSQL options.
     - supports schema-less data, build highly responsive and "Always On" applications 
     - The data is abstracted and projected as an API, include SQL, MongoDB, Cassandra, Tables, and Gremlin
@@ -284,9 +300,11 @@ IoT Central:
 - use of device templates to construct the dashboards, alerts, and so on. Device developers still need to create code to run on the devices, and that code must match the device template specification.
 
 Azure Sphere (hardware)
-- Azure Sphere micro-controller unit (MCU).  responsible for processing the operating system and signals from attached sensors.
-- customized Linux operating system (OS).  handles communication with the security service and can run the vendor's software
-- Azure Sphere Security Services, also known as AS3
+- a secured, high-level application platform with built-in communication and security features for internet-connected devices
+- it comprises:
+    - Azure Sphere micro-controller unit (MCU).  responsible for processing the operating system and signals from attached sensors.
+    - customized Linux operating system (OS).  handles communication with the security service and can run the vendor's software
+    - Azure Sphere Security Services, also known as AS3
 
 IoT Edge: Fully managed service that allows data analysis models to be pushed directly onto IoT devices, which allows them to react quickly to state changes without needing to consult cloud-based AI models.
 
@@ -379,13 +397,17 @@ DevOps brings together people, processes, and technology by automating software 
 - provides an automated means of managing the process of building, setting up, and tearing down virtual machines (VMs) that contain builds of your software projects.
 - developers and testers can perform tests across a variety of environments and builds. And this capability isn't limited to VMs
 - Anything you can deploy in Azure via an ARM template can be provisioned through DevTest Labs.
-- Provisioning pre-created lab environments with their required configurations and tools already installed is a huge time saver
+- Provisioning pre-created lab environments (pre-built template) with their required configurations and tools already installed is a huge time saver
+- no need to wai for approvals for creating the machines
 
 ### Azure accounts
 Azure free account includes:
 - Free access to popular Azure products for 12 months.
 - A credit to spend for the first 30 days.
 - Access to more than 25 products that are always free.
+- host production-based resources
+    - need to pay for any extra charges that don't come under the Free Account conditions
+    - 
 
 The Azure free student account offer includes:
 - Free access to certain Azure services for 12 months.
@@ -450,9 +472,12 @@ The Azure free student account offer includes:
     - Azure SQL
         - Azure SQL Managed Instance
 - **Saas**: provider manages all aspects; tenant only needs to provide their data to the application managed by the cloud provider
-    - IoT central
-    - Office 365
+    - no worry about the solution itself, the scalability or availability
+    - just manage the *configuration*
     - charged monthly/yearly, no pay-as-you-go
+    - e.g.
+        - IoT central
+        - Office 365
 - **DaaS**
     - Desktop as a Service (DaaS) is a virtual desktop, a cloud service that provides a desktop virtualization system deployed in a cloud environment.
 
@@ -493,9 +518,11 @@ The Azure free student account offer includes:
 A zone are regional groups of Azure regions for billing. Data transfer charges are based on the zone.
 
 #### Region
+- The cost for resources differs from region to region.
 - A group of data centers connected by a **high-speed** network
 - geographically separated from each other
 - Each region has at least **three** separate zones.
+- customer cannot decide on the region pairs used by the underlying Azure storage services
 - multi-region support is not optimal in terms of architectural configuration because it is difficult to link virtual machines across regions
 
 importants:
@@ -530,10 +557,8 @@ Azure services that support availability zones fall into three categories:
 #### [Availablity SET](https://k21academy.com/microsoft-azure/az-303/azure-availability-zones-and-regions/)
 - An Availability Set is a logical grouping capability for isolating VM resources from each other when they’re deployed.
 - By deploying your VMs across multiple hardware nodes Azure ensures that if hardware or software failure happens within Azure, only a sub-set of your virtual machines is impacted and your overall solution is safe and in working condition.
-- It provides redundancy for your **virtual machines**.
-- An Availability set spreads your virtual machines across multiple *fault domains* (FD) and *update domains* (UD).
-- If you want to leverage Microsoft’s 99.95% SLA from Microsoft you must place your VMs inside availability set except your VMs are having premium storage.
-
+- It provides redundancy for your **virtual machines**; An Availability set spreads your virtual machines across multiple *fault domains* (FD) and *update domains* (UD).
+- If you want to leverage Microsoft’s 99.95% SLA from Microsoft you must place your VMs inside availability set except your VMs are having premium storage. (both Availability Set and Mutli-AZ can increase SLA)
 
 
 #### Azure datacenter
@@ -609,7 +634,10 @@ attention:
     - 1000. up to 1,000 VM instances for standard marketplace images and custom images through the Shared Image Gallery
     - 600. using a managed image, the limit is 600 VM instances.
 
-## Hyper V host
+**[Azure Spot Virtual Machines](https://azure.microsoft.com/en-us/services/virtual-machines/spot/)**
+    ideal for workloads that can be *interrupted* if the machines are taken away because of Azure having less capacity
+
+**Hyper V host**
 is a hypervisor that provides a virtualized environment
 
 **Azure Batch**: enables large-scale parallel and high-performance computing (HPC) batch jobs with the ability to scale to tens, hundreds, or thousands of VMs. When you're ready to run a job, Batch does the following:
@@ -620,9 +648,13 @@ is a hypervisor that provides a virtualized environment
 - Requeues work.
 - Scales down the pool as work completes.
 
-**Azure Container** & **Azure Kubernetes Service**
+**Azure Container**
+
+**Azure Kubernetes Service**
+- a managed service that can orchestrate the deployment and management of the containers
 - to deploy and manage containers (lightweight, virtualized application environment)
 - multiple container in one host
+
 **[microservice] (https://docs.microsoft.com/en-ca/learn/modules/azure-compute-fundamentals/azure-container-services)**
 **Azure App Service**
 **Azure Functions** (serverless computing)
@@ -643,6 +675,10 @@ is a hypervisor that provides a virtualized environment
 - simplified management
 - performance management. gives you options to load balance users on your VM host pools. Host pools are collections of VMs with the same configuration assigned to multiple users.
 - Multi-session Win10 Deployment
+
+**Azure Service Bus**
+- Enterprise messaging solution. (message service)
+- 
 
 ## networking services
 Azure Virtual Network: 
@@ -665,7 +701,9 @@ key networking capabilities:
     - **Route tables**. define rules about how traffic should be directed. control how packets are routed between subnets. Azure automatically creates a route table for each subnet within an Azure virtual network and adds system default routes to the table. You can add custom route tables to modify traffic between virtual networks. only contains a set of rules (routes) that specify how packets are routed in the virtual network
     - **Border Gateway Protocol** Border Gateway Protocol (BGP) works with Azure VPN gateways or ExpressRoute to propagate on-premises BGP routes to Azure virtual networks.
 - Filter network traffic. filter traffic between subnets by using the following approaches:
-    - **Network security groups** A network security group is an Azure resource that can contain multiple inbound and outbound security rules. You can define these rules to allow or block traffic, based on factors such as source and destination IP address, port, and protocol. You create the network security group separately, Then you associate it with the virtual network
+    - **Network security groups**
+        - A network security group is an Azure resource that can contain multiple inbound and outbound security rules. You can define these rules to allow or block traffic, based on factors such as source and destination IP address, port, and protocol.
+        - You create the network security group separately, Then you associate it with the virtual network. (can only be applied at the Network)Interface layer or the Subnet layer
     - **Network virtual appliances** A network virtual appliance is a specialized VM that can be compared to a hardened network appliance. A network virtual appliance carries out a particular network function, such as running a firewall or performing wide area network (WAN) optimization.
 
 - Connect virtual networks
@@ -673,6 +711,9 @@ key networking capabilities:
     - the vNets can be in separate regions, which allows to create a global interconnected network through Azure
     - user-defined Routing (UDR). a significant update to Azure’s Virtual Networks; allows allows network admins to control the routing tables between subnets within a VNet, as well as between VNets, allowing for greater control over network traffic flow.
     - https://docs.microsoft.com/en-ca/learn/modules/azure-networking-fundamentals/azure-virtual-network-fundamentals
+- [Azure virtual network peering](https://docs.microsoft.com/en-us/azure/virtual-network/virtual-network-peering-overview)
+    - establish communication between two Azure virtual networks
+
 
 Routing talbe: 
 - the routing table is the routing route information recorded in the router itself. it only contains a set of rules (routes) that specify how packets are routed in the virtual network
@@ -776,6 +817,7 @@ ideal for:
     - The amount of data stored per month.
     - The number and type of *operations* performed, and the cost of data *transfer*.
     - The selected data redundancy option.
+- Each **object** that then be accessed via a **unique URL**
 
 
 ### Azure Files
@@ -783,8 +825,9 @@ use for:
 - Many on-premises applications use file shares.
 - Store configuration files on a file share and access them from multiple VMs
 - Write data to a file share, and process or analyze the data later.
-
- can access the files from anywhere in the world, by using a URL that points to the file. You can also use Shared Access Signature (SAS) tokens to allow access to a private asset for a specific amount of time.
+- ACCESS:
+    - can access the files from anywhere in the world, by using a URL (not unique, ust url of container) that points to the file.
+    - can also use Shared Access Signature (SAS) tokens to allow access to a private asset for a specific amount of time.
 
 ### Access tiers
  - Hot access tier
@@ -840,6 +883,7 @@ provides iOS and Android access to your Azure resources
 available for **free** and provides:
 - solutions to improve *cost-effectiveness, performance, high availability, reliability, and security*. designed to help you save time on cloud optimization
     - Operational Excellence:  achieve process and workflow efficiency, resource manageability, and deployment best practices.
+    - Azure Advisor integrates with Azure Security Center to give security recommendations. (it's alone cannot achive this task)
 - cannot file a cap relaxation request for resource limit
 - access the Advisor using the Azure portal, the Azure command line interface (CLI), or the *Advisor API*. 
 - configure alerts to automatically notify you of new recommendations
@@ -870,7 +914,7 @@ provides a personalized view of the health of the Azure services, regions, and r
 
 ### Azure Logs Analytics
 - stored in the *container* 'Log analytics workspace'. (under Azure portal)
-- a service that can collect and analyze logs of Azure services.
+- a service that can collect and analyze logs of Azure services, can view all of the control plane activities. (direct the application and virtual machines logs to a central repository)
 - possible to collect and analyze logs of Windows and Linux severs, of not only those on Azure but also on-premises and other cloud services.
 - can acquire logs by installing an agent on the targeted server, set a threshold for the collected data, and have an alert issued. 
 - it makes it easier to understand the log status by aggregating the collected data on the dashboard and graphing it.
@@ -885,12 +929,17 @@ a monitoring service that provides visibility of your security posture across al
 
 Security Center can:
 - Monitor security settings across on-premises and cloud workloads.
+- view the regulatory compliance of your Azure resources
 - Automatically apply required security settings to new resources as they come online.
 - Provide security recommendations that are based on your current configurations, resources, and networks.
 - Continuously monitor your resources and perform automatic security assessments to identify potential vulnerabilities before those vulnerabilities can be exploited.
-- Use machine learning to detect and block malware from being installed on your virtual machines (VMs) and other resources. You can also use **adaptive application controls** to define rules that list allowed applications to ensure that only applications you allow can run.
+- Use machine learning to detect and block malware from being installed on your virtual machines (VMs) and other resources.
+- You can also use **adaptive application controls** to define rules that list allowed applications to run.
 - Detect and analyze potential inbound attacks and investigate threats and any post-breach activity that might have occurred.
-- Provide just-in-time access control for network ports. Doing so reduces your attack surface by ensuring that the network only allows traffic that you require at the time that you need it to.
+- Provide *just-in-time* access control for network ports to reduces your attack surface by ensuring that the network only allows traffic that you require at the time that you need it to.
+
+cannot:
+- create network rules
 
 
 **security posture**: cybersecurity policies and controls, as well as how well you can predict, prevent, and respond to security threats.
@@ -915,7 +964,7 @@ from Security Center, the company can dismiss false alerts, investigate them fur
 ### Azure Sentinel
 - dedicated Security Information And Event Management (SIEM):
 - aggregates security data from many different sources (as long as those sources support an open-standard logging format). 
-- It also provides capabilities for threat detection and response.
+- It also provides capabilities for threat detection and response. (security orchestration automated response)
 
 Azure Sentinel is Microsoft's cloud-based SIEM system and enables:
 - **Collect cloud data** at scale Collect data across all users, devices, applications, and infrastructure, both on-premises and from multiple clouds.
@@ -946,8 +995,9 @@ Detect threats
 ### Azure Dedicated Host
 A dedicated host is mapped to a physical server in an Azure datacenter. A host group is a collection of dedicated hosts. Benifits:
 - Gives you visibility into, and control over, the server infrastructure that's running your Azure VMs.
-- Helps address compliance requirements by deploying your workloads on an isolated server.
+- Helps address compliance requirements by deploying your workloads on an *isolated* server.
 - Lets you choose the number of processors, server capabilities, VM series, and VM sizes within the same host.
+- Be able to control the maintenance events initiated by the Azure platform
 
 For high availability, you can provision multiple hosts in a host group, and deploy your VMs across this group. VMs on dedicated hosts can also take advantage of *maintenance control*. This feature enables you to control when regular maintenance updates occur, within a 35-day rolling window.
 
@@ -1014,6 +1064,7 @@ Always-on traffic monitoring and real-time mitigation of common network-level at
 - protection against DDoS attacks
 - protects your website from a variety of **malicious** attacks 
 - produces detailed **reports** on these attacks.
+- *cannot* create Application and Network Rules that applies to the entire virtual network
 
 service tiers:
 - **basic**. enabled for free as part of your Azure subscription.
@@ -1030,6 +1081,7 @@ The Standard service tier can help prevent:
 - filter network traffic to and from Azure **resources** in an Azure virtual network that has the network security group.
 - NSGs like an internal firewall. An NSG can contain multiple inbound and outbound security rules that enable you to filter traffic to and from resources by source and destination IP address, port, and protocol
 - provide distributed network-layer traffic filtering to limit traffic to resources within virtual networks in each subscription
+- can be applied to the network interface attached to the virtual machines and to the subnet that holds the Azure virtual machines
 
 [Exercise - Configure network access to a VM by using a network security group](https://docs.microsoft.com/en-ca/learn/modules/secure-network-connectivity-azure/6-configure-access-network-security-group)
 
@@ -1053,6 +1105,11 @@ The Standard service tier can help prevent:
 - With Azure AD, you control the identity accounts, but Microsoft ensures that the service is available globally
 - When you connect Active Directory with Azure AD, Microsoft can help protect you by detecting suspicious sign-in attempts at no extra cost.
 - Azure Active Directory manages how cloud or on-premises devices access your company's data. Register your device ID and provide a centralized place to manage it.
+- can
+    - create users and groups
+    - have built-in capabilities for securing authentication and authorization to resources
+- [pricing and tier](https://azure.microsoft.com/en-us/pricing/details/active-directory)
+    - Free, Office 365 Apps, premium 1, Premium 2
 
 who uses Azure AD
 - IT administrators
@@ -1082,8 +1139,8 @@ Azure AD B2C:
 
 #### Azure Active Directory ID Protection
 - allows you to apply MFA conditionally. 
-- It is also used to detect risks such as anonymous IP address logins, unfamiliar sign-ins, and credential leaks.
-- requires users who sign from the Internet with an anonymous IP address to change their password and "self-heal". 
+- It is also used to detect risks such as *anonymous IP* address logins, unfamiliar sign-ins, and credential leaks.
+- requires users who sign from the Internet with an *anonymous IP* address to change their password and "self-heal". 
 - Identity Protection is a tool that allows organizations to perform three main tasks:
     - Automate identity-based risk detection and action.
     - Investigate risk using portal data.
@@ -1118,8 +1175,13 @@ the services that provice Azure AD Multi-Factor Authentication:
     - Azure Active Directory free edition enables Azure AD Multi-Factor Authentication for administrators with the global admin level of access, via the Microsoft Authenticator app, phone call, or SMS code. You can also enforce Azure AD Multi-Factor Authentication for all users via the Microsoft Authenticator app only, by enabling security defaults in your Azure AD tenant.
     - Azure Active Directory Premium (P1 or P2 licenses) allows for comprehensive and granular configuration of Azure AD Multi-Factor Authentication through Conditional Access policies (explained shortly).
     - Azure Active Directory Premium **P2** also includes advanced identity protection and Privileged Identity Management features.
-- Mutifactor authentication for office 365
+- [Mutifactor authentication](https://docs.microsoft.com/en-us/azure/active-directory/authentication/concept-mfa-howitworks) for office 365
     - A subset of Azure AD Multi-Factor Authentication capabilities is part of your Office 365 subscription.
+    - forms of verification
+        - SMS
+        - Voice Call
+        - Microsoft Authentication App
+    - enabled via '*Azure Privileged Identity Management*'
 - hybrid identities - federation services
     - For hybrid identities, you can configure MFA when deployed while synchronized or federated with on-premises Active Directory Domain Services and Azure Active Directory.
 
@@ -1188,7 +1250,7 @@ Policy evaluation happens about once per hour. If you make changes to your polic
 
 policy initiatives
 
-example policy definitions:
+policy definitions examples:
 - Allowed virtual machine SKUs
 - Allowed locations
 - MFA should be enabled on accounts with write permissions on your subscription
@@ -1196,8 +1258,14 @@ example policy definitions:
 - System updates should be installed on your machines
 
 ### Azure Blueprints
-- enables you to define the set of standard Azure resources that your organization requires
-- ie. you can define a blueprint that specifies that a certain resource lock must exist. Azure Blueprints can automatically replace the resource lock if that lock is removed.
+- *can*
+    - define the set of standard Azure resources that your organization requires
+    - deploy **resource groups** to newer subscriptions
+    - deploy **Role assignments** to newer subscriptions
+    - deploy **Policy assignments** to newer subscriptions
+    - deploy **Azure Resource Manager** to newer subscriptions
+- e.g.
+    - define a blueprint that specifies that a certain resource lock must exist. Azure Blueprints can automatically replace the resource lock if that lock is removed.
 
 Azure Blueprints orchestrates the deployment of various resource templates and other artifacts, such as:
 - Role assignments (RBAC)
@@ -1347,6 +1415,7 @@ The Trust Center is an important part of the Microsoft Trusted Cloud Initiative,
 - Documentation that can be used to show Microsoft's compliance efforts
 - **Penetration test results**. you can see the results of penetration testing by an independent third party. 
 - **Security Evaluation**. 
+- review the available independent audit reports for Microsoft’s Cloud services
 
 access [Trust Center](https://www.microsoft.com/en-ca/trust-center?rtc=1)
 
@@ -1470,7 +1539,9 @@ service credits: (monthly, credit percentage)
 - < 99 	25
 - < 95 	100
 
-Free products typically don't have an SLA.
+service without SLA
+- Free products typically don't have an SLA.
+- Service Level Agreements are not in place for services that are in *public preview*.
 
 **Enterprise Agreement (EA) subscriptions** are only available to some users
 
@@ -1543,9 +1614,17 @@ Azure support request:
 - Azure portal
 - Azure support ticket REST API
 
-Developer Support Plan
-- only email is available during business hours
-- includes "Billing and Subscription Management Support", "24/7 self-help resources, Microsoft Learn, Azure portal instructions on how to use videos, documentation, community support", and "Ability to send as many support tickets as you need" 
+[Support Plans:](https://azure.microsoft.com/en-us/support/plans/)
+- Basic Plan
+    - 99.9%
+    - default one for all and free.
+- Developer Support Plan
+    - only email is available during business hours
+    - includes "Billing and Subscription Management Support", "24/7 self-help resources, Microsoft Learn, Azure portal instructions on how to use videos, documentation, community support", and "Ability to send as many support tickets as you need" 
+- Standard Plan
+    - 24/7 access to technical support by email and phone
+    - **Save** on montly cost
+- Professional Direct Plan.($1000/month, all supported)
 
 Billing accounts supported by the Azure portal
 - The Azure portal supports the Microsoft Online Services Program. This creates a separate billing account for the Microsoft Online Services Program when you sign up for Azure from the Azure website. For example, you can sign up for an Azure free account, a pay-as-you-go account, or sign up as a Visual Studio subscriber.

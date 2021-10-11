@@ -658,3 +658,81 @@ Only guest users of the company can access resources in public cloud
 What are the characteristics of public cloud hosting? (two)
 - Metered Pricing
 - **Self-Service Management**
+
+Is Authentication the process of granting access to perform an action?
+- No
+- (Authorizatioin will allow to perform a certain action)
+
+Can you use Azure Blueprints to deploy resource groups to newer subscriptions?
+- Yes
+
+Can you use Azure Blueprints to deploy Role assignments to newer subscriptions?
+- Yes
+
+Are the SLA for Azure Virtual Machines the same irrespective of whether they are deployed across Availability Sets or Availability Zones?
+- NO
+
+Would the use of Spot Virtual Machines help to reduce the costs?
+- NO
+
+A development team is planning on creating a General Purpose-V2 storage account. They want to store files and ensure that each is accessible via a unique URL. Which of the following is the right service within Azure Storage Accounts that can be used for this purpose?
+- Blob
+- *(wrong)* File
+
+Can you decide which paired region is used by the underlying Azure storage service?
+- No
+
+forms of verification that are possible with Azure AD Multi-Factor Authentication?
+- SMS
+- Voice call
+- Microsoft Authentication App
+- *(wrong)* Email
+- *(wrong)* Photo Identification.
+- bio metrics
+
+Azure Support plan with a) 24/7 access to technical support by email and phone; b) Save on monthly costs
+- **Standard Plan**
+- *(wrong)* Professional Direct Plan
+
+A company is planning on hosting a set of Azure virtual machines. One set is going to be hosted in the Central US location and the other set in the East US location. Would the cost for hosting the Azure virtual machine be the same , assuming the instance size and other aspects the same when it comes to the virtual machines?
+- No. (The cost for resources differs from region to region.)
+
+ want a managed service that can orchestrate the deployment and management of the containers
+ - Azure Kubernets
+ - *(wrong)* Azure container services.
+
+Which of the following service is a high-level application platform that has built-in communication and security features for internet-connected devices?
+- Azure Sphere
+- *(Azure IoT Central)*
+
+A company is planning on using an Azure service which is currently in public preview. Is an SLA provided for services that are in public preview?
+- NO
+
+A company needs to create around 50 customized Virtual Machines. Out of these 20 are Windows based Virtual machines and 30 are Ubuntu Machines. Which of the following would help reduce the administrative effort required to **deploy** the machines?
+- Azure Scale sets. (one set for win, another set for Ubuntu)
+- *(wrong)* Azure Load Balancer. (can be used for Scale Sets, but it is only used to divert traffice)
+
+Which of the following is true when it comes to SaaS?
+- You are responsible for configuring the solution
+- *(wrong)* You are responsible for scalability of the solution
+
+An IT administrator for a company has been given a powershell script. This powershell script will be used to create several Virtual Machines in Azure. You have to provide a machine to the IT administrator for running the powershell script. You decide to provide a Linux machine which has the Azure CLI tools installed. Would this solution fit the requirement?
+- NO. (We can execute Powershell scripts on Linux only when *Powershell Core and Azure CLI* is installed)
+- https://docs.microsoft.com/en-us/azure/devops/pipelines/tasks/deploy/azure-cli?view=azure-devops https://docs.microsoft.com/en-us/azure/virtual-machines/linux/run-command
+
+An IT administrator for a company has been given a powershell script. This powershell script will be used to create several Virtual Machines in Azure. You have to provide a machine to the IT administrator for running the powershell script. You decide to provide a ChromeOS based machine and use Azure Cloud Shell Would this solution fit the requirement?
+- Yes. (From the Azure Portal, if you use Azure Cloud Shell, you can run both Bash and powershell based scripts)
+
+you can install Powershell on MacOS and then run the powershell scripts For more information on installing powershell on MacOS. (https://docs.microsoft.com/en-us/powershell/scripting/install/installing-powershell-core-on-macos?view=powershell-6)
+
+A company has a set of resources deployed to Azure. They want to make use of the Azure Advisor tool. Would the Azure Advisor tool alone be able to give recommendations on how to improve the security of the Azure AD environment?
+- No.
+    - Azure Advisor integrates with Azure Security Center to give security recommendations
+    - Azure Security can give you recommendations on how to secure your resources in Azure
+
+A company is planning on hosting solutions on the Azure Cloud. They need to implement MFA for identities hosted in Azure. Is it necessary to deploy a federation solution or sync on-premise identities to the cloud?
+- NO. 
+
+A company wants to host their applications on Azure using serverless components. They don’t want to manage the underlying infrastructure for the application. Which of the following could be used to implement a workflow that could be run on a serverless infrastructure?
+- Azure Logic Apps. (host app)
+- *(wrong)* Azure Fucntion App. (host functions)
