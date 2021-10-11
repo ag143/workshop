@@ -1,0 +1,6 @@
+// This command is used to update the package index
+sudo apt-get update
+
+// This command will install the nginx web server
+sudo apt-get install nginx
+

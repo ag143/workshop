@@ -1,0 +1,1 @@
+[microsoft-azure-beginners-guide](https://mtygroup.udemy.com/course/microsoft-azure-beginners-guide/learn/lecture/16483938#announcements)
