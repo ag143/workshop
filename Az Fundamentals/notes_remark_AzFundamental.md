@@ -457,3 +457,204 @@ Making certain Azure services unavailable to certain users is possible with Azur
 Azure Functions can be used for **continuously** running backend applications.
 - False
     - Azure Functions is designed for short code that starts and ends quickly. You can use this to build simple applications that execute code serverlessly. Therefore, it is not well suited for continuously running backend batch applications.
+
+What services do you need to use in order to take advantage of the Just-In-Time (JIT) Virtual Machine (VM) access feature?
+- Azure Security Center
+- *(wrong)* Azure NAT gateway. (With Azure Front Door, it's a feature that configures the routing of web applications)
+
+correct description of the way to access the data stored in the archive access layer of your Azure storage account
+- **Rehydrate** data from the archive layer (Rehydrate archived blobs hot or cool by changing the tier using the Set Blob Tier operation)
+- Copy Blobs operation to make a new copy of the archived blobs. Specify a different blob name and hot or cool as the destination layer
+
+You have created 5 virtual networks and 10 virtual machines and you want to control inbound traffic. What kind of settings do you need
+- Azure Firewal
+- *(wrong)* Network Security Group (NSG)
+
+correct action to take if you want to increase your Azure subscription limit.
+- make a new support request
+    - request an increase in the limit by creating an Azure support request
+
+You are mapping a network drive to Azure Storage from multiple computers running Windows 10. Choose the action you need to take to create a storage solution in Azure for the mapped drive.
+- Azure Files. (can be attached/detached for sharing)
+- *(wrong)* VM data disk. this adds additional capacity on only VM, and is not for a shared storage solution.
+
+You have set up four virtual machines and are implementing traffic control with a public load balancer. What do you need to configure in order to transfer all Remote Desktop Protocol (RDP) connections to only one virtual machine?
+- Inbound NAT rules. (use a load balancer to create inbound NAT rules to port traffic from a particular port on a particular front-end IP address to a another port on another backend instance in your virtual network)
+
+Which file type do you need to use to copy files into your storage account using the Azure Import / Export service?
+- CSV file. (The Azure Import / Export service can securely import large amounts of data into Azure Blob Storage and Azure Files by sending disk drives to your Azure datacenter.  )
+- *(wrong)* JSON File.
+
+our company has a public DNS zone for example.com. You also have an Azure AD tenant example2.com in your Azure environment. What type of DNS record do you need to create if you add example.com as a custom domain name to Azure AD?
+- TXT. (TXT DNS record type)
+
+You are planning to migrate your server from your on-premises environment to Azure. The DB server must be configured on a separate network segment to ensure data security. Which Azure solution should you choose to achieve this?
+- Divide the **virtual network** for the DB server and another virtual network for all other servers.
+- *(subnet)*. (resources are in the same VNet, which will fail)
+
+Which billing accounts are supported by the Azure portal? Please select all applicable items.
+- Microsoft online Service Program
+- Ms Customer Agreement
+- Ms Enterprise Contract
+- Ms Partner Agreement
+- *(wrong)* Paid subscription account.
+
+You need a private connection between your Azure datacenter and your on-premises infrastructure. Which solution would you like to use?
+- Azure ExpressRoute. (on-premise)
+- *(wrong)* Virtual network gateway
+
+You plan to store shared documents in blob storage. Since this data is stored over the medium to long term, it is necessary to be able to respond in the event of a disaster while keeping costs down as much as possible. Choose the appropriate storage redundancy type.
+- Geo Redundancy. (high availability)
+- *(wrong)* Local Redundancy. (not recommended for high availablity)
+
+What is the **incorrect** option in regards to the range of guidance topics provided by Azure Advisor?
+- Redundancy
+
+correct statement about Azure **public review**.
+- It can be used for a lower price than general availability.
+- *(wrong)* they are used from a dedicated portal
+
+Users are encouraged to use regions that are geographically close to each other. Why are they encouraged this?
+- To ensure lower latency. (user are closer to the datacenters)
+
+Azure Cost Management and Billing can help you with cost optimization
+- False. (Azure Advisor provides advice on cost optimization)
+
+To build a hybrid cloud configuration, you need a private cloud.
+- False?. (You can also build a hybrid cloud configuration by using multiple public clouds)
+- should be true. Multe-cloud is not hybrid
+
+You can use Azure Cost Management to get information about the expected costs of a resources in Azure.
+- False
+
+When you implement efficient permission management by dividing users into groups and setting permissions, you would set groups with Azure management group.
+- True. (Management groups enable efficient privilege management by dividing users into groups and setting permissions.)
+
+Your company has decided to use a free Azure account to verify if Azure resources are suitable for their needs. With this free account you can test all services for up to 3 months.
+- False. (limited to 30 days.)
+
+Three months after you set up your Azure free account, you'll still have free access to a subset of Azure services.
+- True. (a subset = a part of)
+
+A Media company is considering using Microsoft Azure. They are currently using Microsoft Active Directory and so they need to work with Azure AD. For this, they can use the “Inter-Consumer (B2C)” feature of Azure AD to manage their customers.
+- True. (Azure Active Directory B2C provides a business-to-consumer (B2C) identity as a service. Customers can use their favorite social, enterprise, or local account IDs for single sign-on access to applications and APIs.)
+
+In order to use the Azure AD service, you need to implement a domain controller in your Azure virtual machine.
+- False. Azure Active Directory is provided as a managed service and does not require any environment setup such as installation on the user side)
+
+Your company has objects stored in Azure Blob Storage. What action do you need to take before accessing these objects?
+- Rehydrate the objects. (Objects stored in BLOB storage are in the archive tier)
+- *(wrong)* change the type of the objects. (should set tier)
+
+You are developing a web application using Azure. This application needs to collect events from multiple sources and process them on the application. Which service can you use to meet this requirement?
+- Azure Event Grid. (event-based architecture)
+- *(wrong)* Azure Iot Hub
+
+Which of the following services is used to store virtual hard disk files for virtual machines?
+- Azure Backup
+
+Azure Active Directory Premium P1 also includes advanced identity protection and Privileged Identity Management features?
+- False. (p2 includes the both)
+
+ufficient redundancy is required to access services on the virtual machines, ensuring access even if one **data center** goes down. To achieve this, you should use a scale set to deploy a set of virtual machines in a single Availability Zone.
+- True
+
+Redundancy is required to ensure access to services on virtual machines, even in the event that one AZ goes down. For this, you should use a scale set to deploy a set of virtual machines in multiple Availability Zones.
+- True
+
+Redundancy is required so that access to your services on your virtual machines is ensured, even in the event that one region goes down. For this, you should deploy a set of virtual machines in two or more Availability Zones.
+- False. (should deploy the set of virtual machines in two or more regions with the appropriate traffic configuration)
+
+You want to develop a web application hosted on a virtual machine. This application needs to store petabytes of data and requires complex queries across the data. Which service should you use?
+- Azure Synapse. (Azure Synapse is an enterprise analytics service that speeds the time to retrieve analytics across data warehouses and big data systems.)
+- *(wrong)* Azure Cosmos DB. (unable to execute SQL)
+
+You are deploying 4 virtual machines on Azure. These virtual machines host your web application. To improve the application's availability, you should configure scale sets for the virtual machines.
+- True. (You can increase the availability of your application by adding virtual machines to the virtual machine scale set.)
+
+You can manage devices using Azure AD (Active Directory) features
+- True. (Azure Active Directory manages how cloud or on-premises devices access your company's data. Register your device ID and provide a centralized place to manage it.)
+
+You can use Microsoft Active Directory to set permissions, by dividing users into groups and setting permissions.
+- False
+    - Azure Active Directory (Azure AD) enables identity management and security with single sign-on and multi-factor authentication. However, it is not possible to divide users into groups and grant permissions.
+    - To divide users into groups and set permissions on a per-group basis, it is recommended that you take advantage of managed group or Azure role-based access management controls.
+
+With ____, developers can deploy code and pay for its **run time** only, without worring about the provisioning, configuration and management of the underlying infrastructure.
+- Serverless Computing
+- *(wrong)* Iaas. (OS and run-time to manage)
+- *(Saas)*. (Cannot deploy code)
+
+A subscription can have only one license?
+- True
+
+Company plans to use a custom SaaS application and wants to minmize costs. The company should be able to maintain and secure all data onsite legally
+- Hybrid Model
+
+It's customer's responsibility to retain the data
+- True
+
+Company wants to host data disks on Azure. The data disks must be available to other on-premises machines using network sharing via Server Message Block protocal. Data must be secure both in-transit and at rest.
+- **File Storage**
+
+Which Azure resource can be classified as Software-as-a-Service
+- Azure Internet-of-Things (IoT) Center
+- *(wrong)* API Management
+
+Which feature of Azure Monitor allows you to visually analyze telemetry data by integrating with Visual Studio
+- Application Insights
+- *(wrong)* Metrics
+
+Which services should you use to analyze large volumes of streaming data being collected from Internet of Things (IoT) devices?
+- HDsight
+
+A company is considering using Linux-based Azure Container Instances (ACIs) to deploy a simple application. The application runs as a stateful application. The service should provide storage to retrieve and persist state.
+- Azure Files
+- *(wrong)* Azure Blob
+- *(wrong)* Azure Disk
+
+Which feature of Azure Monitor sends an email to an administrator when a virtual machine is about to exceed its usage quto for the month?
+- Service Health
+- *(wrong)* Alerts
+
+All Azure free accounts expire after a specific period?
+- True
+
+one MS account can only creat **one** free Azure account
+
+A company is planning to build a solution for an automobile manufacturing company. The solution should permit vehicles to send on-board diagonostic sensory and vehicle telemetry data on the cloud for **analysis**. The solution should indentify individual vehicles from the data that is sent.
+- IoT Central
+- *(wrong)* IoT hub
+
+A subscription can have only one license?
+- False. (a license can be assigned to each user account)
+
+The responsiblity for accounts is transfered to the cloud  provider?
+- False.
+
+To what should an application connect to retrieve security tokens?
+- Azure Active Directory
+- *(wrong)* Azure Key Vault
+
+Which regulation addresses data protection and privacy for all individuals in the European Union (EU)?
+- General Data Protection Regulation (GDPR)
+
+A company is going to start collecting data about your azure infrastructure with Azure Monitor. which type of data collection is required to enable diagnostics
+- Event logs
+
+what are conditional access:
+- restricted by location
+- compliant devices
+
+Which US regualtion addresses protecting unclassified information created by the government and stored in non-gvoernmental systems?
+- National Institute of Standards & technology (NIST) 800-171
+
+A company can extend it's storage resources by implementing hybrid model for it's internal network
+- True
+
+Only guest users of the company can access resources in public cloud
+- False. (Actuall, anyone can access only if permitted)
+
+What are the characteristics of public cloud hosting? (two)
+- Metered Pricing
+- **Self-Service Management**
