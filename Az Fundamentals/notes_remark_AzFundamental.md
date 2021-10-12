@@ -736,3 +736,40 @@ A company is planning on hosting solutions on the Azure Cloud. They need to impl
 A company wants to host their applications on Azure using serverless components. They don’t want to manage the underlying infrastructure for the application. Which of the following could be used to implement a workflow that could be run on a serverless infrastructure?
 - Azure Logic Apps. (host app)
 - *(wrong)* Azure Fucntion App. (host functions)
+
+A company wants to try out some services which are being offered by Azure in Public Preview. Should the company deploy resources which are part of Public Preview in their production environment?
+- NO. (there is no SLA or guarantee)
+
+Which of the following is a feature of the Azure SQL Datawarehouse architecture?
+- Scalability
+- *(wrong)* High Availability
+
+A company is planning on using Azure Storage Accounts. They have the following requirement: 1)Storage of 2 TB of data;2)Storage of a million files Would using Azure Storage fulfill these requirements?
+- Yes. (a blob max 200TB, and no limit for number of blobs)
+
+The company needs to know if the underlying infrastructure in Azure hosting the Virtual Machine has any issues? Where could they view such issues?
+- The Virtual Machine Blade
+- *(wrong)* Azure Advisor
+
+Would the Azure Advisor tool give recommendations on how to configure Virtual Network settings?
+- No
+
+want to have a comprehensive solution for collecting, analyzing, and acting on telemetry from your cloud.
+- Azure monitor
+    - Azure Monitor maximizes the availability and performance of your applications and services by delivering a comprehensive solution for collecting, analyzing, and acting on telemetry from your cloud and on-premises environments
+- *(wrong)* Azure Event hubs
+    - a big data streaming platform and event ingestion service
+
+A company has a virtual machine defined as demovm. This Virtual Machine was created with the standard settings. An application is installed on demovm. It now needs to be ensured that the application can be accessed over the Internet via HTTP using prioritized security rules and port ranges You make modifications to the Azure firewall Would this solution fit the requirement?
+- No. (Azure Firewall we can only add normal security rules but we CANNOT "prioritize" the security rules)
+- (correct way) "prioritized security rules" can only be added through a "network security group"
+
+the support plan Ensure that for high severity cases, there is a response within 10 minutes A recommendation is made to purchase the Professional Direct Support plan Would this recommendation fulfil the requirement?
+- no. (professional direct is within 1 hour)
+
+to transfer billing ownership of the subscriptions between your company's accounts Does your administrator need to contact Microsoft for this activity ?
+- no. (go to your subscription, there will be a Transfer subscription option)
+
+A company needs to deploy several virtual machines. Each of these virtual machines will have **the same set of permissions**. To minimize the administrative overhead, in which would you deploy the Azure Virtual Machines
+- Azure Resource Groups
+
