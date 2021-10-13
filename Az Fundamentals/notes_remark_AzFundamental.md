@@ -230,6 +230,10 @@ You need to be aware of the latest Azure security standards to protect your data
 You are planning to extend your company's network to Azure to create a hybrid cloud configuration. In the on-premises environment, a VPN appliance that has the IP address of 136.168.103.1 is used and it is necessary to identify this on the Azure side. Which is the best solution for this situation?
 - local network gateway. can be used to specify the IP address of the VPN device in the virtual network. This allows Azure to identify VPN appliances that use the IP address of 136.168.103.1.
 
+A company has a VPN device that will be used on a Site-to-Site connection from an on-premise location to Azure. Which of the following would be used to represent the VPN device?
+- Loca network gateway
+- *(wrong)* Virtual network gateway.(which typically referes to your on-premises location. You give the site a name by which Azure can refer to it, then specify the IP address of the on-premises VPN device to which yo uwill create a connection)
+
 You want to deploy multiple web servers and multiple database servers in Azure. As a security measure, you need to limit the connection to the database server to be only from the web server. Which solution should you use for this?
 - Azure network security groups. 
 
@@ -773,3 +777,114 @@ to transfer billing ownership of the subscriptions between your company's accoun
 A company needs to deploy several virtual machines. Each of these virtual machines will have **the same set of permissions**. To minimize the administrative overhead, in which would you deploy the Azure Virtual Machines
 - Azure Resource Groups
 
+A company needs the list of planned maintenance events that can affect the availability of an Azure subscription. Which of the following would help them achieve this requirement?
+- Help + Support
+- *(wrong)* Security Center
+
+A company needs the list of planned maintenance events that can affect the availability of an Azure subscription. Which of the following would help them achieve this requirement?
+- Help + Support. (re-direct to 'Service Health')
+
+Provide an option to contact Microsoft support engineers by phone or email A recommendation is made to purchase the Standard Support plan
+- Yes. (24x7 access to Support Engineers via email and phone)
+
+A company has 100 machines in their on-premise environment. They want to **extend** their infrastructure without too much extra capital or operational expenditure. Which of the following could they opt to carry out for this requirement?
+- migrate all to the public cloud
+
+ You need to ensure that traffic can flow into the Virtual Machine on port 8080. Which of the following must you modify to make this work?
+- Network Security Group (always). (inbound: destination port rage - 8080)
+- *(wrong)* Network Interface Card
+
+A company wants to host a set of tables in Azure. They want absolutely zero administration of the underlying infrastructure and low latency access to data. You recommend using the CosmosDB service? Would this suit the requirement
+- Azure Sql database
+- Azure Cosmos DB
+    - fully managed service with low latency access to data
+    - has a table API to work with Table-like data
+
+Used to analyze data on End user devices
+- IoT Edge
+- *(wrong)* IoT central
+
+A company wants to implement an IoT solution using the service available in Azure. Which of the following would meet the below requirement? “Helps provide a powerful data exploration and telemetry tools to help you refine operational analysis”
+- Azure Time Series Insights (IoT deployments)
+    - an end-to-end PaaS
+    - to ingest, process, store and query highly contexualized, time-series-optimized IoT-scale data.
+    - is ideal for ad-hoc data exploration and operational analysis
+- *(wrong)* IoT central
+
+protect their resources against DDoS attacks and also get real time attack **metrics**
+- DDoS Portection Standard
+
+A company is planning on deploying an Azure Windows Server 2016 virtual machine. Could a VPN be used to encrypt all traffic from the virtual machine itself to a host on the Internet?
+- Yes. (You can install roles such as the Remote Access Server for VPN to ensure traffic is encrypted when it flows out of the server)
+
+want to reduce the costs for resources hosted in Azure They decide to remove the network interfaces from Azure AD Would this fulfil the requirement
+- No. (network interface is free)
+
+want to *create and update* the resources as a group, rather than handling them individually, within the Azure subscription.Which of the following could be used for this requirement
+- Azure Resource Manager
+- *(wrong)* Azure Resource groups.
+
+Ensure that the Virtual Machine Administrator team can only deploy virtual machines and their dependent resources.
+- azure RBAS (role for virtual machine access)
+- *(wrong)* Azure Polices
+
+Is it possible for the Azure Advisor tool to give a list of Azure virtual machines that are currently not enabled by Azure Backup?
+- **Yes**.
+
+advantages of using a hybrid cloud model?
+- **better control**
+- More Flexibility
+- *(wrong)* Less Maintenance
+
+Is there a default spending limit when it comes to the spending limit for the Azure free account?
+- **YES**
+
+They then decide to use the File service to store the user data. Is this the ideal service for storage of user related data
+- **NO**. (Files is used when you want have files that can be accessed via the SMB 3.0 and HTTPS protocol)
+
+They then decide to use the Table service to store the user data. Is this the ideal service for storage of user related data?
+- **YES**
+
+to ensure that the services on the virtual machines are still accessible even if a single data center goes down. They decide to deploy the set of virtual machines to two or more regions
+- **Yes**
+
+Is it possible to manage *external partners* using the "Business-to-Customer (B2C)" feature of Azure AD
+- No. (Using the "Business-to-Business (B2B)" feature of Azure AD you can manage your guest users and external partners)
+
+Which of the following category does Azure Kubernetes come under
+- **IaaS**
+
+A company needs to deploy a server named “evotechserver” to the Azure cloud. The company’s policy states that the server needs to be deployed on a separate network segment. Which of the following could be used to deploy the server to ensure that it’s meet the company policy?
+- A separate virtual network
+- *(wrong)* A separate account for the server
+
+Provide a service that could help **store** objects that could be accessed from anywhere around the world via HTTP Which of the following would be best suited for this requirement?
+- Azure Storage Accounts
+- *(Azure Application Gateway)
+
+Provide capabilities to perform Big Data analytics over data stored on Azure Blob storage Which of the following would be best suited for this requirement?
+- Azure Data Lake Storage ()
+
+to get alerts whenever the CPU of the virtual machines goes beyond a certain threshold
+- Azure Monitor. (can create alerts in Azure Monitor based on the virtual machine metrics)
+
+Does the Cosmos DB service provide the ability to create different types of data stores such as Mongo DB and Cassandra?
+- **YES** (Cosmos DB is a multi-model database)
+
+if there is any way to have a reduction in costs for running the virtual machines in Azure
+- Advisor. (at Azure Advisor, it can actually give you a purchase recommendation on how you can reduce costs)
+
+availability metrics you would get from customers to understand the acceptability SLA for an application
+- Mean time to recover (MTTR)
+- Mean time between failures (MTBF)
+- *(wrong)* Mean time to success (MTTS)
+- *(wrong)* Mean time to failure (MTTF)
+
+Every Region has multiple Datacenters.
+- True
+
+You have been tasked with ensuring that virtual machines continue to run if a datacenter fails. Bob Ross, your co-worker, suggests that you create virtual machine scale sets. Does this meet the requirement?
+- **YES** (you can use Availability Zones to automatically distribute VM instances in a scale set within a single datacenter or across multiple datacenters.)
+
+allow more resources on demand to stop the application from running in a degraded state when reports are generated
+- Elasticity. (allows applications to consume more resources on demand, then release those resources when resource demand is lessened)
