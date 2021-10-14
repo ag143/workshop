@@ -390,7 +390,7 @@ the core of which is machine learning, which is a data science technique that al
 
 **Azure Machine Learning Service**: Cloud-based environment you can use to develop, train, test, deploy, manage, and track machine learning models. It can auto-generate a model and auto-tune it for you. It will let you start training on your local machine, and then scale out to the cloud.
 - a development platform for coding machine learning
-- to build a predictive analytics model that uses past user behavior data
+- to build a predictive analytics model that uses **past** user behavior data
 You can:
 - Create a process that defines how to obtain data, how to handle missing or bad data, how to split the data into either a training set or test set, and deliver the data to the training process.
 - Train and evaluate predictive models by using tools and programming languages familiar to data scientists.
@@ -400,11 +400,11 @@ You can:
 **deep learning**, which is modeled on the neural network of the human mind, enabling it to discover, learn, and grow through experience
 
 Azure ML Studio: 
-- data science solution that enables users to build and deploy a machine learning (ML) without coding
+- data science solution that enables users to build and deploy a machine learning (ML) **without coding**
 - Collaborative visual workspace where you can build, test, and deploy machine learning solutions by using prebuilt machine learning algorithms and data-handling modules.
 
 **cognitive Services**
-an AI platform that can be used by all developers without needing any machine learning expertise via APIs. You can embed AI functions such as image identification in the app with this
+an AI platform that can be used by all developers **without needing any machine learning expertise via APIs**. You can embed AI functions such as image identification in the app with this
 
 A closely related set of products are the **Azure Cognitive** services. You can use these prebuilt APIs in your applications to solve complex problems: 
 - incorporate mechanisms such as image identification into your applications from APIs without any machine learning expertise.
@@ -412,7 +412,7 @@ A closely related set of products are the **Azure Cognitive** services. You can 
     - customize and embed state-of-the-art computer vision image analysis for specific domains
     - build a smooth customer experiences, optimize manufacturing processes, drive digital marketing campaigns
 - **Speech**: Convert spoken audio into text, use voice for verification, or add speaker recognition to your app.
-Natural Language processing(**language**): Allow your apps to process natural language with prebuilt scripts, evaluate sentiment, and learn how to recognize what users want.
+- Natural Language processing(**language**): Allow your apps to process natural language with prebuilt scripts, evaluate sentiment, and learn how to recognize what users want.
 - Knowledge mapping (**decision**):
     -Map complex information and data to solve tasks such as intelligent recommendations and semantic search.
     - Add personalized *recommendations* for each user that automatically improve each time they're used, moderate content to monitor and remove offensive or risky content, and detect abnormalities in your time series data.
@@ -430,8 +430,10 @@ DevOps brings together people, processes, and technology by automating software 
 - Azure Pipelines. CI/CD pipeline automation tool
 - Azure Artifacts. a repository for hosting artifacts, such as compiled source code, which can be fed into testing or deployment pipeline steps.
 - Azure Test Plans. is an automated test tool that can be used in a CI/CD pipeline
+
 **Github and github actions**
 - less permission granularity than DevOps
+
 **Azure DevTest Labs**: Quickly create on-demand Windows and Linux environments to test or demo applications directly from deployment pipelines.
 - provides an automated means of managing the process of building, setting up, and tearing down virtual machines (VMs) that contain builds of your software projects.
 - developers and testers can perform tests across a variety of environments and builds. And this capability isn't limited to VMs
