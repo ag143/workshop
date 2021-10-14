@@ -233,7 +233,7 @@ other features include:
     - Globally distributed, **multi-model database** that supports NoSQL options.(can create different types of data stores such as Mongo DB and Cassandra)
     - supports schema-less data, build highly responsive and "Always On" applications 
     - The data is abstracted and projected as an API, include SQL, MongoDB, Cassandra, Tables, and Gremlin
-    - Guaranteed single-digit millisecond response time and 99.999% availability.
+    - *Guaranteed single-digit millisecond responsetime  (low latency)* and 99.999% availability.
     - Azure Cosmos DB can store JSON documents.
 
 - Azure Database for MySQL: 
@@ -481,7 +481,9 @@ The Azure free student account offer includes:
     - the ability of services to automatically scale resources based on changing demand. (resource on demand)
     - ScalingSet helps automate the process of adding or removing virtual machines as demand increases or decreases
     - to change resource allocation is an example of cloud flexibility or elasticity.
-- **Agility**: Deploy and configure cloud-based resources quickly as your app requirements change.
+- **Agility**: 
+    - Deploy and configure cloud-based resources quickly as your app requirements change.
+    - The ability to respond to and drive **market change quickly**
 - **Geo-distribution**: You can deploy apps and data to regional datacenters around the globe, thereby ensuring that your customers always have the best performance in their region.
 - **Disaster recovery**: By taking advantage of cloud-based backup services, data replication, and geo-distribution, you can deploy your apps with the confidence that comes from knowing that your data is safe in the event of disaster.
 
@@ -490,9 +492,11 @@ The Azure free student account offer includes:
 - pay-as-you-go subscriptions are also available and are considered OpEx.
 - Azure gives you the *flexibility* to choose.
 - In CapEx, costs are fixed
+- You must wait over a period of years to depreciate that investment (CapEx) on your taxes
 
 ### different cloud services / service type:
 [pros and cons](https://docs.microsoft.com/en-ca/learn/modules/fundamental-azure-concepts/categories-of-cloud-services)
+- **Serveless**. enables developers to build applications faster by eliminating the need for them to manage infrastructure. With serverless applications, the cloud service provider automatically provisions, scales, and manages the infrastructure required to run the code
 - **IaaS**: provider will keep the hardware up-to-date, but operating system maintenance and network configuration is up to you
     - Virtual Machines. rapid deployment
     - Kubernets
@@ -546,6 +550,7 @@ The Azure free student account offer includes:
 #### Geography
 - any region of the world that contains at least one Azure region
 - Regions define individual markets and maintain boundaries between data location and compliance
+- 10+ geographies
 
 #### Zone
 A zone are regional groups of Azure regions for billing. Data transfer charges are based on the zone.
@@ -557,6 +562,8 @@ A zone are regional groups of Azure regions for billing. Data transfer charges a
 - Each region has at least **three** separate zones.
 - customer cannot decide on the region pairs used by the underlying Azure storage services
 - multi-region support is not optimal in terms of architectural configuration because it is difficult to link virtual machines across regions
+- 60+ regions
+
 
 importants:
 - Some services or VM features are only available in certain regions, such as specific VM sizes or storage types.
@@ -647,7 +654,7 @@ Azure Marketplace: an online store that hosts applications that are certified an
     - During disaster recovery
 - SLA:
     - 99.9% (only one using Premium SSD or Ultra Disk)
-    - 99.95% (more than one)
+    - **99.95% (more than one, Scale Set)**
     - 99.99% (over 2 AZs)
 
 [Just-In-Time (JIT)](https://docs.microsoft.com/en-us/azure/security-center/security-center-just-in-time?tabs=jit-config-asc%2Cjit-request-asc) 
@@ -693,9 +700,10 @@ is a hypervisor that provides a virtualized environment
 **[microservice] (https://docs.microsoft.com/en-ca/learn/modules/azure-compute-fundamentals/azure-container-services)**
 **Azure App Service**
 **Azure Functions** (serverless computing)
-- can solve complex orchestration problems to develop serverless applications
-- Abstraction of servers
-- an event-driven serverless computing platform. Event-driven scale
+- can
+    - solve complex orchestration problems to develop serverless applications
+    - Can edit the code right in the Azure Portal using a code editor
+- Abstraction of servers, an event-driven serverless computing platform. Event-driven scale
     - Timers, for example, if a function needs to run every day at 10:00 AM UTC.
     - HTTP, for example, API and webhook scenarios.
     - Queues, for example, with order processing.
@@ -703,6 +711,7 @@ is a hypervisor that provides a virtualized environment
 - micro-billing
 - you write code to complete each step
 **Azure Logic Apps** (serverless computing)
+    - Servless model
     - designed in a web-based designer
     - can execute logic triggered by Azure services without writing any code.
     - you use a GUI to define the actions and how they relate to one another.
@@ -959,10 +968,15 @@ provides a personalized view of the health of the Azure services, regions, and r
 - access also via
     - Help + Support
     - Notification
+- be comprised of:
+    - Azure Service Health
+    - Azure Status
+    - Service health service
+    - Resource Health 
 
 ### Azure Logs Analytics
 - stored in the *container* 'Log analytics workspace'. (under Azure portal)
-- a service that can collect and analyze logs of Azure services, can view all of the control plane activities. (direct the application and virtual machines logs to a central repository)
+- a service that can collect and analyze *logs and metric data* of Azure services, can view all of the control plane activities. (direct the application and virtual machines logs to a central repository)
 - possible to collect and analyze logs of Windows and Linux severs, of not only those on Azure but also on-premises and other cloud services.
 - can acquire logs by installing an agent on the targeted server, set a threshold for the collected data, and have an alert issued. 
 - it makes it easier to understand the log status by aggregating the collected data on the dashboard and graphing it.
@@ -1159,9 +1173,16 @@ The Standard service tier can help prevent:
 - With Azure AD, you control the identity accounts, but Microsoft ensures that the service is available globally
 - When you connect Active Directory with Azure AD, Microsoft can help protect you by detecting suspicious sign-in attempts at no extra cost.
 - Azure Active Directory manages how cloud or on-premises devices access your company's data. Register your device ID and provide a centralized place to manage it.
+- feature:
+    - Custome banned password list
+    - Smart lockout
+    - **Device Management**
+    - Single sing-on
 - can
     - create users and groups
     - have built-in capabilities for securing authentication and authorization to resources
+- Cannot
+    - cannot create Log Alert Rule
 - [pricing and tier](https://azure.microsoft.com/en-us/pricing/details/active-directory)
     - Free, Office 365 Apps, premium 1, Premium 2
 
@@ -1175,6 +1196,7 @@ tenant
 - A tenant is a representation of an organization
 - A tenant is typically separated from other tenants and has its own identity.
 - Each Microsoft 365, Office 365, Azure, and Dynamics CRM Online tenant is automatically an Azure AD tenant.
+- Azure Tenant is a dedicated and trusted instance of Azure Active Directory that's automatically created when your organization signs up for a Microsoft cloud service subscription.
 
 services Azure AD provide:
 - Authentication
@@ -1207,7 +1229,7 @@ Azure AD B2C:
 - synchronizes user identities **between** on-premises Active Directory and Azure AD.
 
 - **Azure AD Connect Health**. used to monitor identity governance or identity infrastructure for on-premises resources or servers. You can use the Azure AD Connect Health portal to view alerts, performance monitoring, usage analysis, and other information.
-- **Azure AD privileged ID management**. used to provide just-in-time access, prevent malicious activity, and provide a fully integrated review of "privileged roles" in real time. It also helps you manage privileged administrator roles across Azure resources and Azure AD
+- **Azure AD privileged ID management**. used to provide just-in-time access, prevent malicious activity, and provide a fully integrated review of "privileged roles" in real time. It also helps you manage privileged **administrator** roles across Azure resources and Azure AD
 - Azure **Advanced Threat Protection** (ATP).
     - monitors user activity across the Azure network
     - detect suspicious user activity and malicious attacks within your organization
@@ -1217,6 +1239,8 @@ Azure AD B2C:
 ##### Synchronization Service Manager
 - used to configure the more advanced aspects of the synchronization engine and to verify the operational aspects of the service. 
 - allows you to check the synchronization execution details and status.
+
+#### Azure AD Fedearatioln Services
 
 ### Multifactor authentication
 provides additional security for your identities by requiring two or more elements to fully authenticate.
@@ -1475,6 +1499,24 @@ The Trust Center is an important part of the Microsoft Trusted Cloud Initiative,
 - **Penetration test results**. you can see the results of penetration testing by an independent third party. 
 - **Security Evaluation**. 
 - review the available independent audit reports for Microsoft’s Cloud services
+- [hierachy:](https://servicetrust.microsoft.com/)
+    - Compliance Manager
+    - Trust Documents
+        - Audit Reports
+        - Data Protection
+        - Azure Stack
+    - Industries & Regions
+    - Trust Center
+        - [Home](https://www.microsoft.com/en-ca/trust-center)
+        - Privacy
+            - Privacy Overview
+            - Data Management
+            - GDPR
+            - Resources
+        - Security
+        - Compliance
+            - ...
+        - Resources
 
 access [Trust Center](https://www.microsoft.com/en-ca/trust-center?rtc=1)
 

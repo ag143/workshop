@@ -888,3 +888,97 @@ You have been tasked with ensuring that virtual machines continue to run if a da
 
 allow more resources on demand to stop the application from running in a degraded state when reports are generated
 - Elasticity. (allows applications to consume more resources on demand, then release those resources when resource demand is lessened)
+
+Which of the following Azure features is most likely to deliver the most immediate savings when it comes to reducing Azure costs?
+- Using Azure Reserved Instances for most of your virtual machines. (the most, >40%)
+- *(wrong)* shutdown VMs overnight and on weekends.
+
+What service does Azure provide as an optional upgrade to protect against DDoS attacks?
+- Azure DDoS Protection Standard. (upgrade from basic)
+- *(wrong)* Advanced Threat Protection
+
+What makes a system highly available?
+- A system specifically designed to be resilient, with no single point of failures
+- *(wrong)* Must have a minimum of two VMs
+
+Which tool within Azure helps you to track your compliance with various international standards and government laws?
+- Complance Manager. (exact tool)
+- *(wrong)* Service Trust Portal
+
+One of the benefits of the cloud is agility. What does that mean in the context of the cloud?
+- The ability to respond to and drive **market change quickly**
+- *(wrong)* The ability of a system to grow it's capacity easily when it reaches full capacity
+
+What is the concept of being able to get your applications and data running in another environment quickly?
+- Business Continuity / Disaster Recovery (BC/DR)
+- *(wrong)* Reproducible deployments
+
+What does it mean if a service is in Public Preview mode?
+- Anyone can use the service but it must not be for production use
+- *(wrong)*Anyone can use the service for any reason
+
+What is the Azure SLA for two or more Virtual Machines in an Availability Set?
+- 99.95%
+- *(wrong)* 99.99%. (scale set has lower SLA)
+
+all features part of Azure AD?
+- Custome banned password list
+- Smart lockout
+- **Device Management**
+- Single sing-on
+- *(wrong)* Log Alert Rule
+
+What is the benefit of using a command line tool like Powershell or CLI as opposed to the Azure portal?
+- **Automation**
+- *(wrong)* Quicker to deploy VMs
+
+What would be a good reason to have multiple Azure subscriptions?
+- There is one person/credit card paying for resources, but many people who have accounts in Azure, and you need to separate out resources between clients so that there is absolutely no chance of resources being exposed between them.
+
+What types of files can a Content Delivery Network speed up the delivery of?
+- **JavaScript files**
+- PDFS
+- Images
+- Videos
+
+Which of the following elements is considered part of the "perimeter" layer of security?
+- Use a firewall
+- ~~Locks on the data center doors~~
+
+Approximately how many regions does Azure have around the world?
+- 60+ (There are 60+ Azure regions currently, in 10+ geographies)
+
+Which tool within Azure is comprised of : Azure Status, Service Health and Resource Health?
+- Azure Service Health
+- ~~Azure Monitor~~
+
+If you have an Azure free account, with a $200 credit for the first month, what happens when you reach the $200 limit?
+- All services are stopped and you must decide whether you want to convert to a paid account or not.
+- ~~You cannot create any more resources until you add more credits to the account.~~
+
+How many hours are available free when using the Azure B1S General Purpose Virtual Machines under a Azure free account in the first 12 months?
+- **750**
+
+What is the core problem that you need to solve in order to have a high-availability application?
+- **You need to avoid single points of failure**
+
+How many minutes per month downtime is 99.99% availability?
+- **4** (4/m)
+
+What operating systems does an Azure Virtual Machine support?
+- **Windows and Linux**
+- ~~Windows, Linux and macOS~~
+
+Which style of computing is easiest when migrating an existing hosted application from your own data center into the cloud?
+- **IaaS**
+- ~~Serverless~~
+
+rue or false: Azure PowerShell scripts and Command Line Interface (CLI) scripts are entirely compatible with each other?
+- NO. (PowerShell is it's own language, different than CLI)
+
+Which of the following resources are not considered Compute resources?
+- Load Balancer. (A load balancer is a networking product, and does not execute your code.)
+- ~~Function Apps~~
+
+If you wanted to deploy a virtual machine to China, you would just choose the China region from the drop down.
+- False. (Some regions of the world require special contracts with the local provider such as Germany and China.)
