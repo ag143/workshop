@@ -121,45 +121,44 @@ Azure Load Balancer:
 
 Azure DNS: Provides ultra-fast DNS responses and ultra-high domain availability.
 
-Azure Content Delivery Network (CDN): Delivers high-bandwidth content to customers globally. 
+Azure Content Delivery Network (CDN): 
 - PaaS
-- a secure, reliable, and fast content delivery network.
+- a secure, reliable, and fast network to deliver high-bandwidth content to customers globally. 
 - reduce load times, save bandwidth, and improve responsiveness.
-- develop and manage websites and mobile apps, as well as accelerate streaming media and game software, firmware updates, and IoT endpoint encoding and delivery. 
+- develop and manage websites and mobile apps
+- accelerate streaming media and game software, firmware updates, and IoT endpoint encoding and delivery. 
 
 
 Azure DDoS Protection: Protects Azure-hosted applications from distributed denial of service (DDOS) attacks.
 
-Azure Traffic Manager: Distributes network traffic across Azure regions worldwide.
+Azure Traffic Manager: Distributes network traffic across Azure **regions worldwide**.
 
 Azure ExpressRoute: Connects to Azure over high-bandwidth dedicated secure connections.
 - transfer data from your on-premises datacenter to Azure Public Cloud
 - not charged for inbound data transfer
 
-Azure Network Watcher: Monitors and diagnoses network issues by using scenario-based analysis.
+Azure Network Watcher: Monitors and diagnoses network issues by using **scenario-based** analysis.
 
 Azure Firewall: Implements high-security, high-availability firewall with unlimited scalability.
 
-Azure Virtual WAN: Creates a unified wide area network (WAN) that connects local and remote sites.
+Azure Virtual WAN: Creates a unified wide area network (WAN) that connects **local and remote sites**.
 
 
 #### Storage
 ##### Azure Blob storage:
 - Storage service for very large objects, such as video files or bitmaps.
--  used to store blob type data and acts as an Azure virtual machine disk.
-
-data disk:
-- attached to VMs
-- stored in the Blob service of Azure storage accounts
+-  used to store blob type data and acts as an Azure virtual machine disk - data disk:
+    - attached to VMs
+    - stored in the Blob service of Azure storage accounts
 
 ##### Azure File storage:
-- is used when you want have files that can be accessed **via the SMB 3.0 and HTTPS protocol**
+- used for files that can be accessed via the *SMB 3.0, HTTPS protocol or network File System (NFS) protocol*
+    - SMB: provides a way for a computer's client applications to read and write to files and to request services from server programs
 - File shares that can be accessed and managed like a file server.
-- Azure Files offers fully managed file shares in the cloud that are accessible via the industry standard Server Message Block (SMB) protocol or Network File System (NFS) protocol
 - Azure file can be mounted simultaneously via cloud or on-premises deployments on Windows, Linux, and macOS
-- use Azure File Sync to cache your Azure file on Windows Server for quick access to where your data is being used
+- use **Azure File Sync** to cache your Azure file on Windows Server for quick access to where your data is being used
 
-Azurefile share can be used to:
+Azure file share can be used to:
 - Replace or supplement on-premises file servers
 - "lift and shift" applications. (move both the application and its data to cloud)
 - Simplify cloud development:
@@ -171,10 +170,13 @@ Azurefile share can be used to:
     
 ##### Azure Queue storage:
 - A data store for queuing and reliably delivering messages between applications.
-- one queue max 64kb, including milions of messages.
-- Store a list of messages to be processed asynchronously
-- For example
-    - suppose you want customers to be able to upload pictures, and you want to create thumbnails for each picture. You can let customers wait for you to create a thumbnail while uploading a picture. Another option is to use queues. After the client finishes uploading, a message is written to the queue. Then let the Azure function retrieve the message from the queue and create the thumbnail. Each part of this process can be scaled separately to give you more control when adjusting and using it 
+- one queue is max 64kb, including a list (milions) of messages  to be processed asynchronously
+- For example,  you want to create thumbnails for each picture uploaded by customers. 
+    - You can let customers wait for you to create a thumbnail while uploading a picture.
+    - Another option is to use queues: 
+        1. After the client finishes uploading, a message is written to the queue.
+        1. Then let the Azure function retrieve the message from the queue and create the thumbnail.
+    - Each part of the above process can be scaled separately to give you more control when adjusting and using it 
 
 ##### Azure Table storage:
 - ideal service for storage of user related data
