@@ -243,6 +243,8 @@ a fully managed cloud data warehouse to get query results in a short time across
 - Pause compute capacity while leaving data intact, so you only pay for storage
 - Resume compute capacity during operational hours
 
+[SQL Database VS SQL Data Warehouse](https://stackify.com/azure-sql-database-vs-warehouse/)
+
 ##### [Azure SQL Elastic Pool](https://docs.microsoft.com/en-us/azure/azure-sql/database/elastic-pool-overview)
 - a simple, cost-effective solution for managing and scaling multiple databases that have varying and unpredictable usage demands
 - DTUs or VCores
