@@ -222,7 +222,8 @@ Azure file share can be used to:
 - Azure SQL offers a good amount of management options that are not available on SaaS
 - the **security of the data** on Azure SQL Database is not at responsibility of Microsoft as service provider
 
-##### **Azure Database Migration Service** can be used to migrate on-premise sql server ( or native backup and restore) to cloud (Azure Sql or Managed Instance) with no application code changes
+##### **Azure Database Migration Service**
+can be used to migrate on-premise sql server ( or native backup and restore) to cloud (Azure Sql or Managed Instance) with no application code changes
 
 ##### Azure SQL Database (PaaS): 
 - 99.99%
@@ -235,7 +236,8 @@ Azure file share can be used to:
 - provides several options that might not be available to Azure SQL Database (collation)
 - provides *native virtual network implementation*
 
-##### Azure SQL Data Warehouse. a fully managed cloud data warehouse to get query results in a short time across terabytes and petabytes of data. with decoupled storage and compute , SQL Data Warehouse can (Scalability):
+##### Azure SQL Data Warehouse
+a fully managed cloud data warehouse to get query results in a short time across terabytes and petabytes of data. with decoupled storage and compute , SQL Data Warehouse can (Scalability):
 - Independently size compute power irrespective of your storage needs
 - Grow or shrink compute power without moving data
 - Pause compute capacity while leaving data intact, so you only pay for storage
