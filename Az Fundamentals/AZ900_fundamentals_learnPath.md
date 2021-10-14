@@ -6,10 +6,11 @@ users need to create a TXT (DNS) record type so that their custom domain can joi
 
 Azure Information Protection (**AIP**)
 - a cloud-based solution that allows organizations to label (watermark) content to detect, classify, and protect **documents** and **emails**
+- part of the Microsoft Information Protection (MIP) solution, and extends the labeling and classification functionality provided by Microsoft 365
 - **can not** encrypt: 
     - records in Azure SQL Database
     - Azure storage account (to Encrypt stored data using the encryption service implemented in Azure services Encryption at Rest)
-    - network traffic (To encrypt network traffic, you need to configure TLS.)
+    - network traffic (To encrypt network traffic, you need to configure TLS - Transport Layer Security.)
 
 Azure Application Insights
 - an application performance management (APM) service, a service for sending telemetry information from application source code to Azure
@@ -22,9 +23,6 @@ Knowledge Center. a collection of common questions and answers about Azure
 
 No access:
 - Azure does not have permission to access the data of datacenter
-
-Tenancy
-- defines how instances are distributed across physical hardware
 
 End-to-end: describes a process that takes a system or service from beginning to end and delivers a complete functional solution, usually without needing to obtain anything from a third party
 
@@ -72,19 +70,33 @@ The Azure portal is a web-based, unified console that provides an alternative to
 - Create custom dashboards for an organized view of resources.
 - Configure accessibility options for an optimal experience.
 
-Azure Cloud Shell
+#### Azure Cloud Shell
 - can be used on iOS
 - Cloud Shell is a management machine for Azure, managed by Microsoft.
 - Azure Cloud Shell gives you the flexibility to choose the best shell operation for your business.
 - Both Bash and PowerShell are options for this.
 
-Azure CLI
-- ms cross-platform command-line experience fro managing Azure Resources. (like CMD, a shell lang)
-- cannot be installed on iOS, works on Win, macOS and Linux
-- can use Bash from Cloud Shell (works in **CloudShell**) by logging in to the Azure portal from your Android laptop. Then you can create a new virtual machine from Bash with CLI.
+#### Azure PowerShell
+- **can execute commands** called cmdlets (pronounced command-lets). 
+- Azure PowerShell is available for Windows, Linux, and Mac, and you can access it in a web browser via Azure Cloud Shell.
+- to orchestrate:
+    - The routine setup, teardown, and maintenance of a single resource or multiple connected resources.
+    - The deployment of an entire infrastructure, which might contain dozens or hundreds of resources, from imperative code.
 
-Power Apps portal
-- to create external websites that allow users outside your organization to sign in with different identities, create and view data in Microsoft Dataverse, and browse content anonymously. This is not the mechanism to use when creating a virtual machine
+#### The Azure CLI
+
+#### [Azure CLI](https://docs.microsoft.com/en-us/cli/azure/)
+- a set of commands used to create and manage Azure resources; ms cross-platform command-line experience for managing Azure Resources
+- **cannot** be installed on iOS, works on Win, macOS and Linux
+- can use Bash from Cloud Shell (works in **CloudShell**) by logging in to the Azure portal from your Android laptop. Then you can create a new virtual machine from Bash with CLI.
+- e.g.
+    the IT Engineer has a Windows desktop and has installed the Azure **Command Line interface**. IT engineer cna use the Azure CLI from:
+    - Powershell
+    - Command prompt
+
+### Power Apps portal
+- to create external websites that allow users outside your organization to sign in with different identities, create and view data in Microsoft Dataverse, and browse content anonymously.
+- This is not the mechanism to use when creating a virtual machine
 
 
 ### [Azure Marketplace](https://azuremarketplace.microsoft.com/en-US/)
@@ -97,7 +109,10 @@ Resource groups:
 - When you delete a resource group, all the resources on it are also deleted
 
 #### Compute
-Azure Service Fabric: Cluster management for VMs that run containerized services. Distributed systems platform that runs in Azure or on-premises.
+Azure Service Fabric:
+- Build and operate always-on, scalable, distributed apps (micro service)
+- Cluster management for VMs that run containerized services.
+- Distributed systems platform that runs in Azure or on-premises.
 
 #### Networking
 Azure Load Balancer: 
@@ -907,23 +922,6 @@ provides iOS and Android access to your Azure resources
 - Check for alerts, quickly diagnose and fix issues, and restart a web app or virtual machine (VM).
 - Run the Azure CLI or Azure PowerShell commands to manage your Azure resources.
 
-### Azure PowerShell
-- windows
-- can execute commands called cmdlets (pronounced command-lets). 
-- Azure PowerShell is available for Windows, Linux, and Mac, and you can access it in a web browser via Azure Cloud Shell.
-- to orchestrate:
-    - The routine setup, teardown, and maintenance of a single resource or multiple connected resources.
-    - The deployment of an entire infrastructure, which might contain dozens or hundreds of resources, from imperative code.
-
-### The Azure CLI
-- almost identical to Azure PowerShell
-- run on Windows, Linux, and Mac (Mac OS), and can be accessed in a web browser via Cloud Shell.
-- e.g.
-    the IT Engineer has a Windows desktop and has installed the Azure Command Line interface. From which of the following could the IT engineer use the Azure Command Line Interface
-    - Powershell
-    - Command prompt
-- **cannot** be installed in IOS
-
 ### ARM templates
 - describe the resources you want to use in a declarative JSON format
 - he entire ARM template is verified before any code is executed to ensure that the resources will be created and connected correctly
@@ -1197,6 +1195,9 @@ tenant
 - A tenant is typically separated from other tenants and has its own identity.
 - Each Microsoft 365, Office 365, Azure, and Dynamics CRM Online tenant is automatically an Azure AD tenant.
 - Azure Tenant is a dedicated and trusted instance of Azure Active Directory that's automatically created when your organization signs up for a Microsoft cloud service subscription.
+
+Tenancy
+- defines how instances are distributed across physical hardware
 
 services Azure AD provide:
 - Authentication
