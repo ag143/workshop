@@ -206,13 +206,13 @@ Azure file share can be used to:
 - An Azure storage account contains all Azure Storage data objects (blobs, files, queues, tables, and disks).
 
 #### Mobile
-developers can create mobile back-end services for iOS, Android, and Windows apps quickly and easily.
-Features that used to take time and increase project risks, such as adding corporate sign-in and then connecting to on-premises resources such as SAP, Oracle, SQL Server, and SharePoint, are now simple to include.
-other features include:
-- Offline data synchronization.
-- Connectivity to on-premises data.
-- Broadcasting push notifications.
-- Autoscaling to match business needs.
+- developers can create mobile back-end services for iOS, Android, and Windows apps quickly and easily.
+- Features that used to take time and increase project risks, such as adding corporate sign-in and then connecting to on-premises resources such as SAP, Oracle, SQL Server, and SharePoint, are now simple to include.
+- other features include:
+    - Offline data synchronization.
+    - Connectivity to on-premises data.
+    - Broadcasting push notifications.
+    - Autoscaling to match business needs.
 
 #### Databases
 [ Features comparison: Azure SQL Database and Azure SQL Managed Instance](https://docs.microsoft.com/en-us/azure/azure-sql/database/features-comparison)
@@ -220,54 +220,54 @@ other features include:
 [why Azure Sql databasie is PaaS not SaaS](https://docs.microsoft.com/en-us/answers/questions/243089/azure-sql-managed-instance-paas-or-saas.html)
 - can configure High Availability, Disaster Recovery, and configure options for Business Continuity
 - Azure SQL offers a good amount of management options that are not available on SaaS
-- the security of the data on Azure SQL Database is not at responsibility of Microsoft as service provider
+- the **security of the data** on Azure SQL Database is not at responsibility of Microsoft as service provider
 
-- **Azure Database Migration Service** can be used to migrate on-premise sql server ( or native backup and restore) to cloud (Azure Sql or Managed Instance) with no application code changes
+##### **Azure Database Migration Service** can be used to migrate on-premise sql server ( or native backup and restore) to cloud (Azure Sql or Managed Instance) with no application code changes
 
-- Azure SQL Database (PaaS): 
-    - 99.99%
-    - Fully managed relational database with auto-scale, integral intelligence, and robust security.
-    - enables you to process both relational data and non-relational structures, such as graphs, JSON, spatial, and XML.
-    - only uses the default SQL_Latin1_General_CP1_CI_AS server collation
+##### Azure SQL Database (PaaS): 
+- 99.99%
+- Fully managed relational database with auto-scale, integral intelligence, and robust security.
+- enables you to process both relational data and non-relational structures, such as graphs, JSON, spatial, and XML.
+- only uses the default SQL_Latin1_General_CP1_CI_AS server collation
 
-- Azure SQL Managed Instance
-    - PaaS, 99.99%
-    - provides several options that might not be available to Azure SQL Database (collation)
-    - provides *native virtual network implementation*
+##### Azure SQL Managed Instance
+- PaaS, 99.99%
+- provides several options that might not be available to Azure SQL Database (collation)
+- provides *native virtual network implementation*
 
-- Azure SQL Data Warehouse. a fully managed cloud data warehouse to get query results in a short time across terabytes and petabytes of data. with decoupled storage and compute , SQL Data Warehouse can (Scalability):
-    - Independently size compute power irrespective of your storage needs
-    - Grow or shrink compute power without moving data
-    - Pause compute capacity while leaving data intact, so you only pay for storage
-    - Resume compute capacity during operational hours
+##### Azure SQL Data Warehouse. a fully managed cloud data warehouse to get query results in a short time across terabytes and petabytes of data. with decoupled storage and compute , SQL Data Warehouse can (Scalability):
+- Independently size compute power irrespective of your storage needs
+- Grow or shrink compute power without moving data
+- Pause compute capacity while leaving data intact, so you only pay for storage
+- Resume compute capacity during operational hours
 
-- [Azure SQL Elastic Pool](https://docs.microsoft.com/en-us/azure/azure-sql/database/elastic-pool-overview)
-    - a simple, cost-effective solution for managing and scaling multiple databases that have varying and unpredictable usage demands
-    - DTUs or VCores
+##### [Azure SQL Elastic Pool](https://docs.microsoft.com/en-us/azure/azure-sql/database/elastic-pool-overview)
+- a simple, cost-effective solution for managing and scaling multiple databases that have varying and unpredictable usage demands
+- DTUs or VCores
 
-- Azure Cosmos DB:
-    - a fully managed database service. no access to the underlying database server.
-    - Globally distributed, **multi-model database** that supports NoSQL options.(can create different types of data stores such as Mongo DB and Cassandra)
-    - supports schema-less data, build highly responsive and "Always On" applications 
-    - The data is abstracted and projected as an API, include SQL, MongoDB, Cassandra, Tables, and Gremlin
-    - *Guaranteed single-digit millisecond responsetime  (low latency)* and 99.999% availability.
-    - Azure Cosmos DB can store JSON documents.
+##### Azure Cosmos DB:
+- a fully managed database service. no access to the underlying database server.
+- Globally distributed, **multi-model database** that supports NoSQL options.(can create different types of data stores such as Mongo DB and Cassandra)
+- supports schema-less data, build highly responsive and "Always On" applications 
+- The data is abstracted and projected as an API, include SQL, MongoDB, Cassandra, Tables, and Gremlin
+- *Guaranteed single-digit millisecond responsetime  (low latency)* and 99.999% availability.
+- Azure Cosmos DB can store JSON documents.
 
-- Azure Database for MySQL: 
-    - Fully managed and scalable MySQL relational database with high availability (99.99%) and security with no additional cost.
-    - Predictable performance and inclusive, pay-as-you-go pricing.
+##### Azure Database for MySQL: 
+- Fully managed and scalable MySQL relational database with high availability (99.99%) and security with no additional cost.
+- Predictable performance and inclusive, pay-as-you-go pricing.
 
-- Azure Database for PostgreSQL:
-    - Fully managed and scalable PostgreSQL relational database with high availability and security.
-    - single server. 3 pricing tiers: Basics, General Purpose, Memory Optimized
-    - hyper scale. 
-        - horizontally scales queries across multiple machines by using sharding
-        - can serve worklods exceeding 100GB data
-        - supports multi-tenant applications, real-time operational analytics, and high throughput transactional workloads
+##### Azure Database for PostgreSQL:
+- Fully managed and scalable PostgreSQL relational database with high availability and security.
+- single server. 3 pricing tiers: Basics, General Purpose, Memory Optimized
+- hyper scale. 
+    - horizontally scales queries across multiple machines by using sharding
+    - can serve worklods exceeding 100GB data
+    - supports multi-tenant applications, real-time operational analytics, and high throughput transactional workloads
 
-- Azure Database for MariaDB: Fully managed and scalable MariaDB relational database with high availability and security.
+##### Azure Database for MariaDB: Fully managed and scalable MariaDB relational database with high availability and security.
 
-- Azure Cache for Redis: 
+##### Azure Cache for Redis: 
     - Fully managed service caches frequently used and static data to reduce data and application latency.
     - in-memory data store
     - Not suitable for storing JSON documents
