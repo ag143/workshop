@@ -231,6 +231,10 @@ can be used to migrate on-premise sql server ( or native backup and restore) to 
 - enables you to process both relational data and non-relational structures, such as graphs, JSON, spatial, and XML.
 - only uses the default SQL_Latin1_General_CP1_CI_AS server collation
 
+##### [Azure SQL Elastic Pool](https://docs.microsoft.com/en-us/azure/azure-sql/database/elastic-pool-overview)
+- a simple, cost-effective solution for managing and scaling multiple databases that have varying and unpredictable usage demands
+- DTUs or VCores
+
 ##### Azure SQL Managed Instance
 - PaaS, 99.99%
 - provides several options that might not be available to Azure SQL Database (collation)
@@ -245,16 +249,13 @@ a fully managed cloud data warehouse to get query results in a short time across
 
 [SQL Database VS SQL Data Warehouse](https://stackify.com/azure-sql-database-vs-warehouse/)
 
-##### [Azure SQL Elastic Pool](https://docs.microsoft.com/en-us/azure/azure-sql/database/elastic-pool-overview)
-- a simple, cost-effective solution for managing and scaling multiple databases that have varying and unpredictable usage demands
-- DTUs or VCores
-
 ##### Azure Cosmos DB:
-- a fully managed database service. no access to the underlying database server.
-- Globally distributed, **multi-model database** that supports NoSQL options.(can create different types of data stores such as Mongo DB and Cassandra)
+- a fully managed globally distributed, **multi-model database** service that supports NoSQL options.
+- can create different types of data stores such as Mongo DB and Cassandra
+- no access to the underlying database server.
 - supports schema-less data, build highly responsive and "Always On" applications 
 - The data is abstracted and projected as an API, include SQL, MongoDB, Cassandra, Tables, and Gremlin
-- *Guaranteed single-digit millisecond responsetime  (low latency)* and 99.999% availability.
+- *Guaranteed single-digit millisecond responsetime  (low latency)* and 99.99% availability.
 - Azure Cosmos DB can store JSON documents.
 
 ##### Azure Database for MySQL: 
@@ -263,7 +264,7 @@ a fully managed cloud data warehouse to get query results in a short time across
 
 ##### Azure Database for PostgreSQL:
 - Fully managed and scalable PostgreSQL relational database with high availability and security.
-- single server. 3 pricing tiers: Basics, General Purpose, Memory Optimized
+- single server. 3 pricing tiers: Basics, General Purpose, **Memory Optimized**
 - hyper scale. 
     - horizontally scales queries across multiple machines by using sharding
     - can serve worklods exceeding 100GB data
@@ -272,28 +273,28 @@ a fully managed cloud data warehouse to get query results in a short time across
 ##### Azure Database for MariaDB: Fully managed and scalable MariaDB relational database with high availability and security.
 
 ##### Azure Cache for Redis: 
-    - Fully managed service caches frequently used and static data to reduce data and application latency.
-    - in-memory data store
-    - Not suitable for storing JSON documents
+- Fully managed service caches frequently used and static data to reduce data and application latency.
+- in-memory data store
+- Not suitable for storing JSON documents
 
 #### Web
 The following Azure services are focused on web hosting:  
 Azure App Service: Quickly create powerful cloud web-based apps.
-- 99.95
+- 99.95%
 - fully managed **platform** service (**PaaS**), fast-building, deploying, and scaling service for *web applications*, *mobile backend* and *RESTful API*.
 - does not provide a serverless environment
 - *when to use*:
-    - 1. (Windows/Linux) Web apps
-    - Dock container
-    - Functions
-    - 2. API apps
-    - WebJobs (run a progrom/script in the same context as w Web App; can be scheduled or run by a trigger)
-    - 3. Mobile apps (quickly build a back end for iOS and Android app)
+    1. (Windows/Linux) Web apps
+    2. API apps
+    3. Mobile apps (quickly build a back end for iOS and Android app)
         - Store mobile app data in a cloud-based SQL database.
         - Authenticate customers against common social providers, such as MSA, Google, Twitter, and Facebook.
         - Send push notifications.
         - Execute custom back-end logic in C# or Node.js.
-    - 4. Logic Apps
+    4. Logic Apps
+    - Dock container
+    - Functions
+    - WebJobs (run a progrom/script in the same context as w Web App; can be scheduled or run by a trigger)
 - Benifits
     - Deployment and management are integrated into the platform.
     - Endpoints can be secured.
