@@ -364,19 +364,19 @@ Azure HDInsight:
 - supports a broad range of scenarios such as <ins>ETL, data warehousing, machine learning, and IoT</ins>.
 
 Azure Databricks:
-- a fast, easy-to-use Apache Spark-based big data analytics service designed for data engineering, working with other big data services in Azure.
+- a fast, easy-to-use Apache Spark-based big data analytics service designed for data engineering.
 - Python, Scala, R, Java, and SQL
 - data science frameworks and libraries: TensorFlow, PyTorch, and scikit-learn.
 
 Azure Data Lake Analytics. 
-- an on-demand analytics job service that simplifies **big data**
+- an on-demand analytics job service that simplifies **big data**.
+- Easily develop and run massively parallel data transformation and processing programs
 - write queries to transform your data and **extract valuable insights** without taking care of hardwares
 - pay for your job when it's running 
 
 Azure Event Hubs
-- a fully managed, real-time data ingestion service that’s simple, trusted, and scalable. 
-- a big data streaming platform and event capture service. Stream millions of events per second from any source to build dynamic data pipelines and immediately respond to business challenges
-- receive and process millions of events per second from multiple resources into a centralized repository.
+- a fully managed, real-time data ingestion service that’s simple, trusted, and scalable;  a big data streaming platform and event capture service.
+- Stream/process millions of events per second from any source into a centralized repository to build dynamic data pipelines and immediately respond to business challenges
 - can monitor the activities performed by users and store that data
 
 [Azure Event Grid](https://docs.microsoft.com/en-us/azure/event-grid/overview)
