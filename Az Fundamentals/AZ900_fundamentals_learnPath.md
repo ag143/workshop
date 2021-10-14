@@ -281,7 +281,7 @@ a fully managed cloud data warehouse to get query results in a short time across
 The following Azure services are focused on web hosting:  
 Azure App Service: Quickly create powerful cloud web-based apps.
 - 99.95%
-- fully managed **platform** service (**PaaS**), fast-building, deploying, and scaling service for *web applications*, *mobile backend* and *RESTful API*.
+- fully managed **platform** service (**PaaS**), fast-building, deploying, and scaling service for *web applications*, *mobile backend* and *RESTful API* at scale
 - does not provide a serverless environment
 - *when to use*:
     1. (Windows/Linux) Web apps
@@ -300,36 +300,30 @@ Azure App Service: Quickly create powerful cloud web-based apps.
     - Endpoints can be secured.
     - Sites can be scaled quickly to handle high traffic loads.
     - The built-in load balancing and traffic manager provide high availability. 
-- [priceing](https://docs.microsoft.com/en-us/azure/app-service/overview-hosting-plans)
+- [pricing](https://docs.microsoft.com/en-us/azure/app-service/overview-hosting-plans)
     - Shared compute
     - Dedicated Compute: Basic, Standard, Premium, PremiumV2, Premium V3
     - Isolated
 
 
-Azure Notification Hubs: Send push notifications to any platform from any back end.
+Azure Notification Hubs: a massively scalable mobile push notification engine for quickly sending millions of notifications to any platform (iOS, Android, Windows, or Kindle devices) from any back end
 
 Azure API Management: Publish APIs to developers, partners, and employees securely and at scale.
 
-Azure Cognitive Search: Deploy this fully managed search as a service.
-
-Web Apps feature of Azure App Service: Create and deploy mission-critical web apps at scale.
-
-Azure SignalR Service: Add real-time web functionalities easily.
+Azure SignalR Service: Add real-time web functionalities (communications to web application) easily.
 
 
 #### Internet of Things (IoT)
 the internet allows any item that's online-capable to access valuable information. This ability for devices to garner and then relay information for data analysis is referred to as IoT.  
 
 IoT hub: 
-- a central message hub for *bi-directional* communication and *monitor* between your IoT application and the devices it manages
-- supports multiple messaging patterns: 
+- a central message hub for *bi-directional* communication/monitor* between IoT application and devices it manages, supporting multiple messaging patterns: 
     - device-to-cloud telemetry
     - file upload from devices
-    - and request-reply methods to control your devices from the cloud
-- After an IoT hub receives messages from a device, it can route that message to other Azure services.
-- a cloud-to-device perspective, IoT Hub allows for *command and control*
-    - either manual or automated remote control of connected devices
-    - can instruct the device to open valves, set target temperatures, restart stuck devices, and so on
+    - and request-reply methods to control your devices from the cloud. As a cloud-to-device perspective, IoT Hub allows for *command and control*
+        - either manual or automated remote control of connected devices
+        - can instruct the device to open valves, set target temperatures, restart stuck devices, and so on
+- IoT hub can route messages received from devices to other Azure services.
 
 IoT Central: 
 - Fully managed global IoT software as a service (**SaaS**) solution that makes it easy to connect, monitor, and manage IoT assets at scale.
@@ -360,17 +354,14 @@ Azure Time Series Insights (IoT deployments)
 Azure Synapse Analytics: Fully managed data warehouse with integral security at every level of scale at no extra cost.  Run analytics at a massive scale by using a cloud-based enterprise data warehouse that takes advantage of massively parallel processing to run complex queries quickly across petabytes of data.
 - query data on your terms by using either serverless or provisioned resources at scale
 - unified experience to ingest, prepare, manage, and serve data for immediate business intelligence and machine learning needs
-
-- an Azure analytics service that combines data integration, big data analytics and an **enterprise data warehouse** (EDW)
-- possible to build a data warehouse that can be used for BI and machine learning by integrating data collection, exploration, preparation, and management.
+- an Azure analytics service that combines data integration (data collection, exploration, preparation, and management), big data analytics and an **enterprise data warehouse** (EDW)
 - significantly reducing the time it takes to develop your project with an integrated experience that supports the development of **end-to-end** analytics solutions
 - cannot be used for a predictive analytics model
 
-Azure HDInsight: Process *massive amounts of data* with managed Hadoop clusters in the cloud.
-- Provide a cloud service that makes it easy, fast, and cost-effective to analyse *streaming data*.
-- open-source analytics service
+Azure HDInsight:
+- Provide a cloud service that makes it easy, fast, and cost-effective to analyse *streaming data* and to process *massive amounts of data* with managed Hadoop clusters in the cloud.
 - run open-source frameworks and create cluster as Apache (Spark, Hadoop, Kafa, HBase, Storm), and Machine learning services
-- supports a broad range of scenarios such as --ETL, data warehousing, machine learning, and IoT--.
+- supports a broad range of scenarios such as <u>ETL, data warehousing, machine learning, and IoT</u>.
 
 Azure Databricks:
 - a fast, easy-to-use Apache Spark-based big data analytics service designed for data engineering, working with other big data services in Azure.
