@@ -361,7 +361,7 @@ Azure Synapse Analytics: Fully managed data warehouse with integral security at 
 Azure HDInsight:
 - Provide a cloud service that makes it easy, fast, and cost-effective to analyse *streaming data* and to process *massive amounts of data* with managed Hadoop clusters in the cloud.
 - run open-source frameworks and create cluster as Apache (Spark, Hadoop, Kafa, HBase, Storm), and Machine learning services
-- supports a broad range of scenarios such as <u>ETL, data warehousing, machine learning, and IoT</u>.
+- supports a broad range of scenarios such as <ins>ETL, data warehousing, machine learning, and IoT</ins>.
 
 Azure Databricks:
 - a fast, easy-to-use Apache Spark-based big data analytics service designed for data engineering, working with other big data services in Azure.
