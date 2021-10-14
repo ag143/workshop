@@ -960,7 +960,7 @@ How many hours are available free when using the Azure B1S General Purpose Virtu
 - **750**
 
 What is the core problem that you need to solve in order to have a high-availability application?
-- **You need to avoid single points of failure**
+- **You need to avoid single points of ilure**
 
 How many minutes per month downtime is 99.99% availability?
 - **4** (4/m)
