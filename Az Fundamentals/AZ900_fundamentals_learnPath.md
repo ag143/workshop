@@ -16,6 +16,7 @@ https://github.com/wzlwit/workshop/blob/main/Az%20Fundamentals/AZ900_fundamental
     - Azure SQL
         - Azure SQL Managed Instance
     - content delivery network (cdn)
+    - Azure Bastion
 - **Saas**: provider manages all aspects; tenant only needs to provide their data to the application managed by the cloud provider
     - no worry about the solution itself, the scalability or availability
     - just manage the *configuration*
@@ -748,7 +749,16 @@ is a hypervisor that provides a virtualized environment. Hyper-V lets you create
 - Multi-session Win10 Deployment
 
 **Azure Service Bus**
-- Enterprise messaging solution. (message service)
+Enterprise messaging solution. (message service)
+- Build reliable and elastic cloud apps with messaging
+- Protect your application from temporary spikes in traffic
+- Decouple your applications from each other
+- Connect your existing on-premises systems to cloud solutions
+- Distribute messages to multiple independent back-end systems
+- Scale out ordered messaging to multiple readers
+- Enable existing Java Message Service (JMS) applications to talk to Service Bus
+
+
 
 ## networking services
 Encryption:
@@ -773,21 +783,19 @@ key networking capabilities:
     - **Azure ExpressRoute**. For environments where you need greater bandwidth and even higher levels of security. ExpressRoute provides dedicated private connectivity to Azure that doesn't travel over the internet
 - Route network traffic. Azure routes traffic between subnets on any connected virtual networks, on-premises networks, and the internet. You also can control routing and override those settings, as follows:
     - **Route tables**. define rules about how traffic should be directed. control how packets are routed between subnets. Azure automatically creates a route table for each subnet within an Azure virtual network and adds system default routes to the table. You can add custom route tables to modify traffic between virtual networks. only contains a set of rules (routes) that specify how packets are routed in the virtual network
-    - **Border Gateway Protocol** Border Gateway Protocol (BGP) works with Azure VPN gateways or ExpressRoute to propagate on-premises BGP routes to Azure virtual networks.
+    - **Border Gateway Protocol** (BGP) works with Azure VPN gateways or ExpressRoute to propagate on-premises BGP routes to Azure virtual networks.
 - Filter network traffic. filter traffic between subnets by using the following approaches:
     - **Network security groups**
         - A network security group is an Azure resource that can contain multiple inbound and outbound security rules. You can define these rules to allow or block traffic, based on factors such as source and destination IP address, port, and protocol.
         - You create the network security group separately, Then you associate it with the virtual network. (can only be applied at the Network)Interface layer or the Subnet layer
-    - **Network virtual appliances** A network virtual appliance is a specialized VM that can be compared to a hardened network appliance. A network virtual appliance carries out a particular network function, such as running a firewall or performing wide area network (WAN) optimization.
+    - **Network virtual appliances** is a specialized VM that can be compared to a hardened network appliance. A network virtual appliance carries out a particular network function, such as running a firewall or performing wide area network (WAN) optimization.
 
 - Connect virtual networks
-    - virtual network *peering*, which links virtual networks and enables resources in each vNet to communicate
+    - [virtual network *peering*](https://docs.microsoft.com/en-us/azure/virtual-network/virtual-network-peering-overview)
+        - which links virtual networks and enables resources in each vNet to communicate
     - the vNets can be in separate regions, which allows to create a global interconnected network through Azure
-    - user-defined Routing (UDR). a significant update to Azure’s Virtual Networks; allows allows network admins to control the routing tables between subnets within a VNet, as well as between VNets, allowing for greater control over network traffic flow.
+    - user-defined Routing (UDR). a significant update to Azure’s Virtual Networks; allows network admins to control the routing tables between subnets within a VNet, as well as between VNets, allowing for greater control over network traffic flow.
     - https://docs.microsoft.com/en-ca/learn/modules/azure-networking-fundamentals/azure-virtual-network-fundamentals
-- [Azure virtual network peering](https://docs.microsoft.com/en-us/azure/virtual-network/virtual-network-peering-overview)
-    - establish communication between two Azure virtual networks
-
 
 Routing talbe: 
 - the routing table is the routing route information recorded in the router itself. it only contains a set of rules (routes) that specify how packets are routed in the virtual network
@@ -795,7 +803,7 @@ Routing talbe:
 
 [Azure Virtual Network settings](https://docs.microsoft.com/en-ca/learn/modules/azure-networking-fundamentals/azure-virtual-network-settings)
 
-Azure Bation
+Azure Bastion
 - PaaS
 - a service you deploy that lets you connect to a virtual machine using your browser and the Azure portal
 - provides secure and seamless RDP/SSH connectivity to your virtual machines directly from the Azure portal over TLS.
@@ -809,7 +817,7 @@ deployed in Azure Virtual Network instances and enable the following connectivit
 - Connect individual devices to virtual networks through a point-to-site connection.
 - Connect virtual networks to other virtual networks through a network-to-network connection.
 
-You can deploy only one VPN gateway in each virtual network, but you can use one gateway to connect to multiple locations, which includes other virtual networks or on-premises datacenters.
+You can deploy only **one VPN gateway in each virtual network**, but you can use one gateway to connect to multiple locations, which includes other virtual networks or on-premises datacenters.
 
 VPN type:
 - Policy-based VPN gateways
@@ -818,16 +826,18 @@ VPN type:
 #### Azure virtual network gateway
 a VPN device in the Azure virtual network that is used to set up a site-to-site VPN connection between the Azure virtual network and the local network, or a VNet-to-VNet VPN connection.
 
+#### [VPN vs VNets](https://www.quora.com/What-is-the-difference-between-VPN-and-network-virtualization)
+- [what is a Virtual Network](https://www.bmc.com/blogs/virtual-network/)
 
 #### Policy-based VPN gateways
 
 specify statically the IP address of packets that should be encrypted through each tunnel, and
 - Support for IKEv1 only
-- Use of static routing, where combinations of address prefixes from both networks control how traffic is encrypted and decrypted through the VPN tunnel. The source and destination of the tunneled networks are declared in the policy and don't need to be declared in routing tables.
+- Use of **static routing**, where combinations of address prefixes from both networks control how traffic is encrypted and decrypted through the VPN tunnel. The source and destination of the tunneled networks are declared in the policy and don't need to be declared in routing tables.
 - Policy-based VPNs must be used in specific scenarios that require them, such as for compatibility with legacy on-premises VPN devices.
 
 #### Route-based VPNs
-IPSec tunnels are modeled as a **network interface** (allows Azure VMs to communicate with Internet, Azure, and on-premises resources. It does not identify the IP address of the VPN appliance.) or virtual tunnel interface. IP routing (either static routes or dynamic routing protocols) decides which one of these tunnel interfaces to use when sending each packet. Route-based VPNs are the preferred connection method for on-premises devices. They're more resilient to topology changes such as the creation of new subnets.
+IPSec tunnels are modeled as a **network interface** (allows Azure VMs to communicate with Internet, Azure, and on-premises resources. It does not identify the IP address of the VPN appliance) or virtual tunnel interface. IP routing (either static routes or dynamic routing protocols) decides which one of these tunnel interfaces to use when sending each packet. Route-based VPNs are the preferred connection method for on-premises devices. They're more resilient to topology changes such as the creation of new subnets.
 
 when to use:
 - Connections between virtual networks
@@ -836,9 +846,9 @@ when to use:
 - Coexistence with an Azure ExpressRoute gateway
 
 Key features
-- Supports IKEv2
+- Supports **IKEv2**
 - Uses any-to-any (wildcard) traffic selectors
-- Can use dynamic routing protocols, where routing/forwarding tables direct traffic to different IPSec tunnels
+- Can use **dynamic routing protocols**, where routing/forwarding tables direct traffic to different IPSec tunnels
 
 High-availability scenarios:
 - Active/standby
@@ -853,7 +863,7 @@ focus on two different layers of the Open Systems Interconnection (OSI) model (L
 - Layer 6: Session Layer. Maintains connections and is reponsible for controlling ports and sessions
 - Layer 4: Trasport Layer. Transmits data using transmission protocols, which acts as a **security layer**
     - Azure Firewall
-- Layer 3: Network  Layer. Decides which physical path the data will take
+- Layer 3: Network Layer. Decides which physical path the data will take
     - Virtual network
     - Subnet
     - CDN (content delivery network)
