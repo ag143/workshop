@@ -1,5 +1,32 @@
 https://github.com/wzlwit/workshop/blob/main/Az%20Fundamentals/AZ900_fundamentals_learnPath.md
 
+
+**different cloud services / service type:**
+[pros and cons](https://docs.microsoft.com/en-ca/learn/modules/fundamental-azure-concepts/categories-of-cloud-services)
+- **Serverless**. enables developers to build applications faster by eliminating the need for them to manage infrastructure. With serverless applications, the cloud service provider automatically provisions, scales, and manages the infrastructure required to run the code
+- **IaaS**: provider will keep the hardware up-to-date, but operating system maintenance and network configuration is up to you
+    - Virtual Machines. rapid deployment
+    - Containers, Kubernets
+    - Azure Storage Accounts
+- **PaaS**: providers manage the VMs and network; tenant deploys their applications into the managed hosting environment
+    - Azure app services
+    - Azure web apps. build applications on the Azure platform without deploying, configuring, and maintaining their own Azure virtual machines.
+    - Azure Logic Apps. schedule, automate, and coordinate tasks, business processes, and workflows when you need to integrate apps, data, systems, and services across your enterprise or organization
+    - Azure Service Fabric
+    - Azure SQL
+        - Azure SQL Managed Instance
+    - content delivery network (cdn)
+- **Saas**: provider manages all aspects; tenant only needs to provide their data to the application managed by the cloud provider
+    - no worry about the solution itself, the scalability or availability
+    - just manage the *configuration*
+    - charged monthly/yearly, no pay-as-you-go
+    - e.g.
+        - IoT central
+        - Office 365
+- **DaaS**
+    - Desktop as a Service (DaaS) is a virtual desktop, a cloud service that provides a desktop virtualization system deployed in a cloud environment.
+
+
 The Azure Import / Export service can securely import large amounts of data (**CSV File**) into Azure Blob Storage and Azure Files by sending disk drives to your Azure datacenter.  
 
 users need to create a TXT (DNS) record type so that their custom domain can join Azure Active Directory
@@ -110,6 +137,7 @@ Resource groups:
 
 #### Compute
 Azure Service Fabric:
+- PaaS
 - Build and operate always-on, scalable, distributed apps (micro service)
 - Cluster management for VMs that run containerized services.
 - Distributed systems platform that runs in Azure or on-premises.
@@ -508,30 +536,6 @@ The Azure free student account offer includes:
 - In CapEx, costs are fixed
 - You must wait over a period of years to depreciate that investment (CapEx) on your taxes
 
-### different cloud services / service type:
-[pros and cons](https://docs.microsoft.com/en-ca/learn/modules/fundamental-azure-concepts/categories-of-cloud-services)
-- **Serverless**. enables developers to build applications faster by eliminating the need for them to manage infrastructure. With serverless applications, the cloud service provider automatically provisions, scales, and manages the infrastructure required to run the code
-- **IaaS**: provider will keep the hardware up-to-date, but operating system maintenance and network configuration is up to you
-    - Virtual Machines. rapid deployment
-    - Kubernets
-    - Azure Storage Accounts
-- **PaaS**: providers manage the VMs and network; tenant deploys their applications into the managed hosting environment
-    - Azure app services
-    - Azure web apps. build applications on the Azure platform without deploying, configuring, and maintaining their own Azure virtual machines.
-    - Azure Logic Apps. schedule, automate, and coordinate tasks, business processes, and workflows when you need to integrate apps, data, systems, and services across your enterprise or organization
-    - Azure SQL
-        - Azure SQL Managed Instance
-    - content delivery network (cdn)
-- **Saas**: provider manages all aspects; tenant only needs to provide their data to the application managed by the cloud provider
-    - no worry about the solution itself, the scalability or availability
-    - just manage the *configuration*
-    - charged monthly/yearly, no pay-as-you-go
-    - e.g.
-        - IoT central
-        - Office 365
-- **DaaS**
-    - Desktop as a Service (DaaS) is a virtual desktop, a cloud service that provides a desktop virtualization system deployed in a cloud environment.
-
 ## Describe core Azure architectural components
 ### organization
 - Management groups: These groups help you manage access, policy, and compliance for multiple subscriptions. All subscriptions in a management group automatically inherit the conditions applied to the management group.
@@ -661,12 +665,14 @@ Azure Marketplace: an online store that hosts applications that are certified an
     - During disaster recovery
 - SLA:
     - 99.9% (only one using Premium SSD or Ultra Disk)
-    - **99.95% (more than one, Scale Set)**
+    - **99.95% (more than one, Scale Set, Availability Set)**
     - 99.99% (over 2 AZs)
 
-[Just-In-Time (JIT)](https://docs.microsoft.com/en-us/azure/security-center/security-center-just-in-time?tabs=jit-config-asc%2Cjit-request-asc) 
-- Just-in-time access provides access to the virtual machine only for a specified amount of time. This is one of the security methods you can use to protect your VMs in Azure
-- Use the Azure Security Center's Just-In-Time (JIT) Virtual Machine (VM) access feature to lock down inbound traffic to Azure Virtual Machines. This makes it easier to connect to the VM when needed, while reducing the risk of exposure.
+[Just-In-Time (JIT) access](https://docs.microsoft.com/en-us/azure/security-center/security-center-just-in-time?tabs=jit-config-asc%2Cjit-request-asc) 
+- Use the Azure Security Center's Just-In-Time (JIT) Virtual Machine (VM) access feature to lock down inbound traffic to Azure Virtual Machines.
+- provides access to the virtual machine only for a specified amount of time.
+- one of the security methods you can use to protect your VMs in Azure
+- makes it easier to connect to the VM when needed, while reducing the risk of exposure.
 
 attention:
 - By default, all inbound connections are not allowed on L4, so unless you have a *network interface*, you need to modify the rules of the **network security group** so that all inbound connections from port 80/8080 can reach the VM. 
@@ -682,18 +688,22 @@ attention:
 **Azure Virtual machine scale sets**
 - deploy and manage a set of identical VMs
 - easier to build large-scale services targeting big compute, big data, and containerized workloads
-- easy to maintain route request. (load balancer)
+- easy to maintain route request. (**load balancer**)
 - more VM instances can be added or removed. The number of VM instances can automatically increase or decrease in response to demand or a defined schedule
 - The process can be manual, automated, or a combination of both.
 - **LIMIT**
-    - 1000. up to 1,000 VM instances for standard marketplace images and custom images through the Shared Image Gallery
-    - 600. using a managed image, the limit is 600 VM instances.
+    - (1000). up to 1,000 VM instances for standard marketplace images and custom images through the Shared Image Gallery
+    - (600). using a managed image, the limit is 600 VM instances.
 
 **[Azure Spot Virtual Machines](https://azure.microsoft.com/en-us/services/virtual-machines/spot/)**
     ideal for workloads that can be *interrupted* if the machines are taken away because of Azure having less capacity
 
 **Hyper V host**
-is a hypervisor that provides a virtualized environment
+is a hypervisor that provides a virtualized environment. Hyper-V lets you create virtual hard drives, virtual switches, and a number of other virtual devices all of which can be added to virtual machines.
+- Run software that requires an older versions of Windows or non-Windows operating systems.
+- Experiment with other operating systems. Hyper-V makes it very easy to create and remove different operating systems.
+- Test software on multiple operating systems using multiple virtual machines. With Hyper-V, you can run them all on a single desktop or laptop computer. These virtual machines can be exported and then imported into any other Hyper-V system, including Azure.
+
 
 **Azure Batch**: enables large-scale parallel and high-performance computing (HPC) batch jobs with the ability to scale to tens, hundreds, or thousands of VMs. When you're ready to run a job, Batch does the following:
 - Starts a pool of compute VMs for you.
@@ -704,6 +714,7 @@ is a hypervisor that provides a virtualized environment
 - Scales down the pool as work completes.
 
 **Azure Container**
+- IaaS
 
 **Azure Kubernetes Service**
 - IaaS
@@ -711,8 +722,8 @@ is a hypervisor that provides a virtualized environment
 - to deploy and manage containers (lightweight, virtualized application environment)
 - multiple container in one host
 
-**[microservice] (https://docs.microsoft.com/en-ca/learn/modules/azure-compute-fundamentals/azure-container-services)**
-**Azure App Service**
+**[microservice](https://docs.microsoft.com/en-ca/learn/modules/azure-compute-fundamentals/azure-container-services)**
+
 **Azure Functions** (serverless computing)
 - can
     - solve complex orchestration problems to develop serverless applications
@@ -724,11 +735,13 @@ is a hypervisor that provides a virtualized environment
     - And much more.
 - micro-billing
 - you write code to complete each step
+
 **Azure Logic Apps** (serverless computing)
     - Servless model
     - designed in a web-based designer
     - can execute logic triggered by Azure services without writing any code.
     - you use a GUI to define the actions and how they relate to one another.
+
 **Azure Virtual Desktop**
 - simplified management
 - performance management. gives you options to load balance users on your VM host pools. Host pools are collections of VMs with the same configuration assigned to multiple users.
@@ -736,7 +749,6 @@ is a hypervisor that provides a virtualized environment
 
 **Azure Service Bus**
 - Enterprise messaging solution. (message service)
-- 
 
 ## networking services
 Encryption:
