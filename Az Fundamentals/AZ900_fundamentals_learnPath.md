@@ -434,12 +434,12 @@ DevOps brings together people, processes, and technology by automating software 
 **Github and github actions**
 - less permission granularity than DevOps
 
-**Azure DevTest Labs**: Quickly create on-demand Windows and Linux environments to test or demo applications directly from deployment pipelines.
-- provides an automated means of managing the process of building, setting up, and tearing down virtual machines (VMs) that contain builds of your software projects.
+**Azure DevTest Labs**: Quickly create on-demand Windows and Linux **environments** to test or demo applications directly from deployment pipelines.
+- provides an automated means of managing the process of building, setting up, and tearing down **virtual machines** (VMs) that contain builds of your software projects.
 - developers and testers can perform tests across a variety of environments and builds. And this capability isn't limited to VMs
 - Anything you can deploy in Azure via an ARM template can be provisioned through DevTest Labs.
 - Provisioning pre-created lab environments (pre-built template) with their required configurations and tools already installed is a huge time saver
-- no need to wai for approvals for creating the machines
+- no need to wait for approvals for creating the machines
 
 ### Azure accounts
 Azure free account includes:
@@ -475,7 +475,6 @@ The Azure free student account offer includes:
     - Provides the most flexibility.
     - Organizations determine where to run their applications.
     - Organizations control security, compliance, or legal requirements.
-    - You can also build a hybrid cloud configuration by using *multiple public clouds*
 
 ### cloud computing advantages
 *a consumption-based model*
@@ -487,7 +486,7 @@ The Azure free student account offer includes:
 - **Fault Tolerance**
     - the ability of a system to remain operational after a critical failure through configurations and other measures such as redundant hardware
 - **Scalability**: Apps in the cloud can scale vertically and horizontally:
-    - *not necessarily atutamted*
+    - <u>not necessarily atutamted</u>
     - Scale vertically (up-down) to increase compute capacity by adding RAM or CPUs to a virtual machine.
     - Scaling horizontally (in-out) increases compute capacity by adding instances of resources, such as adding VMs to the configuration.
 - **Elasticity** or **flexibility**: You can configure cloud-based apps to take advantage of autoscaling, so your apps always have the resources they need.
@@ -511,7 +510,7 @@ The Azure free student account offer includes:
 
 ### different cloud services / service type:
 [pros and cons](https://docs.microsoft.com/en-ca/learn/modules/fundamental-azure-concepts/categories-of-cloud-services)
-- **Serveless**. enables developers to build applications faster by eliminating the need for them to manage infrastructure. With serverless applications, the cloud service provider automatically provisions, scales, and manages the infrastructure required to run the code
+- **Serverless**. enables developers to build applications faster by eliminating the need for them to manage infrastructure. With serverless applications, the cloud service provider automatically provisions, scales, and manages the infrastructure required to run the code
 - **IaaS**: provider will keep the hardware up-to-date, but operating system maintenance and network configuration is up to you
     - Virtual Machines. rapid deployment
     - Kubernets
@@ -563,9 +562,9 @@ The Azure free student account offer includes:
 - Resources: Resources are instances of services that you create, like virtual machines, storage, or SQL databases.
 
 #### Geography
-- any region of the world that contains at least one Azure region
-- Regions define individual markets and maintain boundaries between data location and compliance
-- 10+ geographies
+- any areo of the world that contains at least one Azure region
+- individual markets and maintain boundaries between data location and compliance
+- 28 geographies
 
 #### Zone
 A zone are regional groups of Azure regions for billing. Data transfer charges are based on the zone.
@@ -591,9 +590,9 @@ special Azure regions
 region pairs
 - Each Azure region is always paired with another region within the same geography
 - advantages: reliable and data redundancy
-    - f an extensive Azure outage occurs, one region out of every pair is prioritized to make sure at least one is restored as quickly as possible for applications hosted in that region pair.
+    - if an extensive Azure outage occurs, one region out of every pair is prioritized to make sure at least one is restored as quickly as possible for applications hosted in that region pair.
     - Planned Azure updates are rolled out to paired regions one region at a time to minimize downtime and risk of application outage.
-    - Data continues to reside within the same geography as its pair (except for Brazil South) for tax- and law-enforcement jurisdiction purposes.
+    - Data continues to reside within the same geography as its pair (**except for Brazil South**) for tax- and law-enforcement jurisdiction purposes.
 
 
 #### [Availability zone (AZ)](https://docs.microsoft.com/en-us/azure/availability-zones/az-overview)
@@ -602,20 +601,13 @@ region pairs
 - Each zone consists of one or more data centers with **independent** power supplies, cooling means, and networks
 - Availability zones are connected through *high-speed, private fiber-optic* networks.
 - to prevent a single data center failure, you only need to use multiple availability zones and do not need to have a multi-region configuration
-- By default, Azure Availability Zones are used to replicate applications and data only within the Azure region. (not differe region)
+- By default, Azure Availability Zones are used to replicate applications and data only within the Azure region. (not differet region)
 
 Azure services that support availability zones fall into three categories:
 - Zonal services: You pin the resource to a specific zone (for example, VMs, managed disks, IP addresses).
 - Zone-redundant services: The platform replicates automatically across zones (for example, zone-redundant storage, SQL Database). 
 - Non-regional services: Services are always available from Azure geographies and are resilient to zone-wide outages as well as region-wide outages.
 - Not every region has support for Availability Zone
-
-#### [Availablity SET](https://k21academy.com/microsoft-azure/az-303/azure-availability-zones-and-regions/)
-- An Availability Set is a logical grouping capability for isolating VM resources from each other when they’re deployed.
-- By deploying your VMs across multiple hardware nodes Azure ensures that if hardware or software failure happens within Azure, only a sub-set of your virtual machines is impacted and your overall solution is safe and in working condition.
-- It provides redundancy for your **virtual machines**; An Availability set spreads your virtual machines across multiple *fault domains* (FD) and *update domains* (UD).
-- If you want to leverage Microsoft’s 99.95% SLA from Microsoft you must place your VMs inside availability set except your VMs are having premium storage. (both Availability Set and Mutli-AZ can increase SLA)
-
 
 #### Azure datacenter
 - perform third-party security audits to ensure security
@@ -678,6 +670,13 @@ Azure Marketplace: an online store that hosts applications that are certified an
 
 attention:
 - By default, all inbound connections are not allowed on L4, so unless you have a *network interface*, you need to modify the rules of the **network security group** so that all inbound connections from port 80/8080 can reach the VM. 
+
+**[Availablity SET](https://k21academy.com/microsoft-azure/az-303/azure-availability-zones-and-regions/)**
+- An Availability Set is a logical grouping capability for isolating VM resources from each other when they’re deployed.
+- By deploying your VMs across multiple hardware nodes Azure ensures that if hardware or software failure happens within Azure, only a sub-set of your virtual machines is impacted and your overall solution is safe and in working condition.
+- It provides redundancy for your **virtual machines**; An Availability set spreads your virtual machines across multiple *fault domains* (FD) and *update domains* (UD).
+- If you want to leverage Microsoft’s 99.95% SLA from Microsoft you must place your VMs inside availability set except your VMs are having premium storage. (both Availability Set and Mutli-AZ can increase SLA)
+
 
 
 **Azure Virtual machine scale sets**
