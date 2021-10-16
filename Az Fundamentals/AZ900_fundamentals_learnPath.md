@@ -749,7 +749,7 @@ is a hypervisor that provides a virtualized environment. Hyper-V lets you create
 - Multi-session Win10 Deployment
 
 **Azure Service Bus**
-Enterprise messaging solution. (message service)
+fully managed enterprise integration message broker with message queues and publish / subscribe topics. (message service)
 - Build reliable and elastic cloud apps with messaging
 - Protect your application from temporary spikes in traffic
 - Decouple your applications from each other
@@ -773,7 +773,7 @@ Azure Virtual Network:
 
 key networking capabilities:
 - Isolation and segmentation. Virtual Network allows you to create multiple isolated virtual networks. When you set up a virtual network, you define a private IP address space by using either public or private IP address ranges. You can divide that IP address space into subnets and allocate part of the defined address space to each named subnet
-- Internet communications.A VM in Azure can connect to the internet by default. You can enable incoming connections from the internet by defining a public IP address or a public load balancer. For VM management, you can connect via the Azure CLI, Remote Desktop Protocol, or Secure Shell.
+- Internet communications. A VM in Azure can connect to the internet by default. You can enable incoming connections from the internet by defining a public IP address or a public load balancer. For VM management, you can connect via the Azure CLI, Remote Desktop Protocol, or Secure Shell.
 - Communicate between Azure resources
     - virtual networks
     - Service endpoints
@@ -788,7 +788,7 @@ key networking capabilities:
     - **Network security groups**
         - A network security group is an Azure resource that can contain multiple inbound and outbound security rules. You can define these rules to allow or block traffic, based on factors such as source and destination IP address, port, and protocol.
         - You create the network security group separately, Then you associate it with the virtual network. (can only be applied at the Network)Interface layer or the Subnet layer
-    - **Network virtual appliances** is a specialized VM that can be compared to a hardened network appliance. A network virtual appliance carries out a particular network function, such as running a firewall or performing wide area network (WAN) optimization.
+    - **Network virtual appliances** is a **specialized VM** that can be compared to a hardened network appliance. A network virtual appliance carries out a particular network function, such as running a firewall or performing wide area network (WAN) optimization.
 
 - Connect virtual networks
     - [virtual network *peering*](https://docs.microsoft.com/en-us/azure/virtual-network/virtual-network-peering-overview)
@@ -896,7 +896,7 @@ ideal for:
 - Streaming video and audio.
 - Storing data for backup and restore, disaster recovery, and archiving.
 - Storing data for analysis by an on-premises or Azure-hosted service.
-- Storing up to 8 TB of data for virtual machines.
+- Storing up to **8 TB** of data for virtual machines.
 - pricing depends on:
     - The amount of data stored per month.
     - The number and type of *operations* performed, and the cost of data *transfer*.
@@ -910,7 +910,7 @@ use for:
 - Store configuration files on a file share and access them from multiple VMs
 - Write data to a file share, and process or analyze the data later.
 - ACCESS:
-    - can access the files from anywhere in the world, by using a URL (not unique, ust url of container) that points to the file.
+    - can access the files from anywhere in the world, by using a URL (not unique, just url of container) that points to the file.
     - can also use Shared Access Signature (SAS) tokens to allow access to a private asset for a specific amount of time.
 
 ### Access tiers
@@ -924,7 +924,7 @@ use for:
 - Only the hot and cool access tiers can be set at the account level. The archive access tier isn't available at the account level.
 - Hot, cool, and archive tiers can be set at the blob level, during upload or after upload.
 - Data in the cool access tier can tolerate slightly lower availability, but still requires high durability, retrieval latency, and throughput- characteristics similar to hot data. For cool data, a slightly lower availability service-level agreement (SLA) and higher access costs compared to hot data are acceptable trade-offs for lower storage costs.
-- Archive storage stores data offline and offers the lowest storage costs, but also the highest costs to rehydrate and access data.
+- Archive storage stores data offline and offers the lowest storage costs, but also the highest costs to **rehydrate** and access data.
 
 ## database and analytics services
 
@@ -944,8 +944,8 @@ provides iOS and Android access to your Azure resources
 - Run the Azure CLI or Azure PowerShell commands to manage your Azure resources.
 
 ### ARM templates
-- describe the resources you want to use in a declarative JSON format
-- he entire ARM template is verified before any code is executed to ensure that the resources will be created and connected correctly
+- describe the resources you want to use in a **declarative** JSON format
+- the entire ARM template is verified before any code is executed to ensure that the resources will be created and connected correctly
 
 **Infrastructure coding** is used to facilitate environmental automation
 
@@ -957,9 +957,9 @@ available for **free** and provides:
     - Azure Advisor integrates with Azure Security Center to give security recommendations. (it's alone cannot achive this task)
     - actually give you a purchase recommendation on how you can reduce costs
 - cannot file a cap relaxation request for resource limit
-- access the Advisor using the Azure portal, the Azure command line interface (CLI), or the *Advisor API*. 
+- access the Advisor using the Azure **portal**, the Azure command line interface (**CLI**), or the **Advisor API**. 
 - configure alerts to automatically notify you of new recommendations
-- doesn't provide a way to improve the security of your Azure Active Directory (Azure AD) environment. Azure Active Directory has a function called Identity Protection, which allows you to obtain analysis information on the security structure of your organization. It helps you identify potential attacks and understand the effectiveness of your policies.
+- doesn't provide a way to improve the security of your Azure Active Directory (Azure AD) environment. 
 
 ### Azure Monitor
 - a platform for collecting, analyzing, visualizing, and potentially taking action based on the metric and logging data from your entire *Azure* and *on-premises* environment.
@@ -980,7 +980,7 @@ Scenarios:
 provides a personalized view of the health of the Azure services, regions, and resources you rely on; displays both major and smaller, localized issues that affect you:
 - **Service issues** are problems in Azure, such as outages, that affect you right now. You can drill down to the affected services, regions, updates from your engineering teams, and find ways to share and track the latest information.
 - **Planned maintenance events** can affect your availability. You can drill down to the affected services, regions, and details to show how an event will affect you and what you need to do. Most of these events occur without any impact to you and aren't shown here. In the rare case that a reboot is required, Service Health allows you to choose when to perform the maintenance to minimize the downtime.
-- **Health advisories** are issues that require you to act to avoid service interruption, including service retirements (deprecated) and breaking changes. Health advisories are announced far in advance to allow you to plan.
+- **Health advisories** are issues that require you to act to avoid service interruption, including service retirements (deprecated) and breaking changes. Health advisories are announced far in advance (12 month) to allow you to plan.
 - scenario:
     - You can view the current status of the Azure services you rely on, upcoming planned outages, and services that will be sunset. 
     - You can set up alerts that help you stay on top of incidents and upcoming downtime without having to visit the dashboard regularly.
@@ -995,13 +995,10 @@ provides a personalized view of the health of the Azure services, regions, and r
 
 ### Azure Logs Analytics
 - stored in the *container* 'Log analytics workspace'. (under Azure portal)
-- a service that can collect and analyze *logs and metric data* of Azure services, can view all of the control plane activities. (direct the application and virtual machines logs to a central repository)
+- a service that can collect and analyze *logs and metric data* of Azure services, can view all of the control plane activities. (direct the **application and virtual machines logs** to a central repository)
 - possible to collect and analyze logs of Windows and Linux severs, of not only those on Azure but also on-premises and other cloud services.
 - can acquire logs by installing an agent on the targeted server, set a threshold for the collected data, and have an alert issued. 
 - it makes it easier to understand the log status by aggregating the collected data on the dashboard and graphing it.
-
-### Azure Serivce Bus. 
-fully managed enterprise integration message broker with message queues and publish / subscribe topics
 
 # Part 4: Describe general security and network security features
 ## Protect agains security threats on Azure
@@ -1024,6 +1021,7 @@ cannot:
 
 
 **security posture**: cybersecurity policies and controls, as well as how well you can predict, prevent, and respond to security threats.
+
 **secure score**: a measurement of an organization's security posture; based on security controls, or groups of related security recommendations. Your score is based on the percentage of security controls that you satisfy. helps:
 - Report on the current state of your organization's security posture.
 - Improve your security posture by providing discoverability, visibility, guidance, and control.
@@ -1043,13 +1041,10 @@ from Security Center, the company can dismiss false alerts, investigate them fur
 - then configure the logic app to run an action, such as sending an email, or posting a message to a Microsoft Teams channel.
 
 ### Azure Sentinel
-- dedicated Security Information And Event Management (SIEM):
-- aggregates security data from many different sources (as long as those sources support an open-standard logging format). 
-- It also provides capabilities for threat detection and response. (security orchestration automated response)
-
-Azure Sentinel is Microsoft's cloud-based SIEM system and enables:
-- **Collect cloud data** at scale Collect data across all users, devices, applications, and infrastructure, both on-premises and from multiple clouds.
+dedicated cloud based Security Information and Event Management (SIEM), and enables
+- **Collect cloud data** and aggregates security data at scale across all users, devices, applications, and infrastructure, both on-premises and from multiple clouds (as long as those sources support an open-standard logging format). 
 - **Detect previously undetected threats**  Minimize false positives by using Microsoft's comprehensive analytics and threat intelligence.
+- It also provides capabilities for threat detection and response. (security orchestration automated response)
 - **Investigate threats with artificial intelligence** Examine suspicious activities at scale, tapping into years of cybersecurity experience from Microsoft.
 - **Respond to incidents rapidly** Use built-in orchestration and automation of common tasks.
 
@@ -1068,13 +1063,12 @@ Detect threats
 - Send all of the information in the alert to the senior network admin and to the security admin. The email message includes two user option buttons: **Block** or **Ignore**.
 
 ### Azure Key Vault
-- Manage secrets
+- Manage and store secrets backed by hardware security modules (HSMs)
 - Manage encryption keys
 - Manage SSL/TLS certificates. easily provision, manage, and deploy public and private Transport Layer Security/Secure Sockets Layer (TLS/SSL) certificates for use iwth Azure and your internal connected resources
-- Store secrets backed by hardware security modules (HSMs)
 
 ### Azure Dedicated Host
-A dedicated host is mapped to a physical server in an Azure datacenter. A host group is a collection of dedicated hosts. Benifits:
+A dedicated host is mapped to a physical server in an Azure datacenter. A **host group** is a collection of dedicated hosts. Benifits:
 - Gives you visibility into, and control over, the server infrastructure that's running your Azure VMs.
 - Helps address compliance requirements by deploying your workloads on an *isolated* server.
 - Lets you choose the number of processors, server capabilities, VM series, and VM sizes within the same host.
@@ -1095,12 +1089,12 @@ For high availability, you can provision multiple hosts in a host group, and dep
 - The data layer controls access to business and customer data that you need to protect.
 
 Security posture: your organization's ability to protect from and respond to security threats
-- Confidentiality. *principle of list privilege*
+- Confidentiality. *principle of least privilege*
 - integrity
     Prevent unauthorized changes to information:
     - At rest: when it's stored
     - In transit: when it's being transferred from one place to another, including from a local computer to the cloud.
-    A common approach used in data transmission is for the sender to create a unique fingerprint of the data by using a one-way hashing algorithm
+    A common approach used in data transmission is for the sender to create a unique fingerprint of the data by using a one-way **hashing** algorithm
 - Availability. DDos
 
 *Azure Firewall and Azure DDoS Protection can help control what traffic can come from outside sources*
@@ -1185,6 +1179,7 @@ The Standard service tier can help prevent:
 ## Secure access to your applications by using Azure identity services
 
 **Authentication** is the process of establishing the identity of a person or service that wants to access a resource
+
 **authorization** is the process of establishing what level of access an authenticated person or service has. It specifies what data they're allowed to access and what they can do with it
 
 ### Azure Active Directory
@@ -1236,6 +1231,7 @@ Azure AD B2C:
 - To authenticate user logins and manage profiles.
 
 #### Azure Active Directory ID Protection
+**Identity Protection**, a funciton of Azure AD and allows to obtain analysis information on the security structure of your organization; helps identify potential attacks and understand the effectiveness of your policies.
 - allows you to apply MFA conditionally. 
 - It is also used to detect risks such as *anonymous IP* address logins, unfamiliar sign-ins, and credential leaks.
 - requires users who sign from the Internet with an *anonymous IP* address to change their password and "self-heal". 
@@ -1256,7 +1252,7 @@ Azure AD B2C:
     - monitors user activity across the Azure network
     - detect suspicious user activity and malicious attacks within your organization
     - protect Azure Active Directory (AD) user identities. 
-    - used to detect threats from on-premises resources. It is incorrect because the questions is not regarding internal sources.
+    - used to detect **threats from on-premises** resources. It is incorrect because the questions is not regarding internal sources.
 
 ##### Synchronization Service Manager
 - used to configure the more advanced aspects of the synchronization engine and to verify the operational aspects of the service. 
@@ -1300,7 +1296,7 @@ when to use Conditional Access
 - Require multifactor authentication to access an application.
 - Require access to services only through approved client applications.
 - Require users to access your application only from managed devices.
-- Block access from untrusted sources, such as access from unknown or unexpected locations.
+- **Block** access from untrusted sources, such as access from unknown or unexpected locations.
 
 To use Conditional Access, you need an Azure AD Premium P1 or P2 license. If you have a Microsoft 365 Business Premium license, you also have access to Conditional Access features.
 
@@ -1363,27 +1359,21 @@ policy definitions examples:
 - System updates should be installed on your machines
 
 ### Azure Blueprints
-- *can*
+- *can* orchestrates the deployment of various resource templates and other artifacts, such as:
     - define the set of standard Azure resources that your organization requires
     - deploy **resource groups** to newer subscriptions
-    - deploy **Role assignments** to newer subscriptions
+    - deploy **Role assignments** (RBAC) to newer subscriptions
     - deploy **Policy assignments** to newer subscriptions
-    - deploy **Azure Resource Manager** to newer subscriptions
+    - deploy **Azure Resource Manager** (ARM) templates to newer subscriptions
 - e.g.
     - define a blueprint that specifies that a certain resource lock must exist. Azure Blueprints can automatically replace the resource lock if that lock is removed.
-
-Azure Blueprints orchestrates the deployment of various resource templates and other artifacts, such as:
-- Role assignments (RBAC)
-- Policy assignments
-- Azure Resource Manager templates (ARM)
-- Resource groups
 
 implement by 3 steps:
 1. Create an Azure blueprint.
 1. Assign the blueprint.
 1. Track the blueprint assignments.
 
-blueprint artifacts - Each component in the blueprint definition is known as an artifact.
+**blueprint artifacts** - Each component in the blueprint definition is known as an artifact.
 
 ### Cloud Adoption Framework
 - provides you with proven guidance to help with your cloud adoption journey
@@ -1410,7 +1400,7 @@ includes these stages:
         1. migrate your first workload
         1. migrationscenarios
         1. best practices
-        1. prcess improvements
+        1. process improvements
     - innovate
         1. Business value consensus
         1. azure innovation guide
@@ -1448,7 +1438,7 @@ Subscription limits
 Security & Compliance Center. provides operations related to security and regulatory compliance
 
 Compliance Manager. 
-- a workflow-based risk assessment tool listed on Microsoft's Microsoft Service Trust Portal
+- a workflow-based risk assessment tool listed on Microsoft's Microsoft **Service Trust Portal**
 - allows you to track, assign, and validate regulatory compliance activities for organizations related to Microsoft cloud services. such as Microsoft Office 365, Microsoft Dynamics 365, and Microsoft Azure, as well as Microsoft Cloud Services.
 
 compliance categories:
@@ -1551,8 +1541,8 @@ access [Trust Center](https://www.microsoft.com/en-ca/trust-center?rtc=1)
         - **virtual machine vulnerability scan**.
 
 #### Regulatory Compliance Dashboard
-    - continuously monitors your Azure and hybrid environment against specific compliance requirements
-    - also provide security assessments and recommendations as needed
+- continuously monitors your Azure and hybrid environment against specific compliance requirements
+- also provide security assessments and recommendations as needed
 
 ### Azure Government
 a separate instance of the Microsoft Azure service. It addresses the security and compliance needs of US federal agencies, state and local governments, and their solution providers. Azure Government offers physical isolation from non-US government deployments and provides screened US personnel.
@@ -1629,7 +1619,7 @@ cost factors: (Azure provides flexibility for capital expenditure (CapEx) and op
 - Research available cost-saving offers
 - Use Azure Cost Management + Billing to control spending. including:
     - reporting
-    - data enrichemnt
+    - data enrichment
     - budgets. (there is a **default spending limit** when ti comest to the spending limit)
     - alerting
     - recommendations
@@ -1688,7 +1678,7 @@ to look into new capabilites
     - no SLA or guarantee
     - not recommended for production usage
 - The private preview
-    - this feature is always free.
+    - this feature is always **free**.
     - the number of customers invited to private previews is limited, and these customers are expected to spend time with the product to provide feedback.
     - usually the first release of a product and are to help customers try out the service, provide feedback, verify if the service is actually needed, and shape the future of the product.
     - When the service becomes publicly available, it will be in full production mode. Fully supported by SLAs, customer support, and run on production workloads. 
@@ -1729,7 +1719,7 @@ goto [Microsoft Azure (Preview)](https://preview.portal.azure.com/#home)
 - Access the Microsoft Connect page to read Azure product news and announcements.
 
 ## Azure public review
-- With public review of Azure, you can use the target service at a lower price than the general availability.
+- With public review of Azure, you can use the target service at a **lower price** than the general availability.
 - There is a usage fee for public reviews of Azure. 
 - open to all users. 
 - available from the regular Azure portal. 
