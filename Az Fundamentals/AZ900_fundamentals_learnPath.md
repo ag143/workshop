@@ -7,8 +7,9 @@ https://github.com/wzlwit/workshop/blob/main/Az%20Fundamentals/AZ900_fundamental
 - **IaaS**: provider will keep the hardware up-to-date, but operating system maintenance and network configuration is up to you
     - Virtual Machines. rapid deployment
     - Containers, Kubernets
-    - Azure Storage Accounts
+    - **Azure Storage Accounts**
 - **PaaS**: providers manage the VMs and network; tenant deploys their applications into the managed hosting environment
+    - Azure **Backup**. (because you configure this app?)
     - Azure app services
     - Azure web apps. build applications on the Azure platform without deploying, configuring, and maintaining their own Azure virtual machines.
     - Azure Logic Apps. schedule, automate, and coordinate tasks, business processes, and workflows when you need to integrate apps, data, systems, and services across your enterprise or organization
@@ -24,6 +25,7 @@ https://github.com/wzlwit/workshop/blob/main/Az%20Fundamentals/AZ900_fundamental
     - e.g.
         - IoT central
         - Office 365
+        - Microsoft Intune
 - **DaaS**
     - Desktop as a Service (DaaS) is a virtual desktop, a cloud service that provides a desktop virtualization system deployed in a cloud environment.
 
@@ -105,6 +107,7 @@ The Azure portal is a web-based, unified console that provides an alternative to
 - Both Bash and PowerShell are options for this.
 
 #### Azure PowerShell
+a module that you add to Windows PowerShell or PowerShell Core that enables you to connect to your Azure subscription and manage resources. Azure PowerShell requires Windows PowerShell to function. PowerShell provides services such as the shell window and command parsing. Azure PowerShell then adds the Azure-specific commands.
 - **can execute commands** called cmdlets (pronounced command-lets). 
 - Azure PowerShell is available for Windows, Linux, and Mac, and you can access it in a web browser via Azure Cloud Shell.
 - to orchestrate:
@@ -112,6 +115,9 @@ The Azure portal is a web-based, unified console that provides an alternative to
     - The deployment of an entire infrastructure, which might contain dozens or hundreds of resources, from imperative code.
 
 #### The Azure CLI
+a cross-platform command-line program that connects to Azure and executes administrative commands on Azure resources. Cross platform means that it can be run on Windows, Linux, or macOS.
+
+[Az PS vs CLI](https://www.azureguru.org/azure-cli-vs-azure-powershell/)
 
 #### [Azure CLI](https://docs.microsoft.com/en-us/cli/azure/)
 - a set of commands used to create and manage Azure resources; ms cross-platform command-line experience for managing Azure Resources
@@ -124,6 +130,7 @@ The Azure portal is a web-based, unified console that provides an alternative to
 
 ### Power Apps portal
 - to create external websites that allow users outside your organization to sign in with different identities, create and view data in Microsoft Dataverse, and browse content anonymously.
+- PowerApps lets you quickly build business applications with little or no code
 - This is not the mechanism to use when creating a virtual machine
 
 
@@ -179,6 +186,9 @@ Azure Virtual WAN: Creates a unified wide area network (WAN) that connects **loc
 -  used to store blob type data and acts as an Azure virtual machine disk - data disk:
     - attached to VMs
     - stored in the Blob service of Azure storage accounts
+
+##### [Azure managed disksk](https://docs.microsoft.com/en-us/azure/virtual-machines/managed-disks-overview)
+- 99.999%
 
 ##### Azure File storage:
 - used for files that can be accessed via the *SMB 3.0, HTTPS protocol or network File System (NFS) protocol*
@@ -602,6 +612,7 @@ region pairs
 
 #### [Availability zone (AZ)](https://docs.microsoft.com/en-us/azure/availability-zones/az-overview)
 - **not** enabled in all the regions
+- combination of a fault domain and an update domain
 - (unique) physical locations within a unique physical region. Availability Zones within the region are geographically close and connected by a **leased line**
 - Each zone consists of one or more data centers with **independent** power supplies, cooling means, and networks
 - Availability zones are connected through *high-speed, private fiber-optic* networks.
@@ -700,7 +711,7 @@ attention:
     ideal for workloads that can be *interrupted* if the machines are taken away because of Azure having less capacity
 
 **Hyper V host**
-is a hypervisor that provides a virtualized environment. Hyper-V lets you create virtual hard drives, virtual switches, and a number of other virtual devices all of which can be added to virtual machines.
+is a hypervisor that provides a **V**irtualized environment. Hyper-V lets you create virtual hard drives, virtual switches, and a number of other virtual devices all of which can be added to virtual machines.
 - Run software that requires an older versions of Windows or non-Windows operating systems.
 - Experiment with other operating systems. Hyper-V makes it very easy to create and remove different operating systems.
 - Test software on multiple operating systems using multiple virtual machines. With Hyper-V, you can run them all on a single desktop or laptop computer. These virtual machines can be exported and then imported into any other Hyper-V system, including Azure.
@@ -825,6 +836,10 @@ VPN type:
 
 #### Azure virtual network gateway
 a VPN device in the Azure virtual network that is used to set up a site-to-site VPN connection between the Azure virtual network and the local network, or a VNet-to-VNet VPN connection.
+
+#### Locat network gateway
+- a specific object that represents your on-premises location (the site) for routing purposes.
+To implement a solution that enables the client computers on your on-premises network to communicate to the Azure virtual machines, you need to configure a VPN (Virtual Private Network) to connect the on-premises network to the Azure virtual network.**The Azure VPN device is known as a Virtual Network Gateway**. The virtual network gateway needs to be located in a dedicated subnet in the Azure virtual network. T**his dedicated subnet is known as a gateway subnet** and must be named 'GateWaySubnet'
 
 #### [VPN vs VNets](https://www.quora.com/What-is-the-difference-between-VPN-and-network-virtualization)
 - [what is a Virtual Network](https://www.bmc.com/blogs/virtual-network/)
@@ -966,6 +981,9 @@ available for **free** and provides:
 - collects what is known as "application monitoring data" (data about the performance and functionality of the code you write, regardless of platform).
 - collect monitoring data about applications, guest operating systems, Azure resources, Azure subscriptions, and Azure tenants and will not help with monitoring security threats. 
 - **It does not have the ability to centrally manage events**
+- alert:
+    - can send alerts to Azure AD security groups
+    - can trigger alerts based on data in an Azure Log Analytics workspace
 
 Scenarios:
 - measure custom events alongside other usage metrics
@@ -1187,6 +1205,8 @@ The Standard service tier can help prevent:
 - With Azure AD, you control the identity accounts, but Microsoft ensures that the service is available globally
 - When you connect Active Directory with Azure AD, Microsoft can help protect you by detecting suspicious sign-in attempts at no extra cost.
 - Azure Active Directory manages how cloud or on-premises devices access your company's data. Register your device ID and provide a centralized place to manage it.
+- To use Azure Active Directory (Azure AD) credentials to sing in to a computer that runs Windows 10, the computer must be joined to Azure AD
+
 - feature:
     - Custome banned password list
     - Smart lockout
@@ -1195,6 +1215,7 @@ The Standard service tier can help prevent:
 - can
     - create users and groups
     - have built-in capabilities for securing authentication and authorization to resources
+    - support dynamic membership rueles
 - Cannot
     - cannot create Log Alert Rule
 - [pricing and tier](https://azure.microsoft.com/en-us/pricing/details/active-directory)
@@ -1207,10 +1228,10 @@ who uses Azure AD
 - Online service subscriblers
 
 tenant
-- A tenant is a representation of an organization
-- A tenant is typically separated from other tenants and has its own identity.
-- Each Microsoft 365, Office 365, Azure, and Dynamics CRM Online tenant is automatically an Azure AD tenant.
 - Azure Tenant is a dedicated and trusted instance of Azure Active Directory that's automatically created when your organization signs up for a Microsoft cloud service subscription.
+- A tenant is a representation of an organization, typically separated from other tenants and has its own identity.
+- Each Microsoft 365, Office 365, Azure, and Dynamics CRM Online tenant is automatically an Azure AD tenant.
+- An Azure AD tenant can have multiple subscriptions but an Azure subscription can only be associated with one Azure AD tenant.
 
 Tenancy
 - defines how instances are distributed across physical hardware
@@ -1253,6 +1274,17 @@ Azure AD B2C:
     - detect suspicious user activity and malicious attacks within your organization
     - protect Azure Active Directory (AD) user identities. 
     - used to detect **threats from on-premises** resources. It is incorrect because the questions is not regarding internal sources.
+- do:   
+    - Provide just-in-time privileged access to Azure AD and Azure resources
+    - Assign time-bound access to resources using start and end dates
+    - Require approval to activate privileged roles
+    - Enforce multi-factor authentication to activate any role
+    - Use justification to understand why users activate
+    - Get notifications when privileged roles are activated
+    - Conduct access reviews to ensure users still need roles
+    - Download audit history for internal or external audit
+    - Prevents removal of the last active Global Administrator role assignment
+
 
 ##### Synchronization Service Manager
 - used to configure the more advanced aspects of the synchronization engine and to verify the operational aspects of the service. 
@@ -1419,6 +1451,9 @@ includes these stages:
         1. advanced operations and design priciples
 
 ### create a subscription governance strategy
+Subscription:
+You cannot merge two subscriptions into a single subscription. However, you can move some Azure resources from one subscription to another. You can also transfer ownership of a subscription and change the billing type for a subscription.
+
 Billing
 - one billing report per subscription
 - organize subscriptions by department or by project
