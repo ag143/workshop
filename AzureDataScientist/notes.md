@@ -1,0 +1,14 @@
+**Machine Learning** is the subfield of computer science that gives computers the ability to learn without being explicitly programmed
+- extraction of knowledge from data
+- learns from past behavior and make predictions or decisions
+- 3 types:
+    - **supervised** learning (solutions provided by parents)
+        - Data is labelled
+        - Input variable "X" (or a set) and output variable "Y"
+        - y = f(x) (columns as input)
+        - the function is approximated to predict new values of Y given X
+        -Examples
+            - **Regression** - Output variable is a real value such as Amount, Height, Weight etc
+            - **Classification** - Output variable is a category, such as Yes, No, Red, Blue, Yellow etc
+    - **unsupervised** learning (make your own decision)
+    - **reninforement** learning

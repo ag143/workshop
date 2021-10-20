@@ -279,8 +279,8 @@ You have been asked to "clean up" the Azure resources that you are not currently
 - Public IP address
     
 You want to configure a virtual machine to run a PowerShell script that creates an Azure resource. Solution: Configure a Linux virtual machine to run script from the Azure CLI tools. Will this solution meet the above requirements?
-- Yes. Users can run PowerShell scripts on Linux operating systems that already have the Azure CLI tools installed.
-- ~~~~
+- No. Azure PowerShell module needed
+
 
 You're building a process in Azure to store over 30TB of data and perform data analysis with Microsoft Power BI. The amount of data is large, but the frequency of accessing individual data is low. Choose the two best solutions.
 - Azure Data Lake
@@ -328,7 +328,7 @@ You are building an application using a virtual machine in Azure. As a security 
 - Azure Advanced Threat Protection
 - ~~Azure Security Center~~
 
-You have an Azure AD tenant in your Azure subscription. All administrators are required to enter a verification code to access the Azure portal. At that time, you need to allow your administrator to access the Azure portal only from your on-premises network.Choose the best solution for that.
+You have an Azure AD tenant in your Azure subscription. All administrators are required to enter a verification code to access the Azure portal. At that time, you need to allow your administrator to access the Azure portal only from your on-premises network. Choose the best solution for that.
 - Azure AD Identity Protection sign-in risk policy
 - ~~The multi-factor authentication service configuration. (MFA only allows you to configure trusted devices, not the login location such as on premise sites.)~~
 
@@ -357,7 +357,7 @@ Azure Service Health:
 - cannot apply for advice to Azure Support in ASH. (Apply for Azure support on the Azure support page)
 
 ____________is used to store the secrets of your Azure Active Directory (Azure AD) user account.
-- AzureKeyVault
+- Azure Key Vault
 - ~~Azure Active Directory (Azure AD) administrator account. (only for **administrative** work)~~
 
 # Part 6: Describe Azure cost management and service level agreements
@@ -402,7 +402,6 @@ What is the maximum number of virtual machines that can be set in a virtual mach
 
 What is the "network" layer of network security?
 - Subnet configuration
-- ~~~~
 
 correct statements below of the documentation provided by the Microsoft Service Trust Portal.
 - Documentation that can be used to show Microsoft's compliance efforts
@@ -432,7 +431,7 @@ What do you use to protect your Azure virtual network subnet?
 
 Which database service is specially designed to respond very fast to low latency data processing requests?
 - Azure Cosmos DB
-- ~~Azure Data Warehouse. a service that brings together tools for data warehousing and big data analysis.  ~~
+- ~~Azure Data Warehouse. a service that brings together tools for data warehousing and big data analysis.~~
 
 Which of the below corresponds to the minimum SLAs that an availability set has when **more than one** virtual machine is deployed in the same AZ.
 - 99.95%
@@ -443,7 +442,7 @@ What is the maximum amount of Azure storage space that can be stored in one subs
 
 Which tools or services will find issues affecting the Azure global network? Please select all that apply.
 - Azure Monitor
-- **Resouce health blade for each virtual machines**
+- **Resouce health** blade for each virtual machines
 - Azure service health
 
 You use RDP when accessing your Windows server. Also, you use SSH when accessing your Linux server. Select all recommendations to secure these protocols.
@@ -463,13 +462,14 @@ Achieving a flexible infrastructure configuration is an example of agility
 
 Making certain Azure services unavailable to certain users is possible with Azure policy
 - False. (Azure policy evaluates the state of a resource for the entire account as it complies with the policy, rather than allowing only specific users to access the resource group.)
+- Blueprint can work for this
 
 Azure Functions can be used for **continuously** running backend applications.
 - False
     - Azure Functions is designed for short code that starts and ends quickly. You can use this to build simple applications that execute code serverlessly. Therefore, it is not well suited for continuously running backend batch applications.
 
 What services do you need to use in order to take advantage of the Just-In-Time (JIT) Virtual Machine (VM) access feature?
-- Azure Security Center
+- Azure Security Center. (go to previlleged ID mng)
 - ~~Azure NAT gateway. (With Azure Front Door, it's a feature that configures the routing of web applications)~~
 
 correct description of the way to access the data stored in the archive access layer of your Azure storage account
@@ -489,7 +489,7 @@ You are mapping a network drive to Azure Storage from multiple computers running
 - ~~VM data disk. this adds additional capacity on only VM, and is not for a shared storage solution.~~
 
 You have set up four virtual machines and are implementing traffic control with a public load balancer. What do you need to configure in order to transfer all Remote Desktop Protocol (RDP) connections to only one virtual machine?
-- Inbound NAT rules. (use a load balancer to create inbound NAT rules to port traffic from a particular port on a particular front-end IP address to a another port on another backend instance in your virtual network)
+- Inbound NAT rules. (Network Address Translation. use a load balancer to create inbound NAT rules to port traffic from a particular port on a particular front-end IP address to a another port on another backend instance in your virtual network)
 
 Which file type do you need to use to copy files into your storage account using the Azure Import / Export service?
 - CSV file. (The Azure Import / Export service can securely import large amounts of data into Azure Blob Storage and Azure Files by sending disk drives to your Azure datacenter.  )
@@ -500,7 +500,7 @@ our company has a public DNS zone for example.com. You also have an Azure AD ten
 
 You are planning to migrate your server from your on-premises environment to Azure. The DB server must be configured on a separate network segment to ensure data security. Which Azure solution should you choose to achieve this?
 - Divide the **virtual network** for the DB server and another virtual network for all other servers.
-- *(subnet)*. (resources are in the same VNet, which will fail)
+- ~~(subnet). (resources are in the same VNet, which will fail)~~
 
 Which billing accounts are supported by the Azure portal? Please select all applicable items.
 - Microsoft online Service Program
@@ -532,10 +532,10 @@ Azure Cost Management and Billing can help you with cost optimization
 
 To build a hybrid cloud configuration, you need a private cloud.
 - False?. (You can also build a hybrid cloud configuration by using multiple public clouds)
-- should be true. Multe-cloud is not hybrid
+- should be true. Multi pulbic cloud is not hybrid
 
 You can use Azure Cost Management to get information about the expected costs of a resources in Azure.
-- False
+- False. (use pricing calculator)
 
 When you implement efficient permission management by dividing users into groups and setting permissions, you would set groups with Azure management group.
 - True. (Management groups enable efficient privilege management by dividing users into groups and setting permissions.)
@@ -566,7 +566,7 @@ Which of the following services is used to store virtual hard disk files for vir
 Azure Active Directory Premium P1 also includes advanced identity protection and Privileged Identity Management features?
 - False. (p2 includes the both)
 
-ufficient redundancy is required to access services on the virtual machines, ensuring access even if one **data center** goes down. To achieve this, you should use a scale set to deploy a set of virtual machines in a single Availability Zone.
+sufficient redundancy is required to access services on the virtual machines, ensuring access even if one **data center** goes down. To achieve this, you should use a scale set to deploy a set of virtual machines in a single Availability Zone.
 - True
 
 Redundancy is required to ensure access to services on virtual machines, even in the event that one AZ goes down. For this, you should use a scale set to deploy a set of virtual machines in multiple Availability Zones.
@@ -593,10 +593,8 @@ You can use Microsoft Active Directory to set permissions, by dividing users int
 With ____, developers can deploy code and pay for its **run time** only, without worring about the provisioning, configuration and management of the underlying infrastructure.
 - Serverless Computing
 - ~~Iaas. (OS and run-time to manage)~~
-- *(Saas)*. (Cannot deploy code)
+- ~~Saas. (Cannot deploy code)~~
 
-A subscription can have only one license?
-- True
 
 Company plans to use a custom SaaS application and wants to minmize costs. The company should be able to maintain and secure all data onsite legally
 - Hybrid Model
