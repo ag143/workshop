@@ -26,7 +26,7 @@
         - rewards good behavior and peranlizes bad ones
         - to maximise the gain or reward
 
-====
+---
 
 aspects of data
 - Types of variables
@@ -88,4 +88,6 @@ workflow of Azure ML
     1. train model
     1. score mode
     1. evaluate model
+
+---
 
