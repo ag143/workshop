@@ -26,4 +26,10 @@ dock logs [container id]
 
 ctrl + c : Terminate Container
 
+docker image
+- list all images locally
+
+docker container ls
+- list containers running
+
 clear
