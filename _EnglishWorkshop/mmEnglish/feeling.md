@@ -19,3 +19,10 @@
     1. fly off the handle
     1. up in arms
     1. at the end of my tether
+- surprise
+    1. make a double-take
+    1. out of the blue 
+        - it's completely out of the blue. It cames out of the blue
+    1. stop dead in one's tracsk
+        - she stopped dead in her tracks when she saw Maria. She hasn't seen her for 20 years
+    
