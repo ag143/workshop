@@ -1,4 +1,5 @@
 [The Git & Github Bootcamp](https://mtygroup.udemy.com/course/git-and-github-bootcamp/learn/lecture/24507864?start=0#overview)
+17 hours
 Colt Steele
 
 [Connecting to GitHub with SSH](https://docs.github.com/en/authentication/connecting-to-github-with-ssh)
@@ -51,6 +52,7 @@ exercise:
 - [Stashing Exercise](https://www.notion.so/Stashing-Exercise-b6b4ac460c0a4798845de177fc1eb86d)
 - [Undoing Things Exercise](https://www.notion.so/Undoing-Things-Exercise-d2fc1825dcc047c291a9a960848fdf71)
 - [Sample Project](https://gitlab.com/gitlab-tests/sample-project)
+- [interactive-rebase-demo](https://github.com/Colt/interactive-rebase-demo)
 
 
 play
